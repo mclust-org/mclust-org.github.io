@@ -1,0 +1,9 @@
+pandoc: 2.3.1
+pkgdown: 1.2.0
+pkgdown_sha: ~
+articles:
+  mclust: mclust.html
+urls:
+  reference: http://www.stat.unipg.it/luca/mclust-org/mclust/reference
+  article: http://www.stat.unipg.it/luca/mclust-org/mclust/articles
+

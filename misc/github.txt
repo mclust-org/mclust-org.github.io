@@ -1,0 +1,42 @@
+UserID: mclust-org
+e-mail: luca.scrucca+1@unipg.it
+Pwd: cfaerlstbmmf2018
+
+1) create ssh key
+ssh-keygen -t rsa -C "luca.scrucca@gmail.com"
+# when asked change file name to id_mclust-org_rsa
+
+2) copy pub key to clipboard
+pbcopy < ~/.ssh/id_mclust-org_rsa.pub
+
+3) add SSH key on your GitHub account (https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+
+4) add key to SSH 
+ssh-add ~/.ssh/id_mclust-org_rsa
+
+5) setup Github Host
+
+If does not exist, create ~/.ssh/config
+touch ~/.ssh/config
+
+and then open with a text editor
+mate config
+
+-- config -------------------------------------------------------------------
+
+# luca-scr account
+Host github_luca-scr
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_rsa
+		
+# mclust-org account
+Host github_mclust-org
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_mclust-org_rsa
+
+-----------------------------------------------------------------------------
+
+git init
+git remote add origin git@github_mclust-org:mclust-org/mclust-org.git
