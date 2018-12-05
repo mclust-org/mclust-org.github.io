@@ -2,6 +2,13 @@ UserID: mclust-org
 e-mail: luca.scrucca+1@unipg.it
 Pwd: cfaerlstbmmf2018
 
+# da mclust-org ho aggiunto collaborators luca-scr e quindi da RStudio faccio push & pull come utente luca-scr
+
+
+
+
+
+# Forse tutto questo non serve ....
 1) create ssh key
 ssh-keygen -t rsa -C "luca.scrucca@gmail.com"
 # when asked change file name to id_mclust-org_rsa
@@ -38,5 +45,17 @@ Host github_mclust-org
 
 -----------------------------------------------------------------------------
 
+6) create a GitHub RStudio project by importing from https://github.com/mclust-org/mclust-org.git
+
+7) set local git config to use a specific account
+
+git config user.name "mclust-org"
+git config user.email "luca.scrucca@gmail.com"
+
+
+
 git init
 git remote add origin git@github_mclust-org:mclust-org/mclust-org.git
+
+origin https://github.com/mclust-org/mclust-org.git (fetch)
+
