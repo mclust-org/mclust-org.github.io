@@ -2,12 +2,29 @@ UserID: mclust-org
 e-mail: luca.scrucca+1@unipg.it
 Pwd: cfaerlstbmmf2018
 
-# da mclust-org ho aggiunto collaborators luca-scr e quindi da RStudio faccio push & pull come utente luca-scr
+# How to create a repo that contains a website
+
+I want to create a repo that will show a website at
+https://mclust-org.github.io
+
+
+1) create a repo called "mclust-org", i.e. with the same name as the userID
+
+2) add the regular GitHub user, i.e. luca-scr, as collaborator
+
+3) from Rstudio -> new project -> version control -> git 
+Repository url =  "https://github.com/mclust-org/mclust-org.git"
+Create project at = "~/R/mclust-org"
+
+4) copy the website files to "~/R/mclust-org"
+
+5) commit+push
 
 
 
 
 
+-----------------------------------------------------------------------------
 # Forse tutto questo non serve ....
 1) create ssh key
 ssh-keygen -t rsa -C "luca.scrucca@gmail.com"

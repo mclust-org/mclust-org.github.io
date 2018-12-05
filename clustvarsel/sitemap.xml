@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.stat.unipg.it/luca/mclust-org/clustvarsel/index.html</loc>
+    <loc>https://mclust-org.github.io/clustvarsel/index.html</loc>
   </url>
   <url>
-    <loc>http://www.stat.unipg.it/luca/mclust-org/clustvarsel/reference/clustvarsel-internal.html</loc>
+    <loc>https://mclust-org.github.io/clustvarsel/reference/clustvarsel-internal.html</loc>
   </url>
   <url>
-    <loc>http://www.stat.unipg.it/luca/mclust-org/clustvarsel/reference/clustvarsel.html</loc>
+    <loc>https://mclust-org.github.io/clustvarsel/reference/clustvarsel.html</loc>
   </url>
   <url>
-    <loc>http://www.stat.unipg.it/luca/mclust-org/clustvarsel/articles/clustvarsel.html</loc>
+    <loc>https://mclust-org.github.io/clustvarsel/articles/clustvarsel.html</loc>
   </url>
 </urlset>
