@@ -1,5 +1,5 @@
 library(mclust)
-setwd("~/R/mclust/misc/www/figures/")
+setwd("~/R/mclust/misc/www/imagess/")
 
 ###################################################
 
