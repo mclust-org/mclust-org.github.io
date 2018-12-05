@@ -1,3 +1,3 @@
 # mclust-org
 
-Website for mclust-org packages.
+Website for mclust-org packages
