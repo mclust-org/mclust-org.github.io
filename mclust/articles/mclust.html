@@ -76,7 +76,7 @@
       <h1>A quick tour of mclust</h1>
                         <h4 class="author">Luca Scrucca</h4>
             
-            <h4 class="date">11 Dec 2018</h4>
+            <h4 class="date">22 Dec 2018</h4>
       
       
       <div class="hidden name"><code>mclust.Rmd</code></div>
@@ -780,6 +780,66 @@
 <p>Scrucca L., Fop M., Murphy T. B. and Raftery A. E. (2016) mclust 5: clustering, classification and density estimation using Gaussian finite mixture models, <em>The R Journal</em>, 8/1, pp. 205-233. <a href="https://journal.r-project.org/archive/2016/RJ-2016-021/RJ-2016-021.pdf" class="uri">https://journal.r-project.org/archive/2016/RJ-2016-021/RJ-2016-021.pdf</a></p>
 <p>Fraley C. and Raftery A. E. (2002) Model-based clustering, discriminant analysis and density estimation, <em>Journal of the American Statistical Association</em>, 97/458, pp. 611-631.</p>
 <p>Fraley C., Raftery A. E., Murphy T. B. and Scrucca L. (2012) mclust Version 4 for R: Normal Mixture Modeling for Model-Based Clustering, Classification, and Density Estimation. <em>Technical Report</em> No. 597, Department of Statistics, University of Washington.</p>
+<hr>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">session_info</a></span>()</a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="co">## ─ Session info ──────────────────────────────────────────────────────────</span></a>
+<a class="sourceLine" id="cb41-3" title="3"><span class="co">##  setting  value                       </span></a>
+<a class="sourceLine" id="cb41-4" title="4"><span class="co">##  version  R version 3.5.1 (2018-07-02)</span></a>
+<a class="sourceLine" id="cb41-5" title="5"><span class="co">##  os       macOS Sierra 10.12.5        </span></a>
+<a class="sourceLine" id="cb41-6" title="6"><span class="co">##  system   x86_64, darwin15.6.0        </span></a>
+<a class="sourceLine" id="cb41-7" title="7"><span class="co">##  ui       X11                         </span></a>
+<a class="sourceLine" id="cb41-8" title="8"><span class="co">##  language (EN)                        </span></a>
+<a class="sourceLine" id="cb41-9" title="9"><span class="co">##  collate  en_US.UTF-8                 </span></a>
+<a class="sourceLine" id="cb41-10" title="10"><span class="co">##  ctype    en_US.UTF-8                 </span></a>
+<a class="sourceLine" id="cb41-11" title="11"><span class="co">##  tz       Europe/Rome                 </span></a>
+<a class="sourceLine" id="cb41-12" title="12"><span class="co">##  date     2018-12-22                  </span></a>
+<a class="sourceLine" id="cb41-13" title="13"><span class="co">## </span></a>
+<a class="sourceLine" id="cb41-14" title="14"><span class="co">## ─ Packages ──────────────────────────────────────────────────────────────</span></a>
+<a class="sourceLine" id="cb41-15" title="15"><span class="co">##  package     * version    date       lib source                         </span></a>
+<a class="sourceLine" id="cb41-16" title="16"><span class="co">##  assertthat    0.2.0      2017-04-11 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-17" title="17"><span class="co">##  backports     1.1.2      2017-12-13 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-18" title="18"><span class="co">##  base64enc     0.1-3      2015-07-28 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-19" title="19"><span class="co">##  callr         3.0.0.9001 2018-11-16 [1] Github (r-lib/callr@be7707d)   </span></a>
+<a class="sourceLine" id="cb41-20" title="20"><span class="co">##  cli           1.0.1.9000 2018-11-16 [1] Github (r-lib/cli@56538e3)     </span></a>
+<a class="sourceLine" id="cb41-21" title="21"><span class="co">##  commonmark    1.6        2018-09-30 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-22" title="22"><span class="co">##  crayon        1.3.4      2017-09-16 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-23" title="23"><span class="co">##  debugme       1.1.0      2017-10-22 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-24" title="24"><span class="co">##  desc          1.2.0      2018-11-16 [1] Github (r-lib/desc@7c12d36)    </span></a>
+<a class="sourceLine" id="cb41-25" title="25"><span class="co">##  devtools      2.0.1      2018-10-26 [1] CRAN (R 3.5.1)                 </span></a>
+<a class="sourceLine" id="cb41-26" title="26"><span class="co">##  digest        0.6.18     2018-10-10 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-27" title="27"><span class="co">##  evaluate      0.12       2018-10-09 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-28" title="28"><span class="co">##  fs            1.2.6      2018-08-23 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-29" title="29"><span class="co">##  glue          1.3.0      2018-07-17 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-30" title="30"><span class="co">##  htmltools     0.3.6      2017-04-28 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-31" title="31"><span class="co">##  knitr       * 1.20       2018-02-20 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-32" title="32"><span class="co">##  magrittr      1.5        2014-11-22 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-33" title="33"><span class="co">##  MASS          7.3-51.1   2018-11-01 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-34" title="34"><span class="co">##  mclust      * 5.4.2      2018-11-27 [1] CRAN (R 3.5.1)                 </span></a>
+<a class="sourceLine" id="cb41-35" title="35"><span class="co">##  memoise       1.1.0      2017-04-21 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-36" title="36"><span class="co">##  pkgbuild      1.0.2      2018-10-16 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-37" title="37"><span class="co">##  pkgdown       1.3.0      2018-12-07 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-38" title="38"><span class="co">##  pkgload       1.0.2      2018-10-29 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-39" title="39"><span class="co">##  prettyunits   1.0.2      2015-07-13 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-40" title="40"><span class="co">##  processx      3.2.0.9000 2018-11-16 [1] Github (r-lib/processx@8374340)</span></a>
+<a class="sourceLine" id="cb41-41" title="41"><span class="co">##  ps            1.2.1      2018-11-06 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-42" title="42"><span class="co">##  R6            2.3.0      2018-10-04 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-43" title="43"><span class="co">##  Rcpp          1.0.0      2018-11-07 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-44" title="44"><span class="co">##  remotes       2.0.2.9000 2018-11-16 [1] Github (r-lib/remotes@bd970d7) </span></a>
+<a class="sourceLine" id="cb41-45" title="45"><span class="co">##  rlang         0.3.0.1    2018-10-25 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-46" title="46"><span class="co">##  rmarkdown     1.10       2018-06-11 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-47" title="47"><span class="co">##  roxygen2      6.1.1      2018-11-07 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-48" title="48"><span class="co">##  rprojroot     1.3-2      2018-01-03 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-49" title="49"><span class="co">##  rstudioapi    0.8        2018-10-02 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-50" title="50"><span class="co">##  sessioninfo   1.1.1      2018-11-05 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-51" title="51"><span class="co">##  stringi       1.2.4      2018-07-20 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-52" title="52"><span class="co">##  stringr       1.3.1      2018-05-10 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-53" title="53"><span class="co">##  testthat      2.0.1      2018-10-13 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-54" title="54"><span class="co">##  usethis       1.4.0      2018-08-14 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-55" title="55"><span class="co">##  withr         2.1.2      2018-03-15 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-56" title="56"><span class="co">##  xml2          1.2.0      2018-01-24 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-57" title="57"><span class="co">##  yaml          2.2.0      2018-07-25 [1] CRAN (R 3.5.0)                 </span></a>
+<a class="sourceLine" id="cb41-58" title="58"><span class="co">## </span></a>
+<a class="sourceLine" id="cb41-59" title="59"><span class="co">## [1] /Library/Frameworks/R.framework/Versions/3.5/Resources/library</span></a></code></pre></div>
 </div>
   </div>
 
