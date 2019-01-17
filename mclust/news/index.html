@@ -70,7 +70,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
       </span>
     </div>
 
@@ -111,16 +111,27 @@
       
     </div>
 
+    <div id="mclust-543-not-on-cran" class="section level1">
+<h1 class="page-header">
+<a href="#mclust-543-not-on-cran" class="anchor"></a>mclust 5.4.3 (NOT ON CRAN)<small> Unreleased </small>
+</h1>
+<ul>
+<li>Added website site and update DESCRIPTION with URL.</li>
+<li>Fixed a bug when checking for univariate data with a single observation in several instances. Using <code><a href="https://www.rdocumentation.org/packages/base/topics/nrow">NCOL()</a></code> works both for n-values vector or nx1 matrix.</li>
+<li>Fixed bugs on axes for some manual pairs plots.</li>
+<li>Fixed a bug in <code>type = "level"</code> plot on <code><a href="../reference/surfacePlot.html">surfacePlot ()</a></code>.</li>
+</ul>
+</div>
     <div id="mclust-542" class="section level1">
 <h1 class="page-header">
 <a href="#mclust-542" class="anchor"></a>mclust 5.4.2<small> 2018-11-17 </small>
 </h1>
 <ul>
-<li>Add <code><a href="../reference/mclustBICupdate.html">mclustBICupdate()</a></code> to merge the best values from two BIC results as returned by <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
-<li>Add <code><a href="../reference/mclustLoglik.html">mclustLoglik()</a></code> to compute the maximal log-likelihood values from BIC results as returned by <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
-<li>Add option <code>type = "level"</code> to <code><a href="../reference/plot.densityMclust.html">plot.densityMclust()</a></code> and <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code> to draw highest density regions.</li>
-<li>Add <code><a href="../reference/meE.html">meXXI()</a></code> and <code><a href="../reference/meE.html">meXXX()</a></code> to exported functions.</li>
-<li>Update vignette.</li>
+<li>Added <code><a href="../reference/mclustBICupdate.html">mclustBICupdate()</a></code> to merge the best values from two BIC results as returned by <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
+<li>Added <code><a href="../reference/mclustLoglik.html">mclustLoglik()</a></code> to compute the maximal log-likelihood values from BIC results as returned by <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
+<li>Added option <code>type = "level"</code> to <code><a href="../reference/plot.densityMclust.html">plot.densityMclust()</a></code> and <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code> to draw highest density regions.</li>
+<li>Added <code><a href="../reference/meE.html">meXXI()</a></code> and <code><a href="../reference/meE.html">meXXX()</a></code> to exported functions.</li>
+<li>Updated vignette.</li>
 </ul>
 </div>
     <div id="mclust-541" class="section level1">
@@ -128,17 +139,17 @@
 <a href="#mclust-541" class="anchor"></a>mclust 5.4.1<small> 2018-06-27 </small>
 </h1>
 <ul>
-<li>Add parametric bootstrap option (<code>type = "pb"</code>) in <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code>.</li>
-<li>Add the options to get averages of resampling distributions in <code><a href="../reference/summary.MclustBootstrap.html">summary.MclustBootstrap()</a></code> and to plot resampling-based confidence intervals in <code><a href="../reference/plot.MclustBoostrap.html">plot.MclustBootstrap()</a></code>.</li>
-<li>Add function <code>catwrap()</code> for wrapping printed lines at <code><a href="https://www.rdocumentation.org/packages/base/topics/options">getOption("width")</a></code> when using <code><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat()</a></code>.</li>
+<li>Added parametric bootstrap option (<code>type = "pb"</code>) in <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code>.</li>
+<li>Added the options to get averages of resampling distributions in <code><a href="../reference/summary.MclustBootstrap.html">summary.MclustBootstrap()</a></code> and to plot resampling-based confidence intervals in <code><a href="../reference/plot.MclustBoostrap.html">plot.MclustBootstrap()</a></code>.</li>
+<li>Added function <code>catwrap()</code> for wrapping printed lines at <code><a href="https://www.rdocumentation.org/packages/base/topics/options">getOption("width")</a></code> when using <code><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat()</a></code>.</li>
 <li>
 <code><a href="../reference/mclust.options.html">mclust.options()</a></code> now modify the variable <code>.mclust</code> in the namespace of the package, so it should work even inside an mclust-function call.</li>
-<li>Fix a bug in <code><a href="../reference/covw.html">covw()</a></code> when <code>normalize = TRUE</code>.</li>
-<li>Fix a bug in <code><a href="../reference/estepE.html">estepVEV()</a></code> and <code><a href="../reference/estepE.html">estepVEE()</a></code> when parameters contains <code>Vinv</code>.</li>
-<li>Fix a bug in <code><a href="../reference/plot.densityMclust.html">plotDensityMclustd()</a></code> when drawing marginal axes.</li>
-<li>Fix a bug in <code><a href="../reference/summary.MclustDA.html">summary.MclustDA()</a></code> when computing classification error in the extreme case of a minor class of assignment.</li>
-<li>Fix a bug in the initialisation of <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code> when a noise component is present for 1-dimensional data.</li>
-<li>fix bugs in some examples documenting <code><a href="../reference/clustCombi.html">clustCombi()</a></code> and related functions.</li>
+<li>Fixed a bug in <code><a href="../reference/covw.html">covw()</a></code> when <code>normalize = TRUE</code>.</li>
+<li>Fixed a bug in <code><a href="../reference/estepE.html">estepVEV()</a></code> and <code><a href="../reference/estepE.html">estepVEE()</a></code> when parameters contains <code>Vinv</code>.</li>
+<li>Fixed a bug in <code><a href="../reference/plot.densityMclust.html">plotDensityMclustd()</a></code> when drawing marginal axes.</li>
+<li>Fixed a bug in <code><a href="../reference/summary.MclustDA.html">summary.MclustDA()</a></code> when computing classification error in the extreme case of a minor class of assignment.</li>
+<li>Fixed a bug in the initialisation of <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code> when a noise component is present for 1-dimensional data.</li>
+<li>Fixed bugs in some examples documenting <code><a href="../reference/clustCombi.html">clustCombi()</a></code> and related functions.</li>
 </ul>
 </div>
     <div id="mclust-54" class="section level1">
@@ -152,11 +163,11 @@
 <code><a href="../reference/predict.densityMclust.html">predict.densityMclust()</a></code> can optionally returns the density on a logarithm scale.</li>
 <li>Removed normalization of mixing proportions for new models in single mstep.</li>
 <li>Internal rewrite of code used by <code><a href="https://www.rdocumentation.org/packages/base/topics/message">packageStartupMessage()</a></code>.</li>
-<li>Fix a small bug in <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code> in the univariate data case.</li>
-<li>Fix bugs when both the noise and subset are provided for initialization.</li>
+<li>Fixed a small bug in <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code> in the univariate data case.</li>
+<li>Fixed bugs when both the noise and subset are provided for initialization.</li>
 <li>Vignette updated to include references, startup message, css style, etc.</li>
-<li>Various bugs fix in plotting methods when noise is present.</li>
-<li>Update references in <code><a href="https://www.rdocumentation.org/packages/utils/topics/citation">citation()</a></code> and man pages.</li>
+<li>Various bug fixes in plotting methods when noise is present.</li>
+<li>Updated references in <code><a href="https://www.rdocumentation.org/packages/utils/topics/citation">citation()</a></code> and man pages.</li>
 </ul>
 </div>
     <div id="mclust-53-2017-05" class="section level1">
@@ -164,21 +175,21 @@
 <a href="#mclust-53-2017-05" class="anchor"></a>mclust 5.3 (2017-05)<small> 2017-05-21 </small>
 </h1>
 <ul>
-<li>added <code><a href="../reference/gmmhd.html">gmmhd()</a></code> function and relative methods.</li>
-<li>added <code><a href="../reference/MclustDRsubsel.html">MclustDRsubsel()</a></code> function and relative methods.</li>
-<li>added option to use subset in the hierarchical initialization step when a noise component is present.</li>
+<li>Added <code><a href="../reference/gmmhd.html">gmmhd()</a></code> function and relative methods.</li>
+<li>Added <code><a href="../reference/MclustDRsubsel.html">MclustDRsubsel()</a></code> function and relative methods.</li>
+<li>Added option to use subset in the hierarchical initialization step when a noise component is present.</li>
 <li>
 <code><a href="../reference/plot.clustCombi.html">plot.clustCombi()</a></code> presents a menu in interactive sessions, no more need of data for classification plots but extract the data from the <code>clustCombi</code> object.</li>
-<li>added <code><a href="../reference/combiTree.html">combiTree()</a></code> plot for <code>clustCombi</code> objects.</li>
+<li>Added <code><a href="../reference/combiTree.html">combiTree()</a></code> plot for <code>clustCombi</code> objects.</li>
 <li>
 <code><a href="../reference/clPairs.html">clPairs()</a></code> now produces a single scatterplot in the bivariate case.</li>
-<li>fix a bug in <code><a href="../reference/imputeData.html">imputeData()</a></code> when seed is provided. Now if a seed is provided the data matrix is reproducible.</li>
+<li>Fixed a bug in <code><a href="../reference/imputeData.html">imputeData()</a></code> when seed is provided. Now if a seed is provided the data matrix is reproducible.</li>
 <li>in <code><a href="../reference/imputeData.html">imputeData()</a></code> and <code><a href="../reference/imputePairs.html">imputePairs()</a></code> some name of arguments have been modified to be coherent with the rest of the package.</li>
-<li>added functions <code><a href="../reference/imputeData.html">matchCluster()</a></code> and <code><a href="../reference/majorityVote.html">majorityVote()</a></code>.</li>
-<li>rewriting of print and summary methods for <code>clustCombi</code> class objects.</li>
-<li>added <code><a href="../reference/clustCombiOptim.html">clustCombiOptim()</a></code>.</li>
-<li>fix a bug in <code><a href="../reference/randomPairs.html">randomPairs()</a></code> when nrow of input data is odd.</li>
-<li>fix a bug in <code><a href="../reference/plot.densityMclust.html">plotDensityMclust2()</a></code>, <code><a href="../reference/plot.densityMclust.html">plotDensityMclustd()</a></code> and <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code> when a noise component is present.</li>
+<li>Added functions <code><a href="../reference/imputeData.html">matchCluster()</a></code> and <code><a href="../reference/majorityVote.html">majorityVote()</a></code>.</li>
+<li>Rewrite of print and summary methods for <code>clustCombi</code> class objects.</li>
+<li>Added <code><a href="../reference/clustCombiOptim.html">clustCombiOptim()</a></code>.</li>
+<li>Fixed a bug in <code><a href="../reference/randomPairs.html">randomPairs()</a></code> when nrow of input data is odd.</li>
+<li>Fixed a bug in <code><a href="../reference/plot.densityMclust.html">plotDensityMclust2()</a></code>, <code><a href="../reference/plot.densityMclust.html">plotDensityMclustd()</a></code> and <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code> when a noise component is present.</li>
 </ul>
 </div>
     <div id="mclust-523-2017-03" class="section level1">
@@ -186,8 +197,8 @@
 <a href="#mclust-523-2017-03" class="anchor"></a>mclust 5.2.3 (2017-03)<small> 2017-03-13 </small>
 </h1>
 <ul>
-<li>added native routine registration for Fortran code.</li>
-<li>fix lowercase argument PACKAGE in <code><a href="https://www.rdocumentation.org/packages/base/topics/Foreign">.Fortran()</a></code> calls.</li>
+<li>Added native routine registration for Fortran code.</li>
+<li>Fixed lowercase argument PACKAGE in <code><a href="https://www.rdocumentation.org/packages/base/topics/Foreign">.Fortran()</a></code> calls.</li>
 </ul>
 </div>
     <div id="mclust-522-2017-01" class="section level1">
@@ -195,7 +206,7 @@
 <a href="#mclust-522-2017-01" class="anchor"></a>mclust 5.2.2 (2017-01)<small> 2017-01-22 </small>
 </h1>
 <ul>
-<li>fix a bug in rare case when performing an extra M step at the end of EM algorithm.</li>
+<li>Fixed a bug in rare case when performing an extra M step at the end of EM algorithm.</li>
 </ul>
 </div>
     <div id="mclust-521-2017-01" class="section level1">
@@ -203,7 +214,8 @@
 <a href="#mclust-521-2017-01" class="anchor"></a>mclust 5.2.1 (2017-01)<small> 2017-01-03 </small>
 </h1>
 <ul>
-<li>replaced “structure(NULL, <em>)" with "structure(list(), </em>)”</li>
+<li>Replaced <code>structure(NULL, *)</code> with <code>structure(list(), *)</code>
+</li>
 </ul>
 </div>
     <div id="mclust-52-2016-03" class="section level1">
@@ -211,15 +223,14 @@
 <a href="#mclust-52-2016-03" class="anchor"></a>mclust 5.2 (2016-03)<small> 2016-03-31 </small>
 </h1>
 <ul>
-<li>added argument <code>x</code> to <code><a href="../reference/Mclust.html">Mclust()</a></code> to use BIC values from previous computations to avoid recomputing for the same models. The same argument and functionality was already available in <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
-<li>added argument <code>x</code> to <code><a href="../reference/mclustICL.html">mclustICL()</a></code> to use ICL values from previous computations to avoid recomputing for the same models.</li>
-<li>corrected a bug on <code>plot.MclustBootstrap</code> for the <code>"mean"</code> and <code>"var"</code> in the univariate case.</li>
-<li>modified uncertainty plots.</li>
-<li>introduction of <code><a href="../reference/mclust-internal.html">as.Mclust()</a></code> and <code><a href="../reference/mclust-internal.html">as.densityMclust()</a></code> to convert object to specific mclust classes.</li>
-<li>solved a numerical accuracy problem in <code><a href="../reference/mclust-internal.html">qclass()</a></code> when the scale of <code>x</code> is (very) large by making the tolerance eps scale dependent.</li>
-<li>use transpose subroutine instead of non-Fortran 77 TRANSPOSE function in <code>mclustaddson.f</code>.</li>
-<li>
-<code><a href="../reference/predict.Mclust.html">predict.Mclust()</a></code> and <code><a href="../reference/predict.MclustDR.html">predict.MclustDR()</a></code> implement a more efficient and accurate algorithm for computing the densities.</li>
+<li>Added argument <code>x</code> to <code><a href="../reference/Mclust.html">Mclust()</a></code> to use BIC values from previous computations to avoid recomputing for the same models. The same argument and functionality was already available in <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
+<li>Added argument <code>x</code> to <code><a href="../reference/mclustICL.html">mclustICL()</a></code> to use ICL values from previous computations to avoid recomputing for the same models.</li>
+<li>Fixed a bug on <code><a href="../reference/plot.MclustBoostrap.html">plot.MclustBootstrap()</a></code> for the <code>"mean"</code> and <code>"var"</code> in the univariate case.</li>
+<li>Fixed uncertainty plots.</li>
+<li>Added functions <code><a href="../reference/mclust-internal.html">as.Mclust()</a></code> and <code><a href="../reference/mclust-internal.html">as.densityMclust()</a></code> to convert object to specific mclust classes.</li>
+<li>Solved a numerical accuracy problem in <code><a href="../reference/mclust-internal.html">qclass()</a></code> when the scale of <code>x</code> is (very) large by making the tolerance eps scale dependent.</li>
+<li>Use transpose subroutine instead of non-Fortran 77 TRANSPOSE function in <code>mclustaddson.f</code>.</li>
+<li>Fixed <code><a href="../reference/predict.Mclust.html">predict.Mclust()</a></code> and <code><a href="../reference/predict.MclustDR.html">predict.MclustDR()</a></code> by implementing a more efficient and accurate algorithm for computing the densities.</li>
 </ul>
 </div>
     <div id="mclust-51-2015-10" class="section level1">
@@ -227,9 +238,9 @@
 <a href="#mclust-51-2015-10" class="anchor"></a>mclust 5.1 (2015-10)<small> 2015-10-27 </small>
 </h1>
 <ul>
-<li>fix slow convergence for VVE and EVE models.</li>
-<li>fix a bug in orientation for model VEE.</li>
-<li>add an extra M-step and parameters update in <code><a href="../reference/Mclust.html">Mclust()</a></code> call via <code><a href="../reference/summary.mclustBIC.html">summaryMclustBIC()</a></code>.</li>
+<li>Fixed slow convergence for VVE and EVE models.</li>
+<li>Fixed a bug in orientation for model VEE.</li>
+<li>Added an extra M-step and parameters update in <code><a href="../reference/Mclust.html">Mclust()</a></code> call via <code><a href="../reference/summary.mclustBIC.html">summaryMclustBIC()</a></code>.</li>
 </ul>
 </div>
     <div id="mclust-502-2015-07" class="section level1">
@@ -237,12 +248,12 @@
 <a href="#mclust-502-2015-07" class="anchor"></a>mclust 5.0.2 (2015-07)<small> 2015-07-08 </small>
 </h1>
 <ul>
-<li>add option to <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code> for using weighted likelihood bootstrap.</li>
-<li>add a plot method for <code>MclustBootstrap</code> objects.</li>
-<li>add <code><a href="../reference/errorBars.html">errorBars()</a></code> function.</li>
-<li>add <code><a href="../reference/clPairs.html">clPairsLegend()</a></code> function.</li>
-<li>add <code><a href="../reference/covw.html">covw()</a></code> function.</li>
-<li>fix rescaling of mixing probabilities in new models.</li>
+<li>Added option to <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code> for using weighted likelihood bootstrap.</li>
+<li>Added a plot method for <code>MclustBootstrap</code> objects.</li>
+<li>Added <code><a href="../reference/errorBars.html">errorBars()</a></code> function.</li>
+<li>Added <code><a href="../reference/clPairs.html">clPairsLegend()</a></code> function.</li>
+<li>Added <code><a href="../reference/covw.html">covw()</a></code> function.</li>
+<li>Fixed rescaling of mixing probabilities in new models.</li>
 <li>bug fixes.</li>
 </ul>
 </div>
@@ -251,8 +262,8 @@
 <a href="#mclust-501-2015-04" class="anchor"></a>mclust 5.0.1 (2015-04)<small> 2015-04-22 </small>
 </h1>
 <ul>
-<li>bug fixes.</li>
-<li>add print method for <code>hc</code> objects.</li>
+<li>Fixed bugs.</li>
+<li>Added print method for <code>hc</code> objects.</li>
 </ul>
 </div>
     <div id="mclust-500-2015-03" class="section level1">
@@ -260,17 +271,17 @@
 <a href="#mclust-500-2015-03" class="anchor"></a>mclust 5.0.0 (2015-03)<small> 2015-04-09 </small>
 </h1>
 <ul>
-<li>added the four missing models (EVV, VEE, EVE, VVE) to the mclust family. A noise component is allowed, but no prior is available.</li>
-<li>added <code><a href="../reference/mclustBootstrapLRT.html">mclustBootstrapLRT()</a></code> function (and corresponding print and plot methods) for selecting the number of mixture components based on the sequential bootstrap likelihood ratio test.</li>
-<li>added <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code> function (and corresponding print and summary methods) for performing bootstrap inference. This provides standard errors for parameters and confidence intervals.</li>
-<li>a <code>"A quick tour of mclust"</code> vignette is included as html generated using rmarkdown and knitr. Older vignettes are included as other documentation for the package.</li>
-<li>modified arguments to <code><a href="../reference/mclust-internal.html">mvn2plot()</a></code> to control colour, lty, lwd, and pch of ellipses and mean point.</li>
-<li>added functions <code><a href="../reference/emE.html">emX()</a></code>, <code><a href="../reference/emE.html">emXII()</a></code>, <code><a href="../reference/emE.html">emXXI()</a></code>, <code><a href="../reference/emE.html">emXXX()</a></code>, <code><a href="../reference/cdensE.html">cdensX()</a></code>, <code><a href="../reference/cdensE.html">cdensXII()</a></code>, <code><a href="../reference/cdensE.html">cdensXXI()</a></code>, and <code><a href="../reference/cdensE.html">cdensXXX()</a></code>, to deal with single-component cases, so calling the em function works even if <code>G = 1</code>.</li>
-<li>small changes to <code><a href="../reference/icl.html">icl()</a></code>, now it is a generic method, with specialized methods for <code>Mclust</code> and <code>MclustDA</code> objects.</li>
-<li>bug fixes for transformations in the initialization step when some variables are constant (i.e. the variance is zero) or a one-dimensional data is provided.</li>
-<li>change the order of arguments in <code><a href="../reference/hc.html">hc()</a></code> (and all the functions calling it).</li>
-<li>small modification to <code>CITATION</code> file upon request of CRAN maintainers.</li>
-<li>small bug fixes.</li>
+<li>Added the four missing models (EVV, VEE, EVE, VVE) to the mclust family. A noise component is allowed, but no prior is available.</li>
+<li>Added <code><a href="../reference/mclustBootstrapLRT.html">mclustBootstrapLRT()</a></code> function (and corresponding print and plot methods) for selecting the number of mixture components based on the sequential bootstrap likelihood ratio test.</li>
+<li>Added <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code> function (and corresponding print and summary methods) for performing bootstrap inference. This provides standard errors for parameters and confidence intervals.</li>
+<li>Added <code>"A quick tour of mclust"</code> vignette as html generated using rmarkdown and knitr. Older vignettes are included as other documentation for the package.</li>
+<li>Modified arguments to <code><a href="../reference/mclust-internal.html">mvn2plot()</a></code> to control colour, lty, lwd, and pch of ellipses and mean point.</li>
+<li>Added functions <code><a href="../reference/emE.html">emX()</a></code>, <code><a href="../reference/emE.html">emXII()</a></code>, <code><a href="../reference/emE.html">emXXI()</a></code>, <code><a href="../reference/emE.html">emXXX()</a></code>, <code><a href="../reference/cdensE.html">cdensX()</a></code>, <code><a href="../reference/cdensE.html">cdensXII()</a></code>, <code><a href="../reference/cdensE.html">cdensXXI()</a></code>, and <code><a href="../reference/cdensE.html">cdensXXX()</a></code>, to deal with single-component cases, so calling the em function works even if <code>G = 1</code>.</li>
+<li>Small changes to <code><a href="../reference/icl.html">icl()</a></code>, now it is a generic method, with specialized methods for <code>Mclust</code> and <code>MclustDA</code> objects.</li>
+<li>Fixed bug for transformations in the initialization step when some variables are constant (i.e. the variance is zero) or a one-dimensional data is provided.</li>
+<li>Changed the order of arguments in <code><a href="../reference/hc.html">hc()</a></code> (and all the functions calling it).</li>
+<li>Small modification to <code>CITATION</code> file upon request of CRAN maintainers.</li>
+<li>Various bug fixes.</li>
 </ul>
 </div>
     <div id="mclust-44-2014-09" class="section level1">
@@ -278,10 +289,10 @@
 <a href="#mclust-44-2014-09" class="anchor"></a>mclust 4.4 (2014-09)<small> 2014-09-16 </small>
 </h1>
 <ul>
-<li>add option for using transformation of variables in the hierarchical initialization step.</li>
-<li>add <code><a href="../reference/cdfMclust.html">quantileMclust()</a></code> for computing the quantiles from a univariate Gaussian mixture distribution.</li>
-<li>bug fixes on <code><a href="../reference/summary.mclustBIC.html">summaryMclustBIC()</a></code>, <code><a href="../reference/summary.mclustBIC.html">summaryMclustBICn()</a></code>, <code><a href="../reference/Mclust.html">Mclust()</a></code> to return a matrix of 1s on a single column for <code>z</code> even in the case of <code>G = 1</code>. This is to avoid error on some plots.</li>
-<li>pdf files (previously included as vignettes) moved to <code>inst/doc</code> with corresponding <code>index.html</code>.</li>
+<li>Added option for using transformation of variables in the hierarchical initialization step.</li>
+<li>Added <code><a href="../reference/cdfMclust.html">quantileMclust()</a></code> for computing the quantiles from a univariate Gaussian mixture distribution.</li>
+<li>Fixed bugs on <code><a href="../reference/summary.mclustBIC.html">summaryMclustBIC()</a></code>, <code><a href="../reference/summary.mclustBIC.html">summaryMclustBICn()</a></code>, <code><a href="../reference/Mclust.html">Mclust()</a></code> to return a matrix of 1s on a single column for <code>z</code> even in the case of <code>G = 1</code>. This is to avoid error on some plots.</li>
+<li>Moved pdf files (previously included as vignettes) to <code>inst/doc</code> with corresponding <code>index.html</code>.</li>
 </ul>
 </div>
     <div id="mclust-43-2014-03" class="section level1">
@@ -289,19 +300,19 @@
 <a href="#mclust-43-2014-03" class="anchor"></a>mclust 4.3 (2014-03)<small> 2014-03-31 </small>
 </h1>
 <ul>
-<li>bug fix for <code><a href="../reference/logLik.MclustDA.html">logLik.MclustDA()</a></code> in the univariate case.</li>
-<li>add argument <code>"what"</code> to <code><a href="../reference/predict.densityMclust.html">predict.densityMclust()</a></code> function for choosing what to retrieve, the mixture density or component density.</li>
+<li>Fixed bug for <code><a href="../reference/logLik.MclustDA.html">logLik.MclustDA()</a></code> in the univariate case.</li>
+<li>Added argument <code>"what"</code> to <code><a href="../reference/predict.densityMclust.html">predict.densityMclust()</a></code> function for choosing what to retrieve, the mixture density or component density.</li>
 <li>
 <code><a href="../reference/hc.html">hc()</a></code> function has an additional parameter to control if the original variables or a transformation of them should be used for hierarchical clustering.</li>
-<li>included <code>"hcUse"</code> in <code><a href="../reference/mclust.options.html">mclust.options()</a></code> to be passed as default to <code><a href="../reference/hc.html">hc()</a></code>.</li>
-<li>original data (and class for classification models) are stored in the object returned by the main functions.</li>
-<li>add component <code>hypvol</code> to <code>Mclust</code> object which provide the hypervolume of the noise component when required, otherwise is set to NA.</li>
-<li>add a warning when prior is used and BIC returns NAs.</li>
-<li>bug fixes for <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code>, <code><a href="../reference/summary.Mclust.html">print.summary.Mclust()</a></code>, <code><a href="../reference/plot.Mclust.html">plot.Mclust()</a></code> and <code><a href="../reference/icl.html">icl()</a></code> in the case of presence of a noise component.</li>
-<li>some plots on <code><a href="../reference/plot.MclustDR.html">plot.MclustDR()</a></code> require <code><a href="https://www.rdocumentation.org/packages/graphics/topics/frame">plot.new()</a></code> before calling <code><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">plot.window()</a></code>.</li>
-<li>bug fixes for <code><a href="../reference/MclustDR.html">MclustDR()</a></code> in the one-dimensional case.</li>
-<li>correction to <code>Mclust</code> man page.</li>
-<li>bug fixes.</li>
+<li>Added <code>"hcUse"</code> argument in <code><a href="../reference/mclust.options.html">mclust.options()</a></code> to be passed as default to <code><a href="../reference/hc.html">hc()</a></code>.</li>
+<li>Added the storing of original data (and class for classification models) in the object returned by the main functions.</li>
+<li>Added component <code>hypvol</code> to <code>Mclust</code> object which provide the hypervolume of the noise component when required, otherwise is set to NA.</li>
+<li>Added a warning when prior is used and BIC returns NAs.</li>
+<li>Fixed bugs in <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code>, <code><a href="../reference/summary.Mclust.html">print.summary.Mclust()</a></code>, <code><a href="../reference/plot.Mclust.html">plot.Mclust()</a></code> and <code><a href="../reference/icl.html">icl()</a></code> in the case of presence of a noise component.</li>
+<li>Fixed bug on some plots in <code><a href="../reference/plot.MclustDR.html">plot.MclustDR()</a></code> which requires <code><a href="https://www.rdocumentation.org/packages/graphics/topics/frame">plot.new()</a></code> before calling <code><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">plot.window()</a></code>.</li>
+<li>Fixed a bug in <code><a href="../reference/MclustDR.html">MclustDR()</a></code> for the one-dimensional case.</li>
+<li>Corrections to <code>Mclust</code> man page.</li>
+<li>Various small bug fixes.</li>
 </ul>
 </div>
     <div id="mclust-42-2013-07" class="section level1">
@@ -309,12 +320,12 @@
 <a href="#mclust-42-2013-07" class="anchor"></a>mclust 4.2 (2013-07)<small> 2013-07-19 </small>
 </h1>
 <ul>
-<li>fix bug in <code>sim*()</code> functions when no obs are assigned to a component.</li>
+<li>Fixed bug in <code>sim*()</code> functions when no obs are assigned to a component.</li>
 <li>
 <code><a href="../reference/MclustDA.html">MclustDA()</a></code> allows to fit a single class model.</li>
-<li>fix bug in <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code> when a subset is used for initialization.</li>
-<li>fix a bug in the function <code><a href="../reference/mclust-internal.html">qclass()</a></code> when ties are present in quantiles, so it always return the required number of classes.</li>
-<li>various small bug fixes.</li>
+<li>Fixex bug in <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code> when a subset is used for initialization.</li>
+<li>Fixed a bug in the function <code><a href="../reference/mclust-internal.html">qclass()</a></code> when ties are present in quantiles, so it always return the required number of classes.</li>
+<li>Various small bug fixes.</li>
 </ul>
 </div>
     <div id="mclust-41-2013-04" class="section level1">
@@ -322,20 +333,20 @@
 <a href="#mclust-41-2013-04" class="anchor"></a>mclust 4.1 (2013-04)<small> 2013-05-01 </small>
 </h1>
 <ul>
-<li>new <code><a href="../reference/icl.html">icl()</a></code> function for computing the integrated complete-data likelihood</li>
-<li>new <code><a href="../reference/mclustICL.html">mclustICL()</a></code> function with associated print and plot methods</li>
+<li>Added <code><a href="../reference/icl.html">icl()</a></code> function for computing the integrated complete-data likelihood.</li>
+<li>Added <code><a href="../reference/mclustICL.html">mclustICL()</a></code> function with associated print and plot methods.</li>
 <li>
-<code><a href="../reference/mclustBIC.html">print.mclustBIC()</a></code> shows also the top models based on BIC</li>
-<li>modified <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code> to return also the icl</li>
-<li>rewrite of <code><a href="../reference/adjustedRandIndex.html">adjustedRandIndex()</a></code> function. This version is more efficient for large vectors</li>
-<li>updated help for <code><a href="../reference/adjustedRandIndex.html">adjustedRandIndex()</a></code>.</li>
-<li>modifications to <code><a href="../reference/MclustDR.html">MclustDR()</a></code> and its summary method.</li>
-<li>changed behavior of <code><a href="../reference/plot.MclustDR.html">plot.MclustDR(..., what = "contour")</a></code>.</li>
-<li>improved plot of uncertainty for <code><a href="../reference/plot.MclustDR.html">plot.MclustDR(..., what = "boundaries")</a></code>.</li>
-<li>corrected a bug for malformed GvHD data.</li>
-<li>corrected version of qclass for selecting initial values in case of 1D data when successive quantiles coincide.</li>
-<li>corrected version of plot BIC values when only a single G component models are fitted.</li>
-<li>various bug fixes.</li>
+<code><a href="../reference/mclustBIC.html">print.mclustBIC()</a></code> shows also the top models based on BIC.</li>
+<li>Modified <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code> to return also the icl.</li>
+<li>Rewrite of <code><a href="../reference/adjustedRandIndex.html">adjustedRandIndex()</a></code> function. This version is more efficient for large vectors.</li>
+<li>Updated help for <code><a href="../reference/adjustedRandIndex.html">adjustedRandIndex()</a></code>.</li>
+<li>Modifications to <code><a href="../reference/MclustDR.html">MclustDR()</a></code> and its summary method.</li>
+<li>Changed behavior of <code><a href="../reference/plot.MclustDR.html">plot.MclustDR(..., what = "contour")</a></code>.</li>
+<li>Improved plot of uncertainty for <code><a href="../reference/plot.MclustDR.html">plot.MclustDR(..., what = "boundaries")</a></code>.</li>
+<li>Corrected a bug for malformed GvHD data.</li>
+<li>Corrected version of qclass for selecting initial values in case of 1D data when successive quantiles coincide.</li>
+<li>Corrected version of plot BIC values when only a single G component models are fitted.</li>
+<li>Various bug fixes.</li>
 </ul>
 </div>
     <div id="mclust-40-2012-08" class="section level1">
@@ -343,14 +354,14 @@
 <a href="#mclust-40-2012-08" class="anchor"></a>mclust 4.0 (2012-08)<small> 2012-08-09 </small>
 </h1>
 <ul>
-<li>new summary and print methods for <code><a href="../reference/Mclust.html">Mclust()</a></code>.</li>
-<li>new summary and print methods for <code><a href="../reference/densityMclust.html">densityMclust()</a></code>.</li>
-<li>included <code><a href="../reference/MclustDA.html">MclustDA()</a></code> function and methods.</li>
-<li>included <code><a href="../reference/MclustDR.html">MclustDR()</a></code> function and methods.</li>
-<li>included <code><a href="../reference/me.weighted.html">me.weighted()</a></code> function.</li>
-<li>restored hierarchical clustering capability for the EEE model (hcEEE).</li>
-<li>included vignettes for mclust version 4 from Technical Report No. 597 and for using weights in mclust.</li>
-<li>adoption of GPL (&gt;= 2) license.</li>
+<li>Added new summary and print methods for <code><a href="../reference/Mclust.html">Mclust()</a></code>.</li>
+<li>Added new summary and print methods for <code><a href="../reference/densityMclust.html">densityMclust()</a></code>.</li>
+<li>Included <code><a href="../reference/MclustDA.html">MclustDA()</a></code> function and methods.</li>
+<li>Included <code><a href="../reference/MclustDR.html">MclustDR()</a></code> function and methods.</li>
+<li>Included <code><a href="../reference/me.weighted.html">me.weighted()</a></code> function.</li>
+<li>Restored hierarchical clustering capability for the EEE model (hcEEE).</li>
+<li>Included vignettes for mclust version 4 from Technical Report No. 597 and for using weights in mclust.</li>
+<li>Adoption of GPL (&gt;= 2) license.</li>
 </ul>
 </div>
     <div id="mclust-35-2012-07" class="section level1">
@@ -358,11 +369,11 @@
 <a href="#mclust-35-2012-07" class="anchor"></a>mclust 3.5 (2012-07)<small> 2012-07-22 </small>
 </h1>
 <ul>
-<li>added <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code>.</li>
-<li>new functions for plotting and summarizing density estimation.</li>
-<li>various bug fixes.</li>
-<li>added <code><a href="../reference/clustCombi.html">clustCombi()</a></code> and related functions (code and doc provided by Jean-Patrick Baudry).</li>
-<li>bug fix: variable names lost when G = 1.</li>
+<li>Added <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code>.</li>
+<li>New functions for plotting and summarizing density estimation.</li>
+<li>Various bug fixes.</li>
+<li>Added <code><a href="../reference/clustCombi.html">clustCombi()</a></code> and related functions (code and doc provided by Jean-Patrick Baudry).</li>
+<li>Bug fix: variable names lost when G = 1.</li>
 </ul>
 </div>
     <div id="mclust-3411-2012-01" class="section level1">
@@ -370,7 +381,7 @@
 <a href="#mclust-3411-2012-01" class="anchor"></a>mclust 3.4.11 (2012-01)<small> 2012-01-07 </small>
 </h1>
 <ul>
-<li>added <code>NAMESPACE</code>.</li>
+<li>Added <code>NAMESPACE</code>.</li>
 </ul>
 </div>
     <div id="mclust-3410-2011-05" class="section level1">
@@ -378,7 +389,7 @@
 <a href="#mclust-3410-2011-05" class="anchor"></a>mclust 3.4.10 (2011-05)<small> 2011-05-30 </small>
 </h1>
 <ul>
-<li>removed intrinsic gamma-</li>
+<li>Removed intrinsic gamma-</li>
 </ul>
 </div>
     <div id="mclust-349-2011-05" class="section level1">
@@ -386,11 +397,11 @@
 <a href="#mclust-349-2011-05" class="anchor"></a>mclust 3.4.9 (2011-05)<small> 2011-05-28 </small>
 </h1>
 <ul>
-<li>fixed <code><a href="../reference/hypvol.html">hypvol()</a></code> function to avoid overflow.</li>
-<li>fixed <code><a href="../reference/hypvol.html">hypvol()</a></code> help file value description.</li>
-<li>removed unused variables and tabs from source code.</li>
-<li>switched to intrinsic gamma in source code.</li>
-<li>fixed default warning in estepVEV and mstepVEV.</li>
+<li>Fixed <code><a href="../reference/hypvol.html">hypvol()</a></code> function to avoid overflow.</li>
+<li>Fixed <code><a href="../reference/hypvol.html">hypvol()</a></code> help file value description.</li>
+<li>Removed unused variables and tabs from source code.</li>
+<li>Switched to intrinsic gamma in source code.</li>
+<li>Fixed default warning in estepVEV and mstepVEV.</li>
 </ul>
 </div>
     <div id="mclust-348-2010-12" class="section level1">
@@ -398,7 +409,7 @@
 <a href="#mclust-348-2010-12" class="anchor"></a>mclust 3.4.8 (2010-12)<small> 2010-12-12 </small>
 </h1>
 <ul>
-<li>fixed output when G = 1 (it had NA for the missing <code>z</code> component).</li>
+<li>Fixed output when G = 1 (it had NA for the missing <code>z</code> component).</li>
 </ul>
 </div>
     <div id="mclust-347-2010-10" class="section level1">
@@ -406,7 +417,7 @@
 <a href="#mclust-347-2010-10" class="anchor"></a>mclust 3.4.7 (2010-10)<small> 2010-10-23 </small>
 </h1>
 <ul>
-<li>removed hierarchical clustering capability for the <code>EEE</code> model (hcEEE).</li>
+<li>Removed hierarchical clustering capability for the <code>EEE</code> model (hcEEE).</li>
 <li>The R 2.12.0 build failed due to a 32-bit Windows compiler error, forcing removal of the underlying Fortran code for hcEEE from the package, which does not contain errors and compiles on other platforms.</li>
 </ul>
 </div>
@@ -415,7 +426,7 @@
 <a href="#mclust-346-2010-08" class="anchor"></a>mclust 3.4.6 (2010-08)<small> 2010-08-10 </small>
 </h1>
 <ul>
-<li>added description of parameters output component to <code>Mclust</code> and <code>summary.mclustBIC</code> help files.</li>
+<li>Added description of parameters output component to <code>Mclust</code> and <code>summary.mclustBIC</code> help files.</li>
 </ul>
 </div>
     <div id="mclust-345-2010-07" class="section level1">
@@ -423,7 +434,7 @@
 <a href="#mclust-345-2010-07" class="anchor"></a>mclust 3.4.5 (2010-07)<small> 2010-07-24 </small>
 </h1>
 <ul>
-<li>added <code><a href="../reference/densityMclust.html">densityMclust()</a></code> function.</li>
+<li>Added <code><a href="../reference/densityMclust.html">densityMclust()</a></code> function.</li>
 </ul>
 </div>
     <div id="mclust-344-2010-04" class="section level1">
@@ -431,7 +442,7 @@
 <a href="#mclust-344-2010-04" class="anchor"></a>mclust 3.4.4 (2010-04)<small> 2010-04-08 </small>
 </h1>
 <ul>
-<li>fixed bug in covariance matrix output for EEV and VEV models.</li>
+<li>Fixed bug in covariance matrix output for EEV and VEV models.</li>
 </ul>
 </div>
     <div id="mclust-343-2010-02" class="section level1">
@@ -439,7 +450,7 @@
 <a href="#mclust-343-2010-02" class="anchor"></a>mclust 3.4.3 (2010-02)<small> 2010-02-20 </small>
 </h1>
 <ul>
-<li>bug fixes.</li>
+<li>Bug fixes.</li>
 </ul>
 </div>
     <div id="mclust-342-2010-02" class="section level1">
@@ -447,10 +458,10 @@
 <a href="#mclust-342-2010-02" class="anchor"></a>mclust 3.4.2 (2010-02)<small> 2010-02-13 </small>
 </h1>
 <ul>
-<li>moved CITATION to inst and used standard format</li>
+<li>Moved CITATION to inst and used standard format</li>
 <li>BibTex entries are in inst/cite.</li>
-<li>fixed bug in handling missing classes in <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
-<li>clarified license wording.</li>
+<li>Fixed bug in handling missing classes in <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
+<li>Clarified license wording.</li>
 </ul>
 </div>
     <div id="mclust-341-2010-01" class="section level1">
@@ -458,8 +469,8 @@
 <a href="#mclust-341-2010-01" class="anchor"></a>mclust 3.4.1 (2010-01)<small> 2010-01-22 </small>
 </h1>
 <ul>
-<li>corrected output description in <code>mclustModel</code> help file.</li>
-<li>updated mclust manual reference to show revision.</li>
+<li>Corrected output description in <code>mclustModel</code> help file.</li>
+<li>Updated mclust manual reference to show revision.</li>
 </ul>
 </div>
     <div id="mclust-34-2009-12" class="section level1">
@@ -467,9 +478,9 @@
 <a href="#mclust-34-2009-12" class="anchor"></a>mclust 3.4 (2009-12)<small> 2009-12-16 </small>
 </h1>
 <ul>
-<li>updated <code>defaultPrior</code> help file.</li>
-<li>added utility functions for imputing missing data with the mix package.</li>
-<li>changed default max to number of mixture components in each class from 9 to 3.</li>
+<li>Updated <code>defaultPrior</code> help file.</li>
+<li>Added utility functions for imputing missing data with the mix package.</li>
+<li>Changed default max to number of mixture components in each class from 9 to 3.</li>
 </ul>
 </div>
     <div id="mclust-332-2009-10" class="section level1">
@@ -477,7 +488,7 @@
 <a href="#mclust-332-2009-10" class="anchor"></a>mclust 3.3.2 (2009-10)<small> 2009-10-13 </small>
 </h1>
 <ul>
-<li>fixed problems with \cr in <code>mclustOptions</code> help file</li>
+<li>Fixed problems with \cr in <code>mclustOptions</code> help file</li>
 </ul>
 </div>
     <div id="mclust-331-2009-06" class="section level1">
@@ -485,10 +496,10 @@
 <a href="#mclust-331-2009-06" class="anchor"></a>mclust 3.3.1 (2009-06)<small> 2009-07-01 </small>
 </h1>
 <ul>
-<li>fixed <code><a href="../reference/plot.mclustBIC.html">plot.mclustBIC()</a></code> and <code><a href="../reference/plot.Mclust.html">plot.Mclust()</a></code> to handle <code>modelNames</code>.</li>
-<li>changed “orientation” for VEV, VVV models to be consistent with R <code><a href="https://www.rdocumentation.org/packages/base/topics/eigen">eigen()</a></code> and the literature</li>
-<li>fixed some problems including doc for the noise option.</li>
-<li>updated the <code><a href="../reference/unmap.html">unmap()</a></code> function to optionally include missing groups.</li>
+<li>Fixed <code><a href="../reference/plot.mclustBIC.html">plot.mclustBIC()</a></code> and <code><a href="../reference/plot.Mclust.html">plot.Mclust()</a></code> to handle <code>modelNames</code>.</li>
+<li>Changed “orientation” for VEV, VVV models to be consistent with R <code><a href="https://www.rdocumentation.org/packages/base/topics/eigen">eigen()</a></code> and the literature</li>
+<li>Fixed some problems including doc for the noise option.</li>
+<li>Updated the <code><a href="../reference/unmap.html">unmap()</a></code> function to optionally include missing groups.</li>
 </ul>
 </div>
     <div id="mclust-33-2009-06" class="section level1">
@@ -496,8 +507,8 @@
 <a href="#mclust-33-2009-06" class="anchor"></a>mclust 3.3 (2009-06)<small> Unreleased </small>
 </h1>
 <ul>
-<li>fixed bug in the <code>"errors"</code> option for <code><a href="../reference/randProj.html">randProj()</a></code>.</li>
-<li>fixed boundary cases for the <code>"noise"</code> option.</li>
+<li>Fixed bug in the <code>"errors"</code> option for <code><a href="../reference/randProj.html">randProj()</a></code>.</li>
+<li>Fixed boundary cases for the <code>"noise"</code> option.</li>
 </ul>
 </div>
     <div id="mclust-32-2009-04" class="section level1">
@@ -505,10 +516,10 @@
 <a href="#mclust-32-2009-04" class="anchor"></a>mclust 3.2 (2009-04)<small> 2009-04-29 </small>
 </h1>
 <ul>
-<li>added permission for CRAN distribution to LICENSE.</li>
-<li>fixed problems with help files found by new parser.</li>
-<li>changed PKG_LIBS order in src/Makevars.</li>
-<li>fixed <code><a href="../reference/Mclust.html">Mclust()</a></code> to handle sampling in data expression in call.</li>
+<li>Added permission for CRAN distribution to LICENSE.</li>
+<li>Fixed problems with help files found by new parser.</li>
+<li>Changed PKG_LIBS order in src/Makevars.</li>
+<li>Fixed <code><a href="../reference/Mclust.html">Mclust()</a></code> to handle sampling in data expression in call.</li>
 </ul>
 </div>
     <div id="mclust-3110-2008-11" class="section level1">
@@ -516,7 +527,7 @@
 <a href="#mclust-3110-2008-11" class="anchor"></a>mclust 3.1.10 (2008-11)<small> Unreleased </small>
 </h1>
 <ul>
-<li>added <code>EXPR = to</code> all switch functions that didn’t already have it.</li>
+<li>Added <code>EXPR = to</code> all switch functions that didn’t already have it.</li>
 </ul>
 </div>
     <div id="mclust-319-2008-10" class="section level1">
@@ -524,8 +535,8 @@
 <a href="#mclust-319-2008-10" class="anchor"></a>mclust 3.1.9 (2008-10)<small> Unreleased </small>
 </h1>
 <ul>
-<li>added <code>pro</code> component to parameters in <code><a href="../reference/dens.html">dens()</a></code> help file.</li>
-<li>fixed some problems with the noise option.</li>
+<li>Added <code>pro</code> component to parameters in <code><a href="../reference/dens.html">dens()</a></code> help file.</li>
+<li>Fixed some problems with the noise option.</li>
 </ul>
 </div>
     <div id="mclust-311-2007-03" class="section level1">
@@ -534,7 +545,7 @@
 </h1>
 <ul>
 <li>Default seed changed in <code>sim*()</code> functions.</li>
-<li>Model name check added to various functions.</li>
+<li>Added model name check to various functions.</li>
 <li>Otherwise backward compatible with version 3.0</li>
 </ul>
 </div>
@@ -564,6 +575,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#mclust-543-not-on-cran">5.4.3</a></li>
         <li><a href="#mclust-542">5.4.2</a></li>
         <li><a href="#mclust-541">5.4.1</a></li>
         <li><a href="#mclust-54">5.4</a></li>

@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
       </span>
     </div>
 
@@ -173,7 +173,7 @@
 #&gt; 
 #&gt; Mclust E (univariate, equal variance) model with 2 components: 
 #&gt; 
-#&gt;  log.likelihood   n df       BIC       ICL
+#&gt;  log-likelihood   n df       BIC       ICL
 #&gt;       -1034.002 272  4 -2090.427 -2099.576
 #&gt; 
 #&gt; Clustering table:
@@ -184,7 +184,7 @@
 #&gt; 
 #&gt; Mclust E (univariate, equal variance) model with 2 components: 
 #&gt; 
-#&gt;  log.likelihood   n df       BIC       ICL
+#&gt;  log-likelihood   n df       BIC       ICL
 #&gt;       -1034.002 272  4 -2090.427 -2099.576
 #&gt; 
 #&gt; Clustering table:
@@ -210,7 +210,7 @@
 #&gt; Mclust EEE (ellipsoidal, equal volume, shape and orientation) model with 3
 #&gt; components: 
 #&gt; 
-#&gt;  log.likelihood   n df       BIC       ICL
+#&gt;  log-likelihood   n df       BIC       ICL
 #&gt;       -1126.326 272 11 -2314.316 -2357.824
 #&gt; 
 #&gt; Clustering table:
@@ -222,7 +222,7 @@
 #&gt; Mclust EEE (ellipsoidal, equal volume, shape and orientation) model with 3
 #&gt; components: 
 #&gt; 
-#&gt;  log.likelihood   n df       BIC       ICL
+#&gt;  log-likelihood   n df       BIC       ICL
 #&gt;       -1126.326 272 11 -2314.316 -2357.824
 #&gt; 
 #&gt; Clustering table:
@@ -251,7 +251,8 @@
 #&gt;            eruptions    waiting
 #&gt; eruptions 0.07825448  0.4801979
 #&gt; waiting   0.48019785 33.7671464</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>,
-     <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>points.pch</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><div class='img'><img src='densityMclust-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>)</div><div class='img'><img src='densityMclust-4.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.9</span>))</div><div class='img'><img src='densityMclust-5.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>)</div><div class='img'><img src='densityMclust-6.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>)</div><div class='img'><img src='densityMclust-7.png' alt='' width='504' height='432' /></div><div class='input'>
+     <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>points.pch</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><div class='img'><img src='densityMclust-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.9</span>))
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>)</div><div class='img'><img src='densityMclust-4.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>)</div><div class='img'><img src='densityMclust-5.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'>densityMclust</span>(<span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>], <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>2</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ------------------------------------------------------- 
 #&gt; Density estimation via Gaussian finite mixture modeling 
@@ -259,7 +260,7 @@
 #&gt; 
 #&gt; Mclust VEV (ellipsoidal, equal shape) model with 2 components: 
 #&gt; 
-#&gt;  log.likelihood   n df       BIC       ICL
+#&gt;  log-likelihood   n df       BIC       ICL
 #&gt;        -215.726 150 26 -561.7285 -561.7289
 #&gt; 
 #&gt; Clustering table:
@@ -290,7 +291,7 @@
 #&gt; Sepal.Width     0.1086544  0.10928077    0.1238904  0.07284384
 #&gt; Petal.Length    0.3994018  0.12389040    0.6109024  0.25738990
 #&gt; Petal.Width     0.1436826  0.07284384    0.2573899  0.16808182</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>],
-     <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"slategrey"</span>, <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>7</span>)</div><div class='img'><img src='densityMclust-8.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])</div><div class='img'><img src='densityMclust-9.png' alt='' width='504' height='432' /></div><span class='co'># NOT RUN {</span>
+     <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"slategrey"</span>, <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>7</span>)</div><div class='img'><img src='densityMclust-6.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])</div><div class='img'><img src='densityMclust-7.png' alt='' width='504' height='432' /></div><span class='co'># NOT RUN {</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/gray'>grey</a></span>(<span class='fl'>0.9</span>))
 <span class='co'># }</span></pre>
   </div>

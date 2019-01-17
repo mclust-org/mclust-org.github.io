@@ -223,7 +223,7 @@
     <pre class="examples"><span class='co'># NOT RUN {</span>
 <span class='no'>x1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>)
 <span class='no'>x2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>)
-<span class='no'>y</span>  <span class='kw'>&lt;-</span> <span class='no'>x1</span> + <span class='fl'>2</span>*<span class='no'>x2</span>^<span class='fl'>2</span> + <span class='fl'>0.5</span>*<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>)
+<span class='no'>y</span>  <span class='kw'>&lt;-</span> <span class='fl'>2</span>*<span class='no'>x1</span> + <span class='no'>x2</span>^<span class='fl'>2</span> + <span class='fl'>0.5</span>*<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>)
 <span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>)
 <span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>, <span class='kw'>scaling</span> <span class='kw'>=</span> <span class='st'>"aaa"</span>)
 <span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>, <span class='kw'>rem.lin.trend</span> <span class='kw'>=</span> <span class='st'>"TRUE"</span>)
