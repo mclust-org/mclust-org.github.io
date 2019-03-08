@@ -123,11 +123,11 @@ a MVN mixture model for the data.</p>
     </div>
 
     <pre class="usage">surfacePlot(data, parameters, 
-            type = c("contour", "level", "image", "persp"), 
+            type = c("contour", "hdr", "image", "persp"), 
             what = c("density", "uncertainty"), 
             transformation = c("none", "log", "sqrt"),          
             grid = 100, nlevels = 11, levels = NULL, 
-            level.prob = c(0.25, 0.5, 0.75),
+            prob = c(0.25, 0.5, 0.75),
             color.palette = blue2grey.colors, col = grey(0.6),
             xlim = NULL, ylim = NULL, xlab = NULL, ylab = NULL, 
             scale = FALSE, main = FALSE, swapAxes = FALSE, 
@@ -160,7 +160,7 @@ a MVN mixture model for the data.</p>
     <tr>
       <th>type</th>
       <td><p>Choose from one of the following three options: <code>"contour"</code> 
-    (default), <code>"level"</code>, <code>"image"</code>, and <code>"persp"</code> indicating 
+    (default), <code>"hdr"</code>, <code>"image"</code>, and <code>"persp"</code> indicating 
     the plot type.</p></td>
     </tr>
     <tr>
@@ -191,15 +191,15 @@ a MVN mixture model for the data.</p>
       <td><p>A vector of levels at which to draw the lines in a contour plot.</p></td>
     </tr>
     <tr>
-      <th>level.prob</th>
+      <th>prob</th>
       <td><p>A vector of probability levels for computing HDR. 
-    Only used if <code>type = "level"</code> and supersede previous 
+    Only used if <code>type = "hdr"</code> and supersede previous 
     <code>nlevels</code> and <code>levels</code> arguments.</p></td>
     </tr>
     <tr>
       <th>color.palette</th>
       <td><p>A function which defines a palette of colours to be used for 
-    <code>type = "level"</code> plot.</p></td>
+    <code>type = "hdr"</code> plot.</p></td>
     </tr>
     <tr>
       <th>col</th>

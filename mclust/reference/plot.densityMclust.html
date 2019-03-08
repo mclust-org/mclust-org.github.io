@@ -191,7 +191,7 @@ plotDensityMclustd(x, data = NULL, nlevels = 11, levels = NULL,
     </tr>
     <tr>
       <th>prob</th>
-      <td><p>A vector of probability levels for computing HDR. Only used if <code>type = "level"</code> and supersede previous <code>nlevels</code> and <code>levels</code> arguments.</p></td>
+      <td><p>A vector of probability levels for computing HDR. Only used if <code>type = "hdr"</code> and supersede previous <code>nlevels</code> and <code>levels</code> arguments.</p></td>
     </tr>
     <tr>
       <th>gap</th>
@@ -215,12 +215,12 @@ plotDensityMclustd(x, data = NULL, nlevels = 11, levels = NULL,
   observed data.</p>  
 <p>For two-dimensional data further arguments available are those accepted by
   the <code><a href='surfacePlot.html'>surfacePlot</a></code> function. In particular, the density can be
-  represented through <code>"contour"</code>, <code>"level"</code>, <code>"image"</code>, and 
+  represented through <code>"contour"</code>, <code>"hdr"</code>, <code>"image"</code>, and 
   <code>"persp"</code> type of graph. 
-  For <code>type = "level"</code> Highest Density Regions (HDRs) are plotted for 
+  For <code>type = "hdr"</code> Highest Density Regions (HDRs) are plotted for 
   probability levels <code>prob</code>. See <code><a href='hdrlevels.html'>hdrlevels</a></code> for details.</p>  
-<p>For higher dimensionality a scatterplot matrix of pairwise densities is
-  drawn.</p>
+<p>For higher dimensionality a scatterplot matrix of pairwise projected
+  densities is drawn.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -243,16 +243,16 @@ plotDensityMclustd(x, data = NULL, nlevels = 11, levels = NULL,
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>,
      <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>points.pch</span> <span class='kw'>=</span> <span class='fl'>20</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>0.1</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>0.1</span>))
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>)
 
 <span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>],
      <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"slategrey"</span>, <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>7</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"level"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/gray'>grey</a></span>(<span class='fl'>0.9</span>))
 <span class='co'># }</span></pre>
   </div>

@@ -118,8 +118,10 @@
 <ul>
 <li>Added website site and update DESCRIPTION with URL.</li>
 <li>Fixed a bug when checking for univariate data with a single observation in several instances. Using <code><a href="https://www.rdocumentation.org/packages/base/topics/nrow">NCOL()</a></code> works both for n-values vector or nx1 matrix.</li>
+<li>Fixed a bug when <code>hcPairs</code> are provided in the <code>initialization</code> argument of <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code> (and relatives) and the number of observations exceed the threshold for subsetting.</li>
 <li>Fixed bugs on axes for some manual pairs plots.</li>
-<li>Fixed a bug in <code>type = "level"</code> plot on <code><a href="../reference/surfacePlot.html">surfacePlot ()</a></code>.</li>
+<li>Renamed <code>type = "level"</code> to <code>type = "hdr"</code>, and <code>level.prob</code> to <code>prob</code>, in <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code> for getting HDRs graphs</li>
+<li>Fixed a bug in <code>type = "hdr"</code> plot on <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code>.</li>
 </ul>
 </div>
     <div id="mclust-542" class="section level1">

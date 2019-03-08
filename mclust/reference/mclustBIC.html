@@ -175,8 +175,7 @@
   <dt><code>hcPairs</code></dt><dd><p>A matrix of merge pairs for hierarchical clustering such as produced
     by function <code><a href='hc.html'>hc</a></code>. <br />
     For multivariate data, the default is to compute a hierarchical 
-    agglomerative clustering tree by applying function 
-    <code><a href='hc.html'>hc</a></code> with 
+    agglomerative clustering tree by applying function <code><a href='hc.html'>hc</a></code> with 
     model specified by <code><a href='mclust.options.html'>mclust.options("hcModelName")</a></code>, and
     data transformation set by <code><a href='mclust.options.html'>mclust.options("hcUse")</a></code>.<br />
     All the input or a subset as indicated by the <code>subset</code> argument is 
@@ -189,9 +188,10 @@
   <dt><code>subset</code></dt><dd><p>A logical or numeric vector specifying a subset of the data
     to be used in the initial hierarchical clustering phase.
     By default no subset is used unless the number of observations exceeds 
-    the value specified by <code><a href='mclust.options.html'>mclust.options("subset")</a></code>. Note that to
-    guarantee exact reproducibility of results a seed must be specified 
-    (see <code><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></code>).</p></dd>
+    the value specified by <code><a href='mclust.options.html'>mclust.options("subset")</a></code>. 
+    The <code>subset</code> argument is ignored if <code>hcPairs</code> are provided.
+    Note that to guarantee exact reproducibility of results a seed must be 
+    specified (see <code><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></code>).</p></dd>
   <dt><code>noise</code></dt><dd><p>A logical or numeric vector indicating an initial guess as to
     which observations are noise in the data. If numeric the entries
     should correspond to row indexes of the data. If supplied, a noise
