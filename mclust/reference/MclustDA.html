@@ -287,11 +287,11 @@
 #&gt;   versicolor 25   EEE 1
 #&gt;   virginica  25   EEE 1
 #&gt; 
-#&gt; Estimated parameters:
+#&gt; Class prior probabilities:
+#&gt;     setosa versicolor  virginica 
+#&gt;  0.3333333  0.3333333  0.3333333 
 #&gt; 
 #&gt; Class = setosa
-#&gt; 
-#&gt; Mixing probabilities: 1 
 #&gt; 
 #&gt; Means:
 #&gt;               [,1]
@@ -310,8 +310,6 @@
 #&gt; 
 #&gt; Class = versicolor
 #&gt; 
-#&gt; Mixing probabilities: 1 
-#&gt; 
 #&gt; Means:
 #&gt;               [,1]
 #&gt; Sepal.Length 5.992
@@ -329,8 +327,6 @@
 #&gt; 
 #&gt; Class = virginica
 #&gt; 
-#&gt; Mixing probabilities: 1 
-#&gt; 
 #&gt; Means:
 #&gt;               [,1]
 #&gt; Sepal.Length 6.504
@@ -347,13 +343,11 @@
 #&gt; Petal.Width    0.03141333  0.03222400   0.04091733  0.03891200
 #&gt; 
 #&gt; Training classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         24         1
 #&gt;   virginica       0          1        24
-#&gt; 
 #&gt; Training error = 0.02666667 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>X.test</span>, <span class='kw'>newclass</span> <span class='kw'>=</span> <span class='no'>Class.test</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
 #&gt; Gaussian finite mixture model for classification 
 #&gt; ------------------------------------------------ 
@@ -369,23 +363,19 @@
 #&gt;   virginica  25   EEE 1
 #&gt; 
 #&gt; Training classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         24         1
 #&gt;   virginica       0          1        24
-#&gt; 
 #&gt; Training error = 0.02666667 
 #&gt; 
 #&gt; Test classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         24         1
 #&gt;   virginica       0          2        23
-#&gt; 
 #&gt; Test error = 0.04 </div><div class='input'>
 <span class='co'># common covariance structure selected by BIC</span>
 <span class='no'>irisMclustDA</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDA</span>(<span class='no'>X.train</span>, <span class='no'>Class.train</span>, <span class='kw'>modelType</span> <span class='kw'>=</span> <span class='st'>"EDDA"</span>)
@@ -403,11 +393,11 @@
 #&gt;   versicolor 25   VEV 1
 #&gt;   virginica  25   VEV 1
 #&gt; 
-#&gt; Estimated parameters:
+#&gt; Class prior probabilities:
+#&gt;     setosa versicolor  virginica 
+#&gt;  0.3333333  0.3333333  0.3333333 
 #&gt; 
 #&gt; Class = setosa
-#&gt; 
-#&gt; Mixing probabilities: 1 
 #&gt; 
 #&gt; Means:
 #&gt;               [,1]
@@ -426,8 +416,6 @@
 #&gt; 
 #&gt; Class = versicolor
 #&gt; 
-#&gt; Mixing probabilities: 1 
-#&gt; 
 #&gt; Means:
 #&gt;               [,1]
 #&gt; Sepal.Length 5.992
@@ -445,8 +433,6 @@
 #&gt; 
 #&gt; Class = virginica
 #&gt; 
-#&gt; Mixing probabilities: 1 
-#&gt; 
 #&gt; Means:
 #&gt;               [,1]
 #&gt; Sepal.Length 6.504
@@ -463,13 +449,11 @@
 #&gt; Petal.Width    0.03871029 0.050092291  0.058052679  0.07540425
 #&gt; 
 #&gt; Training classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         24         1
 #&gt;   virginica       0          0        25
-#&gt; 
 #&gt; Training error = 0.01333333 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>X.test</span>, <span class='kw'>newclass</span> <span class='kw'>=</span> <span class='no'>Class.test</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
 #&gt; Gaussian finite mixture model for classification 
 #&gt; ------------------------------------------------ 
@@ -485,23 +469,19 @@
 #&gt;   virginica  25   VEV 1
 #&gt; 
 #&gt; Training classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         24         1
 #&gt;   virginica       0          0        25
-#&gt; 
 #&gt; Training error = 0.01333333 
 #&gt; 
 #&gt; Test classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         24         1
 #&gt;   virginica       0          2        23
-#&gt; 
 #&gt; Test error = 0.04 </div><div class='input'>
 <span class='co'># general covariance structure selected by BIC</span>
 <span class='no'>irisMclustDA</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDA</span>(<span class='no'>X.train</span>, <span class='no'>Class.train</span>)
@@ -519,7 +499,9 @@
 #&gt;   versicolor 25   EEV 2
 #&gt;   virginica  25   XXX 1
 #&gt; 
-#&gt; Estimated parameters:
+#&gt; Class prior probabilities:
+#&gt;     setosa versicolor  virginica 
+#&gt;  0.3333333  0.3333333  0.3333333 
 #&gt; 
 #&gt; Class = setosa
 #&gt; 
@@ -591,13 +573,11 @@
 #&gt; Petal.Width      0.040896    0.048064     0.049536    0.074624
 #&gt; 
 #&gt; Training classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         25         0
 #&gt;   virginica       0          0        25
-#&gt; 
 #&gt; Training error = 0 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>X.test</span>, <span class='kw'>newclass</span> <span class='kw'>=</span> <span class='no'>Class.test</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
 #&gt; Gaussian finite mixture model for classification 
 #&gt; ------------------------------------------------ 
@@ -613,23 +593,19 @@
 #&gt;   virginica  25   XXX 1
 #&gt; 
 #&gt; Training classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         25         0
 #&gt;   virginica       0          0        25
-#&gt; 
 #&gt; Training error = 0 
 #&gt; 
 #&gt; Test classification summary:
-#&gt; 
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         25          0         0
 #&gt;   versicolor      0         24         1
 #&gt;   virginica       0          0        25
-#&gt; 
 #&gt; Test error = 0.01333333 </div><div class='input'>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>)</div><div class='img'><img src='MclustDA-1.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-2.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-3.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-4.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='fl'>3</span>:<span class='fl'>4</span>)</div><div class='img'><img src='MclustDA-5.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-6.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-7.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-8.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='img'><img src='MclustDA-9.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-10.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-11.png' alt='' width='504' height='432' /></div><div class='img'><img src='MclustDA-12.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>)</div><div class='img'><img src='MclustDA-13.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>X.test</span>)</div><div class='img'><img src='MclustDA-14.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>, <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='fl'>3</span>:<span class='fl'>4</span>)</div><div class='img'><img src='MclustDA-15.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>X.test</span>, <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='fl'>3</span>:<span class='fl'>4</span>)</div><div class='img'><img src='MclustDA-16.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>, <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='img'><img src='MclustDA-17.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>irisMclustDA</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>, <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>X.test</span>)</div><div class='img'><img src='MclustDA-18.png' alt='' width='504' height='432' /></div><div class='input'>
