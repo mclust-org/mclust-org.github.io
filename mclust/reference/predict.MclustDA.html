@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@
     </div>
 
     <pre class="usage"># S3 method for MclustDA
-predict(object, newdata, prior, &#8230;)</pre>
+predict(object, newdata, prop = object$prop, &#8230;)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,9 +135,8 @@ predict(object, newdata, prior, &#8230;)</pre>
       <td><p>a data frame or matrix giving the data. If missing the train data obtained from the call to <code><a href='MclustDA.html'>MclustDA</a></code> are classified.</p></td>
     </tr>
     <tr>
-      <th>prior</th>
-      <td><p>the prior probabilities of the classes; by default, this is set
-   at the proportions in the training data.</p></td>
+      <th>prop</th>
+      <td><p>the class proportions or prior class probabilities to belong to each class; by default, this is set at the class proportions in the training data.</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>

@@ -73,7 +73,7 @@ Observations in different classes are represented by different colors and symbol
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -122,8 +122,9 @@ Observations in different classes are represented by different colors and symbol
     
     </div>
 
-    <pre class="usage">clPairs(data, classification, symbols, colors, labels = dimnames(data)[[2]], 
-        CEX = 1, gap = 0.2, &#8230;)
+    <pre class="usage">clPairs(data, classification, symbols, colors, 
+        labels = dimnames(data)[[2]], cex.labels = 1.5, 
+        gap = 0.2, &#8230;)
 
 clPairsLegend(x, y, class, col, pch, box = TRUE, &#8230;)</pre>
     
@@ -159,13 +160,12 @@ clPairsLegend(x, y, class, col, pch, box = TRUE, &#8230;)</pre>
     </tr>
     <tr>
       <th>labels</th>
-      <td><p>A vector of character strings for labeling the variables. The default
+      <td><p>A vector of character strings for labelling the variables. The default
     is to use the column dimension names of <code>data</code>.</p></td>
     </tr>
     <tr>
-      <th>CEX</th>
-      <td><p>An argument specifying the size of the plotting symbols. 
-    The default value is 1.</p></td>
+      <th>cex.labels</th>
+      <td><p>An argument specifying the size of the text labels.</p></td>
     </tr>
     <tr>
       <th>gap</th>

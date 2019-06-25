@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -120,7 +120,10 @@
     
     </div>
 
-    <pre class="usage">cvMclustDA(object, nfold = 10, verbose = interactive(), &#8230;)</pre>
+    <pre class="usage">cvMclustDA(object, nfold = 10, 
+           metric = c("error", "brier"),
+           prop = object$prop,
+           verbose = interactive(), &#8230;)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,6 +135,17 @@
     <tr>
       <th>nfold</th>
       <td><p>An integer specifying the number of folds.</p></td>
+    </tr>
+    <tr>
+      <th>metric</th>
+      <td><p>A character string specifying the statistic to be used in the 
+    cross-validation resampling process. Possible values are <code>"error"</code> 
+    for the classification error, and <code>"brier"</code> for the Brier score.</p></td>
+    </tr>
+    <tr>
+      <th>prop</th>
+      <td><p>A vector of class prior probabilities, which if not provided default
+    to the class proportions in the training data.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -151,9 +165,11 @@
 
   <dt>z</dt><dd><p>a matrix containing the cross-validated probabilites for class assignement.</p></dd> 
 
-  <dt>error</dt><dd><p>the cross-validation error.</p></dd> 
+  <dt>error</dt><dd><p>the cross-validation classification error if <code>metric = "error"</code>, <code>NA</code> otherwise.</p></dd>
+  
+  <dt>brier</dt><dd><p>the cross-validation Brier score if <code>metric = "brier"</code>, <code>NA</code> otherwise.</p></dd> 
     
-  <dt>se</dt><dd><p>the standard error of cv error.</p></dd>
+  <dt>se</dt><dd><p>the standard error of the cross-validated statistic.</p></dd>
 
 
     
@@ -162,7 +178,8 @@
     <div class='dont-index'><p><code><a href='summary.MclustDA.html'>summary.MclustDA</a></code>, 
   <code><a href='plot.MclustDA.html'>plot.MclustDA</a></code>, 
   <code><a href='predict.MclustDA.html'>predict.MclustDA</a></code>, 
-  <code><a href='classError.html'>classError</a></code></p></div>
+  <code><a href='classError.html'>classError</a></code>,
+  <code><a href='BrierScore.html'>BrierScore</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -172,18 +189,21 @@
 
 <span class='co'># common EEE covariance structure (which is essentially equivalent to linear discriminant analysis)</span>
 <span class='no'>irisMclustDA</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='no'>X</span>, <span class='no'>Class</span>, <span class='kw'>modelType</span> <span class='kw'>=</span> <span class='st'>"EDDA"</span>, <span class='kw'>modelNames</span> <span class='kw'>=</span> <span class='st'>"EEE"</span>)
-<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>) <span class='co'># default 10-fold CV</span>
+<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>)  <span class='co'># default 10-fold CV</span>
 <span class='no'>cv</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"error"</span>, <span class='st'>"se"</span>)]
 
-<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>, <span class='kw'>nfold</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>Class</span>)) <span class='co'># LOO-CV</span>
+<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>, <span class='kw'>nfold</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>Class</span>))  <span class='co'># LOO-CV</span>
 <span class='no'>cv</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"error"</span>, <span class='st'>"se"</span>)]
-<span class='co'># compare with </span>
-<span class='co'># cv1EMtrain(X, Class, "EEE")</span>
+
+<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>, <span class='kw'>metric</span> <span class='kw'>=</span> <span class='st'>"brier"</span>)  <span class='co'># 10-fold CV with Brier score metric</span>
+<span class='no'>cv</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"brier"</span>, <span class='st'>"se"</span>)]
 
 <span class='co'># general covariance structure selected by BIC</span>
 <span class='no'>irisMclustDA</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='no'>X</span>, <span class='no'>Class</span>)
-<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>) <span class='co'># default 10-fold CV</span>
+<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>)  <span class='co'># default 10-fold CV</span>
 <span class='no'>cv</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"error"</span>, <span class='st'>"se"</span>)]
+<span class='no'>cv</span> <span class='kw'>&lt;-</span> <span class='fu'>cvMclustDA</span>(<span class='no'>irisMclustDA</span>, <span class='kw'>metric</span> <span class='kw'>=</span> <span class='st'>"brier"</span>)  <span class='co'># 10-fold CV with Brier score metric</span>
+<span class='no'>cv</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"brier"</span>, <span class='st'>"se"</span>)]
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

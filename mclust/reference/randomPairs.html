@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -157,7 +157,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>]
 <span class='no'>randPairs</span> <span class='kw'>&lt;-</span> <span class='fu'>randomPairs</span>(<span class='no'>data</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/str'>str</a></span>(<span class='no'>randPairs</span>)</div><div class='output co'>#&gt;  int [1:2, 1:149] 57 149 116 138 31 95 19 39 2 55 ...
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/str'>str</a></span>(<span class='no'>randPairs</span>)</div><div class='output co'>#&gt;  int [1:2, 1:149] 70 104 75 103 13 40 23 89 84 110 ...
 #&gt;  - attr(*, "initialPartition")= int [1:150] 1 2 3 4 5 6 7 8 9 10 ...
 #&gt;  - attr(*, "dimensions")= num [1:2] 150 2</div><div class='input'><span class='co'># start model-based clustering from a random partition</span>
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>data</span>, <span class='kw'>initialization</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>hcPairs</span> <span class='kw'>=</span> <span class='no'>randPairs</span>))

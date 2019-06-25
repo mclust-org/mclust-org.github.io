@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -160,16 +160,17 @@
 #&gt;  log-likelihood   n df       BIC
 #&gt;       -646.0798 200 66 -1641.849
 #&gt;              
-#&gt; Classes         n Model G
-#&gt;   counterfeit 100   EVE 2
-#&gt;   genuine     100   XXX 1
+#&gt; Classes         n  % Model G
+#&gt;   counterfeit 100 50   EVE 2
+#&gt;   genuine     100 50   XXX 1
 #&gt; 
-#&gt; Training classification summary:
+#&gt; Training confusion matrix:
 #&gt;              Predicted
 #&gt; Class         counterfeit genuine
 #&gt;   counterfeit         100       0
 #&gt;   genuine               0     100
-#&gt; Training error = 0 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>mod2</span>)</div><div class='img'><img src='mclust-package-3.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-4.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-5.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-6.png' alt='' width='504' height='432' /></div><div class='input'>
+#&gt; Classification error = 0 
+#&gt; Brier score          = 0 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>mod2</span>)</div><div class='img'><img src='mclust-package-3.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-4.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-5.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-6.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='co'># Density estimation</span>
 <span class='no'>mod3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>faithful</span>$<span class='no'>waiting</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3</span>)</div><div class='output co'>#&gt; ------------------------------------------------------- 
@@ -179,11 +180,7 @@
 #&gt; Mclust E (univariate, equal variance) model with 2 components: 
 #&gt; 
 #&gt;  log-likelihood   n df       BIC       ICL
-#&gt;       -1034.002 272  4 -2090.427 -2099.576
-#&gt; 
-#&gt; Clustering table:
-#&gt;   1   2 
-#&gt;  99 173 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>mod3</span>, <span class='no'>faithful</span>$<span class='no'>waiting</span>)</div><div class='img'><img src='mclust-package-7.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-8.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-9.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-10.png' alt='' width='504' height='432' /></div></pre>
+#&gt;       -1034.002 272  4 -2090.427 -2099.576</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>mod3</span>, <span class='no'>faithful</span>$<span class='no'>waiting</span>)</div><div class='img'><img src='mclust-package-7.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-8.png' alt='' width='504' height='432' /></div><div class='output co'>#&gt; <span class='warning'>Warning: collapsing to unique 'x' values</span></div><div class='img'><img src='mclust-package-9.png' alt='' width='504' height='432' /></div><div class='img'><img src='mclust-package-10.png' alt='' width='504' height='432' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

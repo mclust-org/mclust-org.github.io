@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Correspondence between classifications. — mapClass • mclust</title>
+<title>Correspondence between classifications — mapClass • mclust</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -37,7 +37,7 @@
 
 
 
-<meta property="og:title" content="Correspondence between classifications. — mapClass" />
+<meta property="og:title" content="Correspondence between classifications — mapClass" />
 
 <meta property="og:description" content="Best correspondence between classes given two vectors viewed
   as alternative classifications of the same object." />
@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -110,7 +110,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Correspondence between classifications.</h1>
+    <h1>Correspondence between classifications</h1>
     
     <div class="hidden name"><code>mapClass.Rd</code></div>
     </div>
@@ -185,8 +185,8 @@
 #&gt; [1] 3
 #&gt; 
 #&gt; </div><div class='input'><span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='fl'>9</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='no'>a</span></div><div class='output co'>#&gt; [1] 1 2 1 3 1 1 3 2 1</div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>), <span class='fl'>9</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='no'>b</span></div><div class='output co'>#&gt; [1] "C" "C" "A" "A" "A" "A" "B" "A" "B"</div><div class='input'><span class='fu'>mapClass</span>(<span class='no'>a</span>, <span class='no'>b</span>)</div><div class='output co'>#&gt; $aTOb
+<span class='no'>a</span></div><div class='output co'>#&gt; [1] 3 3 2 1 3 3 3 1 3</div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>), <span class='fl'>9</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='no'>b</span></div><div class='output co'>#&gt; [1] "C" "A" "A" "A" "C" "A" "C" "B" "C"</div><div class='input'><span class='fu'>mapClass</span>(<span class='no'>a</span>, <span class='no'>b</span>)</div><div class='output co'>#&gt; $aTOb
 #&gt; $aTOb$`1`
 #&gt; [1] "A"
 #&gt; 
@@ -194,18 +194,18 @@
 #&gt; [1] "A"
 #&gt; 
 #&gt; $aTOb$`3`
-#&gt; [1] "A"
+#&gt; [1] "C"
 #&gt; 
 #&gt; 
 #&gt; $bTOa
 #&gt; $bTOa$A
-#&gt; [1] 1
+#&gt; [1] 3
 #&gt; 
 #&gt; $bTOa$B
 #&gt; [1] 1
 #&gt; 
 #&gt; $bTOa$C
-#&gt; [1] 1
+#&gt; [1] 3
 #&gt; 
 #&gt; </div></pre>
   </div>

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@
     </div>
 
     <pre class="usage"># S3 method for densityMclust
-predict(object, newdata, what = c("dens", "cdens"), logarithm = FALSE, &#8230;)</pre>
+predict(object, newdata, what = c("dens", "cdens", "z"), logarithm = FALSE, &#8230;)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -136,7 +136,7 @@ predict(object, newdata, what = c("dens", "cdens"), logarithm = FALSE, &#8230;)<
     </tr>
     <tr>
       <th>what</th>
-      <td><p>a character string specifying what to retrieve: <code>"dens"</code> returns a vector of values for the mixture density: <code>"cdens"</code> returns a matrix of component densities for each mixture component (along the columns).</p></td>
+      <td><p>a character string specifying what to retrieve: <code>"dens"</code> returns a vector of values for the mixture density; <code>"cdens"</code> returns a matrix of component densities for each mixture component (along the columns); <code>"z"</code> returns a matrix of conditional probabilities of each data point to belong to a mixture component.</p></td>
     </tr>
     <tr>
       <th>logarithm</th>

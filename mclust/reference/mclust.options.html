@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -173,6 +173,10 @@ Available arguments are described in the Details section below.</p></td>
     hierarchical clustering to start the EM algorithm. 
     If data sample size exceeds this value, a random sample is drawn of size
     specified by <code>subset</code>.</p></dd>
+  <dt><code>fillEllipses</code></dt><dd><p>A logical value specifying whether or not to fill with transparent
+    colors ellipses corresponding to the within-cluster covariances in case
+    of <code>"classification"</code> plot for <code>'Mclust'</code> objects, or
+    <code>"scatterplot"</code> graphs for <code>'MclustDA'</code> objects.</p></dd>
   <dt><code>bicPlotSymbols</code></dt><dd><p>A vector whose entries correspond to graphics symbols for plotting the 
     BIC values output from <code><a href='Mclust.html'>Mclust</a></code> and <code><a href='mclustBIC.html'>mclustBIC</a></code>. 
     These are displayed in the legend which appears at the lower right
@@ -249,6 +253,9 @@ If the argument list is not empty, the returned list is invisible.</p>
 #&gt; 
 #&gt; $subset
 #&gt; [1] 2000
+#&gt; 
+#&gt; $fillEllipses
+#&gt; [1] FALSE
 #&gt; 
 #&gt; $bicPlotSymbols
 #&gt; EII VII EEI EVI VEI VVI EEE EVE VEE VVE EEV VEV EVV VVV   E   V 

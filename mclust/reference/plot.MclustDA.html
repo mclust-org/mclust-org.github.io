@@ -39,7 +39,7 @@
 
 <meta property="og:title" content="Plotting method for MclustDA discriminant analysis — plot.MclustDA" />
 
-<meta property="og:description" content="Graphical tools for training and test data, known training data classification, mclustDA test data classification, and/or training errors." />
+<meta property="og:description" content="Plots for model-based mixture discriminant analysis results, such as scatterplot of training and test data, classification of train and test data, and errors." />
 
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -116,13 +116,14 @@
 
     <div class="ref-description">
     
-    <p>Graphical tools for training and test data, known training data classification, mclustDA test data classification, and/or training errors.</p>
+    <p>Plots for model-based mixture discriminant analysis results, such as scatterplot of training and test data, classification of train and test data, and errors.</p>
     
     </div>
 
     <pre class="usage"># S3 method for MclustDA
 plot(x, what = c("scatterplot", "classification", "train&test", "error"), 
-     newdata, newclass, dimens, symbols, colors, &#8230;)</pre>
+     newdata, newclass, dimens = NULL, 
+     symbols, colors, main = NULL, &#8230;)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,12 +134,12 @@ plot(x, what = c("scatterplot", "classification", "train&test", "error"),
     </tr>
     <tr>
       <th>what</th>
-      <td><p>The type of graph requested:</p><dl class='dl-horizontal'>
-      <dt><code>"scatterplot"</code> =</dt><dd><p>a plot of training data with points marked based the known classification. Ellipses corresponding to covariances of mixture components are also drawn.</p></dd>
-      <dt><code>"classification"</code> =</dt><dd><p>a plot of data with points marked based the predicted classification; if <code>newdata</code> is provided then the test set is shown otherwise the training set.</p></dd>
+      <td><p>A string specifying the type of graph requested. Available choices are:</p><dl class='dl-horizontal'>
+      <dt><code>"scatterplot"</code> =</dt><dd><p>a plot of training data with points marked based on the known classification. Ellipses corresponding to covariances of mixture components are also drawn.</p></dd>
+      <dt><code>"classification"</code> =</dt><dd><p>a plot of data with points marked on based the predicted classification; if <code>newdata</code> is provided then the test set is shown otherwise the training set.</p></dd>
       <dt><code>"train&amp;test"</code> =</dt><dd><p>a plot of training and test data with points marked according to the type of set.</p></dd>
       <dt><code>"error"</code> =</dt><dd><p>a plot of training set (or test set if <code>newdata</code> and <code>newclass</code> are provided) with misclassified points marked.</p></dd>
-   </dl><p></p></td>
+   </dl><p>If not specified, in interactive sessions a menu of choices is proposed.</p></td>
     </tr>
     <tr>
       <th>newdata</th>
@@ -170,6 +171,13 @@ plot(x, what = c("scatterplot", "classification", "train&test", "error"),
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>factor</code>). 
     The default is given by <code><a href='mclust.options.html'>mclust.options("classPlotColors")</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>main</th>
+      <td><p>A logical, a character string, or <code>NULL</code> (default) for the main title. 
+    If <code>NULL</code> or <code>FALSE</code> no title is added to a plot. 
+    If <code>TRUE</code> a default title is added identifying the type of plot drawn.
+    If a character string is provided, this is used for the title.</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>

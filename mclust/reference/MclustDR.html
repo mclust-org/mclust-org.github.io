@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>MclustDR</span>(<span class='no'>object</span>, <span class='kw'>normalized</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>Sigma</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+    <pre class="usage"><span class='fu'>MclustDR</span>(<span class='no'>object</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>normalized</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>Sigma</span>,
          <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/MathFun'>sqrt</a></span>(<span class='no'>.Machine</span>$<span class='no'>double.eps</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -131,19 +131,19 @@
       <td><p>An object of class <code>'Mclust'</code> or <code>'MclustDA'</code> resulting from a call to, respectively, <code><a href='Mclust.html'>Mclust</a></code> or <code><a href='MclustDA.html'>MclustDA</a></code>.</p></td>
     </tr>
     <tr>
+      <th>lambda</th>
+      <td><p>A tuning parameter in the range [0,1] described in Scrucca (2014). 
+  The default 0.5 gives equal importance to differences in means and covariances 
+  among clusters/classes. To recover the directions that mostly separate the estimated
+  clusters or classes set this parameter to 1.</p></td>
+    </tr>
+    <tr>
       <th>normalized</th>
       <td><p>Logical. If <code>TRUE</code> directions are normalized to unit norm.</p></td>
     </tr>
     <tr>
       <th>Sigma</th>
       <td><p>Marginal covariance matrix of data. If not provided is estimated by the MLE of observed data.</p></td>
-    </tr>
-    <tr>
-      <th>lambda</th>
-      <td><p>A tuning parameter in the range [0,1] described in Scrucca (2014). 
-  The default 0.5 gives equal importance to differences in means and covariances 
-  among clusters/classes. To recover the directions that mostly separate the estimated
-  clusters or classes set this parameter to 1.</p></td>
     </tr>
     <tr>
       <th>tol</th>

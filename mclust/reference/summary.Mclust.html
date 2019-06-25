@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -208,14 +208,7 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt; Sepal.Length    0.4000438  0.10865444    0.3994018  0.14368256
 #&gt; Sepal.Width     0.1086544  0.10928077    0.1238904  0.07284384
 #&gt; Petal.Length    0.3994018  0.12389040    0.6109024  0.25738990
-#&gt; Petal.Width     0.1436826  0.07284384    0.2573899  0.16808182
-#&gt; 
-#&gt; Classification:
-#&gt;   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt;  [38] 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-#&gt;  [75] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-#&gt; [112] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-#&gt; [149] 2 2</div><div class='input'>
+#&gt; Petal.Width     0.1436826  0.07284384    0.2573899  0.16808182</div><div class='input'>
 <span class='no'>mod2</span> <span class='kw'>=</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>], <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>classification</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ---------------------------------------------------- 
 #&gt; Gaussian finite mixture model fitted by EM algorithm 
@@ -247,14 +240,7 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt; Sepal.Length   0.68112222 -0.04215111    1.2658200   0.5128289
 #&gt; Sepal.Width   -0.04215111  0.18871289   -0.3274587  -0.1208284
 #&gt; Petal.Length   1.26582000 -0.32745867    3.0955027   1.2869720
-#&gt; Petal.Width    0.51282889 -0.12082844    1.2869720   0.5771329
-#&gt; 
-#&gt; Classification:
-#&gt;   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt;  [38] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt;  [75] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [112] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [149] 1 1</div><div class='input'>
+#&gt; Petal.Width    0.51282889 -0.12082844    1.2869720   0.5771329</div><div class='input'>
 <span class='no'>mod3</span> <span class='kw'>=</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>], <span class='kw'>prior</span> <span class='kw'>=</span> <span class='fu'><a href='priorControl.html'>priorControl</a></span>())</div><div class='output co'>#&gt; <span class='warning'>Warning: The presence of BIC values equal to NA is likely due to one or more of the mixture proportions being estimated as zero, so that the model estimated reduces to one with a smaller number of components.</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3</span>)</div><div class='output co'>#&gt; ---------------------------------------------------- 
 #&gt; Gaussian finite mixture model fitted by EM algorithm 
 #&gt; ---------------------------------------------------- 
@@ -307,14 +293,7 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt; Sepal.Length    0.4048913  0.10410868    0.3671040  0.11699659
 #&gt; Sepal.Width     0.1041087  0.10356921    0.1117050  0.06496733
 #&gt; Petal.Length    0.3671040  0.11170501    0.5942949  0.25703252
-#&gt; Petal.Width     0.1169966  0.06496733    0.2570325  0.17424925
-#&gt; 
-#&gt; Classification:
-#&gt;   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt;  [38] 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-#&gt;  [75] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-#&gt; [112] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-#&gt; [149] 2 2</div></pre>
+#&gt; Petal.Width     0.1169966  0.06496733    0.2570325  0.17424925</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

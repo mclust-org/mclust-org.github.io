@@ -73,7 +73,7 @@ a MVN mixture model for the data." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -123,14 +123,16 @@ a MVN mixture model for the data.</p>
     </div>
 
     <pre class="usage">surfacePlot(data, parameters, 
-            type = c("contour", "hdr", "image", "persp"), 
             what = c("density", "uncertainty"), 
+            type = c("contour", "hdr", "image", "persp"), 
             transformation = c("none", "log", "sqrt"),          
-            grid = 100, nlevels = 11, levels = NULL, 
+            grid = 200, nlevels = 11, levels = NULL, 
             prob = c(0.25, 0.5, 0.75),
-            color.palette = blue2grey.colors, col = grey(0.6),
+            col = gray(0.7),
+            col.palette = function(...) hcl.colors(..., "blues", rev = TRUE),
+            hdr.palette = blue2grey.colors,
             xlim = NULL, ylim = NULL, xlab = NULL, ylab = NULL, 
-            scale = FALSE, main = FALSE, swapAxes = FALSE, 
+            main = FALSE, scale = FALSE, swapAxes = FALSE, 
             verbose = FALSE, &#8230;)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -158,15 +160,15 @@ a MVN mixture model for the data.</p>
      </dl><p></p></td>
     </tr>
     <tr>
+      <th>what</th>
+      <td><p>Choose from one of the following options: <code>"density"</code>
+    (default), <code>"uncertainty"</code> indicating what to plot.</p></td>
+    </tr>
+    <tr>
       <th>type</th>
       <td><p>Choose from one of the following three options: <code>"contour"</code> 
     (default), <code>"hdr"</code>, <code>"image"</code>, and <code>"persp"</code> indicating 
     the plot type.</p></td>
-    </tr>
-    <tr>
-      <th>what</th>
-      <td><p>Choose from one of the following options: <code>"density"</code>
-    (default), <code>"uncertainty"</code> indicating what to plot.</p></td>
     </tr>
     <tr>
       <th>transformation</th>
@@ -197,13 +199,19 @@ a MVN mixture model for the data.</p>
     <code>nlevels</code> and <code>levels</code> arguments.</p></td>
     </tr>
     <tr>
-      <th>color.palette</th>
-      <td><p>A function which defines a palette of colours to be used for 
-    <code>type = "hdr"</code> plot.</p></td>
+      <th>col</th>
+      <td><p>A string specifying the colour to be used for <code>type = "contour"</code> 
+    and <code>type = "persp"</code> plots.</p></td>
     </tr>
     <tr>
-      <th>col</th>
-      <td><p>The color to be used for drawing contour lines.</p></td>
+      <th>col.palette</th>
+      <td><p>A function which defines a palette of colours to be used for 
+    <code>type = "image"</code> plots.</p></td>
+    </tr>
+    <tr>
+      <th>hdr.palette</th>
+      <td><p>A function which defines a palette of colours to be used for 
+    <code>type = "hdr"</code> plots.</p></td>
     </tr>
     <tr>
       <th>xlim, ylim</th>
@@ -215,16 +223,16 @@ a MVN mixture model for the data.</p>
       <td><p>Optional argument specifying labels for the x-axis and y-axis.</p></td>
     </tr>
     <tr>
+      <th>main</th>
+      <td><p>A logical variable or <code>NULL</code> indicating whether or not to add a title 
+    to the plot identifying the dimensions used.</p></td>
+    </tr>
+    <tr>
       <th>scale</th>
       <td><p>A logical variable indicating whether or not the two
     dimensions should be plotted on the same scale, and
     thus preserve the shape of the distribution.
     The default is not to scale.</p></td>
-    </tr>
-    <tr>
-      <th>main</th>
-      <td><p>A logical variable or <code>NULL</code> indicating whether or not to add a title 
-    to the plot identifying the dimensions used.</p></td>
     </tr>
     <tr>
       <th>swapAxes</th>

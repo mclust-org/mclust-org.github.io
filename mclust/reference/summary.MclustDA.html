@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Summarizing discriminant analysis based on Gaussian finite mixture modeling. — summary.MclustDA • mclust</title>
+<title>Summarizing discriminant analysis based on Gaussian finite mixture modeling — summary.MclustDA • mclust</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -37,7 +37,7 @@
 
 
 
-<meta property="og:title" content="Summarizing discriminant analysis based on Gaussian finite mixture modeling. — summary.MclustDA" />
+<meta property="og:title" content="Summarizing discriminant analysis based on Gaussian finite mixture modeling — summary.MclustDA" />
 
 <meta property="og:description" content="Summary method for class &quot;MclustDA&quot;." />
 
@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -109,7 +109,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Summarizing discriminant analysis based on Gaussian finite mixture modeling.</h1>
+    <h1>Summarizing discriminant analysis based on Gaussian finite mixture modeling</h1>
     
     <div class="hidden name"><code>summary.MclustDA.Rd</code></div>
     </div>
@@ -179,18 +179,19 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt;  log-likelihood   n df       BIC
 #&gt;       -182.9208 150 42 -576.2884
 #&gt;             
-#&gt; Classes       n Model G
-#&gt;   setosa     50   XXX 1
-#&gt;   versicolor 50   XXX 1
-#&gt;   virginica  50   XXX 1
+#&gt; Classes       n     % Model G
+#&gt;   setosa     50 33.33   XXX 1
+#&gt;   versicolor 50 33.33   XXX 1
+#&gt;   virginica  50 33.33   XXX 1
 #&gt; 
-#&gt; Training classification summary:
+#&gt; Training confusion matrix:
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         50          0         0
 #&gt;   versicolor      0         48         2
 #&gt;   virginica       0          1        49
-#&gt; Training error = 0.02 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
+#&gt; Classification error = 0.02 
+#&gt; Brier score          = 0.0116 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
 #&gt; Gaussian finite mixture model for classification 
 #&gt; ------------------------------------------------ 
 #&gt; 
@@ -199,10 +200,10 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt;  log-likelihood   n df       BIC
 #&gt;       -182.9208 150 42 -576.2884
 #&gt;             
-#&gt; Classes       n Model G
-#&gt;   setosa     50   XXX 1
-#&gt;   versicolor 50   XXX 1
-#&gt;   virginica  50   XXX 1
+#&gt; Classes       n     % Model G
+#&gt;   setosa     50 33.33   XXX 1
+#&gt;   versicolor 50 33.33   XXX 1
+#&gt;   virginica  50 33.33   XXX 1
 #&gt; 
 #&gt; Class prior probabilities:
 #&gt;     setosa versicolor  virginica 
@@ -265,13 +266,14 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt; Petal.Length     0.297224    0.069952     0.298496    0.047848
 #&gt; Petal.Width      0.048112    0.046676     0.047848    0.073924
 #&gt; 
-#&gt; Training classification summary:
+#&gt; Training confusion matrix:
 #&gt;             Predicted
 #&gt; Class        setosa versicolor virginica
 #&gt;   setosa         50          0         0
 #&gt;   versicolor      0         48         2
 #&gt;   virginica       0          1        49
-#&gt; Training error = 0.02 </div></pre>
+#&gt; Classification error = 0.02 
+#&gt; Brier score          = 0.0116 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

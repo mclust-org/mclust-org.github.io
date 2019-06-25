@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -124,10 +124,11 @@
 
     <pre class="usage">mclust1Dplot(data, parameters = NULL, z = NULL, 
              classification = NULL, truth = NULL, uncertainty = NULL, 
-             what = c("classification", "density", "errors", "uncertainty"),
+             what = c("classification", "density", "error", "uncertainty"),
              symbols = NULL, colors = NULL, ngrid = length(data), 
-             xlab = NULL, xlim = NULL, CEX = 1, 
-             main = FALSE, &#8230;)</pre>
+             xlab = NULL, ylab = NULL, 
+             xlim = NULL, ylim = NULL,
+             CEX = 1, main = FALSE, &#8230;)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,8 +173,7 @@
       <th>truth</th>
       <td><p>A numeric or character vector giving a known
         classification of each data point.
-        If <code>classification</code>
-        or <code>z</code> is also present,
+        If <code>classification</code> or <code>z</code> is also present,
         this is used for displaying classification errors.</p></td>
     </tr>
     <tr>
@@ -184,8 +184,8 @@
     </tr>
     <tr>
       <th>what</th>
-      <td><p>Choose from one of the following three options: <code>"classification"</code>
-    (default), <code>"density"</code>, <code>"errors"</code>, <code>"uncertainty"</code>.</p></td>
+      <td><p>Choose from one of the following options: <code>"classification"</code>
+    (default), <code>"density"</code>, <code>"error"</code>, <code>"uncertainty"</code>.</p></td>
     </tr>
     <tr>
       <th>symbols</th>
@@ -211,11 +211,11 @@
     spanned by the data. The default is the length of the data set.</p></td>
     </tr>
     <tr>
-      <th>xlab</th>
-      <td><p>An argument specifying a label for the horizontal axis.</p></td>
+      <th>xlab, ylab</th>
+      <td><p>An argument specifying a label for the axes.</p></td>
     </tr>
     <tr>
-      <th>xlim</th>
+      <th>xlim, ylim</th>
       <td><p>An argument specifying bounds of the plot.
     This may be useful for when comparing plots.</p></td>
     </tr>
@@ -256,16 +256,16 @@
 <span class='no'>yModel</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>y</span>)
 
 <span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>,
-             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>)
 
 <span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>,
-             <span class='kw'>truth</span> <span class='kw'>=</span> <span class='no'>yclass</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"errors"</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"error"</span>, <span class='kw'>truth</span> <span class='kw'>=</span> <span class='no'>yclass</span>)
 
 <span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>,
-             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>)
 
 <span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>,
-            <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"uncertainty"</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+            <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"uncertainty"</span>)
 
 <span class='co'># }</span></pre>
   </div>

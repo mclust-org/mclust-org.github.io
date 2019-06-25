@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Model-based Hierarchical Clustering — hc • mclust</title>
+<title>Model-based Agglomerative Hierarchical Clustering — hc • mclust</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -37,7 +37,7 @@
 
 
 
-<meta property="og:title" content="Model-based Hierarchical Clustering — hc" />
+<meta property="og:title" content="Model-based Agglomerative Hierarchical Clustering — hc" />
 
 <meta property="og:description" content="Agglomerative hierarchical clustering based on maximum likelihood criteria 
   for Gaussian mixture models parameterized by eigenvalue decomposition." />
@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
       </span>
     </div>
 
@@ -110,7 +110,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Model-based Hierarchical Clustering</h1>
+    <h1>Model-based Agglomerative Hierarchical Clustering</h1>
     
     <div class="hidden name"><code>hc.Rd</code></div>
     </div>
@@ -124,7 +124,16 @@
 
     <pre class="usage">hc(data,
    modelName = mclust.options("hcModelName"),  
-   use = mclust.options("hcUse"), &#8230;)</pre>
+   use = mclust.options("hcUse"), &#8230;)
+
+# S3 method for hc
+plot(x, &#8230;)
+
+# S3 method for hc
+as.dendrogram(object, &#8230;)
+
+# S3 method for hc
+as.hclust(x, &#8230;)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,13 +171,26 @@
       <td><p>Arguments for the method-specific <code>hc</code> functions. See for example
     <code><a href='hcE.html'>hcE</a></code>.</p></td>
     </tr>
+    <tr>
+      <th>object, x</th>
+      <td><p>An object of class <code>'hc'</code> resulting from a call to <code>hc()</code>.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A numeric two-column matrix in which the <em>i</em>th row gives the 
-  minimum index for observations in each of the two clusters merged at the
-  <em>i</em>th stage of agglomerative hierarchical clustering.</p>
+    <p>The function <code>hc()</code> returns a numeric two-column matrix in which 
+  the <em>i</em>th row gives the minimum index for observations in each of 
+  the two clusters merged at the <em>i</em>th stage of agglomerative 
+  hierarchical clustering. Several other informations are also returned
+  as attributes.</p>  
+<p>The plotting function <code>plot.hc()</code> draws a dendrogram by first
+  converting the input object from class <code>'hc'</code> to class 
+  <code>'dendrogram'</code> and then plot the transformed object using 
+  <code><a href='https://www.rdocumentation.org/packages/stats/topics/dendrogram'>plot.dendrogram</a></code>.</p>  
+<p>The functions <code>as.dendrogram.hc()</code> and <code>as.hclust.hc()</code> are
+  used to convert the input object from class <code>'hc'</code> to class, 
+  respectively, <code>'dendrogram'</code> and <code>'hclust'</code>.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
