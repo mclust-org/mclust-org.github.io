@@ -70,7 +70,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
       </span>
     </div>
 
@@ -111,18 +111,27 @@
       
     </div>
 
-    <div id="mclust-544-not-on-cran" class="section level1">
+    <div id="mclust-545" class="section level1">
 <h1 class="page-header">
-<a href="#mclust-544-not-on-cran" class="anchor"></a>mclust 5.4.4 (NOT ON CRAN)<small> Unreleased </small>
+<a href="#mclust-545" class="anchor"></a>mclust 5.4.5<small> Unreleased </small>
 </h1>
 <ul>
-<li>Add <code><a href="../reference/classPriorProbs.html">classPriorProbs()</a></code> to estimate prior class probabilities.</li>
-<li>Add <code><a href="../reference/BrierScore.html">BrierScore()</a></code> to compute the Brier score for assessing the accuracy of probabilistic predictions.</li>
-<li>Add <code><a href="../reference/randomOrthogonalMatrix.html">randomOrthogonalMatrix()</a></code> to generate random orthogonal basis matrices.</li>
-<li>Rewrite of <code><a href="../reference/plot.MclustDA.html">plot.MclustDA()</a></code> internals.</li>
-<li>Add <code><a href="../reference/dmvnorm.html">dmvnorm()</a></code> for computing the density of a general multivariate Gaussian distribution via efficient Fortran code.</li>
-<li>Add Wisconsin diagnostic breast cancer (WDBC) data.</li>
-<li>Add EuroUnemployment data.</li>
+<li>Fixed warnings in Fortran calls raised by CRAN.</li>
+</ul>
+</div>
+    <div id="mclust-544" class="section level1">
+<h1 class="page-header">
+<a href="#mclust-544" class="anchor"></a>mclust 5.4.4<small> 2019-06-27 </small>
+</h1>
+<ul>
+<li>Added <code><a href="../reference/classPriorProbs.html">classPriorProbs()</a></code> to estimate prior class probabilities.</li>
+<li>Added <code><a href="../reference/BrierScore.html">BrierScore()</a></code> to compute the Brier score for assessing the accuracy of probabilistic predictions.</li>
+<li>Added <code><a href="../reference/randomOrthogonalMatrix.html">randomOrthogonalMatrix()</a></code> to generate random orthogonal basis matrices.</li>
+<li>Partial rewriting of <code><a href="../reference/summary.MclustDA.html">summary.MclustDA()</a></code> internals to provide both the classification error and the Brier score for training and/or test data.</li>
+<li>Partial rewriting of <code><a href="../reference/plot.MclustDA.html">plot.MclustDA()</a></code> internals.</li>
+<li>Added <code><a href="../reference/dmvnorm.html">dmvnorm()</a></code> for computing the density of a general multivariate Gaussian distribution via efficient Fortran code.</li>
+<li>Added Wisconsin diagnostic breast cancer (WDBC) data.</li>
+<li>Added EuroUnemployment data.</li>
 <li>Fixed mismatches in Fortran calls.</li>
 <li>Bugs fix.</li>
 </ul>
@@ -595,7 +604,8 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#mclust-544-not-on-cran">5.4.4</a></li>
+        <li><a href="#mclust-545">5.4.5</a></li>
+        <li><a href="#mclust-544">5.4.4</a></li>
         <li><a href="#mclust-543">5.4.3</a></li>
         <li><a href="#mclust-542">5.4.2</a></li>
         <li><a href="#mclust-541">5.4.1</a></li>
