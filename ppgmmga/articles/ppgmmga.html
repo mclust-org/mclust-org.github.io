@@ -69,7 +69,7 @@
       <h1>A quick tour of ppgmmga</h1>
                         <h4 class="author">Alessio Serafini, Luca Scrucca</h4>
             
-            <h4 class="date">07 Jul 2019</h4>
+            <h4 class="date">25 Oct 2019</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/luca-scr/ppgmmga/blob/master/vignettes/ppgmmga.Rmd"><code>vignettes/ppgmmga.Rmd</code></a></small>
       <div class="hidden name"><code>ppgmmga.Rmd</code></div>
@@ -81,7 +81,7 @@
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>An R package implementing a Projection Pursuit algorithm based on finite Gaussian Mixtures Models for density estimation using Genetic Algorithms (PPGMMGA) to maximise an approximated Negentropy index. The <strong>ppgmmga</strong> algorithm provides a method to visualise high-dimensional data in a lower-dimensional space, with special reference to reveal clustering structures.</p>
+<p>An R package implementing a Projection Pursuit algorithm based on finite Gaussian Mixtures Models for density estimation using Genetic Algorithms (PPGMMGA) to maximise a Negentropy index. The <strong>PPGMMGA</strong> algorithm provides a method to visualise high-dimensional data in a lower-dimensional space, with special reference to reveal clustering structures.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ppgmmga)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co">##    ___  ___  ___ ___ _  __ _  ___ ____ _</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co">##   / _ \/ _ \/ _ `/  ' \/  ' \/ _ `/ _ `/</span></span>
@@ -100,149 +100,133 @@
 <span id="cb2-7"><a href="#cb2-7"></a><span class="co">## counterfeit     genuine </span></span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co">##         100         100</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a>Class_color &lt;-<span class="st"> </span>ggthemes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggthemes/topics/tableau_color_pal">tableau_color_pal</a></span>(<span class="st">"Classic 10"</span>)(<span class="dv">2</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/clPairs.html">clPairs</a></span>(X, <span class="dt">classification =</span> Class, <span class="dt">colors =</span> Class_color)</span></code></pre></div>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/clPairs.html">clPairs</a></span>(X, <span class="dt">classification =</span> Class, </span>
+<span id="cb2-11"><a href="#cb2-11"></a>        <span class="dt">symbols =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">20</span>,<span class="dv">3</span>), <span class="dt">colors =</span> Class_color)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
 <div id="dimensional-ppgmmga" class="section level1">
 <h1 class="hasAnchor">
-<a href="#dimensional-ppgmmga" class="anchor"></a>1-dimensional ppgmmga</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>pp1D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ppgmmga.html">ppgmmga</a></span>(<span class="dt">data =</span> X, <span class="dt">d =</span> <span class="dv">1</span>, <span class="dt">approx =</span> <span class="st">"UT"</span>, <span class="dt">seed =</span> <span class="dv">1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>pp1D</span>
+<a href="#dimensional-ppgmmga" class="anchor"></a>1-dimensional PPGMMGA</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>PP1D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ppgmmga.html">ppgmmga</a></span>(<span class="dt">data =</span> X, <span class="dt">d =</span> <span class="dv">1</span>, <span class="dt">seed =</span> <span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>PP1D</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co">## Call:</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">## ppgmmga(data = X, d = 1, approx = "UT", seed = 1)</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">## ppgmmga(data = X, d = 1, seed = 1)</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="co">## </span></span>
 <span id="cb3-6"><a href="#cb3-6"></a><span class="co">## 'ppgmmga' object containing: </span></span>
 <span id="cb3-7"><a href="#cb3-7"></a><span class="co">## [1] "data"       "d"          "approx"     "GMM"        "GA"        </span></span>
 <span id="cb3-8"><a href="#cb3-8"></a><span class="co">## [6] "Negentropy" "basis"      "Z"</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(pp1D)</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(PP1D)</span>
 <span id="cb3-10"><a href="#cb3-10"></a><span class="co">## ── ppgmmga ───────────────────────────── </span></span>
 <span id="cb3-11"><a href="#cb3-11"></a><span class="co">## </span></span>
 <span id="cb3-12"><a href="#cb3-12"></a><span class="co">## Data dimensions               = 200 x 6 </span></span>
 <span id="cb3-13"><a href="#cb3-13"></a><span class="co">## Data transformation           = center &amp; scale </span></span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="co">## Projection subspace dimension = 1 </span></span>
 <span id="cb3-15"><a href="#cb3-15"></a><span class="co">## GMM density estimate          = (VEE,4)</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">## Negentropy approximation      = UT </span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co">## GA optimal negentropy         = 0.6345935 </span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">## GA encoded basis solution: </span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co">##            x1       x2       x3        x4       x5</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">## [1,] 3.268902 2.373044 1.051365 0.3131285 0.531718</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">## </span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="co">## Estimated projection basis: </span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">##                  PP1</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">## Length   -0.01196531</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">## Left     -0.09347750</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="co">## Right     0.16021052</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="co">## Bottom    0.57406981</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a><span class="co">## Top       0.34503463</span></span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="co">## Diagonal -0.71892026</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp1D)</span></code></pre></div>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">## GA optimal negentropy         = 0.6346255 </span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co">## GA encoded basis solution: </span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co">##            x1       x2       x3        x4        x5</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="co">## [1,] 3.123735 2.340678 1.036077 0.3162544 0.6354944</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">## </span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co">## Estimated projection basis: </span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="co">##                   PP1</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="co">## Length   -0.002036485</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">## Left      0.114026609</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">## Right    -0.154623597</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="co">## Bottom   -0.587132675</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co">## Top      -0.365888881</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="co">## Diagonal  0.696050197</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP1D)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-4-1.png" width="60%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp1D, <span class="dt">class =</span> Class)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP1D, <span class="dt">class =</span> Class)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-5-1.png" width="70%" style="display: block; margin: auto;"></p>
 </div>
 <div id="dimensional-ppgmmga-1" class="section level1">
 <h1 class="hasAnchor">
-<a href="#dimensional-ppgmmga-1" class="anchor"></a>2-dimensional ppgmmga</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>pp2D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ppgmmga.html">ppgmmga</a></span>(<span class="dt">data =</span> X, <span class="dt">d =</span> <span class="dv">2</span>, <span class="dt">approx =</span> <span class="st">"UT"</span>, <span class="dt">seed =</span> <span class="dv">1</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(pp2D, <span class="dt">check =</span> <span class="ot">TRUE</span>)</span>
+<a href="#dimensional-ppgmmga-1" class="anchor"></a>2-dimensional PPGMMGA</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>PP2D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ppgmmga.html">ppgmmga</a></span>(<span class="dt">data =</span> X, <span class="dt">d =</span> <span class="dv">2</span>, <span class="dt">seed =</span> <span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(PP2D)</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">## ── ppgmmga ───────────────────────────── </span></span>
 <span id="cb6-4"><a href="#cb6-4"></a><span class="co">## </span></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="co">## Data dimensions               = 200 x 6 </span></span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="co">## Data transformation           = center &amp; scale </span></span>
 <span id="cb6-7"><a href="#cb6-7"></a><span class="co">## Projection subspace dimension = 2 </span></span>
 <span id="cb6-8"><a href="#cb6-8"></a><span class="co">## GMM density estimate          = (VEE,4)</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">## Negentropy approximation      = UT </span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">## GA optimal negentropy         = 1.13624 </span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">## GA encoded basis solution: </span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##            x1       x2       x3       x4        x5      x6        x7</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">## [1,] 2.268667 2.929821 1.061407 1.084929 0.3044298 3.85462 0.9832903</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##           x8        x9      x10</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co">## [1,] 1.11377 0.1671738 1.668403</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## </span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="co">## Estimated projection basis: </span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co">##                  PP1         PP2</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co">## Length   -0.03726866 -0.07183191</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="co">## Left      0.03125553 -0.11981165</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="co">## Right    -0.15480788  0.06300918</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="co">## Bottom   -0.08569311  0.86390485</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="co">## Top      -0.10249897  0.46037271</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="co">## Diagonal  0.97766012  0.13505761</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="co">## </span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="co">## Monte Carlo Negentropy approximation check: </span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co">##                            UT</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="co">## Approx Negentropy 1.136240194</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a><span class="co">## MC Negentropy     1.137260367</span></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="co">## MC se             0.003527379</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="co">## Relative accuracy 0.999102956</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(pp2D<span class="op">$</span>GMM)</span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="co">## ------------------------------------------------------- </span></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="co">## Density estimation via Gaussian finite mixture modeling </span></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="co">## ------------------------------------------------------- </span></span>
-<span id="cb6-36"><a href="#cb6-36"></a><span class="co">## </span></span>
-<span id="cb6-37"><a href="#cb6-37"></a><span class="co">## Mclust VEE (ellipsoidal, equal shape and orientation) model with 4</span></span>
-<span id="cb6-38"><a href="#cb6-38"></a><span class="co">## components: </span></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="co">## </span></span>
-<span id="cb6-40"><a href="#cb6-40"></a><span class="co">##  log-likelihood   n df       BIC       ICL</span></span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="co">##       -1191.595 200 51 -2653.405 -2666.898</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp2D<span class="op">$</span>GA)</span></code></pre></div>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">## GA optimal negentropy         = 1.136673 </span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">## GA encoded basis solution: </span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##            x1       x2       x3       x4        x5       x6        x7</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">## [1,] 2.097378 2.959282 1.146226 1.285379 0.3103671 3.881104 0.8794918</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##            x8        x9      x10</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">## [1,] 1.104232 0.1801086 1.766369</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">## </span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## Estimated projection basis: </span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">##                  PP1         PP2</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">## Length   -0.04185536 -0.07017388</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co">## Left      0.02433197 -0.12620766</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">## Right    -0.15094834  0.07667514</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">## Bottom   -0.04651504  0.85966415</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="co">## Top      -0.07468386  0.47579219</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">## Diagonal  0.98342735  0.08869900</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(PP2D<span class="op">$</span>GMM)</span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">## ------------------------------------------------------- </span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">## Density estimation via Gaussian finite mixture modeling </span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">## ------------------------------------------------------- </span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">## </span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">## Mclust VEE (ellipsoidal, equal shape and orientation) model with 4</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">## components: </span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="co">## </span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="co">##  log-likelihood   n df       BIC       ICL</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="co">##       -1191.595 200 51 -2653.405 -2666.898</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP2D<span class="op">$</span>GA)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-7-1.png" width="80%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp2D)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP2D)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-8-1.png" width="80%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp2D, <span class="dt">class =</span> Class, <span class="dt">drawAxis =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP2D, <span class="dt">class =</span> Class, <span class="dt">drawAxis =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-9-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
 <div id="dimensional-ppgmmga-2" class="section level1">
 <h1 class="hasAnchor">
-<a href="#dimensional-ppgmmga-2" class="anchor"></a>3-dimensional ppgmmga</h1>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>pp3D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ppgmmga.html">ppgmmga</a></span>(<span class="dt">data =</span> X, <span class="dt">d =</span> <span class="dv">3</span>, </span>
+<a href="#dimensional-ppgmmga-2" class="anchor"></a>3-dimensional PPGMMGA</h1>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>PP3D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ppgmmga.html">ppgmmga</a></span>(<span class="dt">data =</span> X, <span class="dt">d =</span> <span class="dv">3</span>, </span>
 <span id="cb10-2"><a href="#cb10-2"></a>                <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">FALSE</span>, </span>
 <span id="cb10-3"><a href="#cb10-3"></a>                <span class="dt">gatype =</span> <span class="st">"gaisl"</span>, </span>
 <span id="cb10-4"><a href="#cb10-4"></a>                <span class="dt">options =</span> <span class="kw"><a href="../reference/ppgmmga.options.html">ppgmmga.options</a></span>(<span class="dt">numIslands =</span> <span class="dv">2</span>),</span>
 <span id="cb10-5"><a href="#cb10-5"></a>                <span class="dt">seed =</span> <span class="dv">1</span>)</span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(pp3D, <span class="dt">check =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(PP3D)</span>
 <span id="cb10-7"><a href="#cb10-7"></a><span class="co">## ── ppgmmga ───────────────────────────── </span></span>
 <span id="cb10-8"><a href="#cb10-8"></a><span class="co">## </span></span>
 <span id="cb10-9"><a href="#cb10-9"></a><span class="co">## Data dimensions               = 200 x 6 </span></span>
 <span id="cb10-10"><a href="#cb10-10"></a><span class="co">## Data transformation           = center </span></span>
 <span id="cb10-11"><a href="#cb10-11"></a><span class="co">## Projection subspace dimension = 3 </span></span>
 <span id="cb10-12"><a href="#cb10-12"></a><span class="co">## GMM density estimate          = (VVE,3)</span></span>
-<span id="cb10-13"><a href="#cb10-13"></a><span class="co">## Negentropy approximation      = UT </span></span>
-<span id="cb10-14"><a href="#cb10-14"></a><span class="co">## GA optimal negentropy         = 1.16915 </span></span>
-<span id="cb10-15"><a href="#cb10-15"></a><span class="co">## GA encoded basis solution: </span></span>
-<span id="cb10-16"><a href="#cb10-16"></a><span class="co">##           x1       x2       x3       x4        x5       x6       x7</span></span>
-<span id="cb10-17"><a href="#cb10-17"></a><span class="co">## [1,] 4.27895 2.456084 1.056214 1.016039 0.9068527 4.881438 1.969835</span></span>
-<span id="cb10-18"><a href="#cb10-18"></a><span class="co">##            x8       x9      x10  ...       x14      x15</span></span>
-<span id="cb10-19"><a href="#cb10-19"></a><span class="co">## [1,] 2.004515 1.893527 2.203873       1.497831 2.426911</span></span>
-<span id="cb10-20"><a href="#cb10-20"></a><span class="co">## </span></span>
-<span id="cb10-21"><a href="#cb10-21"></a><span class="co">## Estimated projection basis: </span></span>
-<span id="cb10-22"><a href="#cb10-22"></a><span class="co">##                 PP1        PP2        PP3</span></span>
-<span id="cb10-23"><a href="#cb10-23"></a><span class="co">## Length   -0.3348102  0.5836357 -0.4816393</span></span>
-<span id="cb10-24"><a href="#cb10-24"></a><span class="co">## Left     -0.1549467 -0.1344400 -0.3328518</span></span>
-<span id="cb10-25"><a href="#cb10-25"></a><span class="co">## Right     0.2886637  0.5228153 -0.3558187</span></span>
-<span id="cb10-26"><a href="#cb10-26"></a><span class="co">## Bottom    0.2902762  0.3163971  0.4326480</span></span>
-<span id="cb10-27"><a href="#cb10-27"></a><span class="co">## Top       0.3115775  0.4435801  0.3708608</span></span>
-<span id="cb10-28"><a href="#cb10-28"></a><span class="co">## Diagonal -0.7740970  0.2666253  0.4537667</span></span>
-<span id="cb10-29"><a href="#cb10-29"></a><span class="co">## </span></span>
-<span id="cb10-30"><a href="#cb10-30"></a><span class="co">## Monte Carlo Negentropy approximation check: </span></span>
-<span id="cb10-31"><a href="#cb10-31"></a><span class="co">##                            UT</span></span>
-<span id="cb10-32"><a href="#cb10-32"></a><span class="co">## Approx Negentropy 1.169149622</span></span>
-<span id="cb10-33"><a href="#cb10-33"></a><span class="co">## MC Negentropy     1.175723371</span></span>
-<span id="cb10-34"><a href="#cb10-34"></a><span class="co">## MC se             0.004315954</span></span>
-<span id="cb10-35"><a href="#cb10-35"></a><span class="co">## Relative accuracy 0.994408763</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp3D<span class="op">$</span>GA)</span></code></pre></div>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">## GA optimal negentropy         = 1.17971 </span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="co">## GA encoded basis solution: </span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="co">##            x1       x2        x3        x4        x5        x6       x7</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="co">## [1,] 4.800275 1.326263 0.7359893 0.1506752 0.9361586 0.2170271 1.241403</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="co">##            x8       x9      x10  ...       x14     x15</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co">## [1,] 1.232384 1.460866 1.743645       1.009787 2.67219</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="co">## </span></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="co">## Estimated projection basis: </span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="co">##                   PP1         PP2         PP3</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="co">## Length   -0.078430005 -0.23012355 -0.13186264</span></span>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="co">## Left      0.006910722 -0.90835376 -0.28104677</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="co">## Right     0.057967195  0.18448924 -0.41396357</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a><span class="co">## Bottom    0.643969422  0.13575462 -0.07536677</span></span>
+<span id="cb10-26"><a href="#cb10-26"></a><span class="co">## Top       0.719117644 -0.06698561 -0.19053326</span></span>
+<span id="cb10-27"><a href="#cb10-27"></a><span class="co">## Diagonal  0.242103240 -0.25491946  0.83082853</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP3D<span class="op">$</span>GA)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-11-1.png" width="80%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp3D)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP3D)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp3D, <span class="dt">class =</span> Class)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP3D, <span class="dt">class =</span> Class)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp3D, <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP3D, <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-14-1.png" width="80%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(pp3D, <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="dt">class =</span> Class)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(PP3D, <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="dt">class =</span> Class)</span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-15-1.png" width="90%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># A rotating 3D plot can be obtained using</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(<span class="st">"msir"</span>)) <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"msir"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3"></a>msir<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/msir/reference/splinplot.html">spinplot</a></span>(pp3D<span class="op">$</span>Z, <span class="dt">markby =</span> Class, </span>
-<span id="cb16-4"><a href="#cb16-4"></a>               <span class="dt">pch.points =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">19</span>,<span class="dv">17</span>),</span>
+<span id="cb16-3"><a href="#cb16-3"></a>msir<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/msir/reference/splinplot.html">spinplot</a></span>(PP3D<span class="op">$</span>Z, <span class="dt">markby =</span> Class, </span>
+<span id="cb16-4"><a href="#cb16-4"></a>               <span class="dt">pch.points =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">20</span>,<span class="dv">17</span>),</span>
 <span id="cb16-5"><a href="#cb16-5"></a>               <span class="dt">col.points =</span> Class_color)</span></code></pre></div>
 <p><br><br></p>
 </div>
@@ -252,9 +236,9 @@
 <p>Scrucca L, Serafini A (2019). “Projection pursuit based on Gaussian mixtures and evolutionary algorithms.” <em>Journal of Computational and Graphical Statistics</em>. doi: 10.1080/10618600.2019.1598871 (URL: <a href="https://doi.org/10.1080/10618600.2019.1598871" class="uri">https://doi.org/10.1080/10618600.2019.1598871</a>).</p>
 <hr>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/sessionInfo">sessionInfo</a></span>()</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="co">## R version 3.6.0 (2019-04-26)</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co">## R version 3.6.1 (2019-07-05)</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="co">## Platform: x86_64-apple-darwin15.6.0 (64-bit)</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="co">## Running under: macOS Sierra 10.12.5</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">## Running under: macOS Mojave 10.14.3</span></span>
 <span id="cb17-5"><a href="#cb17-5"></a><span class="co">## </span></span>
 <span id="cb17-6"><a href="#cb17-6"></a><span class="co">## Matrix products: default</span></span>
 <span id="cb17-7"><a href="#cb17-7"></a><span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib</span></span>
@@ -267,19 +251,19 @@
 <span id="cb17-14"><a href="#cb17-14"></a><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span id="cb17-15"><a href="#cb17-15"></a><span class="co">## </span></span>
 <span id="cb17-16"><a href="#cb17-16"></a><span class="co">## other attached packages:</span></span>
-<span id="cb17-17"><a href="#cb17-17"></a><span class="co">## [1] mclust_5.4.4 ppgmmga_1.2  knitr_1.23  </span></span>
+<span id="cb17-17"><a href="#cb17-17"></a><span class="co">## [1] mclust_5.4.6 ppgmmga_1.2  knitr_1.23  </span></span>
 <span id="cb17-18"><a href="#cb17-18"></a><span class="co">## </span></span>
 <span id="cb17-19"><a href="#cb17-19"></a><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span id="cb17-20"><a href="#cb17-20"></a><span class="co">##  [1] Rcpp_1.0.1       GA_3.2.1         compiler_3.6.0   pillar_1.4.2    </span></span>
-<span id="cb17-21"><a href="#cb17-21"></a><span class="co">##  [5] iterators_1.0.10 tools_3.6.0      digest_0.6.19    evaluate_0.14   </span></span>
-<span id="cb17-22"><a href="#cb17-22"></a><span class="co">##  [9] memoise_1.1.0    tibble_2.1.3     gtable_0.3.0     pkgconfig_2.0.2 </span></span>
-<span id="cb17-23"><a href="#cb17-23"></a><span class="co">## [13] rlang_0.4.0      foreach_1.4.4    cli_1.1.0        rstudioapi_0.10 </span></span>
+<span id="cb17-20"><a href="#cb17-20"></a><span class="co">##  [1] Rcpp_1.0.2       GA_3.2.1         compiler_3.6.1   pillar_1.4.2    </span></span>
+<span id="cb17-21"><a href="#cb17-21"></a><span class="co">##  [5] iterators_1.0.12 tools_3.6.1      digest_0.6.21    evaluate_0.14   </span></span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="co">##  [9] memoise_1.1.0    tibble_2.1.3     gtable_0.3.0     pkgconfig_2.0.3 </span></span>
+<span id="cb17-23"><a href="#cb17-23"></a><span class="co">## [13] rlang_0.4.0      foreach_1.4.7    cli_1.1.0        rstudioapi_0.10 </span></span>
 <span id="cb17-24"><a href="#cb17-24"></a><span class="co">## [17] commonmark_1.7   yaml_2.2.0       pkgdown_1.3.0    xfun_0.8        </span></span>
-<span id="cb17-25"><a href="#cb17-25"></a><span class="co">## [21] dplyr_0.8.2      stringr_1.4.0    roxygen2_6.1.1   xml2_1.2.0      </span></span>
+<span id="cb17-25"><a href="#cb17-25"></a><span class="co">## [21] dplyr_0.8.3      stringr_1.4.0    roxygen2_6.1.1   xml2_1.2.0      </span></span>
 <span id="cb17-26"><a href="#cb17-26"></a><span class="co">## [25] desc_1.2.0       fs_1.3.1         tidyselect_0.2.5 rprojroot_1.3-2 </span></span>
-<span id="cb17-27"><a href="#cb17-27"></a><span class="co">## [29] grid_3.6.0       glue_1.3.1       R6_2.4.0         rmarkdown_1.13  </span></span>
-<span id="cb17-28"><a href="#cb17-28"></a><span class="co">## [33] purrr_0.3.2      ggplot2_3.2.0    magrittr_1.5     ggthemes_4.2.0  </span></span>
-<span id="cb17-29"><a href="#cb17-29"></a><span class="co">## [37] backports_1.1.4  scales_1.0.0     codetools_0.2-16 htmltools_0.3.6 </span></span>
+<span id="cb17-27"><a href="#cb17-27"></a><span class="co">## [29] grid_3.6.1       glue_1.3.1       R6_2.4.0         rmarkdown_1.13  </span></span>
+<span id="cb17-28"><a href="#cb17-28"></a><span class="co">## [33] purrr_0.3.2      ggplot2_3.2.1    magrittr_1.5     ggthemes_4.2.0  </span></span>
+<span id="cb17-29"><a href="#cb17-29"></a><span class="co">## [37] backports_1.1.5  scales_1.0.0     codetools_0.2-16 htmltools_0.4.0 </span></span>
 <span id="cb17-30"><a href="#cb17-30"></a><span class="co">## [41] MASS_7.3-51.4    assertthat_0.2.1 colorspace_1.4-1 labeling_0.3    </span></span>
 <span id="cb17-31"><a href="#cb17-31"></a><span class="co">## [45] stringi_1.4.3    lazyeval_0.2.2   munsell_0.5.0    crayon_1.3.4</span></span></code></pre></div>
 </div>
@@ -292,9 +276,9 @@
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#introduction">Introduction</a></li>
       <li><a href="#banknote-data">Banknote data</a></li>
-      <li><a href="#dimensional-ppgmmga">1-dimensional ppgmmga</a></li>
-      <li><a href="#dimensional-ppgmmga-1">2-dimensional ppgmmga</a></li>
-      <li><a href="#dimensional-ppgmmga-2">3-dimensional ppgmmga</a></li>
+      <li><a href="#dimensional-ppgmmga">1-dimensional PPGMMGA</a></li>
+      <li><a href="#dimensional-ppgmmga-1">2-dimensional PPGMMGA</a></li>
+      <li><a href="#dimensional-ppgmmga-2">3-dimensional PPGMMGA</a></li>
       <li><a href="#references">References</a></li>
       </ul>
 </div>

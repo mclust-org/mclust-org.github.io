@@ -112,7 +112,7 @@
     </div>
 
     <pre class="usage"># S3 method for ppgmmga
-summary(object, check = FALSE, &#8230;)
+summary(object, check = (object$approx != "none"), &#8230;)
                 
 # S3 method for summary.ppgmmga
 print(x, digits = getOption("digits"), &#8230;)</pre>
@@ -126,7 +126,7 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
     </tr>
     <tr>
       <th>check</th>
-      <td><p>A logical value specifying whether or not a Monte Carlo negentropy approximation check should be performed. By default is set to <code>FALSE</code>.</p></td>
+      <td><p>A logical value specifying whether or not a Monte Carlo negentropy approximation check should be performed. By default is <code>FALSE</code> for exact negentropy calculation and <code>TRUE</code> for approximated negentropy.</p></td>
     </tr>
     <tr>
       <th>x</th>
@@ -145,8 +145,8 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The summary function returns an object of class <code>summary.ppgmmga</code> which can be printed by the corresponding print method. A list with the information from the <code>ppgmmga</code> algorithm is returned.</p>
-<p>If the optional argument <code>check = TRUE</code> then the value of approximated negentropy is compared to the Monte Carlo negentropy calculated for the same optimal projection basis selected by the algorithm. 
-Since the Monte Carlo approximation is the only one guarantee to converge to the "true" negentropy, it allows to check if the value returned by the employed approximation is  closed to the "true" negentropy. 
+<p>If the optional argument <code>check = TRUE</code> then the value of negentropy is compared to the Monte Carlo negentropy calculated for the same optimal projection basis selected by the algorithm. 
+By default, it allows to check if the value returned by the employed approximation is closed to the Monte Carlo approximation of to the "true" negentropy. 
 The ratio between the approximated value returned by the algorithm and the value computed with Monte Carlo is called Relative Accuracy. Such value should be close to 1 for a good approximation.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>

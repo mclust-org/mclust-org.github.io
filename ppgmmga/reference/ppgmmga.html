@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="Projection pursuit based on Gaussian mixtures and evolutionary algorithms for data visualisation — ppgmmga" />
 
-<meta property="og:description" content="A Projection Pursuit (PP) method for dimension reduction seeking &quot;interesting&quot; data structures in low-dimensional projections. An approximated negentropy index is computed from the density estimated using Gaussian Mixture Models (GMMs). Then, the PP index is maximised by Genetic Algorithms (GAs) to find the optimal projection basis." />
+<meta property="og:description" content="A Projection Pursuit (PP) method for dimension reduction seeking &quot;interesting&quot; data structures in low-dimensional projections. A negentropy index is computed from the density estimated using Gaussian Mixture Models (GMMs). Then, the PP index is maximised by Genetic Algorithms (GAs) to find the optimal projection basis." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -107,16 +107,16 @@
 
     <div class="ref-description">
     
-    <p>A Projection Pursuit (PP) method for dimension reduction seeking "interesting" data structures in low-dimensional projections. An approximated negentropy index is computed from the density estimated using Gaussian Mixture Models (GMMs). Then, the PP index is maximised by Genetic Algorithms (GAs) to find the optimal projection basis.</p>
+    <p>A Projection Pursuit (PP) method for dimension reduction seeking "interesting" data structures in low-dimensional projections. A negentropy index is computed from the density estimated using Gaussian Mixture Models (GMMs). Then, the PP index is maximised by Genetic Algorithms (GAs) to find the optimal projection basis.</p>
     
     </div>
 
     <pre class="usage">ppgmmga(data, 
         d, 
-        approx = c("UT", "VAR", "SOTE"), 
+        approx = c("none", "UT", "VAR", "SOTE"), 
         center = TRUE, 
         scale = TRUE, 
-        gmm = NULL, 
+        GMM = NULL, 
         gatype = c("ga", "gaisl"), 
         options = ppgmmga.options(),
         seed = NULL, 
@@ -135,7 +135,9 @@
     </tr>
     <tr>
       <th>approx</th>
-      <td><p>A string specifying the type of approximation to use for computing the negentropy for GMMs. Possible values are:</p><table class='table'>
+      <td><p>A string specifying the type of computation to perform to obtain the negentropy for GMMs. Possible values are:</p><table class='table'>
+<tr><td></td><td><code>"none"</code></td></tr>
+<tr><td></td><td>for exact calculation (no approximation by default).</td></tr>
 <tr><td></td><td><code>"UT"</code></td></tr>
 <tr><td></td><td>for Unscented Trasformation approximation.</td></tr>
 <tr><td></td><td><code>"VAR"</code></td></tr>
@@ -155,7 +157,7 @@
       <td><p>A logical value indicating whether or not the data are scaled. By default is set to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
-      <th>gmm</th>
+      <th>GMM</th>
       <td><p>An object of class <code>'densityMclust'</code> specifying a Gaussian mixture density estimate as returned by <code>densityMclust</code>.</p></td>
     </tr>
     <tr>
@@ -192,7 +194,9 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Projection pursuit (PP) is a features extraction method for analysing high-dimensional data with low-dimension projections by maximising a projection index to find out the best orthogonal projections. A general PP procedure can be summarised in few steps: the data may be transformed, the PP index is chosen and the subspace dimension is fixed. Then, the PP index is optimised.</p>
-<p>For clusters visualisation the negentropy index has been considerd. Since such index requires an estimation of the underling data density, Gaussian mixture models (GMMs) has been used to approximate such density.  GMMs do not have a closed formula for the Negentropy and different closed formula approximations have been implemented. Genetic Algorithms have been employed to maximised the approximated negentropy respect to the system of basis in the desidered subspace.</p>
+<p>For clusters visualisation the negentropy index is considerd. Since such index requires an estimation of the underling data density, Gaussian mixture models (GMMs) are used to approximate such density.  
+<!-- % GMMs do not have a closed formula for the Negentropy and different closed formula approximations have been implemented.  -->
+Genetic Algorithms are then employed to maximise the negentropy with respect to the basis of the projection subspace.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -215,39 +219,45 @@
 
 <span class='co'># 1-dimensional PPGMMGA</span>
 
-<span class='no'>pp1D</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>pp1D</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>pp1D</span>, <span class='no'>Class</span>)
+<span class='no'>PP1D</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>PP1D</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP1D</span>, <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>11</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP1D</span>, <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='no'>Class</span>)
 
 <span class='co'># 2-dimensional PPGMMGA</span>
 
-<span class='co'>## Unscented Transformation approximation (default)</span>
+<span class='no'>PP2D</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>PP2D</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP2D</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP2D</span>, <span class='no'>Class</span>)
 
-<span class='no'>pp2D_1</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>approx</span> <span class='kw'>=</span> <span class='st'>"UT"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>pp2D_1</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>pp2D_1</span>, <span class='no'>Class</span>)
+<span class='co'>## Unscented Transformation approximation</span>
+
+<span class='no'>PP2D_1</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>approx</span> <span class='kw'>=</span> <span class='st'>"UT"</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>PP2D_1</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP2D_1</span>, <span class='no'>Class</span>)
 
 <span class='co'>## VARiational approximation</span>
 
-<span class='no'>pp2D_2</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>approx</span> <span class='kw'>=</span> <span class='st'>"VAR"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>pp2D_2</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>pp2D_2</span>, <span class='no'>Class</span>)
+<span class='no'>PP2D_2</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>approx</span> <span class='kw'>=</span> <span class='st'>"VAR"</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>PP2D_2</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP2D_2</span>, <span class='no'>Class</span>)
 
 <span class='co'>## Second Order Taylor Expansion approximation</span>
 
-<span class='no'>pp2D_3</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>approx</span> <span class='kw'>=</span> <span class='st'>"SOTE"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>pp2D_3</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>pp2D_3</span>, <span class='no'>Class</span>)
+<span class='no'>PP2D_3</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>approx</span> <span class='kw'>=</span> <span class='st'>"SOTE"</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>PP2D_3</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP2D_3</span>, <span class='no'>Class</span>)
 
 <span class='co'># 3-dimensional PPGMMGA</span>
 
-<span class='no'>pp3D</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>approx</span> <span class='kw'>=</span> <span class='st'>"UT"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>pp3D</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>pp3D</span>, <span class='no'>Class</span>)
+<span class='no'>PP3D</span> <span class='kw'>&lt;-</span> <span class='fu'>ppgmmga</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>3</span>,)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>PP3D</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>PP3D</span>, <span class='no'>Class</span>)
 
 <span class='co'># A rotating 3D plot can be obtained using:</span>
 <span class='co'># if(!require("msir")) install.packages("msir")</span>
-<span class='co'># msir::spinplot(pp3D$Z, markby = Class,</span>
+<span class='co'># msir::spinplot(PP3D$Z, markby = Class,</span>
 <span class='co'>#                col.points = ggthemes::tableau_color_pal("Classic 10")(3))</span>
 <span class='co'># }</span></pre>
   </div>
