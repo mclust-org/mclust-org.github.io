@@ -150,7 +150,9 @@ For the available options see the Details section below.</p></td>
     <dt><code>optimMethod</code></dt><dd><p>A string specifying the general-purpose optimisation method to be used for local search. See <code><a href='https://www.rdocumentation.org/packages/stats/topics/optim'>optim</a></code> for the available algorithms. By default <code>optimMethod = "L-BFGS-B"</code>.</p></dd>
     <dt><code>optimMaxit</code></dt><dd><p>An integer value specifying the number of iterations for the local search algorithm. By default <code>optimMaxit = 100</code>.</p></dd>
     <dt><code>orth</code></dt><dd><p>A string specifying the method employed to orthogonalise the matrix basis. Available methods are the QR decomposition <code>"QR"</code>, and the Singular Value Decomposition <code>"SVD"</code>. By default <code>orth = "QR"</code>.</p></dd>
-</dl>
+    <dt><code>classPlotSymbols</code></dt><dd><p>A vector whose entries are either integers corresponding to graphics symbols or single characters for indicating classifications when plotting data. Classes are assigned symbols in the given order.</p></dd>
+    <dt><code>classPlotColors</code></dt><dd><p>A vector whose entries correspond to colors for indicating classifications when plotting data. Classes are assigned colors in the given order.</p></dd>
+    </dl>
     <p>For more details about options related to Gaussian mixture modelling see <code><a href='https://mclust-org.github.io/mclust/reference/densityMclust.html'>densityMclust</a></code>, and for those related to genetic algorithms see <code><a href='https://github.com/luca-scr/GA/reference/ga.html'>ga</a></code> and <code><a href='https://github.com/luca-scr/GA/reference/gaisl.html'>gaisl</a></code>.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
