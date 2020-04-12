@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,12 +45,11 @@
 
 
 
+
 <meta property="og:title" content="Summarizing discriminant analysis based on Gaussian finite mixture modeling — summary.MclustDA" />
-
 <meta property="og:description" content="Summary method for class &quot;MclustDA&quot;." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -88,7 +96,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -104,6 +111,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -115,16 +123,14 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Summary method for class <code>"MclustDA"</code>.</p>
-    
     </div>
 
-    <pre class="usage"># S3 method for MclustDA
-summary(object, parameters = FALSE, newdata, newclass, &#8230;)
-# S3 method for summary.MclustDA
-print(x, digits = getOption("digits"), &#8230;)</pre>
-    
+    <pre class="usage"><span class='co'># S3 method for MclustDA</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>newdata</span>, <span class='no'>newclass</span>, <span class='no'>...</span>)
+<span class='co'># S3 method for summary.MclustDA</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"digits"</span>), <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -154,33 +160,31 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
       <td><p>The number of significant digits to use when printing.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Further arguments passed to or from other methods.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The function <code>summary.MclustDA</code> computes and returns a list of summary statistics of the estimated MclustDA or EDDA model for classification.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='MclustDA.html'>MclustDA</a></code>, <code><a href='plot.MclustDA.html'>plot.MclustDA</a></code>.</p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>=</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>], <span class='kw'>class</span> <span class='kw'>=</span> <span class='no'>iris</span>$<span class='no'>Species</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
 #&gt; Gaussian finite mixture model for classification 
 #&gt; ------------------------------------------------ 
 #&gt; 
 #&gt; MclustDA model summary: 
 #&gt; 
 #&gt;  log-likelihood   n df       BIC
-#&gt;       -182.9208 150 42 -576.2884
+#&gt;       -172.8135 150 47 -581.1269
 #&gt;             
 #&gt; Classes       n     % Model G
-#&gt;   setosa     50 33.33   XXX 1
+#&gt;   setosa     50 33.33   EEE 2
 #&gt;   versicolor 50 33.33   XXX 1
 #&gt;   virginica  50 33.33   XXX 1
 #&gt; 
@@ -191,17 +195,17 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt;   versicolor      0         48         2
 #&gt;   virginica       0          1        49
 #&gt; Classification error = 0.02 
-#&gt; Brier score          = 0.0116 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
+#&gt; Brier score          = 0.0116 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ------------------------------------------------ 
 #&gt; Gaussian finite mixture model for classification 
 #&gt; ------------------------------------------------ 
 #&gt; 
 #&gt; MclustDA model summary: 
 #&gt; 
 #&gt;  log-likelihood   n df       BIC
-#&gt;       -182.9208 150 42 -576.2884
+#&gt;       -172.8135 150 47 -581.1269
 #&gt;             
 #&gt; Classes       n     % Model G
-#&gt;   setosa     50 33.33   XXX 1
+#&gt;   setosa     50 33.33   EEE 2
 #&gt;   versicolor 50 33.33   XXX 1
 #&gt;   virginica  50 33.33   XXX 1
 #&gt; 
@@ -211,22 +215,28 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt; 
 #&gt; Class = setosa
 #&gt; 
-#&gt; Mixing probabilities: 1 
+#&gt; Mixing probabilities: 0.8081091 0.1918909 
 #&gt; 
 #&gt; Means:
-#&gt;               [,1]
-#&gt; Sepal.Length 5.006
-#&gt; Sepal.Width  3.428
-#&gt; Petal.Length 1.462
-#&gt; Petal.Width  0.246
+#&gt;                   [,1]      [,2]
+#&gt; Sepal.Length 4.9484622 5.2483085
+#&gt; Sepal.Width  3.3627745 3.7026840
+#&gt; Petal.Length 1.4322810 1.5871556
+#&gt; Petal.Width  0.2036194 0.4244774
 #&gt; 
 #&gt; Variances:
 #&gt; [,,1]
-#&gt;              Sepal.Length Sepal.Width Petal.Length Petal.Width
-#&gt; Sepal.Length     0.121764    0.097232     0.016028    0.010124
-#&gt; Sepal.Width      0.097232    0.140816     0.011464    0.009112
-#&gt; Petal.Length     0.016028    0.011464     0.029556    0.005948
-#&gt; Petal.Width      0.010124    0.009112     0.005948    0.010884
+#&gt;               Sepal.Length  Sepal.Width Petal.Length   Petal.Width
+#&gt; Sepal.Length  0.1078221133  0.081427298 0.0088268249 -0.0001451869
+#&gt; Sepal.Width   0.0814272976  0.122899586 0.0033006551 -0.0025292826
+#&gt; Petal.Length  0.0088268249  0.003300655 0.0258364946  0.0006438246
+#&gt; Petal.Width  -0.0001451869 -0.002529283 0.0006438246  0.0033200166
+#&gt; [,,2]
+#&gt;               Sepal.Length  Sepal.Width Petal.Length   Petal.Width
+#&gt; Sepal.Length  0.1078221133  0.081427298 0.0088268249 -0.0001451869
+#&gt; Sepal.Width   0.0814272976  0.122899586 0.0033006551 -0.0025292826
+#&gt; Petal.Length  0.0088268249  0.003300655 0.0258364946  0.0006438246
+#&gt; Petal.Width  -0.0001451869 -0.002529283 0.0006438246  0.0033200166
 #&gt; 
 #&gt; Class = versicolor
 #&gt; 
@@ -275,22 +285,13 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 #&gt; Classification error = 0.02 
 #&gt; Brier score          = 0.0116 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Luca Scrucca</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -298,13 +299,16 @@ print(x, digits = getOption("digits"), &#8230;)</pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

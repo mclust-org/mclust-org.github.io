@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,12 +45,11 @@
 
 
 
+
 <meta property="og:title" content="ICL Criterion for Model-Based Clustering — mclustICL" />
-
 <meta property="og:description" content="ICL (Integrated Complete-data Likelihood) for parameterized Gaussian mixture models fitted by EM algorithm initialized by model-based hierarchical clustering." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -88,7 +96,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -104,6 +111,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -115,20 +123,18 @@
     </div>
 
     <div class="ref-description">
-    
     <p>ICL (Integrated Complete-data Likelihood) for parameterized Gaussian mixture models fitted by EM algorithm initialized by model-based hierarchical clustering.</p>
-    
     </div>
 
-    <pre class="usage">mclustICL(data, G = NULL, modelNames = NULL, 
-          initialization = list(hcPairs = NULL, 
-                                subset = NULL, 
-                                noise = NULL), 
-          x = NULL, &#8230;)
+    <pre class="usage"><span class='fu'>mclustICL</span>(<span class='no'>data</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>modelNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+          <span class='kw'>initialization</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>hcPairs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                                <span class='kw'>subset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                                <span class='kw'>noise</span> <span class='kw'>=</span> <span class='kw'>NULL</span>),
+          <span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
-# S3 method for mclustICL
-summary(object, G, modelNames, &#8230;)</pre>
-    
+<span class='co'># S3 method for mclustICL</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='no'>G</span>, <span class='no'>modelNames</span>, <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -149,15 +155,16 @@ summary(object, G, modelNames, &#8230;)</pre>
       <td><p>A vector of character strings indicating the models to be fitted 
     in the EM phase of clustering. The help file for 
     <code><a href='mclustModelNames.html'>mclustModelNames</a></code> describes the available models.
-    The default is:</p><dl class='dl-horizontal'>
-        <dt><code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("E", "V")</a></code></dt><dd><p>for univariate data</p></dd>
+    The default is:</p><dl'>
+        <dt><code><a href='https://rdrr.io/r/base/c.html'>c("E", "V")</a></code></dt><dd><p>for univariate data</p></dd>
         <dt><code><a href='mclust.options.html'>mclust.options("emModelNames")</a></code></dt><dd><p>for multivariate data (n &gt; d)</p></dd>
-        <dt><code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("EII", "VII", "EEI", "EVI", "VEI", "VVI")</a></code></dt><dd><p>the spherical and diagonal models for multivariate data (n &lt;= d)</p></dd>
-     </dl><p></p></td>
+        <dt><code><a href='https://rdrr.io/r/base/c.html'>c("EII", "VII", "EEI", "EVI", "VEI", "VVI")</a></code></dt><dd><p>the spherical and diagonal models for multivariate data (n &lt;= d)</p></dd>
+     
+</dl><p></p></td>
     </tr>
     <tr>
       <th>initialization</th>
-      <td><p>A list containing zero or more of the following components:</p><dl class='dl-horizontal'>
+      <td><p>A list containing zero or more of the following components:</p><dl'>
   <dt><code>hcPairs</code></dt><dd><p>A matrix of merge pairs for hierarchical clustering such as produced
     by function <code>hc</code>. For multivariate data, the default is to compute
     a hierarchical clustering tree by applying function <code>hc</code> with
@@ -167,7 +174,8 @@ summary(object, G, modelNames, &#8230;)</pre>
     For univariate data, the default is to use quantiles to start EM.</p></dd>
   <dt><code>subset</code></dt><dd><p>A logical or numeric vector specifying a subset of the data
     to be used in the initial hierarchical clustering phase.</p></dd>
-  </dl><p></p></td>
+  
+</dl><p></p></td>
     </tr>
     <tr>
       <th>x</th>
@@ -182,7 +190,7 @@ summary(object, G, modelNames, &#8230;)</pre>
      Defaults for <code>G</code> and <code>modelNames</code> are taken from <code>x</code>.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Futher arguments used in the call to <code><a href='Mclust.html'>Mclust</a></code>. 
     See also <code><a href='mclustBIC.html'>mclustBIC</a></code>.</p></td>
     </tr>
@@ -193,20 +201,18 @@ summary(object, G, modelNames, &#8230;)</pre>
     The default is <code>G = 1:9</code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Returns an object of class <code>'mclustICL'</code> containing the the ICL criterion 
 for the specified mixture models and numbers of clusters.</p>
 <p>The corresponding <code>print</code> method shows the matrix of values and the top models according to the ICL criterion. The <code>summary</code> method shows only the top models.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Biernacki, C., Celeux, G., Govaert, G. (2000). 
 Assessing a mixture model for clustering with the integrated completed likelihood.
 <em>IEEE Trans. Pattern Analysis and Machine Intelligence</em>, 22 (7), 719-725.</p>
-<p>Scrucca L., Fop M., Murphy T. B. and Raftery A. E. (2016) mclust 5: clustering, classification and density estimation using Gaussian finite mixture models, <em>The R Journal</em>, 8/1, pp. 205-233.</p>
-    
+<p>Scrucca L., Fop M., Murphy T. B. and Raftery A. E. (2016) mclust 5: clustering, classification and density estimation using Gaussian finite mixture models, <em>The R Journal</em>, 8/1, pp. 289-317.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='plot.mclustICL.html'>plot.mclustICL</a></code>, 
@@ -215,10 +221,9 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
   <code><a href='mclustBootstrapLRT.html'>mclustBootstrapLRT</a></code>, 
   <code><a href='bic.html'>bic</a></code>,
   <code><a href='icl.html'>icl</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>faithful</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>faithful</span>)
 <span class='no'>faithful.ICL</span> <span class='kw'>&lt;-</span> <span class='fu'>mclustICL</span>(<span class='no'>faithful</span>)
 <span class='no'>faithful.ICL</span></div><div class='output co'>#&gt; Integrated Complete-data Likelihood (ICL) criterion: 
 #&gt;         EII       VII       EEI       VEI       EVI       VVI       EEE
@@ -244,32 +249,23 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 #&gt; 
 #&gt; Top 3 models based on the ICL criterion: 
 #&gt;     VVE,2     VVV,2     VEE,2 
-#&gt; -2320.763 -2322.697 -2323.396 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>faithful.ICL</span>)</div><div class='output co'>#&gt; Best ICL values:
+#&gt; -2320.763 -2322.697 -2323.396 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>faithful.ICL</span>)</div><div class='output co'>#&gt; Best ICL values:
 #&gt;              VVE,2        VVV,2       VEE,2
 #&gt; ICL      -2320.763 -2322.697467 -2323.39551
-#&gt; ICL diff     0.000    -1.934645    -2.63269</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>faithful.ICL</span>)</div><div class='img'><img src='mclustICL-1.png' alt='' width='504' height='432' /></div><span class='co'># NOT RUN {</span>
+#&gt; ICL diff     0.000    -1.934645    -2.63269</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>faithful.ICL</span>)</div><div class='img'><img src='mclustICL-1.png' alt='' width='504' height='432' /></div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># compare with</span>
 <span class='no'>faithful.BIC</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span>(<span class='no'>faithful</span>)
 <span class='no'>faithful.BIC</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>faithful.BIC</span>)
-<span class='co'># }</span></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>faithful.BIC</span>)
+}</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -277,13 +273,16 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,12 +45,11 @@
 
 
 
+
 <meta property="og:title" content="Dimension reduction for model-based clustering and classification — MclustDR" />
-
 <meta property="og:description" content="A dimension reduction method for visualizing the clustering or classification structure obtained from a finite mixture of Gaussian densities." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -88,7 +96,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -104,6 +111,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -115,14 +123,12 @@
     </div>
 
     <div class="ref-description">
-    
     <p>A dimension reduction method for visualizing the clustering or classification structure obtained from a finite mixture of Gaussian densities.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>MclustDR</span>(<span class='no'>object</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>normalized</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>Sigma</span>,
-         <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/MathFun'>sqrt</a></span>(<span class='no'>.Machine</span>$<span class='no'>double.eps</span>))</pre>
-    
+         <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='no'>.Machine</span>$<span class='no'>double.eps</span>))</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -132,10 +138,7 @@
     </tr>
     <tr>
       <th>lambda</th>
-      <td><p>A tuning parameter in the range [0,1] described in Scrucca (2014). 
-  The default 0.5 gives equal importance to differences in means and covariances 
-  among clusters/classes. To recover the directions that mostly separate the estimated
-  clusters or classes set this parameter to 1.</p></td>
+      <td><p>A tuning parameter in the range [0,1] described in Scrucca (2014). The default 0.5 gives equal importance to differences in means and covariances among clusters/classes. To recover the directions that mostly separate the estimated clusters or classes set this parameter to 1.</p></td>
     </tr>
     <tr>
       <th>normalized</th>
@@ -150,7 +153,7 @@
       <td><p>A tolerance value.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The method aims at reducing the dimensionality by identifying a set of linear combinations, ordered by importance as quantified by the associated eigenvalues, of the original features which capture most of the clustering or classification structure contained in the data.</p>
@@ -158,7 +161,6 @@
 <p>Observations may then be projected onto such a reduced subspace, thus providing summary plots which help to visualize the underlying structure.</p>
 <p>The method has been extended to the supervised case, i.e. when the true classification is known (see Scrucca, 2013).</p>
 <p>This implementation doesn't provide a formal procedure for the selection of dimensionality. A future release will include one or more methods.</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An object of class <code>'MclustDR'</code> with the following components:</p>
@@ -202,22 +204,19 @@
   <dt>dir</dt><dd><p>The estimated directions, i.e. the data projected onto the estimated dimension reduction subspace.</p></dd>
 
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Scrucca, L. (2010) Dimension reduction for model-based clustering. <em>Statistics and Computing</em>, 20(4), pp. 471-484.</p>
 <p>Scrucca, L. (2014) Graphical Tools for Model-based Mixture Discriminant Analysis. <em>Advances in Data Analysis and Classification</em>, 8(2), pp. 147-165.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='summary.MclustDR.html'>summary.MclustDR</a></code>, <code><a href='plot.MclustDR.html'>plot.MclustDR</a></code>, <code><a href='Mclust.html'>Mclust</a></code>, <code><a href='MclustDA.html'>MclustDA</a></code>.</p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># clustering</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>diabetes</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>diabetes</span>)
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>diabetes</span>[,-<span class='fl'>1</span>])
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; ---------------------------------------------------- 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; ---------------------------------------------------- 
 #&gt; Gaussian finite mixture model fitted by EM algorithm 
 #&gt; ---------------------------------------------------- 
 #&gt; 
@@ -231,7 +230,7 @@
 #&gt;  1  2  3 
 #&gt; 81 36 28 </div><div class='input'>
 <span class='no'>dr</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>mod</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -250,10 +249,10 @@
 #&gt; 
 #&gt;                Dir1     Dir2      Dir3
 #&gt; Eigenvalues  1.3506  0.75608   0.53412
-#&gt; Cum. %      51.1440 79.77436 100.00000</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dr</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"scatterplot"</span>)</div><div class='img'><img src='MclustDR-1.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dr</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"evalues"</span>)</div><div class='img'><img src='MclustDR-2.png' alt='' width='504' height='432' /></div><div class='input'>
+#&gt; Cum. %      51.1440 79.77436 100.00000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"scatterplot"</span>)</div><div class='img'><img src='MclustDR-1.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"evalues"</span>)</div><div class='img'><img src='MclustDR-2.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='co'># adjust the tuning parameter to show the most separating directions</span>
 <span class='no'>dr1</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>mod</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dr1</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr1</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -272,13 +271,13 @@
 #&gt; 
 #&gt;                Dir1      Dir2
 #&gt; Eigenvalues  1.2629   0.35218
-#&gt; Cum. %      78.1939 100.00000</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dr1</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"scatterplot"</span>)</div><div class='img'><img src='MclustDR-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dr1</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"evalues"</span>)</div><div class='img'><img src='MclustDR-4.png' alt='' width='504' height='432' /></div><div class='input'>
+#&gt; Cum. %      78.1939 100.00000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr1</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"scatterplot"</span>)</div><div class='img'><img src='MclustDR-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr1</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"evalues"</span>)</div><div class='img'><img src='MclustDR-4.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='co'># classification</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>banknote</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>banknote</span>)
 
 <span class='no'>da</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='no'>banknote</span>[,<span class='fl'>2</span>:<span class='fl'>7</span>], <span class='no'>banknote</span>$<span class='no'>Status</span>, <span class='kw'>modelType</span> <span class='kw'>=</span> <span class='st'>"EDDA"</span>)
 <span class='no'>dr</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>da</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -302,7 +301,7 @@
 #&gt; Cum. %      62.05056 82.78657 92.06996 97.916830 99.855667 1.0000e+02</div><div class='input'>
 <span class='no'>da</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='no'>banknote</span>[,<span class='fl'>2</span>:<span class='fl'>7</span>], <span class='no'>banknote</span>$<span class='no'>Status</span>)
 <span class='no'>dr</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>da</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -313,38 +312,25 @@
 #&gt;   genuine     100   XXX 1
 #&gt; 
 #&gt; Estimated basis vectors: 
-#&gt;              Dir1      Dir2     Dir3      Dir4      Dir5      Dir6
-#&gt; Length   -0.10027 -0.327553  0.79718 -0.033721 -0.317043  0.084618
-#&gt; Left     -0.21760 -0.305350 -0.30266 -0.893676  0.371043 -0.565611
-#&gt; Right     0.29180 -0.018877 -0.49600  0.406605 -0.861020  0.481331
-#&gt; Bottom    0.57603  0.445501  0.12002 -0.034570  0.004359 -0.078688
-#&gt; Top       0.57555  0.385645  0.10093 -0.103629  0.136005  0.625416
-#&gt; Diagonal -0.44088  0.672251 -0.04781 -0.151473 -0.044035  0.209542
+#&gt;              Dir1      Dir2      Dir3      Dir4       Dir5      Dir6
+#&gt; Length   -0.10139 -0.328225  0.797068 -0.033629 -0.3174275  0.085062
+#&gt; Left     -0.21718 -0.305014 -0.303111 -0.893349  0.3700659 -0.565410
+#&gt; Right     0.29222 -0.018401 -0.495891  0.407413 -0.8612986  0.480799
+#&gt; Bottom    0.57591  0.445352  0.120173 -0.034595  0.0043174 -0.078640
+#&gt; Top       0.57542  0.385535  0.100865 -0.103623  0.1359128  0.625902
+#&gt; Diagonal -0.44089  0.672250 -0.047784 -0.151252 -0.0443255  0.209691
 #&gt; 
 #&gt;                 Dir1     Dir2     Dir3     Dir4      Dir5       Dir6
-#&gt; Eigenvalues  0.87241  0.55372  0.48603  0.13301  0.053113   0.027239
-#&gt; Cum. %      41.04429 67.09530 89.96182 96.21965 98.718473 100.000000</div></pre>
+#&gt; Eigenvalues  0.87242  0.55373  0.48546  0.13291  0.053075   0.027273
+#&gt; Cum. %      41.05755 67.11689 89.96377 96.21866 98.716489 100.000000</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Luca Scrucca</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -352,13 +338,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

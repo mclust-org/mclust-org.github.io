@@ -16,21 +16,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -38,13 +46,12 @@
 
 
 
+
 <meta property="og:title" content="Cumulative Distribution and Quantiles for a univariate Gaussian mixture 
   distribution — cdfMclust" />
-
 <meta property="og:description" content="Compute the cumulative density function (cdf) or quantiles from an estimated one-dimensional Gaussian mixture fitted using densityMclust." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -58,9 +65,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -74,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -90,7 +98,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -106,6 +113,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -118,14 +126,12 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Compute the cumulative density function (cdf) or quantiles from an estimated one-dimensional Gaussian mixture fitted using <code><a href='densityMclust.html'>densityMclust</a></code>.</p>
-    
     </div>
 
-    <pre class="usage">cdfMclust(object, data, ngrid = 100, &#8230;)
-quantileMclust(object, p, ...)</pre>
-    
+    <pre class="usage"><span class='fu'>cdfMclust</span>(<span class='no'>object</span>, <span class='no'>data</span>, <span class='kw'>ngrid</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='no'>...</span>)
+<span class='fu'>quantileMclust</span>(<span class='no'>object</span>, <span class='no'>p</span>, <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -146,31 +152,28 @@ quantileMclust(object, p, ...)</pre>
       <td><p>a numeric vector of probabilities.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>further arguments passed to or from other methods.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The cdf is evaluated at points given by the optional argument  <code>data</code>. If not provided, a regular grid of length <code>ngrid</code> for the evaluation points is used.</p>
 <p>The quantiles are computed using interpolating splines on an adaptive finer grid.</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>cdfMclust</code> returns a list of <code>x</code> and <code>y</code> values providing, respectively, the evaluation points and the estimated cdf.</p>
 <p><code>quantileMclust</code> returns a vector of quantiles.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='densityMclust.html'>densityMclust</a></code>, 
   <code><a href='plot.densityMclust.html'>plot.densityMclust</a></code>.</p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>, <span class='fl'>3</span>, <span class='fl'>2</span>))
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>100</span>), <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>100</span>, <span class='fl'>3</span>, <span class='fl'>2</span>))
 <span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>x</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ------------------------------------------------------- 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; ------------------------------------------------------- 
 #&gt; Density estimation via Gaussian finite mixture modeling 
 #&gt; ------------------------------------------------------- 
 #&gt; 
@@ -190,41 +193,31 @@ quantileMclust(object, p, ...)</pre>
 #&gt; Variances:
 #&gt;        1        2 
 #&gt; 1.701645 1.701645 </div><div class='input'><span class='no'>cdf</span> <span class='kw'>&lt;-</span> <span class='fu'>cdfMclust</span>(<span class='no'>dens</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/str'>str</a></span>(<span class='no'>cdf</span>)</div><div class='output co'>#&gt; List of 2
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>cdf</span>)</div><div class='output co'>#&gt; List of 2
 #&gt;  $ x: num [1:100] -3.87 -3.75 -3.63 -3.51 -3.4 ...
-#&gt;  $ y: num [1:100] 0.000399 0.000548 0.000747 0.00101 0.001356 ...</div><div class='input'><span class='no'>q</span> <span class='kw'>&lt;-</span> <span class='fu'>quantileMclust</span>(<span class='no'>dens</span>, <span class='kw'>p</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.01</span>, <span class='fl'>0.1</span>, <span class='fl'>0.5</span>, <span class='fl'>0.9</span>, <span class='fl'>0.99</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: collapsing to unique 'x' values</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>(<span class='kw'>quantile</span> <span class='kw'>=</span> <span class='no'>q</span>, <span class='kw'>cdf</span> <span class='kw'>=</span> <span class='fu'>cdfMclust</span>(<span class='no'>dens</span>, <span class='no'>q</span>)$<span class='no'>y</span>)</div><div class='output co'>#&gt;       quantile  cdf
+#&gt;  $ y: num [1:100] 0.000399 0.000548 0.000747 0.00101 0.001356 ...</div><div class='input'><span class='no'>q</span> <span class='kw'>&lt;-</span> <span class='fu'>quantileMclust</span>(<span class='no'>dens</span>, <span class='kw'>p</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.01</span>, <span class='fl'>0.1</span>, <span class='fl'>0.5</span>, <span class='fl'>0.9</span>, <span class='fl'>0.99</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='kw'>quantile</span> <span class='kw'>=</span> <span class='no'>q</span>, <span class='kw'>cdf</span> <span class='kw'>=</span> <span class='fu'>cdfMclust</span>(<span class='no'>dens</span>, <span class='no'>q</span>)$<span class='no'>y</span>)</div><div class='output co'>#&gt;       quantile  cdf
 #&gt; [1,] -2.481874 0.01
 #&gt; [2,] -1.013343 0.10
 #&gt; [3,]  1.134956 0.50
 #&gt; [4,]  4.838645 0.90
-#&gt; [5,]  6.643849 0.99</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>cdf</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"CDF"</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/points'>points</a></span>(<span class='no'>q</span>, <span class='fu'>cdfMclust</span>(<span class='no'>dens</span>, <span class='no'>q</span>)$<span class='no'>y</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red3"</span>)</div><div class='img'><img src='cdfMclust-1.png' alt='' width='504' height='432' /></div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>))
+#&gt; [5,]  6.643849 0.99</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>cdf</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"CDF"</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='no'>q</span>, <span class='fu'>cdfMclust</span>(<span class='no'>dens</span>, <span class='no'>q</span>)$<span class='no'>y</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red3"</span>)</div><div class='img'><img src='cdfMclust-1.png' alt='' width='504' height='432' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>))
 <span class='no'>dens.waiting</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>faithful</span>$<span class='no'>waiting</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens.waiting</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: collapsing to unique 'x' values</span></div><div class='img'><img src='cdfMclust-2.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fu'>cdfMclust</span>(<span class='no'>dens.waiting</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>,
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens.waiting</span>)</div><div class='img'><img src='cdfMclust-2.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>cdfMclust</span>(<span class='no'>dens.waiting</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>,
      <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='no'>dens.waiting</span>$<span class='no'>varname</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"CDF"</span>)
 <span class='no'>dens.eruptions</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>faithful</span>$<span class='no'>eruptions</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>dens.eruptions</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: collapsing to unique 'x' values</span></div><div class='img'><img src='cdfMclust-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fu'>cdfMclust</span>(<span class='no'>dens.eruptions</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>,
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens.eruptions</span>)</div><div class='img'><img src='cdfMclust-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>cdfMclust</span>(<span class='no'>dens.eruptions</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>,
      <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='no'>dens.eruptions</span>$<span class='no'>varname</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"CDF"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))</div><div class='img'><img src='cdfMclust-4.png' alt='' width='504' height='432' /></div></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))</div><div class='img'><img src='cdfMclust-4.png' alt='' width='504' height='432' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Luca Scrucca</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -232,13 +225,16 @@ quantileMclust(object, p, ...)</pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,10 +45,10 @@
 
 
 
-<meta property="og:title" content="Changelog" />
 
+<meta property="og:title" content="Changelog" />
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -54,9 +62,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -70,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -86,7 +95,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -102,25 +110,41 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       
     </div>
 
+    <div id="mclust-546" class="section level1">
+<h1 class="page-header" data-toc-text="5.4.6">
+<a href="#mclust-546" class="anchor"></a>mclust 5.4.6<small> 2020-04-11 </small>
+</h1>
+<ul>
+<li>Fixed issues with source Fortran code with gfortran 10 as reported by CRAN.</li>
+<li>Clean code of <code>hcCriterion()</code>.</li>
+<li>Replaced <code>CEX</code> argument in functions with standard base graph <code>cex</code> argument.</li>
+<li>Removed <code>ylim</code> argument in function; it can be passed via <code>...</code>.</li>
+<li>MclustDA models use the default SVD transformation of the data for initialisation of the EM algorithm.</li>
+<li>Added <code>icl</code> criterion to object returned by <code><a href="../reference/Mclust.html">Mclust()</a></code>.</li>
+<li>Fixed number of pages for the RJ reference.</li>
+<li>quantileMclust() uses bisection line search method for numerically computing quantiles.</li>
+</ul>
+</div>
     <div id="mclust-545" class="section level1">
-<h1 class="page-header">
-<a href="#mclust-545" class="anchor"></a>mclust 5.4.5<small> Unreleased </small>
+<h1 class="page-header" data-toc-text="5.4.5">
+<a href="#mclust-545" class="anchor"></a>mclust 5.4.5<small> 2019-07-08 </small>
 </h1>
 <ul>
 <li>Fixed warnings in Fortran calls raised by CRAN.</li>
 </ul>
 </div>
     <div id="mclust-544" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.4.4">
 <a href="#mclust-544" class="anchor"></a>mclust 5.4.4<small> 2019-06-27 </small>
 </h1>
 <ul>
@@ -137,12 +161,12 @@
 </ul>
 </div>
     <div id="mclust-543" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.4.3">
 <a href="#mclust-543" class="anchor"></a>mclust 5.4.3<small> 2019-03-14 </small>
 </h1>
 <ul>
 <li>Added website site and update DESCRIPTION with URL.</li>
-<li>Fixed a bug when checking for univariate data with a single observation in several instances. Using <code><a href="https://www.rdocumentation.org/packages/base/topics/nrow">NCOL()</a></code> works both for n-values vector or nx1 matrix.</li>
+<li>Fixed a bug when checking for univariate data with a single observation in several instances. Using <code><a href="https://rdrr.io/r/base/nrow.html">NCOL()</a></code> works both for n-values vector or nx1 matrix.</li>
 <li>Fixed a bug when <code>hcPairs</code> are provided in the <code>initialization</code> argument of <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code> (and relatives) and the number of observations exceed the threshold for subsetting.</li>
 <li>Fixed bugs on axes for some manual pairs plots.</li>
 <li>Renamed <code>type = "level"</code> to <code>type = "hdr"</code>, and <code>level.prob</code> to <code>prob</code>, in <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code> for getting HDRs graphs</li>
@@ -152,7 +176,7 @@
 </ul>
 </div>
     <div id="mclust-542" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.4.2">
 <a href="#mclust-542" class="anchor"></a>mclust 5.4.2<small> 2018-11-17 </small>
 </h1>
 <ul>
@@ -164,13 +188,13 @@
 </ul>
 </div>
     <div id="mclust-541" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.4.1">
 <a href="#mclust-541" class="anchor"></a>mclust 5.4.1<small> 2018-06-27 </small>
 </h1>
 <ul>
 <li>Added parametric bootstrap option (<code>type = "pb"</code>) in <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code>.</li>
 <li>Added the options to get averages of resampling distributions in <code><a href="../reference/summary.MclustBootstrap.html">summary.MclustBootstrap()</a></code> and to plot resampling-based confidence intervals in <code><a href="../reference/plot.MclustBoostrap.html">plot.MclustBootstrap()</a></code>.</li>
-<li>Added function <code>catwrap()</code> for wrapping printed lines at <code><a href="https://www.rdocumentation.org/packages/base/topics/options">getOption("width")</a></code> when using <code><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat()</a></code>.</li>
+<li>Added function <code>catwrap()</code> for wrapping printed lines at <code><a href="https://rdrr.io/r/base/options.html">getOption("width")</a></code> when using <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code>.</li>
 <li>
 <code><a href="../reference/mclust.options.html">mclust.options()</a></code> now modify the variable <code>.mclust</code> in the namespace of the package, so it should work even inside an mclust-function call.</li>
 <li>Fixed a bug in <code><a href="../reference/covw.html">covw()</a></code> when <code>normalize = TRUE</code>.</li>
@@ -182,7 +206,7 @@
 </ul>
 </div>
     <div id="mclust-54" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.4">
 <a href="#mclust-54" class="anchor"></a>mclust 5.4<small> 2017-11-22 </small>
 </h1>
 <ul>
@@ -191,16 +215,16 @@
 <li>
 <code><a href="../reference/predict.densityMclust.html">predict.densityMclust()</a></code> can optionally returns the density on a logarithm scale.</li>
 <li>Removed normalization of mixing proportions for new models in single mstep.</li>
-<li>Internal rewrite of code used by <code><a href="https://www.rdocumentation.org/packages/base/topics/message">packageStartupMessage()</a></code>.</li>
+<li>Internal rewrite of code used by <code><a href="https://rdrr.io/r/base/message.html">packageStartupMessage()</a></code>.</li>
 <li>Fixed a small bug in <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code> in the univariate data case.</li>
 <li>Fixed bugs when both the noise and subset are provided for initialization.</li>
 <li>Vignette updated to include references, startup message, css style, etc.</li>
 <li>Various bug fixes in plotting methods when noise is present.</li>
-<li>Updated references in <code><a href="https://www.rdocumentation.org/packages/utils/topics/citation">citation()</a></code> and man pages.</li>
+<li>Updated references in <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code> and man pages.</li>
 </ul>
 </div>
     <div id="mclust-53-2017-05" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.3">
 <a href="#mclust-53-2017-05" class="anchor"></a>mclust 5.3 (2017-05)<small> 2017-05-21 </small>
 </h1>
 <ul>
@@ -222,16 +246,16 @@
 </ul>
 </div>
     <div id="mclust-523-2017-03" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.2.3">
 <a href="#mclust-523-2017-03" class="anchor"></a>mclust 5.2.3 (2017-03)<small> 2017-03-13 </small>
 </h1>
 <ul>
 <li>Added native routine registration for Fortran code.</li>
-<li>Fixed lowercase argument PACKAGE in <code><a href="https://www.rdocumentation.org/packages/base/topics/Foreign">.Fortran()</a></code> calls.</li>
+<li>Fixed lowercase argument PACKAGE in <code><a href="https://rdrr.io/r/base/Foreign.html">.Fortran()</a></code> calls.</li>
 </ul>
 </div>
     <div id="mclust-522-2017-01" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.2.2">
 <a href="#mclust-522-2017-01" class="anchor"></a>mclust 5.2.2 (2017-01)<small> 2017-01-22 </small>
 </h1>
 <ul>
@@ -239,7 +263,7 @@
 </ul>
 </div>
     <div id="mclust-521-2017-01" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.2.1">
 <a href="#mclust-521-2017-01" class="anchor"></a>mclust 5.2.1 (2017-01)<small> 2017-01-03 </small>
 </h1>
 <ul>
@@ -248,7 +272,7 @@
 </ul>
 </div>
     <div id="mclust-52-2016-03" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.2">
 <a href="#mclust-52-2016-03" class="anchor"></a>mclust 5.2 (2016-03)<small> 2016-03-31 </small>
 </h1>
 <ul>
@@ -263,7 +287,7 @@
 </ul>
 </div>
     <div id="mclust-51-2015-10" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.1">
 <a href="#mclust-51-2015-10" class="anchor"></a>mclust 5.1 (2015-10)<small> 2015-10-27 </small>
 </h1>
 <ul>
@@ -273,7 +297,7 @@
 </ul>
 </div>
     <div id="mclust-502-2015-07" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.0.2">
 <a href="#mclust-502-2015-07" class="anchor"></a>mclust 5.0.2 (2015-07)<small> 2015-07-08 </small>
 </h1>
 <ul>
@@ -287,7 +311,7 @@
 </ul>
 </div>
     <div id="mclust-501-2015-04" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.0.1">
 <a href="#mclust-501-2015-04" class="anchor"></a>mclust 5.0.1 (2015-04)<small> 2015-04-22 </small>
 </h1>
 <ul>
@@ -296,7 +320,7 @@
 </ul>
 </div>
     <div id="mclust-500-2015-03" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="5.0.0">
 <a href="#mclust-500-2015-03" class="anchor"></a>mclust 5.0.0 (2015-03)<small> 2015-04-09 </small>
 </h1>
 <ul>
@@ -314,7 +338,7 @@
 </ul>
 </div>
     <div id="mclust-44-2014-09" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="4.4">
 <a href="#mclust-44-2014-09" class="anchor"></a>mclust 4.4 (2014-09)<small> 2014-09-16 </small>
 </h1>
 <ul>
@@ -325,7 +349,7 @@
 </ul>
 </div>
     <div id="mclust-43-2014-03" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="4.3">
 <a href="#mclust-43-2014-03" class="anchor"></a>mclust 4.3 (2014-03)<small> 2014-03-31 </small>
 </h1>
 <ul>
@@ -338,14 +362,14 @@
 <li>Added component <code>hypvol</code> to <code>Mclust</code> object which provide the hypervolume of the noise component when required, otherwise is set to NA.</li>
 <li>Added a warning when prior is used and BIC returns NAs.</li>
 <li>Fixed bugs in <code><a href="../reference/summary.Mclust.html">summary.Mclust()</a></code>, <code><a href="../reference/summary.Mclust.html">print.summary.Mclust()</a></code>, <code><a href="../reference/plot.Mclust.html">plot.Mclust()</a></code> and <code><a href="../reference/icl.html">icl()</a></code> in the case of presence of a noise component.</li>
-<li>Fixed bug on some plots in <code><a href="../reference/plot.MclustDR.html">plot.MclustDR()</a></code> which requires <code><a href="https://www.rdocumentation.org/packages/graphics/topics/frame">plot.new()</a></code> before calling <code><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">plot.window()</a></code>.</li>
+<li>Fixed bug on some plots in <code><a href="../reference/plot.MclustDR.html">plot.MclustDR()</a></code> which requires <code><a href="https://rdrr.io/r/graphics/frame.html">plot.new()</a></code> before calling <code><a href="https://rdrr.io/r/graphics/plot.window.html">plot.window()</a></code>.</li>
 <li>Fixed a bug in <code><a href="../reference/MclustDR.html">MclustDR()</a></code> for the one-dimensional case.</li>
 <li>Corrections to <code>Mclust</code> man page.</li>
 <li>Various small bug fixes.</li>
 </ul>
 </div>
     <div id="mclust-42-2013-07" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="4.2">
 <a href="#mclust-42-2013-07" class="anchor"></a>mclust 4.2 (2013-07)<small> 2013-07-19 </small>
 </h1>
 <ul>
@@ -358,7 +382,7 @@
 </ul>
 </div>
     <div id="mclust-41-2013-04" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="4.1">
 <a href="#mclust-41-2013-04" class="anchor"></a>mclust 4.1 (2013-04)<small> 2013-05-01 </small>
 </h1>
 <ul>
@@ -379,7 +403,7 @@
 </ul>
 </div>
     <div id="mclust-40-2012-08" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="4.0">
 <a href="#mclust-40-2012-08" class="anchor"></a>mclust 4.0 (2012-08)<small> 2012-08-09 </small>
 </h1>
 <ul>
@@ -394,7 +418,7 @@
 </ul>
 </div>
     <div id="mclust-35-2012-07" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.5">
 <a href="#mclust-35-2012-07" class="anchor"></a>mclust 3.5 (2012-07)<small> 2012-07-22 </small>
 </h1>
 <ul>
@@ -406,7 +430,7 @@
 </ul>
 </div>
     <div id="mclust-3411-2012-01" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.11">
 <a href="#mclust-3411-2012-01" class="anchor"></a>mclust 3.4.11 (2012-01)<small> 2012-01-07 </small>
 </h1>
 <ul>
@@ -414,7 +438,7 @@
 </ul>
 </div>
     <div id="mclust-3410-2011-05" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.10">
 <a href="#mclust-3410-2011-05" class="anchor"></a>mclust 3.4.10 (2011-05)<small> 2011-05-30 </small>
 </h1>
 <ul>
@@ -422,7 +446,7 @@
 </ul>
 </div>
     <div id="mclust-349-2011-05" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.9">
 <a href="#mclust-349-2011-05" class="anchor"></a>mclust 3.4.9 (2011-05)<small> 2011-05-28 </small>
 </h1>
 <ul>
@@ -434,7 +458,7 @@
 </ul>
 </div>
     <div id="mclust-348-2010-12" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.8">
 <a href="#mclust-348-2010-12" class="anchor"></a>mclust 3.4.8 (2010-12)<small> 2010-12-12 </small>
 </h1>
 <ul>
@@ -442,7 +466,7 @@
 </ul>
 </div>
     <div id="mclust-347-2010-10" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.7">
 <a href="#mclust-347-2010-10" class="anchor"></a>mclust 3.4.7 (2010-10)<small> 2010-10-23 </small>
 </h1>
 <ul>
@@ -451,7 +475,7 @@
 </ul>
 </div>
     <div id="mclust-346-2010-08" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.6">
 <a href="#mclust-346-2010-08" class="anchor"></a>mclust 3.4.6 (2010-08)<small> 2010-08-10 </small>
 </h1>
 <ul>
@@ -459,7 +483,7 @@
 </ul>
 </div>
     <div id="mclust-345-2010-07" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.5">
 <a href="#mclust-345-2010-07" class="anchor"></a>mclust 3.4.5 (2010-07)<small> 2010-07-24 </small>
 </h1>
 <ul>
@@ -467,7 +491,7 @@
 </ul>
 </div>
     <div id="mclust-344-2010-04" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.4">
 <a href="#mclust-344-2010-04" class="anchor"></a>mclust 3.4.4 (2010-04)<small> 2010-04-08 </small>
 </h1>
 <ul>
@@ -475,7 +499,7 @@
 </ul>
 </div>
     <div id="mclust-343-2010-02" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.3">
 <a href="#mclust-343-2010-02" class="anchor"></a>mclust 3.4.3 (2010-02)<small> 2010-02-20 </small>
 </h1>
 <ul>
@@ -483,7 +507,7 @@
 </ul>
 </div>
     <div id="mclust-342-2010-02" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.2">
 <a href="#mclust-342-2010-02" class="anchor"></a>mclust 3.4.2 (2010-02)<small> 2010-02-13 </small>
 </h1>
 <ul>
@@ -494,7 +518,7 @@
 </ul>
 </div>
     <div id="mclust-341-2010-01" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4.1">
 <a href="#mclust-341-2010-01" class="anchor"></a>mclust 3.4.1 (2010-01)<small> 2010-01-22 </small>
 </h1>
 <ul>
@@ -503,7 +527,7 @@
 </ul>
 </div>
     <div id="mclust-34-2009-12" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.4">
 <a href="#mclust-34-2009-12" class="anchor"></a>mclust 3.4 (2009-12)<small> 2009-12-16 </small>
 </h1>
 <ul>
@@ -513,7 +537,7 @@
 </ul>
 </div>
     <div id="mclust-332-2009-10" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.3.2">
 <a href="#mclust-332-2009-10" class="anchor"></a>mclust 3.3.2 (2009-10)<small> 2009-10-13 </small>
 </h1>
 <ul>
@@ -521,18 +545,18 @@
 </ul>
 </div>
     <div id="mclust-331-2009-06" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.3.1">
 <a href="#mclust-331-2009-06" class="anchor"></a>mclust 3.3.1 (2009-06)<small> 2009-07-01 </small>
 </h1>
 <ul>
 <li>Fixed <code><a href="../reference/plot.mclustBIC.html">plot.mclustBIC()</a></code> and <code><a href="../reference/plot.Mclust.html">plot.Mclust()</a></code> to handle <code>modelNames</code>.</li>
-<li>Changed “orientation” for VEV, VVV models to be consistent with R <code><a href="https://www.rdocumentation.org/packages/base/topics/eigen">eigen()</a></code> and the literature</li>
+<li>Changed “orientation” for VEV, VVV models to be consistent with R <code><a href="https://rdrr.io/r/base/eigen.html">eigen()</a></code> and the literature</li>
 <li>Fixed some problems including doc for the noise option.</li>
 <li>Updated the <code><a href="../reference/unmap.html">unmap()</a></code> function to optionally include missing groups.</li>
 </ul>
 </div>
     <div id="mclust-33-2009-06" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.3">
 <a href="#mclust-33-2009-06" class="anchor"></a>mclust 3.3 (2009-06)<small> Unreleased </small>
 </h1>
 <ul>
@@ -541,7 +565,7 @@
 </ul>
 </div>
     <div id="mclust-32-2009-04" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.2">
 <a href="#mclust-32-2009-04" class="anchor"></a>mclust 3.2 (2009-04)<small> 2009-04-29 </small>
 </h1>
 <ul>
@@ -552,7 +576,7 @@
 </ul>
 </div>
     <div id="mclust-3110-2008-11" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.1.10">
 <a href="#mclust-3110-2008-11" class="anchor"></a>mclust 3.1.10 (2008-11)<small> Unreleased </small>
 </h1>
 <ul>
@@ -560,7 +584,7 @@
 </ul>
 </div>
     <div id="mclust-319-2008-10" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.1.9">
 <a href="#mclust-319-2008-10" class="anchor"></a>mclust 3.1.9 (2008-10)<small> Unreleased </small>
 </h1>
 <ul>
@@ -569,7 +593,7 @@
 </ul>
 </div>
     <div id="mclust-311-2007-03" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.1.1">
 <a href="#mclust-311-2007-03" class="anchor"></a>mclust 3.1.1 (2007-03)<small> Unreleased </small>
 </h1>
 <ul>
@@ -579,7 +603,7 @@
 </ul>
 </div>
     <div id="mclust-31-2007-01" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.1">
 <a href="#mclust-31-2007-01" class="anchor"></a>mclust 3.1 (2007-01)<small> Unreleased </small>
 </h1>
 <ul>
@@ -590,7 +614,7 @@
 </ul>
 </div>
     <div id="mclust-30-2006-10" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="3.0">
 <a href="#mclust-30-2006-10" class="anchor"></a>mclust 3.0 (2006-10)<small> Unreleased </small>
 </h1>
 <ul>
@@ -600,57 +624,14 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#mclust-545">5.4.5</a></li>
-        <li><a href="#mclust-544">5.4.4</a></li>
-        <li><a href="#mclust-543">5.4.3</a></li>
-        <li><a href="#mclust-542">5.4.2</a></li>
-        <li><a href="#mclust-541">5.4.1</a></li>
-        <li><a href="#mclust-54">5.4</a></li>
-        <li><a href="#mclust-53-2017-05">5.3</a></li>
-        <li><a href="#mclust-523-2017-03">5.2.3</a></li>
-        <li><a href="#mclust-522-2017-01">5.2.2</a></li>
-        <li><a href="#mclust-521-2017-01">5.2.1</a></li>
-        <li><a href="#mclust-52-2016-03">5.2</a></li>
-        <li><a href="#mclust-51-2015-10">5.1</a></li>
-        <li><a href="#mclust-502-2015-07">5.0.2</a></li>
-        <li><a href="#mclust-501-2015-04">5.0.1</a></li>
-        <li><a href="#mclust-500-2015-03">5.0.0</a></li>
-        <li><a href="#mclust-44-2014-09">4.4</a></li>
-        <li><a href="#mclust-43-2014-03">4.3</a></li>
-        <li><a href="#mclust-42-2013-07">4.2</a></li>
-        <li><a href="#mclust-41-2013-04">4.1</a></li>
-        <li><a href="#mclust-40-2012-08">4.0</a></li>
-        <li><a href="#mclust-35-2012-07">3.5</a></li>
-        <li><a href="#mclust-3411-2012-01">3.4.11</a></li>
-        <li><a href="#mclust-3410-2011-05">3.4.10</a></li>
-        <li><a href="#mclust-349-2011-05">3.4.9</a></li>
-        <li><a href="#mclust-348-2010-12">3.4.8</a></li>
-        <li><a href="#mclust-347-2010-10">3.4.7</a></li>
-        <li><a href="#mclust-346-2010-08">3.4.6</a></li>
-        <li><a href="#mclust-345-2010-07">3.4.5</a></li>
-        <li><a href="#mclust-344-2010-04">3.4.4</a></li>
-        <li><a href="#mclust-343-2010-02">3.4.3</a></li>
-        <li><a href="#mclust-342-2010-02">3.4.2</a></li>
-        <li><a href="#mclust-341-2010-01">3.4.1</a></li>
-        <li><a href="#mclust-34-2009-12">3.4</a></li>
-        <li><a href="#mclust-332-2009-10">3.3.2</a></li>
-        <li><a href="#mclust-331-2009-06">3.3.1</a></li>
-        <li><a href="#mclust-33-2009-06">3.3</a></li>
-        <li><a href="#mclust-32-2009-04">3.2</a></li>
-        <li><a href="#mclust-3110-2008-11">3.1.10</a></li>
-        <li><a href="#mclust-319-2008-10">3.1.9</a></li>
-        <li><a href="#mclust-311-2007-03">3.1.1</a></li>
-        <li><a href="#mclust-31-2007-01">3.1</a></li>
-        <li><a href="#mclust-30-2006-10">3.0</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -658,13 +639,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

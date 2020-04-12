@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,13 +45,12 @@
 
 
 
-<meta property="og:title" content="Density or uncertainty surface for bivariate mixtures — surfacePlot" />
 
+<meta property="og:title" content="Density or uncertainty surface for bivariate mixtures — surfacePlot" />
 <meta property="og:description" content="Plots a density or uncertainty surface given bivariate data and parameters of 
 a MVN mixture model for the data." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -57,9 +64,10 @@ a MVN mixture model for the data." />
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -73,7 +81,7 @@ a MVN mixture model for the data." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -89,7 +97,6 @@ a MVN mixture model for the data." />
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -105,6 +112,7 @@ a MVN mixture model for the data." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -116,25 +124,23 @@ a MVN mixture model for the data." />
     </div>
 
     <div class="ref-description">
-    
     <p>Plots a density or uncertainty surface given bivariate data and parameters of 
 a MVN mixture model for the data.</p>
-    
     </div>
 
-    <pre class="usage">surfacePlot(data, parameters, 
-            what = c("density", "uncertainty"), 
-            type = c("contour", "hdr", "image", "persp"), 
-            transformation = c("none", "log", "sqrt"),          
-            grid = 200, nlevels = 11, levels = NULL, 
-            prob = c(0.25, 0.5, 0.75),
-            col = gray(0.7),
-            col.palette = function(...) hcl.colors(..., "blues", rev = TRUE),
-            hdr.palette = blue2grey.colors,
-            xlim = NULL, ylim = NULL, xlab = NULL, ylab = NULL, 
-            main = FALSE, scale = FALSE, swapAxes = FALSE, 
-            verbose = FALSE, &#8230;)</pre>
-    
+    <pre class="usage"><span class='fu'>surfacePlot</span>(<span class='no'>data</span>, <span class='no'>parameters</span>,
+            <span class='kw'>what</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"density"</span>, <span class='st'>"uncertainty"</span>),
+            <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"contour"</span>, <span class='st'>"hdr"</span>, <span class='st'>"image"</span>, <span class='st'>"persp"</span>),
+            <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"log"</span>, <span class='st'>"sqrt"</span>),
+            <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>200</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+            <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span>),
+            <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>gray</a></span>(<span class='fl'>0.7</span>),
+            <span class='kw'>col.palette</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>...</span>) <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='no'>...</span>, <span class='st'>"blues"</span>, <span class='kw'>rev</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
+            <span class='kw'>hdr.palette</span> <span class='kw'>=</span> <span class='no'>blue2grey.colors</span>,
+            <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+            <span class='kw'>main</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>swapAxes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+            <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -149,7 +155,7 @@ a MVN mixture model for the data.</p>
       <th>parameters</th>
       <td><p>A named list giving the parameters of an <em>MCLUST</em> model, 
      used to produce superimposing ellipses on the plot. 
-     The relevant components are as follows:</p><dl class='dl-horizontal'>
+     The relevant components are as follows:</p><dl'>
         <dt><code>mean</code></dt><dd><p>The mean for each component. If there is more than one component,
               this is a matrix whose kth column is the mean of the <em>k</em>th
               component of the mixture model.</p></dd>
@@ -157,7 +163,8 @@ a MVN mixture model for the data.</p>
               The components of this list depend on the model
               specification. See the help file for <code><a href='mclustVariance.html'>mclustVariance</a></code>
               for details.</p></dd>
-     </dl><p></p></td>
+     
+</dl><p></p></td>
     </tr>
     <tr>
       <th>what</th>
@@ -246,11 +253,11 @@ a MVN mixture model for the data.</p>
     which typically takes some time to complete.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Other graphics parameters.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A plots showing (a transformation of) the density or uncertainty for the given
@@ -259,12 +266,10 @@ mixture model and data.</p>
 <code>y</code>, and <code>z</code> in which <code>x</code> and <code>y</code> are the values used to 
 define the grid and <code>z</code> is the transformed density or uncertainty at the 
 grid points.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>For an image plot, a color scheme may need to be selected on the display
   device in order to view the plot.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>C. Fraley and A. E. Raftery (2002).
@@ -274,14 +279,12 @@ grid points.</p>
   mclust Version 4 for R: Normal Mixture Modeling for Model-Based 
   Clustering, Classification, and Density Estimation. 
   Technical Report No. 597, Department of Statistics, University of Washington.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='mclust2Dplot.html'>mclust2Dplot</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>faithfulModel</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>faithful</span>)
 <span class='fu'>surfacePlot</span>(<span class='no'>faithful</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>faithfulModel</span>$<span class='no'>parameters</span>,
             <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"contour"</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='st'>"none"</span>,
@@ -290,26 +293,15 @@ grid points.</p>
             <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='st'>"log"</span>)
 <span class='fu'>surfacePlot</span>(<span class='no'>faithful</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>faithfulModel</span>$<span class='no'>parameters</span>,
             <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"contour"</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"uncertainty"</span>, <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='st'>"log"</span>)
-<span class='co'># }</span></pre>
+}</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -317,13 +309,16 @@ grid points.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

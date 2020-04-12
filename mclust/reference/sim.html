@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,12 +45,11 @@
 
 
 
+
 <meta property="og:title" content="Simulate from Parameterized MVN Mixture Models — sim" />
-
 <meta property="og:description" content="Simulate data from parameterized MVN mixture models." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -88,7 +96,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -104,6 +111,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -115,13 +123,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Simulate data from parameterized MVN mixture models.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>sim</span>(<span class='no'>modelName</span>, <span class='no'>parameters</span>, <span class='no'>n</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -132,7 +138,7 @@
     </tr>
     <tr>
       <th>parameters</th>
-      <td><p>A list with the following components:</p><dl class='dl-horizontal'>
+      <td><p>A list with the following components:</p><dl'>
         <dt><code>pro</code></dt><dd><p>A vector whose <em>k</em>th component is the mixing proportion for
               the <em>k</em>th component of the mixture model.
               If missing, equal proportions are assumed.</p></dd>
@@ -143,7 +149,8 @@
               The components of this list depend on the model
               specification. See the help file for <code><a href='mclustVariance.html'>mclustVariance</a></code>
               for details.</p></dd>
-      </dl><p></p></td>
+      
+</dl><p></p></td>
     </tr>
     <tr>
       <th>n</th>
@@ -157,11 +164,11 @@
     before calling <code>sim</code>.</p></td>
     </tr>
     <tr>
-      <th>&#8230; </th>
+      <th>... </th>
       <td><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A matrix in which first column is the classification and the remaining
@@ -170,40 +177,40 @@
 <dt>Attributes:</dt><dd><p><code>"modelName"</code> A character string indicating the variance 
       model used for the simulation.</p></dd>
 
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function can be used with an indirect or list call using
   <code>do.call</code>, allowing the output of e.g. <code>mstep</code>, <code>em</code>,
   <code>me</code>, <code>Mclust</code> to be passed directly without the need to
   specify individual parameters as arguments.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='simE.html'>simE</a></code>, &#8230;,
+    <div class='dont-index'><p><code><a href='simE.html'>simE</a></code>, ...,
   <code><a href='simE.html'>simVVV</a></code>,
   <code><a href='Mclust.html'>Mclust</a></code>,
   <code><a href='mstep.html'>mstep</a></code>,
-  <code><a href='https://www.rdocumentation.org/packages/base/topics/do.call'>do.call</a></code></p></div>
-    
+  <code><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>irisBIC</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>])
 <span class='no'>irisModel</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mclustModel.html'>mclustModel</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='no'>irisBIC</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>irisModel</span>)</div><div class='output co'>#&gt; [1] "modelName"  "n"          "d"          "G"          "bic"       
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>irisModel</span>)</div><div class='output co'>#&gt; [1] "modelName"  "n"          "d"          "G"          "bic"       
 #&gt; [6] "loglik"     "parameters" "z"         </div><div class='input'><span class='no'>irisSim</span> <span class='kw'>&lt;-</span> <span class='fu'>sim</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='no'>irisModel</span>$<span class='no'>modelName</span>,
                <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>irisModel</span>$<span class='no'>parameters</span>,
-               <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>nrow</a></span>(<span class='no'>iris</span>))</div><span class='co'># NOT RUN {</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/do.call'>do.call</a></span>(<span class='st'>"sim"</span>, <span class='no'>irisModel</span>) <span class='co'># alternative call</span>
-<span class='co'># }</span><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>pty</span> <span class='kw'>=</span> <span class='st'>"s"</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
+               <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>iris</span>))
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/dimnames'>dimnames</a></span>(<span class='no'>irisSim</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>NULL</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"dummy"</span>, (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/dimnames'>dimnames</a></span>(<span class='no'>iris</span>)<span class='kw'>[[</span><span class='fl'>2</span>]])[-<span class='fl'>5</span>]))
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+  <span class='fu'><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></span>(<span class='st'>"sim"</span>, <span class='no'>irisModel</span>) <span class='co'># alternative call</span>
+}
 
-<span class='no'>dimens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>)
-<span class='no'>lim1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>(<span class='no'>iris</span>[,<span class='no'>dimens</span>],<span class='fl'>2</span>,<span class='no'>range</span>)
-<span class='no'>lim2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>(<span class='no'>irisSim</span>[,<span class='no'>dimens</span>+<span class='fl'>1</span>],<span class='fl'>2</span>,<span class='no'>range</span>)
-<span class='no'>lims</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>rbind</a></span>(<span class='no'>lim1</span>,<span class='no'>lim2</span>),<span class='fl'>2</span>,<span class='no'>range</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>pty</span> <span class='kw'>=</span> <span class='st'>"s"</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
+
+<span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span>(<span class='no'>irisSim</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>NULL</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"dummy"</span>, (<span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span>(<span class='no'>iris</span>)<span class='kw'>[[</span><span class='fl'>2</span>]])[-<span class='fl'>5</span>]))
+
+<span class='no'>dimens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>)
+<span class='no'>lim1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='no'>iris</span>[,<span class='no'>dimens</span>],<span class='fl'>2</span>,<span class='no'>range</span>)
+<span class='no'>lim2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='no'>irisSim</span>[,<span class='no'>dimens</span>+<span class='fl'>1</span>],<span class='fl'>2</span>,<span class='no'>range</span>)
+<span class='no'>lims</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>(<span class='no'>lim1</span>,<span class='no'>lim2</span>),<span class='fl'>2</span>,<span class='no'>range</span>)
 <span class='no'>xlim</span> <span class='kw'>&lt;-</span> <span class='no'>lims</span>[,<span class='fl'>1</span>]
 <span class='no'>ylim</span> <span class='kw'>&lt;-</span> <span class='no'>lims</span>[,<span class='fl'>2</span>]
 
@@ -216,27 +223,20 @@
           <span class='kw'>dimens</span><span class='kw'>=</span><span class='no'>dimens</span>, <span class='kw'>xlim</span><span class='kw'>=</span><span class='no'>xlim</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='no'>ylim</span>)</div><div class='img'><img src='sim-1.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='no'>irisModel3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mclustModel.html'>mclustModel</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='no'>irisBIC</span>, <span class='kw'>G</span><span class='kw'>=</span><span class='fl'>3</span>)
 <span class='no'>irisSim3</span> <span class='kw'>&lt;-</span> <span class='fu'>sim</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='no'>irisModel3</span>$<span class='no'>modelName</span>,
-               <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>irisModel3</span>$<span class='no'>parameters</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>500</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><span class='co'># NOT RUN {</span>
+               <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>irisModel3</span>$<span class='no'>parameters</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>500</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
  <span class='no'>irisModel3</span>$<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='kw'>NULL</span>
- <span class='no'>irisSim3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/do.call'>do.call</a></span>(<span class='st'>"sim"</span>,<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>500</span>,<span class='kw'>seed</span><span class='kw'>=</span><span class='fl'>1</span>),<span class='no'>irisModel3</span>)) <span class='co'># alternative call</span>
-<span class='co'># }</span><div class='input'><span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>irisSim3</span>[,-<span class='fl'>1</span>], <span class='kw'>cl</span> <span class='kw'>=</span> <span class='no'>irisSim3</span>[,<span class='fl'>1</span>])</div><div class='img'><img src='sim-2.png' alt='' width='504' height='432' /></div></pre>
+ <span class='no'>irisSim3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></span>(<span class='st'>"sim"</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>500</span>,<span class='kw'>seed</span><span class='kw'>=</span><span class='fl'>1</span>),<span class='no'>irisModel3</span>)) <span class='co'># alternative call</span>
+}
+<span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>irisSim3</span>[,-<span class='fl'>1</span>], <span class='kw'>cl</span> <span class='kw'>=</span> <span class='no'>irisSim3</span>[,<span class='fl'>1</span>])</div><div class='img'><img src='sim-2.png' alt='' width='504' height='432' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -244,13 +244,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

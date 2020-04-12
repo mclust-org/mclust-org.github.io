@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,12 +45,11 @@
 
 
 
+
 <meta property="og:title" content="Combining Gaussian Mixture Components for Clustering — clustCombi" />
-
 <meta property="og:description" content="Provides a hierarchy of combined clusterings from the EM/BIC Gaussian mixture solution to one class, following the methodology proposed in the article cited in the references." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -88,7 +96,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -104,6 +111,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -115,13 +123,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Provides a hierarchy of combined clusterings from the EM/BIC Gaussian mixture solution to one class, following the methodology proposed in the article cited in the references.</p>
-    
     </div>
 
-    <pre class="usage">clustCombi(object = NULL, data = NULL, &#8230;)</pre>
-    
+    <pre class="usage"><span class='fu'>clustCombi</span>(<span class='kw'>object</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -134,15 +140,14 @@
       <td><p>A numeric vector, matrix, or data frame of observations. Categorical variables are not allowed. If a matrix or data frame, rows correspond to observations and columns correspond to variables. If the <code>object</code> argument is not provided, the function <code><a href='Mclust.html'>Mclust</a></code> is applied to the given <code>data</code> to fit a mixture model.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Optional arguments to be passed to called functions. Notably, any argument (such as the numbers of components for which the BIC is computed; the models to be fitted by EM; initialization parameters for the EM algorithm, ...) to be passed to <code><a href='Mclust.html'>Mclust</a></code> in case <code>object = NULL</code>. Please see the <code><a href='Mclust.html'>Mclust</a></code> documentation for more details.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Mclust provides a Gaussian mixture fitted to the data by maximum likelihood through the EM algorithm, for the model and number of components selected according to BIC. The corresponding components are hierarchically combined according to an entropy criterion, following the methodology described in the article cited in the references section. The solutions with numbers of classes between the one selected by BIC and one are returned as a <code>clustCombi</code> class object.</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list of class <code>clustCombi</code> giving the hierarchy of combined solutions from the number of components selected by BIC to one. The details of the output components are as follows:</p>
@@ -151,30 +156,29 @@
  <dt>combiz</dt><dd><p>A list of matrices. <code>combiz[[K]]</code> is a matrix whose [i,k]th entry is the probability that observation i in the data belongs to the kth class according to the K-classes combined solution.</p></dd>
  <dt>MclustOutput</dt><dd><p>A list of class <code>Mclust</code>. Output of a call to the Mclust function (as provided by the user or the result of a call to the Mclust function) used to initiate the combined solutions hierarchy: please see the <code><a href='Mclust.html'>Mclust</a></code> function documentation for details.</p></dd>
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>J.-P. Baudry, A. E. Raftery, G. Celeux, K. Lo and R. Gottardo (2010). Combining mixture components for clustering. <em>Journal of Computational and Graphical Statistics, 19(2):332-353.</em></p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='plot.clustCombi.html'>plot.clustCombi</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>Baudry_etal_2010_JCGS_examples</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>Baudry_etal_2010_JCGS_examples</span>)
 
 <span class='co'># run Mclust using provided data</span>
-<span class='no'>output</span> <span class='kw'>&lt;-</span> <span class='fu'>clustCombi</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ex4.1</span>)</div><span class='co'># NOT RUN {</span>
+<span class='no'>output</span> <span class='kw'>&lt;-</span> <span class='fu'>clustCombi</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ex4.1</span>)
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># or run Mclust and then clustcombi on the returned object</span>
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>ex4.1</span>)
 <span class='no'>output</span> <span class='kw'>&lt;-</span> <span class='fu'>clustCombi</span>(<span class='no'>mod</span>)
-<span class='co'># }</span><div class='input'>
+}
+
 <span class='no'>output</span></div><div class='output co'>#&gt; 'clustCombi' object:
 #&gt;  Mclust model: (EEV,6)
 #&gt;  Available object components: classification combiM combiz MclustOutput 
 #&gt;  Combining matrix (K+1 classes -&gt; K classes): &lt;object_name&gt;$combiM[[K]]
-#&gt;  Classification for K classes: &lt;object_name&gt;$classification[[K]]</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>output</span>)</div><div class='output co'>#&gt; ----------------------------------------------------
+#&gt;  Classification for K classes: &lt;object_name&gt;$classification[[K]]</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>output</span>)</div><div class='output co'>#&gt; ----------------------------------------------------
 #&gt; Combining Gaussian mixture components for clustering 
 #&gt; ----------------------------------------------------
 #&gt; 
@@ -191,25 +195,26 @@
 #&gt;    3   |             3 &amp; 5             | 1 2 3 
 #&gt;    4   |             1 &amp; 2             | 1 3 
 #&gt;    5   |             1 &amp; 3             | 1 </div><div class='input'>
-</div><span class='co'># NOT RUN {</span>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># run Mclust using provided data and any further optional argument provided</span>
 <span class='no'>output</span> <span class='kw'>&lt;-</span> <span class='fu'>clustCombi</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ex4.1</span>, <span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"EEV"</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>15</span>)
-<span class='co'># }</span><div class='input'>
+}
+
 <span class='co'># plot the hierarchy of combined solutions</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>output</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>)</div><div class='img'><img src='clustCombi-1.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-2.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-3.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-4.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-5.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-6.png' alt='' width='504' height='432' /></div><div class='input'><span class='co'># plot some "entropy plots" which may help one to select the number of classes</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>output</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"entropy"</span>)</div><div class='img'><img src='clustCombi-7.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-8.png' alt='' width='504' height='432' /></div><div class='input'><span class='co'># plot the tree structure obtained from combining mixture components</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>output</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"tree"</span>)</div><div class='img'><img src='clustCombi-9.png' alt='' width='504' height='432' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>output</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>)</div><div class='img'><img src='clustCombi-1.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-2.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-3.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-4.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-5.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-6.png' alt='' width='504' height='432' /></div><div class='input'><span class='co'># plot some "entropy plots" which may help one to select the number of classes</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>output</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"entropy"</span>)</div><div class='img'><img src='clustCombi-7.png' alt='' width='504' height='432' /></div><div class='img'><img src='clustCombi-8.png' alt='' width='504' height='432' /></div><div class='input'><span class='co'># plot the tree structure obtained from combining mixture components</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>output</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"tree"</span>)</div><div class='img'><img src='clustCombi-9.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='co'># the selected model and number of components obtained from Mclust using BIC</span>
 <span class='no'>output</span>$<span class='no'>MclustOutput</span></div><div class='output co'>#&gt; 'Mclust' model object: (EEV,6) 
 #&gt; 
 #&gt; Available components: 
 #&gt;  [1] "call"           "data"           "modelName"      "n"             
-#&gt;  [5] "d"              "G"              "BIC"            "bic"           
-#&gt;  [9] "loglik"         "df"             "hypvol"         "parameters"    
-#&gt; [13] "z"              "classification" "uncertainty"   </div><div class='input'>
+#&gt;  [5] "d"              "G"              "BIC"            "loglik"        
+#&gt;  [9] "df"             "bic"            "icl"            "hypvol"        
+#&gt; [13] "parameters"     "z"              "classification" "uncertainty"   </div><div class='input'>
 <span class='co'># the matrix whose [i,k]th entry is the probability that i-th observation in </span>
 <span class='co'># the data belongs to the k-th class according to the BIC solution</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>( <span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='no'>output</span>$<span class='no'>MclustOutput</span>$<span class='no'>G</span>]] )</div><div class='output co'>#&gt;              [,1]          [,2]         [,3]          [,4]          [,5]
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>( <span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='no'>output</span>$<span class='no'>MclustOutput</span>$<span class='no'>G</span>]] )</div><div class='output co'>#&gt;              [,1]          [,2]         [,3]          [,4]          [,5]
 #&gt; [1,] 2.828057e-02  2.256054e-24 8.867772e-86 7.080395e-102 8.459454e-122
 #&gt; [2,] 9.727840e-01  1.741462e-24 3.144224e-61  2.073383e-81  3.054390e-90
 #&gt; [3,] 3.755348e-35  9.994220e-01 3.470709e-14 8.677331e-117  1.448932e-80
@@ -224,7 +229,7 @@
 #&gt; [5,] 3.969503e-109
 #&gt; [6,] 2.716310e-154</div><div class='input'><span class='co'># the matrix whose [i,k]th entry is the probability that i-th observation in </span>
 <span class='co'># the data belongs to the k-th class according to the first combined solution</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>( <span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='no'>output</span>$<span class='no'>MclustOutput</span>$<span class='no'>G</span>-<span class='fl'>1</span>]] )</div><div class='output co'>#&gt;              [,1]          [,2]         [,3]          [,4]          [,5]
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>( <span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='no'>output</span>$<span class='no'>MclustOutput</span>$<span class='no'>G</span>-<span class='fl'>1</span>]] )</div><div class='output co'>#&gt;              [,1]          [,2]         [,3]          [,4]          [,5]
 #&gt; [1,] 2.828057e-02  2.256054e-24 8.867772e-86 8.459454e-122  9.717194e-01
 #&gt; [2,] 9.727840e-01  1.741462e-24 3.144224e-61  3.054390e-90  2.721601e-02
 #&gt; [3,] 3.755348e-35  9.994220e-01 3.470709e-14  1.448932e-80  5.779845e-04
@@ -247,34 +252,18 @@
 #&gt; [2,]    0    1    0    0    0    0
 #&gt; [3,]    0    0    1    1    0    0
 #&gt; [4,]    0    0    0    0    1    0
-#&gt; [5,]    0    0    0    0    0    1</div># NOT RUN {
-<!-- %*% c(0,0,0,1,0,0)  -->
-# }
-<div class='input'><span class='co'># recover the 5-classes soft clustering from the 6-classes soft clustering </span>
+#&gt; [5,]    0    0    0    0    0    1</div><div class='input'><span class='co'># recover the 5-classes soft clustering from the 6-classes soft clustering </span>
 <span class='co'># and the 6 -&gt; 5 combining matrix</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a></span>( <span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='fl'>5</span>]] <span class='kw'>==</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/t'>t</a></span>( <span class='no'>output</span>$<span class='no'>combiM</span><span class='kw'>[[</span><span class='fl'>5</span>]] <span class='kw'>%*%</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/t'>t</a></span>(<span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='fl'>6</span>]]) ) )</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'># the hard clustering under the 5-classes solution</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>( <span class='no'>output</span>$<span class='no'>classification</span><span class='kw'>[[</span><span class='fl'>5</span>]] )</div><div class='output co'>#&gt; [1] 5 1 2 3 3 4</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>( <span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='fl'>5</span>]] <span class='kw'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>( <span class='no'>output</span>$<span class='no'>combiM</span><span class='kw'>[[</span><span class='fl'>5</span>]] <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='no'>output</span>$<span class='no'>combiz</span><span class='kw'>[[</span><span class='fl'>6</span>]]) ) )</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'># the hard clustering under the 5-classes solution</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>( <span class='no'>output</span>$<span class='no'>classification</span><span class='kw'>[[</span><span class='fl'>5</span>]] )</div><div class='output co'>#&gt; [1] 5 1 2 3 3 4</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>J.-P. Baudry, A. E. Raftery, L. Scrucca</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -282,13 +271,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

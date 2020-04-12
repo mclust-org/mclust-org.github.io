@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,13 +45,12 @@
 
 
 
-<meta property="og:title" content="Model-based Agglomerative Hierarchical Clustering — hc" />
 
+<meta property="og:title" content="Model-based Agglomerative Hierarchical Clustering — hc" />
 <meta property="og:description" content="Agglomerative hierarchical clustering based on maximum likelihood criteria 
   for Gaussian mixture models parameterized by eigenvalue decomposition." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -57,9 +64,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -73,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -89,7 +97,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -105,6 +112,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -116,25 +124,23 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Agglomerative hierarchical clustering based on maximum likelihood criteria 
   for Gaussian mixture models parameterized by eigenvalue decomposition.</p>
-    
     </div>
 
-    <pre class="usage">hc(data,
-   modelName = mclust.options("hcModelName"),  
-   use = mclust.options("hcUse"), &#8230;)
+    <pre class="usage"><span class='fu'>hc</span>(<span class='no'>data</span>,
+   <span class='kw'>modelName</span> <span class='kw'>=</span> <span class='fu'><a href='mclust.options.html'>mclust.options</a></span>(<span class='st'>"hcModelName"</span>),
+   <span class='kw'>use</span> <span class='kw'>=</span> <span class='fu'><a href='mclust.options.html'>mclust.options</a></span>(<span class='st'>"hcUse"</span>), <span class='no'>...</span>)
 
-# S3 method for hc
-plot(x, &#8230;)
+<span class='co'># S3 method for hc</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
 
-# S3 method for hc
-as.dendrogram(object, &#8230;)
+<span class='co'># S3 method for hc</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
-# S3 method for hc
-as.hclust(x, &#8230;)</pre>
-    
+<span class='co'># S3 method for hc</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/as.hclust.html'>as.hclust</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -148,14 +154,15 @@ as.hclust(x, &#8230;)</pre>
     <tr>
       <th>modelName</th>
       <td><p>A character string indicating the model to be used.<br />
-    Possible models are:</p><dl class='dl-horizontal'>
+    Possible models are:</p><dl'>
     <dt><code>"E"</code></dt><dd><p>equal variance (one-dimensional)</p></dd>
     <dt><code>"V"</code></dt><dd><p>spherical, variable variance (one-dimensional)</p></dd>
     <dt><code>"EII"</code></dt><dd><p>spherical, equal volume</p></dd>
     <dt><code>"VII"</code></dt><dd><p>spherical, unequal volume</p></dd>
     <dt><code>"EEE"</code></dt><dd><p>ellipsoidal, equal volume, shape, and orientation</p></dd>
     <dt><code>"VVV"</code></dt><dd><p>ellipsoidal, varying volume, shape, and orientation.</p></dd>
-    </dl><p>By default the model provided by <code><a href='mclust.options.html'>mclust.options("hcModelName")</a></code> is used. 
+    
+</dl><p>By default the model provided by <code><a href='mclust.options.html'>mclust.options("hcModelName")</a></code> is used. 
     See <code><a href='mclust.options.html'>mclust.options</a></code>.</p></td>
     </tr>
     <tr>
@@ -167,7 +174,7 @@ as.hclust(x, &#8230;)</pre>
     See <code><a href='mclust.options.html'>mclust.options</a></code>.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Arguments for the method-specific <code>hc</code> functions. See for example
     <code><a href='hcE.html'>hcE</a></code>.</p></td>
     </tr>
@@ -176,7 +183,7 @@ as.hclust(x, &#8230;)</pre>
       <td><p>An object of class <code>'hc'</code> resulting from a call to <code>hc()</code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The function <code>hc()</code> returns a numeric two-column matrix in which 
@@ -187,11 +194,10 @@ as.hclust(x, &#8230;)</pre>
 <p>The plotting function <code>plot.hc()</code> draws a dendrogram by first
   converting the input object from class <code>'hc'</code> to class 
   <code>'dendrogram'</code> and then plot the transformed object using 
-  <code><a href='https://www.rdocumentation.org/packages/stats/topics/dendrogram'>plot.dendrogram</a></code>.</p>  
+  <code><a href='https://rdrr.io/r/stats/dendrogram.html'>plot.dendrogram</a></code>.</p>  
 <p>The functions <code>as.dendrogram.hc()</code> and <code>as.hclust.hc()</code> are
   used to convert the input object from class <code>'hc'</code> to class, 
   respectively, <code>'dendrogram'</code> and <code>'hclust'</code>.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Most models have memory usage of the order of the square of the
@@ -200,14 +206,12 @@ as.hclust(x, &#8230;)</pre>
   do not admit a fast algorithm under the usual agglomerative
   hierarchical clustering paradigm. 
   These use less memory but are much slower to execute.</p>
-    
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>If <code>modelName = "E"</code> (univariate with equal variances) or
   <code>modelName = "EII"</code> (multivariate with equal spherical
   covariances), then the method is equivalent to Ward's method for
   hierarchical clustering.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>J. D. Banfield and A. E. Raftery (1993).
@@ -219,48 +223,35 @@ as.hclust(x, &#8230;)</pre>
 <p>C. Fraley and A. E. Raftery (2002).
   Model-based clustering, discriminant analysis, and density estimation.
   <em>Journal of the American Statistical Association 97:611-631</em>.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='hcE.html'>hcE</a></code>,...,
   <code><a href='hcE.html'>hcVVV</a></code>,
   <code><a href='hclass.html'>hclass</a></code>,
   <code><a href='mclust.options.html'>mclust.options</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>hcTree</span> <span class='kw'>&lt;-</span> <span class='fu'>hc</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"VVV"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,-<span class='fl'>5</span>])
-<span class='no'>cl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hclass.html'>hclass</a></span>(<span class='no'>hcTree</span>,<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>3</span>))</div><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>pty</span> <span class='kw'>=</span> <span class='st'>"s"</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
+<span class='no'>cl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hclass.html'>hclass</a></span>(<span class='no'>hcTree</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>3</span>))
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>pty</span> <span class='kw'>=</span> <span class='st'>"s"</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
 <span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>],<span class='kw'>cl</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"2"</span>])
 <span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>],<span class='kw'>cl</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"3"</span>])
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
-<span class='no'>dimens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
+<span class='no'>dimens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>)
 <span class='fu'><a href='coordProj.html'>coordProj</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='no'>dimens</span>, <span class='kw'>classification</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"2"</span>])
 <span class='fu'><a href='coordProj.html'>coordProj</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='no'>dimens</span>, <span class='kw'>classification</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"3"</span>])
-<span class='co'># }</span></pre>
+}</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#note">Note</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -268,13 +259,16 @@ as.hclust(x, &#8230;)</pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

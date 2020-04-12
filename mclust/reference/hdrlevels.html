@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,12 +45,11 @@
 
 
 
+
 <meta property="og:title" content="Highest Density Region (HDR) Levels — hdrlevels" />
-
 <meta property="og:description" content="Compute the levels of Highest Density Regions (HDRs) for any density and probability levels." />
-
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
       </span>
     </div>
 
@@ -88,7 +96,6 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
@@ -104,6 +111,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -115,13 +123,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Compute the levels of Highest Density Regions (HDRs) for any density and probability levels.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>hdrlevels</span>(<span class='no'>density</span>, <span class='no'>prob</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -134,11 +140,10 @@
       <td><p>A vector of probability levels in the range \([0,1]\).</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The function returns a vector of density values corresponding to HDRs at given probability levels.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>From Hyndman (1996), let \(f(x)\) be the density function of a random 
@@ -151,70 +156,54 @@ where \(f_\alpha\) is the largest constant such that
 \(
 Pr( X \in R(f_\alpha)) \ge 1-\alpha
 \)</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='plot.densityMclust.html'>plot.densityMclust</a></code></p></div>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Rob J. Hyndman (1996) Computing and Graphing Highest Density Regions. <em>The American Statistician</em>, 50(2):120-126.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example: univariate Gaussian</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>1000</span>)
-<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>dnorm</a></span>(<span class='no'>x</span>)
-<span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.25</span>, <span class='fl'>0.1</span>)
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>1000</span>)
+<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span>(<span class='no'>x</span>)
+<span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.25</span>, <span class='fl'>0.1</span>)
 (<span class='no'>f_a</span> <span class='kw'>&lt;-</span> <span class='fu'>hdrlevels</span>(<span class='no'>f</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fl'>1</span>-<span class='no'>a</span>))</div><div class='output co'>#&gt;        50%        75%        90% 
 #&gt; 0.31100986 0.19916200 0.09704847 </div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='no'>f</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/abline'>abline</a></span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='no'>f_a</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/text'>text</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Extremes'>max</a></span>(<span class='no'>x</span>), <span class='no'>f_a</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"f_"</span>, <span class='no'>a</span>), <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='hdrlevels-1.png' alt='' width='504' height='432' /></div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/which'>which</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>1</span>])])</div><div class='output co'>#&gt; [1] -0.7032523  0.7048308</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>qnorm</a></span>(<span class='fl'>1</span>-<span class='no'>a</span>[<span class='fl'>1</span>]/<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 0.6744898</div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] 0.75</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/which'>which</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>2</span>])])</div><div class='output co'>#&gt; [1] -1.178672  1.178547</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>qnorm</a></span>(<span class='fl'>1</span>-<span class='no'>a</span>[<span class='fl'>2</span>]/<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 1.150349</div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>3</span>])</div><div class='output co'>#&gt; [1] 0.9</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/which'>which</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>3</span>])])</div><div class='output co'>#&gt; [1] -1.681240  1.680362</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>qnorm</a></span>(<span class='fl'>1</span>-<span class='no'>a</span>[<span class='fl'>3</span>]/<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 1.644854</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>f</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='no'>f_a</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>), <span class='no'>f_a</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"f_"</span>, <span class='no'>a</span>), <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='hdrlevels-1.png' alt='' width='504' height='432' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>1</span>])])</div><div class='output co'>#&gt; [1] -0.7032523  0.7048308</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span>(<span class='fl'>1</span>-<span class='no'>a</span>[<span class='fl'>1</span>]/<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 0.6744898</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] 0.75</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>2</span>])])</div><div class='output co'>#&gt; [1] -1.178672  1.178547</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span>(<span class='fl'>1</span>-<span class='no'>a</span>[<span class='fl'>2</span>]/<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 1.150349</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>3</span>])</div><div class='output co'>#&gt; [1] 0.9</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>[<span class='fl'>3</span>])])</div><div class='output co'>#&gt; [1] -1.681240  1.680362</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span>(<span class='fl'>1</span>-<span class='no'>a</span>[<span class='fl'>3</span>]/<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 1.644854</div><div class='input'>
 <span class='co'># Example 2: univariate Gaussian mixture</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>cl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fl'>1</span>:<span class='fl'>2</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.7</span>, <span class='fl'>0.3</span>), <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/ifelse'>ifelse</a></span>(<span class='no'>cl</span> <span class='kw'>==</span> <span class='fl'>1</span>,
-            <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>1000</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>),
-            <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>1000</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>))
-<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='fl'>0.7</span>*<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>dnorm</a></span>(<span class='no'>x</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>) + <span class='fl'>0.3</span>*<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>dnorm</a></span>(<span class='no'>x</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1</span>)
+<span class='no'>cl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fl'>2</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.7</span>, <span class='fl'>0.3</span>), <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span>(<span class='no'>cl</span> <span class='kw'>==</span> <span class='fl'>1</span>,
+            <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>1000</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>),
+            <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>1000</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>))
+<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='fl'>0.7</span>*<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span>(<span class='no'>x</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>) + <span class='fl'>0.3</span>*<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span>(<span class='no'>x</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 
 <span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fl'>0.25</span>
 (<span class='no'>f_a</span> <span class='kw'>&lt;-</span> <span class='fu'>hdrlevels</span>(<span class='no'>f</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fl'>1</span>-<span class='no'>a</span>))</div><div class='output co'>#&gt;        75% 
 #&gt; 0.09291342 </div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='no'>f</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/abline'>abline</a></span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='no'>f_a</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/text'>text</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Extremes'>max</a></span>(<span class='no'>x</span>), <span class='no'>f_a</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"f_"</span>, <span class='no'>a</span>), <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='hdrlevels-2.png' alt='' width='504' height='432' /></div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>)</div><div class='output co'>#&gt; [1] 0.75</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>f</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='no'>f_a</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>), <span class='no'>f_a</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"f_"</span>, <span class='no'>a</span>), <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='hdrlevels-2.png' alt='' width='504' height='432' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>)</div><div class='output co'>#&gt; [1] 0.75</div><div class='input'>
 <span class='co'># find the regions of HDR</span>
-<span class='no'>ord</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/order'>order</a></span>(<span class='no'>x</span>)
+<span class='no'>ord</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span>(<span class='no'>x</span>)
 <span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='no'>f</span>[<span class='no'>ord</span>]
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>x</span>[<span class='no'>ord</span>]
 <span class='no'>x_a</span> <span class='kw'>&lt;-</span> <span class='no'>x</span>[<span class='no'>f</span> <span class='kw'>&gt;</span> <span class='no'>f_a</span>]
-<span class='no'>j</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/which.min'>which.max</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/diff'>diff</a></span>(<span class='no'>x_a</span>))
-<span class='no'>region1</span> <span class='kw'>&lt;-</span> <span class='no'>x_a</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='no'>j</span>)]
-<span class='no'>region2</span> <span class='kw'>&lt;-</span> <span class='no'>x_a</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>j</span>+<span class='fl'>1</span>,<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>x_a</span>))]
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='no'>f</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/abline'>abline</a></span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='no'>f_a</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/abline'>abline</a></span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>region1</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/abline'>abline</a></span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>region2</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='hdrlevels-3.png' alt='' width='504' height='432' /></div></pre>
+<span class='no'>j</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/diff.html'>diff</a></span>(<span class='no'>x_a</span>))
+<span class='no'>region1</span> <span class='kw'>&lt;-</span> <span class='no'>x_a</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='no'>j</span>)]
+<span class='no'>region2</span> <span class='kw'>&lt;-</span> <span class='no'>x_a</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>j</span>+<span class='fl'>1</span>,<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x_a</span>))]
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>f</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='no'>f_a</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>region1</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>region2</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='hdrlevels-3.png' alt='' width='504' height='432' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-
-      <li><a href="#references">References</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>L. Scrucca</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -222,13 +211,16 @@ Pr( X \in R(f_\alpha)) \ge 1-\alpha
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
