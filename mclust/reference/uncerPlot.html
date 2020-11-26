@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
   to a classification in model-based clustering.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>uncerPlot</span>(<span class='no'>z</span>, <span class='no'>truth</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>uncerPlot</span><span class='op'>(</span><span class='va'>z</span>, <span class='va'>truth</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,10 +171,12 @@
   <code><a href='mapClass.html'>mapClass</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>irisModel3</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>3</span>)
+    <pre class="examples"><div class='input'><span class='va'>irisModel3</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, G <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
 
-<span class='fu'>uncerPlot</span>(<span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>irisModel3</span>$<span class='no'>z</span>)</div><div class='img'><img src='uncerPlot-1.png' alt='' width='504' height='432' /></div><div class='input'>
-<span class='fu'>uncerPlot</span>(<span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>irisModel3</span>$<span class='no'>z</span>, <span class='kw'>truth</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>5</span>])</div><div class='img'><img src='uncerPlot-2.png' alt='' width='504' height='432' /></div></pre>
+<span class='fu'>uncerPlot</span><span class='op'>(</span>z <span class='op'>=</span> <span class='va'>irisModel3</span><span class='op'>$</span><span class='va'>z</span><span class='op'>)</span>
+</div><div class='img'><img src='uncerPlot-1.png' alt='' width='504' height='432' /></div><div class='input'> 
+<span class='fu'>uncerPlot</span><span class='op'>(</span>z <span class='op'>=</span> <span class='va'>irisModel3</span><span class='op'>$</span><span class='va'>z</span>, truth <span class='op'>=</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='img'><img src='uncerPlot-2.png' alt='' width='504' height='432' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -190,7 +192,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,18 +128,10 @@
   for Gaussian mixture models parameterized by eigenvalue decomposition.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>hc</span>(<span class='no'>data</span>,
-   <span class='kw'>modelName</span> <span class='kw'>=</span> <span class='fu'><a href='mclust.options.html'>mclust.options</a></span>(<span class='st'>"hcModelName"</span>),
-   <span class='kw'>use</span> <span class='kw'>=</span> <span class='fu'><a href='mclust.options.html'>mclust.options</a></span>(<span class='st'>"hcUse"</span>), <span class='no'>...</span>)
-
-<span class='co'># S3 method for hc</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for hc</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for hc</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/as.hclust.html'>as.hclust</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>hc</span><span class='op'>(</span><span class='va'>data</span>,
+   modelName <span class='op'>=</span> <span class='fu'><a href='mclust.options.html'>mclust.options</a></span><span class='op'>(</span><span class='st'>"hcModelName"</span><span class='op'>)</span>,  
+   <span class='va'>partition</span>, minclus <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span>,
+   use <span class='op'>=</span> <span class='fu'><a href='mclust.options.html'>mclust.options</a></span><span class='op'>(</span><span class='st'>"hcUse"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,7 +146,7 @@
     <tr>
       <th>modelName</th>
       <td><p>A character string indicating the model to be used.<br />
-    Possible models are:</p><dl'>
+    Possible models are:</p><dl>
     <dt><code>"E"</code></dt><dd><p>equal variance (one-dimensional)</p></dd>
     <dt><code>"V"</code></dt><dd><p>spherical, variable variance (one-dimensional)</p></dd>
     <dt><code>"EII"</code></dt><dd><p>spherical, equal volume</p></dd>
@@ -166,12 +158,17 @@
     See <code><a href='mclust.options.html'>mclust.options</a></code>.</p></td>
     </tr>
     <tr>
-      <th>use</th>
-      <td><p>A string or a vector of character strings specifying the type of input 
-    variables/data transformation to be used for model-based hierarchical 
-    clustering.<br />
-    By default the method specified in <code><a href='mclust.options.html'>mclust.options("hcUse")</a></code> is used. 
-    See <code><a href='mclust.options.html'>mclust.options</a></code>.</p></td>
+      <th>partition</th>
+      <td><p>A numeric or character vector representing a partition of
+    observations (rows) of <code>data</code>. If provided, group merges will
+    start with this partition. Otherwise, each observation is assumed to
+    be in a cluster by itself at the start of agglomeration.</p></td>
+    </tr>
+    <tr>
+      <th>minclus</th>
+      <td><p>A number indicating the number of clusters at which to stop the
+    agglomeration. The default is to stop when all observations have been
+    merged into a single cluster.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -179,8 +176,12 @@
     <code><a href='hcE.html'>hcE</a></code>.</p></td>
     </tr>
     <tr>
-      <th>object, x</th>
-      <td><p>An object of class <code>'hc'</code> resulting from a call to <code>hc()</code>.</p></td>
+      <th>use</th>
+      <td><p>A string or a vector of character strings specifying the type of input 
+    variables/data transformation to be used for model-based hierarchical 
+    clustering.<br />
+    By default the method specified in <code><a href='mclust.options.html'>mclust.options("hcUse")</a></code> is used. 
+    See <code><a href='mclust.options.html'>mclust.options</a></code>.</p></td>
     </tr>
     </table>
 
@@ -191,13 +192,9 @@
   the two clusters merged at the <em>i</em>th stage of agglomerative 
   hierarchical clustering. Several other informations are also returned
   as attributes.</p>  
-<p>The plotting function <code>plot.hc()</code> draws a dendrogram by first
-  converting the input object from class <code>'hc'</code> to class 
-  <code>'dendrogram'</code> and then plot the transformed object using 
-  <code><a href='https://rdrr.io/r/stats/dendrogram.html'>plot.dendrogram</a></code>.</p>  
-<p>The functions <code>as.dendrogram.hc()</code> and <code>as.hclust.hc()</code> are
-  used to convert the input object from class <code>'hc'</code> to class, 
-  respectively, <code>'dendrogram'</code> and <code>'hclust'</code>.</p>
+<p>The plotting method <code><a href='plot.hc.html'>plot.hc()</a></code> draws a dendrogram, which can be based
+  on either the classification loglikelihood or the merge level (number of
+  clusters). For details, see the associated help file.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Most models have memory usage of the order of the square of the
@@ -210,8 +207,8 @@
 
     <p>If <code>modelName = "E"</code> (univariate with equal variances) or
   <code>modelName = "EII"</code> (multivariate with equal spherical
-  covariances), then the method is equivalent to Ward's method for
-  hierarchical clustering.</p>
+  covariances), then underlying model is the same as that for
+  Ward's method for hierarchical clustering.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>J. D. Banfield and A. E. Raftery (1993).
@@ -225,25 +222,34 @@
   <em>Journal of the American Statistical Association 97:611-631</em>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='hcE.html'>hcE</a></code>,...,
+    <div class='dont-index'><p><code><a href='hcE.html'>hcE</a></code>, ...,
   <code><a href='hcE.html'>hcVVV</a></code>,
+  <code><a href='plot.hc.html'>plot.hc</a></code>,
   <code><a href='hclass.html'>hclass</a></code>,
   <code><a href='mclust.options.html'>mclust.options</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>hcTree</span> <span class='kw'>&lt;-</span> <span class='fu'>hc</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"VVV"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,-<span class='fl'>5</span>])
-<span class='no'>cl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hclass.html'>hclass</a></span>(<span class='no'>hcTree</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>3</span>))
-
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>pty</span> <span class='kw'>=</span> <span class='st'>"s"</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
-<span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>],<span class='kw'>cl</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"2"</span>])
-<span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>],<span class='kw'>cl</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"3"</span>])
-
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
-<span class='no'>dimens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>)
-<span class='fu'><a href='coordProj.html'>coordProj</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='no'>dimens</span>, <span class='kw'>classification</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"2"</span>])
-<span class='fu'><a href='coordProj.html'>coordProj</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>dimens</span> <span class='kw'>=</span> <span class='no'>dimens</span>, <span class='kw'>classification</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"3"</span>])
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='va'>hcTree</span> <span class='op'>&lt;-</span> <span class='fu'>hc</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"VVV"</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>hcTree</span>
+</div><div class='output co'>#&gt; Call:
+#&gt; hc(data = iris[, -5], modelName = "VVV") 
+#&gt; 
+#&gt; Model-Based Agglomerative Hierarchical Clustering 
+#&gt; Model name        = VVV 
+#&gt; Use               = SVD 
+#&gt; Number of objects = 150 </div><div class='input'><span class='va'>cl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='hclass.html'>hclass</a></span><span class='op'>(</span><span class='va'>hcTree</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"2"</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
+#&gt;   1   2 
+#&gt;  49 101 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"3"</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
+#&gt;  1  2  3 
+#&gt; 49 62 39 </div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='clPairs.html'>clPairs</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, classification <span class='op'>=</span> <span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"2"</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='clPairs.html'>clPairs</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, classification <span class='op'>=</span> <span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"3"</span><span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -259,7 +265,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

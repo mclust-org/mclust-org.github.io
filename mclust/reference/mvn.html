@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
   Gaussian to given data (univariate or multivariate normal).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mvn</span>( <span class='no'>modelName</span>, <span class='no'>data</span>, <span class='kw'>prior</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>warn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>mvn</span><span class='op'>(</span> <span class='va'>modelName</span>, <span class='va'>data</span>, prior <span class='op'>=</span> <span class='cn'>NULL</span>, warn <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,7 +170,7 @@
 
     <p>A list including the following components:</p>
 <dt>modelName</dt><dd><p>A character string identifying the model (same as the input argument).</p></dd>
-  <dt>parameters</dt><dd><p><dl'>
+  <dt>parameters</dt><dd><p><dl>
         <dt><code>mean</code></dt><dd><p>The mean for each component. If there is more than one component,
               this is a matrix whose kth column is the mean of the <em>k</em>th
               component of the mixture model.</p></dd>
@@ -191,11 +191,12 @@
   <code><a href='mclustModelNames.html'>mclustModelNames</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>1000</span>
+    <pre class="examples"><div class='input'><span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>1000</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>0</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span>, <span class='kw'>mean</span> <span class='kw'>=</span> -<span class='fl'>1</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>2</span>)
-<span class='fu'>mvn</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"X"</span>, <span class='no'>x</span>)</div><div class='output co'>#&gt; $modelName
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, mean <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>, sd <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+<span class='fu'>mvn</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"X"</span>, <span class='va'>x</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; $modelName
 #&gt; [1] "X"
 #&gt; 
 #&gt; $prior
@@ -237,12 +238,13 @@
 #&gt; 
 #&gt; attr(,"returnCode")
 #&gt; [1] 0</div><div class='input'>
-<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>)
+<span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>0</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sweep.html'>sweep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span>*<span class='fl'>3</span>), <span class='no'>n</span>, <span class='fl'>3</span>) <span class='kw'>%*%</span> (<span class='fl'>2</span>*<span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='fl'>3</span>)),
-           <span class='kw'>MARGIN</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>STATS</span> <span class='kw'>=</span> <span class='no'>mu</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='st'>"+"</span>)
-<span class='fu'>mvn</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"XII"</span>, <span class='no'>x</span>)</div><div class='output co'>#&gt; $modelName
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sweep.html'>sweep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>*</span><span class='fl'>3</span><span class='op'>)</span>, <span class='va'>n</span>, <span class='fl'>3</span><span class='op'>)</span> <span class='op'>%*%</span> <span class='op'>(</span><span class='fl'>2</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>, 
+           MARGIN <span class='op'>=</span> <span class='fl'>2</span>, STATS <span class='op'>=</span> <span class='va'>mu</span>, FUN <span class='op'>=</span> <span class='st'>"+"</span><span class='op'>)</span>
+<span class='fu'>mvn</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"XII"</span>, <span class='va'>x</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; $modelName
 #&gt; [1] "XII"
 #&gt; 
 #&gt; $prior
@@ -304,7 +306,8 @@
 #&gt; [1] -6322.428
 #&gt; 
 #&gt; attr(,"returnCode")
-#&gt; [1] 0</div><div class='input'><span class='fu'>mvn</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"Spherical"</span>, <span class='no'>x</span>)</div><div class='output co'>#&gt; $modelName
+#&gt; [1] 0</div><div class='input'><span class='fu'>mvn</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"Spherical"</span>, <span class='va'>x</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; $modelName
 #&gt; [1] "XII"
 #&gt; 
 #&gt; $prior
@@ -367,10 +370,11 @@
 #&gt; 
 #&gt; attr(,"returnCode")
 #&gt; [1] 0</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>0</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sweep.html'>sweep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span>*<span class='fl'>3</span>), <span class='no'>n</span>, <span class='fl'>3</span>) <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='fl'>1</span>:<span class='fl'>3</span>),
-           <span class='kw'>MARGIN</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>STATS</span> <span class='kw'>=</span> <span class='no'>mu</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='st'>"+"</span>)
-<span class='fu'>mvn</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"XXI"</span>, <span class='no'>x</span>)</div><div class='output co'>#&gt; $modelName
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sweep.html'>sweep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>*</span><span class='fl'>3</span><span class='op'>)</span>, <span class='va'>n</span>, <span class='fl'>3</span><span class='op'>)</span> <span class='op'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span>, 
+           MARGIN <span class='op'>=</span> <span class='fl'>2</span>, STATS <span class='op'>=</span> <span class='va'>mu</span>, FUN <span class='op'>=</span> <span class='st'>"+"</span><span class='op'>)</span>
+<span class='fu'>mvn</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"XXI"</span>, <span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $modelName
 #&gt; [1] "XXI"
 #&gt; 
 #&gt; $prior
@@ -432,7 +436,8 @@
 #&gt; [1] -6031.548
 #&gt; 
 #&gt; attr(,"returnCode")
-#&gt; [1] 0</div><div class='input'><span class='fu'>mvn</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"Diagonal"</span>, <span class='no'>x</span>)</div><div class='output co'>#&gt; $modelName
+#&gt; [1] 0</div><div class='input'><span class='fu'>mvn</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"Diagonal"</span>, <span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $modelName
 #&gt; [1] "XXI"
 #&gt; 
 #&gt; $prior
@@ -495,11 +500,12 @@
 #&gt; 
 #&gt; attr(,"returnCode")
 #&gt; [1] 0</div><div class='input'>
-<span class='no'>Sigma</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>9</span>,-<span class='fl'>4</span>,<span class='fl'>1</span>,-<span class='fl'>4</span>,<span class='fl'>9</span>,<span class='fl'>4</span>,<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>9</span>), <span class='fl'>3</span>, <span class='fl'>3</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>0</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sweep.html'>sweep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span>*<span class='fl'>3</span>), <span class='no'>n</span>, <span class='fl'>3</span>) <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>(<span class='no'>Sigma</span>),
-           <span class='kw'>MARGIN</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>STATS</span> <span class='kw'>=</span> <span class='no'>mu</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='st'>"+"</span>)
-<span class='fu'>mvn</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"XXX"</span>, <span class='no'>x</span>)</div><div class='output co'>#&gt; $modelName
+<span class='va'>Sigma</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>9</span>,<span class='op'>-</span><span class='fl'>4</span>,<span class='fl'>1</span>,<span class='op'>-</span><span class='fl'>4</span>,<span class='fl'>9</span>,<span class='fl'>4</span>,<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>9</span><span class='op'>)</span>, <span class='fl'>3</span>, <span class='fl'>3</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sweep.html'>sweep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>*</span><span class='fl'>3</span><span class='op'>)</span>, <span class='va'>n</span>, <span class='fl'>3</span><span class='op'>)</span> <span class='op'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span><span class='op'>(</span><span class='va'>Sigma</span><span class='op'>)</span>, 
+           MARGIN <span class='op'>=</span> <span class='fl'>2</span>, STATS <span class='op'>=</span> <span class='va'>mu</span>, FUN <span class='op'>=</span> <span class='st'>"+"</span><span class='op'>)</span>
+<span class='fu'>mvn</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"XXX"</span>, <span class='va'>x</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; $modelName
 #&gt; [1] "XXX"
 #&gt; 
 #&gt; $prior
@@ -567,7 +573,8 @@
 #&gt; [1] -7235.154
 #&gt; 
 #&gt; attr(,"returnCode")
-#&gt; [1] 0</div><div class='input'><span class='fu'>mvn</span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"Ellipsoidal"</span>, <span class='no'>x</span>)</div><div class='output co'>#&gt; $modelName
+#&gt; [1] 0</div><div class='input'><span class='fu'>mvn</span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"Ellipsoidal"</span>, <span class='va'>x</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; $modelName
 #&gt; [1] "XXX"
 #&gt; 
 #&gt; $prior
@@ -651,7 +658,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -86,7 +86,7 @@ ex4.4.2 has been simulated from a mixture of two uniform distributions in R^3." 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@ ex4.4.2 has been simulated from a mixture of two uniform distributions in R^3." 
 <p>ex4.4.2 has been simulated from a mixture of two uniform distributions in R^3.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>Baudry_etal_2010_JCGS_examples</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Baudry_etal_2010_JCGS_examples</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -156,16 +156,18 @@ ex4.4.2 has been simulated from a mixture of two uniform distributions in R^3." 
     <p>J.-P. Baudry, A. E. Raftery, G. Celeux, K. Lo and R. Gottardo (2010). Combining mixture components for clustering. <em>Journal of Computational and Graphical Statistics, 19(2):332-353.</em></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>Baudry_etal_2010_JCGS_examples</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Baudry_etal_2010_JCGS_examples</span><span class='op'>)</span>
 
-<span class='no'>output</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='clustCombi.html'>clustCombi</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ex4.4.1</span>)
-<span class='no'>output</span> <span class='co'># is of class clustCombi</span>
+<span class='va'>output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clustCombi.html'>clustCombi</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ex4.4.1</span><span class='op'>)</span>
+<span class='va'>output</span> <span class='co'># is of class clustCombi</span>
 
 <span class='co'># plots the hierarchy of combined solutions, then some "entropy plots" which </span>
 <span class='co'># may help one to select the number of classes</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>output</span>)
-}</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>output</span><span class='op'>)</span> 
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -181,7 +183,7 @@ ex4.4.2 has been simulated from a mixture of two uniform distributions in R^3." 
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

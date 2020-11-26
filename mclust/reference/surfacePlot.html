@@ -81,7 +81,7 @@ a MVN mixture model for the data." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,18 +128,18 @@ a MVN mixture model for the data." />
 a MVN mixture model for the data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>surfacePlot</span>(<span class='no'>data</span>, <span class='no'>parameters</span>,
-            <span class='kw'>what</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"density"</span>, <span class='st'>"uncertainty"</span>),
-            <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"contour"</span>, <span class='st'>"hdr"</span>, <span class='st'>"image"</span>, <span class='st'>"persp"</span>),
-            <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"log"</span>, <span class='st'>"sqrt"</span>),
-            <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>200</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-            <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span>),
-            <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>gray</a></span>(<span class='fl'>0.7</span>),
-            <span class='kw'>col.palette</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>...</span>) <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='no'>...</span>, <span class='st'>"blues"</span>, <span class='kw'>rev</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
-            <span class='kw'>hdr.palette</span> <span class='kw'>=</span> <span class='no'>blue2grey.colors</span>,
-            <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-            <span class='kw'>main</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>swapAxes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-            <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>surfacePlot</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>parameters</span>, 
+            what <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"density"</span>, <span class='st'>"uncertainty"</span><span class='op'>)</span>, 
+            type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"contour"</span>, <span class='st'>"hdr"</span>, <span class='st'>"image"</span>, <span class='st'>"persp"</span><span class='op'>)</span>, 
+            transformation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"log"</span>, <span class='st'>"sqrt"</span><span class='op'>)</span>,          
+            grid <span class='op'>=</span> <span class='fl'>200</span>, nlevels <span class='op'>=</span> <span class='fl'>11</span>, levels <span class='op'>=</span> <span class='cn'>NULL</span>, 
+            prob <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span><span class='op'>)</span>,
+            col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>gray</a></span><span class='op'>(</span><span class='fl'>0.7</span><span class='op'>)</span>,
+            col.palette <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='va'>...</span>, <span class='st'>"blues"</span>, rev <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+            hdr.palette <span class='op'>=</span> <span class='va'>blue2grey.colors</span>,
+            xlim <span class='op'>=</span> <span class='cn'>NULL</span>, ylim <span class='op'>=</span> <span class='cn'>NULL</span>, xlab <span class='op'>=</span> <span class='cn'>NULL</span>, ylab <span class='op'>=</span> <span class='cn'>NULL</span>, 
+            main <span class='op'>=</span> <span class='cn'>FALSE</span>, scale <span class='op'>=</span> <span class='cn'>FALSE</span>, swapAxes <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+            verbose <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,7 +155,7 @@ a MVN mixture model for the data.</p>
       <th>parameters</th>
       <td><p>A named list giving the parameters of an <em>MCLUST</em> model, 
      used to produce superimposing ellipses on the plot. 
-     The relevant components are as follows:</p><dl'>
+     The relevant components are as follows:</p><dl>
         <dt><code>mean</code></dt><dd><p>The mean for each component. If there is more than one component,
               this is a matrix whose kth column is the mean of the <em>k</em>th
               component of the mixture model.</p></dd>
@@ -284,16 +284,17 @@ grid points.</p>
     <div class='dont-index'><p><code><a href='mclust2Dplot.html'>mclust2Dplot</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>faithfulModel</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>faithful</span>)
-<span class='fu'>surfacePlot</span>(<span class='no'>faithful</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>faithfulModel</span>$<span class='no'>parameters</span>,
-            <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"contour"</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='st'>"none"</span>,
-            <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='fu'>surfacePlot</span>(<span class='no'>faithful</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>faithfulModel</span>$<span class='no'>parameters</span>,
-            <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='st'>"log"</span>)
-<span class='fu'>surfacePlot</span>(<span class='no'>faithful</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>faithfulModel</span>$<span class='no'>parameters</span>,
-            <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"contour"</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"uncertainty"</span>, <span class='kw'>transformation</span> <span class='kw'>=</span> <span class='st'>"log"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>faithfulModel</span> <span class='op'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>faithful</span><span class='op'>)</span>
+<span class='fu'>surfacePlot</span><span class='op'>(</span><span class='va'>faithful</span>, parameters <span class='op'>=</span> <span class='va'>faithfulModel</span><span class='op'>$</span><span class='va'>parameters</span>,
+            type <span class='op'>=</span> <span class='st'>"contour"</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, transformation <span class='op'>=</span> <span class='st'>"none"</span>,
+            drawlabels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'>surfacePlot</span><span class='op'>(</span><span class='va'>faithful</span>, parameters <span class='op'>=</span> <span class='va'>faithfulModel</span><span class='op'>$</span><span class='va'>parameters</span>,
+            type <span class='op'>=</span> <span class='st'>"persp"</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, transformation <span class='op'>=</span> <span class='st'>"log"</span><span class='op'>)</span>
+<span class='fu'>surfacePlot</span><span class='op'>(</span><span class='va'>faithful</span>, parameters <span class='op'>=</span> <span class='va'>faithfulModel</span><span class='op'>$</span><span class='va'>parameters</span>,
+            type <span class='op'>=</span> <span class='st'>"contour"</span>, what <span class='op'>=</span> <span class='st'>"uncertainty"</span>, transformation <span class='op'>=</span> <span class='st'>"log"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -309,7 +310,7 @@ grid points.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

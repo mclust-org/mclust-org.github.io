@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -120,6 +120,19 @@
       
     </div>
 
+    <div id="mclust-547" class="section level1">
+<h1 class="page-header" data-toc-text="5.4.7">
+<a href="#mclust-547" class="anchor"></a>mclust 5.4.7<small> 2020-11-20 </small>
+</h1>
+<ul>
+<li>Updated plot method (dendrogram) for hierarchical clustering — now based on classification likelihood.</li>
+<li>Added <code><a href="../reference/MclustSSC.html">MclustSSC()</a></code> function (and related <code>print</code>, <code>summary</code>, <code>plot</code>, and <code>predict</code>, methods) for semi-supervised classification.</li>
+<li>Exchanged order of models VEE and EVE to account for increasing complexity of EVE.</li>
+<li>Added <code>cex</code> argument to <code><a href="../reference/clPairs.html">clPairs()</a></code> to control character expansion used in plotting symbols.</li>
+<li>
+<code><a href="../reference/em.html">em()</a></code> and <code><a href="../reference/me.html">me()</a></code> have now <code>data</code> as first argument.</li>
+</ul>
+</div>
     <div id="mclust-546" class="section level1">
 <h1 class="page-header" data-toc-text="5.4.6">
 <a href="#mclust-546" class="anchor"></a>mclust 5.4.6<small> 2020-04-11 </small>
@@ -193,7 +206,7 @@
 </h1>
 <ul>
 <li>Added parametric bootstrap option (<code>type = "pb"</code>) in <code><a href="../reference/MclustBootstrap.html">MclustBootstrap()</a></code>.</li>
-<li>Added the options to get averages of resampling distributions in <code><a href="../reference/summary.MclustBootstrap.html">summary.MclustBootstrap()</a></code> and to plot resampling-based confidence intervals in <code><a href="../reference/plot.MclustBoostrap.html">plot.MclustBootstrap()</a></code>.</li>
+<li>Added the options to get averages of resampling distributions in <code><a href="../reference/summary.MclustBootstrap.html">summary.MclustBootstrap()</a></code> and to plot resampling-based confidence intervals in <code><a href="../reference/plot.MclustBootstrap.html">plot.MclustBootstrap()</a></code>.</li>
 <li>Added function <code>catwrap()</code> for wrapping printed lines at <code><a href="https://rdrr.io/r/base/options.html">getOption("width")</a></code> when using <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code>.</li>
 <li>
 <code><a href="../reference/mclust.options.html">mclust.options()</a></code> now modify the variable <code>.mclust</code> in the namespace of the package, so it should work even inside an mclust-function call.</li>
@@ -241,7 +254,7 @@
 <li>Added functions <code><a href="../reference/imputeData.html">matchCluster()</a></code> and <code><a href="../reference/majorityVote.html">majorityVote()</a></code>.</li>
 <li>Rewrite of print and summary methods for <code>clustCombi</code> class objects.</li>
 <li>Added <code><a href="../reference/clustCombiOptim.html">clustCombiOptim()</a></code>.</li>
-<li>Fixed a bug in <code><a href="../reference/randomPairs.html">randomPairs()</a></code> when nrow of input data is odd.</li>
+<li>Fixed a bug in <code><a href="../reference/hcRandomPairs.html">randomPairs()</a></code> when nrow of input data is odd.</li>
 <li>Fixed a bug in <code><a href="../reference/plot.densityMclust.html">plotDensityMclust2()</a></code>, <code><a href="../reference/plot.densityMclust.html">plotDensityMclustd()</a></code> and <code><a href="../reference/surfacePlot.html">surfacePlot()</a></code> when a noise component is present.</li>
 </ul>
 </div>
@@ -278,7 +291,7 @@
 <ul>
 <li>Added argument <code>x</code> to <code><a href="../reference/Mclust.html">Mclust()</a></code> to use BIC values from previous computations to avoid recomputing for the same models. The same argument and functionality was already available in <code><a href="../reference/mclustBIC.html">mclustBIC()</a></code>.</li>
 <li>Added argument <code>x</code> to <code><a href="../reference/mclustICL.html">mclustICL()</a></code> to use ICL values from previous computations to avoid recomputing for the same models.</li>
-<li>Fixed a bug on <code><a href="../reference/plot.MclustBoostrap.html">plot.MclustBootstrap()</a></code> for the <code>"mean"</code> and <code>"var"</code> in the univariate case.</li>
+<li>Fixed a bug on <code><a href="../reference/plot.MclustBootstrap.html">plot.MclustBootstrap()</a></code> for the <code>"mean"</code> and <code>"var"</code> in the univariate case.</li>
 <li>Fixed uncertainty plots.</li>
 <li>Added functions <code><a href="../reference/mclust-internal.html">as.Mclust()</a></code> and <code><a href="../reference/mclust-internal.html">as.densityMclust()</a></code> to convert object to specific mclust classes.</li>
 <li>Solved a numerical accuracy problem in <code><a href="../reference/mclust-internal.html">qclass()</a></code> when the scale of <code>x</code> is (very) large by making the tolerance eps scale dependent.</li>
@@ -639,7 +652,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -126,7 +126,7 @@
     <p>Create a combining matrix</p>
     </div>
 
-    <pre class="usage"><span class='fu'>combMat</span>(<span class='no'>K</span>, <span class='no'>l1</span>, <span class='no'>l2</span>)</pre>
+    <pre class="usage"><span class='fu'>combMat</span><span class='op'>(</span><span class='va'>K</span>, <span class='va'>l1</span>, <span class='va'>l2</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,6 +148,9 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>If <code>z</code> is a vector (length <em>K</em>) whose <em>k</em>th entry is the probability that an observation belongs to the <em>k</em>th class in a <em>K</em>-classes classification, then <code>combiM %*% z</code> is the vector (length <em>K-1</em>) whose <em>k</em>th entry is the probability that the observation belongs to the <em>k</em>th class in the <em>K-1</em>-classes classification obtained by merging classes <code>l1</code> and <code>l2</code> in the initial classification.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>J.-P. Baudry, A. E. Raftery, L. Scrucca</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='clustCombi.html'>clustCombi</a></code>, <code><a href='combiPlot.html'>combiPlot</a></code></p></div>
@@ -167,7 +170,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

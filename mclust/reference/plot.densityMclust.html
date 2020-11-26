@@ -83,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -133,19 +133,19 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for densityMclust</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"BIC"</span>, <span class='st'>"density"</span>, <span class='st'>"diagnostic"</span>), <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, what <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"BIC"</span>, <span class='st'>"density"</span>, <span class='st'>"diagnostic"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>plotDensityMclust1</span>(<span class='no'>x</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>hist.col</span> <span class='kw'>=</span> <span class='st'>"lightgrey"</span>,
-                   <span class='kw'>hist.border</span> <span class='kw'>=</span> <span class='st'>"white"</span>,  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='st'>"Sturges"</span>, <span class='no'>...</span>)
+<span class='fu'>plotDensityMclust1</span><span class='op'>(</span><span class='va'>x</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, hist.col <span class='op'>=</span> <span class='st'>"lightgrey"</span>, 
+                   hist.border <span class='op'>=</span> <span class='st'>"white"</span>,  breaks <span class='op'>=</span> <span class='st'>"Sturges"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>plotDensityMclust2</span>(<span class='no'>x</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-                   <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span>),
-                   <span class='kw'>points.pch</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>points.col</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>points.cex</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='no'>...</span>)
+<span class='fu'>plotDensityMclust2</span><span class='op'>(</span><span class='va'>x</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, nlevels <span class='op'>=</span> <span class='fl'>11</span>, levels <span class='op'>=</span> <span class='cn'>NULL</span>, 
+                   prob <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span><span class='op'>)</span>,
+                   points.pch <span class='op'>=</span> <span class='fl'>1</span>, points.col <span class='op'>=</span> <span class='fl'>1</span>, points.cex <span class='op'>=</span> <span class='fl'>0.8</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>plotDensityMclustd</span>(<span class='no'>x</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-                   <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span>),
-                   <span class='kw'>points.pch</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>points.col</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>points.cex</span> <span class='kw'>=</span> <span class='fl'>0.8</span>,
-                   <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>plotDensityMclustd</span><span class='op'>(</span><span class='va'>x</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, nlevels <span class='op'>=</span> <span class='fl'>11</span>, levels <span class='op'>=</span> <span class='cn'>NULL</span>, 
+                   prob <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span><span class='op'>)</span>,
+                   points.pch <span class='op'>=</span> <span class='fl'>1</span>, points.col <span class='op'>=</span> <span class='fl'>1</span>, points.cex <span class='op'>=</span> <span class='fl'>0.8</span>,
+                   gap <span class='op'>=</span> <span class='fl'>0.2</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,7 +161,7 @@
     </tr>
     <tr>
       <th>what</th>
-      <td><p>The type of graph requested:</p><dl'>
+      <td><p>The type of graph requested:</p><dl>
     <dt><code>"density"</code> =</dt><dd><p>a plot of estimated density; if <code>data</code> is 
           also provided the density is plotted over data points (see Details 
           section).</p></dd>
@@ -228,6 +228,9 @@
   probability levels <code>prob</code>. See <code><a href='hdrlevels.html'>hdrlevels</a></code> for details.</p>  
 <p>For higher dimensionality a scatterplot matrix of pairwise projected
   densities is drawn.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='densityMclust.html'>densityMclust</a></code>,
@@ -236,30 +239,31 @@
   <code><a href='Mclust.html'>Mclust</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>faithful</span>$<span class='no'>waiting</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dens</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"BIC"</span>, <span class='kw'>legendArgs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"topright"</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>$<span class='no'>waiting</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span><span class='op'>(</span><span class='va'>faithful</span><span class='op'>$</span><span class='va'>waiting</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dens</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dens</span>, parameters <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"BIC"</span>, legendArgs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"topright"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>faithful</span><span class='op'>$</span><span class='va'>waiting</span><span class='op'>)</span>
 
-<span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>faithful</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dens</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>,
-     <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>points.pch</span> <span class='kw'>=</span> <span class='fl'>20</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>, <span class='kw'>prob</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>0.1</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>faithful</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>)
+<span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span><span class='op'>(</span><span class='va'>faithful</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dens</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dens</span>, parameters <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>faithful</span>, 
+     drawlabels <span class='op'>=</span> <span class='cn'>FALSE</span>, points.pch <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"hdr"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"hdr"</span>, prob <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.9</span>, by <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"hdr"</span>, data <span class='op'>=</span> <span class='va'>faithful</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"persp"</span><span class='op'>)</span>
 
-<span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dens</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>],
-     <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"slategrey"</span>, <span class='kw'>drawlabels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>nlevels</span> <span class='kw'>=</span> <span class='fl'>7</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"hdr"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"persp"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>grey</a></span>(<span class='fl'>0.9</span>))
-}</div></pre>
+<span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dens</span>, parameters <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span>, 
+     col <span class='op'>=</span> <span class='st'>"slategrey"</span>, drawlabels <span class='op'>=</span> <span class='cn'>FALSE</span>, nlevels <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"hdr"</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"persp"</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>grey</a></span><span class='op'>(</span><span class='fl'>0.9</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -275,7 +279,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

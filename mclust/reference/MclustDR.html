@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -126,8 +126,8 @@
     <p>A dimension reduction method for visualizing the clustering or classification structure obtained from a finite mixture of Gaussian densities.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>MclustDR</span>(<span class='no'>object</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>normalized</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>Sigma</span>,
-         <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='no'>.Machine</span>$<span class='no'>double.eps</span>))</pre>
+    <pre class="usage"><span class='fu'>MclustDR</span><span class='op'>(</span><span class='va'>object</span>, lambda <span class='op'>=</span> <span class='fl'>0.5</span>, normalized <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>Sigma</span>,
+         tol <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>.Machine</span><span class='op'>$</span><span class='va'>double.eps</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -208,15 +208,19 @@
 
     <p>Scrucca, L. (2010) Dimension reduction for model-based clustering. <em>Statistics and Computing</em>, 20(4), pp. 471-484.</p>
 <p>Scrucca, L. (2014) Graphical Tools for Model-based Mixture Discriminant Analysis. <em>Advances in Data Analysis and Classification</em>, 8(2), pp. 147-165.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='summary.MclustDR.html'>summary.MclustDR</a></code>, <code><a href='plot.MclustDR.html'>plot.MclustDR</a></code>, <code><a href='Mclust.html'>Mclust</a></code>, <code><a href='MclustDA.html'>MclustDA</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># clustering</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>diabetes</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>diabetes</span>[,-<span class='fl'>1</span>])
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; ---------------------------------------------------- 
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>diabetes</span><span class='op'>)</span>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>diabetes</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ---------------------------------------------------- 
 #&gt; Gaussian finite mixture model fitted by EM algorithm 
 #&gt; ---------------------------------------------------- 
 #&gt; 
@@ -229,8 +233,9 @@
 #&gt; Clustering table:
 #&gt;  1  2  3 
 #&gt; 81 36 28 </div><div class='input'>
-<span class='no'>dr</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>mod</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='va'>dr</span> <span class='op'>&lt;-</span> <span class='fu'>MclustDR</span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dr</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -249,10 +254,13 @@
 #&gt; 
 #&gt;                Dir1     Dir2      Dir3
 #&gt; Eigenvalues  1.3506  0.75608   0.53412
-#&gt; Cum. %      51.1440 79.77436 100.00000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"scatterplot"</span>)</div><div class='img'><img src='MclustDR-1.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"evalues"</span>)</div><div class='img'><img src='MclustDR-2.png' alt='' width='504' height='432' /></div><div class='input'>
+#&gt; Cum. %      51.1440 79.77436 100.00000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dr</span>, what <span class='op'>=</span> <span class='st'>"scatterplot"</span><span class='op'>)</span>
+</div><div class='img'><img src='MclustDR-1.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dr</span>, what <span class='op'>=</span> <span class='st'>"evalues"</span><span class='op'>)</span>
+</div><div class='img'><img src='MclustDR-2.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='co'># adjust the tuning parameter to show the most separating directions</span>
-<span class='no'>dr1</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>mod</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr1</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='va'>dr1</span> <span class='op'>&lt;-</span> <span class='fu'>MclustDR</span><span class='op'>(</span><span class='va'>mod</span>, lambda <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> 
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dr1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -271,13 +279,16 @@
 #&gt; 
 #&gt;                Dir1      Dir2
 #&gt; Eigenvalues  1.2629   0.35218
-#&gt; Cum. %      78.1939 100.00000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr1</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"scatterplot"</span>)</div><div class='img'><img src='MclustDR-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dr1</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"evalues"</span>)</div><div class='img'><img src='MclustDR-4.png' alt='' width='504' height='432' /></div><div class='input'>
+#&gt; Cum. %      78.1939 100.00000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dr1</span>, what <span class='op'>=</span> <span class='st'>"scatterplot"</span><span class='op'>)</span>
+</div><div class='img'><img src='MclustDR-3.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dr1</span>, what <span class='op'>=</span> <span class='st'>"evalues"</span><span class='op'>)</span>
+</div><div class='img'><img src='MclustDR-4.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='co'># classification</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>banknote</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>banknote</span><span class='op'>)</span>
 
-<span class='no'>da</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='no'>banknote</span>[,<span class='fl'>2</span>:<span class='fl'>7</span>], <span class='no'>banknote</span>$<span class='no'>Status</span>, <span class='kw'>modelType</span> <span class='kw'>=</span> <span class='st'>"EDDA"</span>)
-<span class='no'>dr</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>da</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='va'>da</span> <span class='op'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span><span class='op'>(</span><span class='va'>banknote</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span>, <span class='va'>banknote</span><span class='op'>$</span><span class='va'>Status</span>, modelType <span class='op'>=</span> <span class='st'>"EDDA"</span><span class='op'>)</span>
+<span class='va'>dr</span> <span class='op'>&lt;-</span> <span class='fu'>MclustDR</span><span class='op'>(</span><span class='va'>da</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dr</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -299,9 +310,10 @@
 #&gt;                 Dir1     Dir2     Dir3      Dir4      Dir5       Dir6
 #&gt; Eigenvalues  0.86813  0.29011  0.12988  0.081802  0.027126 2.0193e-03
 #&gt; Cum. %      62.05056 82.78657 92.06996 97.916830 99.855667 1.0000e+02</div><div class='input'>
-<span class='no'>da</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='no'>banknote</span>[,<span class='fl'>2</span>:<span class='fl'>7</span>], <span class='no'>banknote</span>$<span class='no'>Status</span>)
-<span class='no'>dr</span> <span class='kw'>&lt;-</span> <span class='fu'>MclustDR</span>(<span class='no'>da</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>dr</span>)</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
+<span class='va'>da</span> <span class='op'>&lt;-</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span><span class='op'>(</span><span class='va'>banknote</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span>, <span class='va'>banknote</span><span class='op'>$</span><span class='va'>Status</span><span class='op'>)</span>
+<span class='va'>dr</span> <span class='op'>&lt;-</span> <span class='fu'>MclustDR</span><span class='op'>(</span><span class='va'>da</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dr</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ----------------------------------------------------------------- 
 #&gt; Dimension reduction for model-based clustering and classification 
 #&gt; ----------------------------------------------------------------- 
 #&gt; 
@@ -338,7 +350,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

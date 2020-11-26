@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -126,14 +126,14 @@
     <p>ICL (Integrated Complete-data Likelihood) for parameterized Gaussian mixture models fitted by EM algorithm initialized by model-based hierarchical clustering.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mclustICL</span>(<span class='no'>data</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>modelNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-          <span class='kw'>initialization</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>hcPairs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-                                <span class='kw'>subset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-                                <span class='kw'>noise</span> <span class='kw'>=</span> <span class='kw'>NULL</span>),
-          <span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>mclustICL</span><span class='op'>(</span><span class='va'>data</span>, G <span class='op'>=</span> <span class='cn'>NULL</span>, modelNames <span class='op'>=</span> <span class='cn'>NULL</span>, 
+          initialization <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>hcPairs <span class='op'>=</span> <span class='cn'>NULL</span>, 
+                                subset <span class='op'>=</span> <span class='cn'>NULL</span>, 
+                                noise <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, 
+          x <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for mclustICL</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='no'>G</span>, <span class='no'>modelNames</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>G</span>, <span class='va'>modelNames</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,7 +155,7 @@
       <td><p>A vector of character strings indicating the models to be fitted 
     in the EM phase of clustering. The help file for 
     <code><a href='mclustModelNames.html'>mclustModelNames</a></code> describes the available models.
-    The default is:</p><dl'>
+    The default is:</p><dl>
         <dt><code><a href='https://rdrr.io/r/base/c.html'>c("E", "V")</a></code></dt><dd><p>for univariate data</p></dd>
         <dt><code><a href='mclust.options.html'>mclust.options("emModelNames")</a></code></dt><dd><p>for multivariate data (n &gt; d)</p></dd>
         <dt><code><a href='https://rdrr.io/r/base/c.html'>c("EII", "VII", "EEI", "EVI", "VEI", "VVI")</a></code></dt><dd><p>the spherical and diagonal models for multivariate data (n &lt;= d)</p></dd>
@@ -164,7 +164,7 @@
     </tr>
     <tr>
       <th>initialization</th>
-      <td><p>A list containing zero or more of the following components:</p><dl'>
+      <td><p>A list containing zero or more of the following components:</p><dl>
   <dt><code>hcPairs</code></dt><dd><p>A matrix of merge pairs for hierarchical clustering such as produced
     by function <code>hc</code>. For multivariate data, the default is to compute
     a hierarchical clustering tree by applying function <code>hc</code> with
@@ -223,9 +223,10 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
   <code><a href='icl.html'>icl</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>faithful</span>)
-<span class='no'>faithful.ICL</span> <span class='kw'>&lt;-</span> <span class='fu'>mclustICL</span>(<span class='no'>faithful</span>)
-<span class='no'>faithful.ICL</span></div><div class='output co'>#&gt; Integrated Complete-data Likelihood (ICL) criterion: 
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>faithful</span><span class='op'>)</span>
+<span class='va'>faithful.ICL</span> <span class='op'>&lt;-</span> <span class='fu'>mclustICL</span><span class='op'>(</span><span class='va'>faithful</span><span class='op'>)</span>
+<span class='va'>faithful.ICL</span>
+</div><div class='output co'>#&gt; Integrated Complete-data Likelihood (ICL) criterion: 
 #&gt;         EII       VII       EEI       VEI       EVI       VVI       EEE
 #&gt; 1 -4024.721 -4024.721 -3055.835 -3055.835 -3055.835 -3055.835 -2607.623
 #&gt; 2 -3455.814 -3460.903 -2356.273 -2350.728 -2353.254 -2346.161 -2326.710
@@ -236,28 +237,31 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 #&gt; 7 -3022.312 -2995.759 -2476.203 -2519.776 -2446.706 -2496.750 -2464.343
 #&gt; 8 -3007.364 -2953.728 -2488.504 -2513.529 -2492.319 -2509.675 -2502.177
 #&gt; 9 -2989.092 -2933.144 -2499.876 -2540.432 -2515.042 -2528.602 -2547.111
-#&gt;         EVE       VEE       VVE       EEV       VEV       EVV       VVV
+#&gt;         VEE       EVE       VVE       EEV       VEV       EVV       VVV
 #&gt; 1 -2607.623 -2607.623 -2607.623 -2607.623 -2607.623 -2607.623 -2607.623
-#&gt; 2 -2325.768 -2323.396 -2320.763 -2330.000 -2325.727 -2328.163 -2322.697
-#&gt; 3 -2412.034 -2376.466 -2427.038 -2372.365 -2405.333 -2380.322 -2385.244
-#&gt; 4 -2459.430 -2452.689 -2440.279 -2414.165 -2419.889 -2385.843 -2407.555
-#&gt; 5 -2444.255 -2472.038 -2478.628 -2431.096 -2490.222 -2423.174 -2474.493
-#&gt; 6 -2504.770 -2503.936 -2489.104 -2449.583 -2481.393 -2483.772 -2491.597
-#&gt; 7 -2499.326 -2466.783 -2496.300 -2465.693 -2506.829 -2490.131 -2519.470
-#&gt; 8 -2526.028 -2479.790 -2516.572 -2489.431 -2539.783 -2497.812 -2556.115
-#&gt; 9 -2545.663 -2499.921 -2541.675 -2542.877 -2566.735 -2528.600 -2587.235
+#&gt; 2 -2323.396 -2325.768 -2320.763 -2330.000 -2325.727 -2328.163 -2322.697
+#&gt; 3 -2376.466 -2412.034 -2427.038 -2372.365 -2405.333 -2380.322 -2385.244
+#&gt; 4 -2452.689 -2459.430 -2440.279 -2414.165 -2419.889 -2385.843 -2407.555
+#&gt; 5 -2472.038 -2444.255 -2478.628 -2431.096 -2490.222 -2423.174 -2474.493
+#&gt; 6 -2503.936 -2504.770 -2489.104 -2449.583 -2481.393 -2483.772 -2491.597
+#&gt; 7 -2466.783 -2499.326 -2496.300 -2465.693 -2506.829 -2490.131 -2519.470
+#&gt; 8 -2479.790 -2526.028 -2516.572 -2489.431 -2539.783 -2497.812 -2556.115
+#&gt; 9 -2499.921 -2545.663 -2541.675 -2542.877 -2566.735 -2528.600 -2587.235
 #&gt; 
 #&gt; Top 3 models based on the ICL criterion: 
 #&gt;     VVE,2     VVV,2     VEE,2 
-#&gt; -2320.763 -2322.697 -2323.396 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>faithful.ICL</span>)</div><div class='output co'>#&gt; Best ICL values:
+#&gt; -2320.763 -2322.697 -2323.396 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>faithful.ICL</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Best ICL values:
 #&gt;              VVE,2        VVV,2       VEE,2
 #&gt; ICL      -2320.763 -2322.697467 -2323.39551
-#&gt; ICL diff     0.000    -1.934645    -2.63269</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>faithful.ICL</span>)</div><div class='img'><img src='mclustICL-1.png' alt='' width='504' height='432' /></div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+#&gt; ICL diff     0.000    -1.934645    -2.63269</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>faithful.ICL</span><span class='op'>)</span>
+</div><div class='img'><img src='mclustICL-1.png' alt='' width='504' height='432' /></div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># compare with</span>
-<span class='no'>faithful.BIC</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span>(<span class='no'>faithful</span>)
-<span class='no'>faithful.BIC</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>faithful.BIC</span>)
-}</div></pre>
+<span class='va'>faithful.BIC</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span><span class='op'>(</span><span class='va'>faithful</span><span class='op'>)</span>
+<span class='va'>faithful.BIC</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>faithful.BIC</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -273,7 +277,7 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

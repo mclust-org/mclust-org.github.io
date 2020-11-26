@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -126,7 +126,7 @@
     <p>Description of model names used in the <em>MCLUST</em> package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mclustModelNames</span>(<span class='no'>model</span>)</pre>
+    <pre class="usage"><span class='fu'>mclustModelNames</span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,11 +140,11 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The following models are available in package <span class="pkg">mclust</span>:<br /></p>
-<p><b>univariate mixture</b> <br /></p><dl'>
+<p><b>univariate mixture</b> <br /></p><dl>
 <dt><code>"E"</code></dt><dd><p>equal variance (one-dimensional)</p></dd>
 <dt><code>"V"</code></dt><dd><p>variable/unqual variance (one-dimensional)</p></dd>
 
-</dl><p><b>multivariate mixture</b><br /></p><dl'>
+</dl><p><b>multivariate mixture</b><br /></p><dl>
 <dt><code>"EII"</code></dt><dd><p>spherical, equal volume</p></dd>
 <dt><code>"VII"</code></dt><dd><p>spherical, unequal volume</p></dd>
 <dt><code>"EEI"</code></dt><dd><p>diagonal, equal volume and shape</p></dd>
@@ -152,15 +152,15 @@
 <dt><code>"EVI"</code></dt><dd><p>diagonal, equal volume, varying shape</p></dd>
 <dt><code>"VVI"</code></dt><dd><p>diagonal, varying volume and shape</p></dd>
 <dt><code>"EEE"</code></dt><dd><p>ellipsoidal, equal volume, shape, and orientation</p></dd>
-<dt><code>"EVE"</code></dt><dd><p>ellipsoidal, equal volume and orientation (*)</p></dd>
 <dt><code>"VEE"</code></dt><dd><p>ellipsoidal, equal shape and orientation (*)</p></dd>
+<dt><code>"EVE"</code></dt><dd><p>ellipsoidal, equal volume and orientation (*)</p></dd>
 <dt><code>"VVE"</code></dt><dd><p>ellipsoidal, equal orientation (*)</p></dd>
 <dt><code>"EEV"</code></dt><dd><p>ellipsoidal, equal volume and equal shape</p></dd>
 <dt><code>"VEV"</code></dt><dd><p>ellipsoidal, equal shape</p></dd>
 <dt><code>"EVV"</code></dt><dd><p>ellipsoidal, equal volume (*)</p></dd>
 <dt><code>"VVV"</code></dt><dd><p>ellipsoidal, varying volume, shape, and orientation</p></dd>
 
-</dl><p><b>single component</b><br /></p><dl'>
+</dl><p><b>single component</b><br /></p><dl>
 <dt><code>"X"</code></dt><dd><p>univariate normal</p></dd>
 <dt><code>"XII"</code></dt><dd><p>spherical multivariate normal</p></dd>
 <dt><code>"XXI"</code></dt><dd><p>diagonal multivariate normal</p></dd>
@@ -179,22 +179,26 @@
   <code><a href='mclustBIC.html'>mclustBIC</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>mclustModelNames</span>(<span class='st'>"E"</span>)</div><div class='output co'>#&gt; $model
+    <pre class="examples"><div class='input'><span class='fu'>mclustModelNames</span><span class='op'>(</span><span class='st'>"E"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $model
 #&gt; [1] "E"
 #&gt; 
 #&gt; $type
 #&gt; [1] "univariate, equal variance"
-#&gt; </div><div class='input'><span class='fu'>mclustModelNames</span>(<span class='st'>"EEE"</span>)</div><div class='output co'>#&gt; $model
+#&gt; </div><div class='input'><span class='fu'>mclustModelNames</span><span class='op'>(</span><span class='st'>"EEE"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $model
 #&gt; [1] "EEE"
 #&gt; 
 #&gt; $type
 #&gt; [1] "ellipsoidal, equal volume, shape and orientation"
-#&gt; </div><div class='input'><span class='fu'>mclustModelNames</span>(<span class='st'>"VVV"</span>)</div><div class='output co'>#&gt; $model
+#&gt; </div><div class='input'><span class='fu'>mclustModelNames</span><span class='op'>(</span><span class='st'>"VVV"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $model
 #&gt; [1] "VVV"
 #&gt; 
 #&gt; $type
 #&gt; [1] "ellipsoidal, varying volume, shape, and orientation"
-#&gt; </div><div class='input'><span class='fu'>mclustModelNames</span>(<span class='st'>"XXI"</span>)</div><div class='output co'>#&gt; $model
+#&gt; </div><div class='input'><span class='fu'>mclustModelNames</span><span class='op'>(</span><span class='st'>"XXI"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $model
 #&gt; [1] "XXI"
 #&gt; 
 #&gt; $type
@@ -215,7 +219,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -72,13 +72,14 @@
 
       
 
-      </header><script src="mclust_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
+      </header><script src="mclust_files/header-attrs-2.5/header-attrs.js"></script><link href="mclust_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
+<script src="mclust_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>A quick tour of mclust</h1>
                         <h4 class="author">Luca Scrucca</h4>
             
-            <h4 class="date">13 Apr 2020</h4>
+            <h4 class="date">26 Nov 2020</h4>
       
       
       <div class="hidden name"><code>mclust.Rmd</code></div>
@@ -91,26 +92,28 @@
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
 <p><strong>mclust</strong> is a contributed R package for model-based clustering, classification, and density estimation based on finite normal mixture modelling. It provides functions for parameter estimation via the EM algorithm for normal mixture models with a variety of covariance structures, and functions for simulation from these models. Also included are functions that combine model-based hierarchical clustering, EM for mixture estimation and the Bayesian Information Criterion (BIC) in comprehensive strategies for clustering, density estimation and discriminant analysis. Additional functionalities are available for displaying and visualizing fitted models along with clustering, classification, and density estimation results.</p>
-<p>This document gives a quick tour of <strong>mclust</strong> (version 5.4.6) functionalities. It was written in R Markdown, using the <a href="https://cran.r-project.org/package=knitr">knitr</a> package for production. See <code><a href="https://mclust-org.github.io/mclust/reference">help(package="mclust")</a></code> for further details and references provided by <code><a href="https://rdrr.io/r/utils/citation.html">citation("mclust")</a></code>.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">mclust</span>)
+<p>This document gives a quick tour of <strong>mclust</strong> (version 5.4.7) functionalities. It was written in R Markdown, using the <a href="https://cran.r-project.org/package=knitr">knitr</a> package for production. See <code><a href="https://mclust-org.github.io/mclust/reference">help(package="mclust")</a></code> for further details and references provided by <code><a href="https://rdrr.io/r/utils/citation.html">citation("mclust")</a></code>.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mclust-org.github.io/mclust/">mclust</a></span><span class="op">)</span>
 <span class="co">##     __  ___________    __  _____________</span>
 <span class="co">##    /  |/  / ____/ /   / / / / ___/_  __/</span>
 <span class="co">##   / /|_/ / /   / /   / / / /\__ \ / /   </span>
 <span class="co">##  / /  / / /___/ /___/ /_/ /___/ // /    </span>
-<span class="co">## /_/  /_/\____/_____/\____//____//_/    version 5.4.6</span>
-<span class="co">## Type 'citation("mclust")' for citing this R package in publications.</span></pre></body></html></div>
+<span class="co">## /_/  /_/\____/_____/\____//____//_/    version 5.4.7</span>
+<span class="co">## Type 'citation("mclust")' for citing this R package in publications.</span></code></pre></div>
 </div>
 <div id="clustering" class="section level1">
 <h1 class="hasAnchor">
 <a href="#clustering" class="anchor"></a>Clustering</h1>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">diabetes</span>)
-<span class="no">class</span> <span class="kw">&lt;-</span> <span class="no">diabetes</span>$<span class="no">class</span>
-<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">class</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">diabetes</span><span class="op">)</span>
+<span class="va">class</span> <span class="op">&lt;-</span> <span class="va">diabetes</span><span class="op">$</span><span class="va">class</span>
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>
 <span class="co">## class</span>
 <span class="co">## Chemical   Normal    Overt </span>
 <span class="co">##       36       76       33</span>
-<span class="no">X</span> <span class="kw">&lt;-</span> <span class="no">diabetes</span>[,-<span class="fl">1</span>]
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">X</span>)
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="va">diabetes</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
 <span class="co">##   glucose insulin sspg</span>
 <span class="co">## 1      80     356  124</span>
 <span class="co">## 2      97     289  117</span>
@@ -118,20 +121,22 @@
 <span class="co">## 4      90     356  199</span>
 <span class="co">## 5      90     323  240</span>
 <span class="co">## 6      86     381  157</span>
-<span class="fu"><a href="../reference/clPairs.html">clPairs</a></span>(<span class="no">X</span>, <span class="no">class</span>)</pre></body></html></div>
+<span class="fu"><a href="../reference/clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">class</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-2-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r">
-<span class="no">BIC</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span>(<span class="no">X</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">BIC</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">BIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-2-2.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">BIC</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span>
 <span class="co">## Best BIC values:</span>
 <span class="co">##              VVV,3       VVV,4       EVE,6</span>
 <span class="co">## BIC      -4751.316 -4784.32213 -4785.24591</span>
 <span class="co">## BIC diff     0.000   -33.00573   -33.92951</span>
 
-<span class="no">mod1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/Mclust.html">Mclust</a></span>(<span class="no">X</span>, <span class="kw">x</span> <span class="kw">=</span> <span class="no">BIC</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod1</span>, <span class="kw">parameters</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">X</span>, x <span class="op">=</span> <span class="va">BIC</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod1</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">## ---------------------------------------------------- </span>
 <span class="co">## Gaussian finite mixture model fitted by EM algorithm </span>
 <span class="co">## ---------------------------------------------------- </span>
@@ -173,29 +178,32 @@
 <span class="co">## insulin 20389.088  83132.48 -10393.004</span>
 <span class="co">## sspg    -2486.208 -10393.00   2217.533</span>
 
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod1</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"classification"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod1</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-2-3.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">class</span>, <span class="no">mod1</span>$<span class="no">classification</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">class</span>, <span class="va">mod1</span><span class="op">$</span><span class="va">classification</span><span class="op">)</span>
 <span class="co">##           </span>
 <span class="co">## class       1  2  3</span>
 <span class="co">##   Chemical  9 26  1</span>
 <span class="co">##   Normal   72  4  0</span>
 <span class="co">##   Overt     0  6 27</span>
 
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod1</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"uncertainty"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod1</span>, what <span class="op">=</span> <span class="st">"uncertainty"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-2-4.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r">
-<span class="no">ICL</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustICL.html">mclustICL</a></span>(<span class="no">X</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">ICL</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">ICL</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustICL.html">mclustICL</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">ICL</span><span class="op">)</span>
 <span class="co">## Best ICL values:</span>
 <span class="co">##              VVV,3       EVE,6       EVE,7</span>
 <span class="co">## ICL      -4770.169 -4797.38232 -4797.50566</span>
 <span class="co">## ICL diff     0.000   -27.21342   -27.33677</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">ICL</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ICL</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-2-5.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r">
-<span class="no">LRT</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBootstrapLRT.html">mclustBootstrapLRT</a></span>(<span class="no">X</span>, <span class="kw">modelName</span> <span class="kw">=</span> <span class="st">"VVV"</span>)
-<span class="no">LRT</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">LRT</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBootstrapLRT.html">mclustBootstrapLRT</a></span><span class="op">(</span><span class="va">X</span>, modelName <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span>
+<span class="va">LRT</span>
 <span class="co">## ------------------------------------------------------------- </span>
 <span class="co">## Bootstrap sequential LRT for the number of mixture components </span>
 <span class="co">## ------------------------------------------------------------- </span>
@@ -204,12 +212,13 @@
 <span class="co">##               LRTS bootstrap p-value</span>
 <span class="co">## 1 vs 2   361.16739             0.001</span>
 <span class="co">## 2 vs 3   123.49685             0.001</span>
-<span class="co">## 3 vs 4    16.76161             0.498</span></pre></body></html></div>
+<span class="co">## 3 vs 4    16.76161             0.498</span></code></pre></div>
 <div id="initialisation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#initialisation" class="anchor"></a>Initialisation</h2>
 <p>EM algorithm is used by <strong>mclust</strong> for maximum likelihood estimation. Initialisation of EM is performed using the partitions obtained from agglomerative hierarchical clustering. For details see <code><a href="../reference/mclustBIC.html">help(mclustBIC)</a></code> or <code><a href="../reference/Mclust.html">help(Mclust)</a></code>, and <code><a href="../reference/hc.html">help(hc)</a></code>.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r">(<span class="no">hc1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/hc.html">hc</a></span>(<span class="no">X</span>, <span class="kw">modelName</span> <span class="kw">=</span> <span class="st">"VVV"</span>, <span class="kw">use</span> <span class="kw">=</span> <span class="st">"SVD"</span>))
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="op">(</span><span class="va">hc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/hc.html">hc</a></span><span class="op">(</span><span class="va">X</span>, modelName <span class="op">=</span> <span class="st">"VVV"</span>, use <span class="op">=</span> <span class="st">"SVD"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Call:</span>
 <span class="co">## hc(data = X, modelName = "VVV", use = "SVD") </span>
 <span class="co">## </span>
@@ -217,14 +226,14 @@
 <span class="co">## Model name        = VVV </span>
 <span class="co">## Use               = SVD </span>
 <span class="co">## Number of objects = 145</span>
-<span class="no">BIC1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span>(<span class="no">X</span>, <span class="kw">initialization</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">hcPairs</span> <span class="kw">=</span> <span class="no">hc1</span>)) <span class="co"># default </span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">BIC1</span>)
+<span class="va">BIC1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">X</span>, initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="va">hc1</span><span class="op">)</span><span class="op">)</span> <span class="co"># default </span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">BIC1</span><span class="op">)</span>
 <span class="co">## Best BIC values:</span>
 <span class="co">##              VVV,3       VVV,4       EVE,6</span>
 <span class="co">## BIC      -4751.316 -4784.32213 -4785.24591</span>
 <span class="co">## BIC diff     0.000   -33.00573   -33.92951</span>
 
-(<span class="no">hc2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/hc.html">hc</a></span>(<span class="no">X</span>, <span class="kw">modelName</span> <span class="kw">=</span> <span class="st">"VVV"</span>, <span class="kw">use</span> <span class="kw">=</span> <span class="st">"VARS"</span>))
+<span class="op">(</span><span class="va">hc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/hc.html">hc</a></span><span class="op">(</span><span class="va">X</span>, modelName <span class="op">=</span> <span class="st">"VVV"</span>, use <span class="op">=</span> <span class="st">"VARS"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Call:</span>
 <span class="co">## hc(data = X, modelName = "VVV", use = "VARS") </span>
 <span class="co">## </span>
@@ -232,14 +241,14 @@
 <span class="co">## Model name        = VVV </span>
 <span class="co">## Use               = VARS </span>
 <span class="co">## Number of objects = 145</span>
-<span class="no">BIC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span>(<span class="no">X</span>, <span class="kw">initialization</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">hcPairs</span> <span class="kw">=</span> <span class="no">hc2</span>))
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">BIC2</span>)
+<span class="va">BIC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">X</span>, initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="va">hc2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">BIC2</span><span class="op">)</span>
 <span class="co">## Best BIC values:</span>
 <span class="co">##              VVV,3       VVE,3       EVE,4</span>
 <span class="co">## BIC      -4760.091 -4775.53693 -4793.26143</span>
 <span class="co">## BIC diff     0.000   -15.44628   -33.17079</span>
 
-(<span class="no">hc3</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/hc.html">hc</a></span>(<span class="no">X</span>, <span class="kw">modelName</span> <span class="kw">=</span> <span class="st">"EEE"</span>, <span class="kw">use</span> <span class="kw">=</span> <span class="st">"SVD"</span>))
+<span class="op">(</span><span class="va">hc3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/hc.html">hc</a></span><span class="op">(</span><span class="va">X</span>, modelName <span class="op">=</span> <span class="st">"EEE"</span>, use <span class="op">=</span> <span class="st">"SVD"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Call:</span>
 <span class="co">## hc(data = X, modelName = "EEE", use = "SVD") </span>
 <span class="co">## </span>
@@ -247,40 +256,43 @@
 <span class="co">## Model name        = EEE </span>
 <span class="co">## Use               = SVD </span>
 <span class="co">## Number of objects = 145</span>
-<span class="no">BIC3</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span>(<span class="no">X</span>, <span class="kw">initialization</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">hcPairs</span> <span class="kw">=</span> <span class="no">hc3</span>))
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">BIC3</span>)
+<span class="va">BIC3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">X</span>, initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="va">hc3</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">BIC3</span><span class="op">)</span>
 <span class="co">## Best BIC values:</span>
 <span class="co">##              VVV,3        VVE,4       VVE,3</span>
 <span class="co">## BIC      -4751.354 -4757.091572 -4775.69587</span>
-<span class="co">## BIC diff     0.000    -5.737822   -24.34212</span></pre></body></html></div>
+<span class="co">## BIC diff     0.000    -5.737822   -24.34212</span></code></pre></div>
 <p>Update BIC by merging the best results:</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">BIC</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBICupdate.html">mclustBICupdate</a></span>(<span class="no">BIC1</span>, <span class="no">BIC2</span>, <span class="no">BIC3</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">BIC</span>)
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">BIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBICupdate.html">mclustBICupdate</a></span><span class="op">(</span><span class="va">BIC1</span>, <span class="va">BIC2</span>, <span class="va">BIC3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span>
 <span class="co">## Best BIC values:</span>
 <span class="co">##              VVV,3        VVE,4       VVE,3</span>
 <span class="co">## BIC      -4751.316 -4757.091572 -4775.53693</span>
 <span class="co">## BIC diff     0.000    -5.775172   -24.22053</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">BIC</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-4-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>Univariate fit using random starting points obtained by creating random agglomerations (see <code><a href="../reference/randomPairs.html">help(randomPairs)</a></code>) and merging best results:</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">galaxies</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"MASS"</span>)
-<span class="no">galaxies</span> <span class="kw">&lt;-</span> <span class="no">galaxies</span> / <span class="fl">1000</span>
-<span class="no">BIC</span> <span class="kw">&lt;-</span> <span class="kw">NULL</span>
-<span class="kw">for</span>(<span class="no">j</span> <span class="kw">in</span> <span class="fl">1</span>:<span class="fl">20</span>)
-{
-  <span class="no">rBIC</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span>(<span class="no">galaxies</span>, <span class="kw">verbose</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-                    <span class="kw">initialization</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">hcPairs</span> <span class="kw">=</span> <span class="fu"><a href="../reference/randomPairs.html">randomPairs</a></span>(<span class="no">galaxies</span>)))
-  <span class="no">BIC</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclustBICupdate.html">mclustBICupdate</a></span>(<span class="no">BIC</span>, <span class="no">rBIC</span>)
-}
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">BIC</span>)
+<p>Univariate fit using random starting points obtained by creating random agglomerations (see <code><a href="../reference/hcRandomPairs.html">help(hcRandomPairs)</a></code>) and merging best results:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">galaxies</span>, package <span class="op">=</span> <span class="st">"MASS"</span><span class="op">)</span> 
+<span class="va">galaxies</span> <span class="op">&lt;-</span> <span class="va">galaxies</span> <span class="op">/</span> <span class="fl">1000</span>
+<span class="va">BIC</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
+<span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span>
+<span class="op">{</span>
+  <span class="va">rBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">galaxies</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>,
+                    initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="fu"><a href="../reference/hcRandomPairs.html">hcRandomPairs</a></span><span class="op">(</span><span class="va">galaxies</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">BIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclustBICupdate.html">mclustBICupdate</a></span><span class="op">(</span><span class="va">BIC</span>, <span class="va">rBIC</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span>
 <span class="co">## Best BIC values:</span>
 <span class="co">##                V,3         V,4        V,5</span>
 <span class="co">## BIC      -441.6122 -443.399746 -446.34966</span>
 <span class="co">## BIC diff    0.0000   -1.787536   -4.73745</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">BIC</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">mod</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/Mclust.html">Mclust</a></span>(<span class="no">galaxies</span>, <span class="kw">x</span> <span class="kw">=</span> <span class="no">BIC</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod</span>)
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">galaxies</span>, x <span class="op">=</span> <span class="va">BIC</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>
 <span class="co">## ---------------------------------------------------- </span>
 <span class="co">## Gaussian finite mixture model fitted by EM algorithm </span>
 <span class="co">## ---------------------------------------------------- </span>
@@ -292,7 +304,7 @@
 <span class="co">## </span>
 <span class="co">## Clustering table:</span>
 <span class="co">##  1  2  3 </span>
-<span class="co">##  3  7 72</span></pre></body></html></div>
+<span class="co">##  3  7 72</span></code></pre></div>
 </div>
 </div>
 <div id="classification" class="section level1">
@@ -301,14 +313,15 @@
 <div id="edda" class="section level2">
 <h2 class="hasAnchor">
 <a href="#edda" class="anchor"></a>EDDA</h2>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">iris</span>)
-<span class="no">class</span> <span class="kw">&lt;-</span> <span class="no">iris</span>$<span class="no">Species</span>
-<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">class</span>)
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>
+<span class="va">class</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span>
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>
 <span class="co">## class</span>
 <span class="co">##     setosa versicolor  virginica </span>
 <span class="co">##         50         50         50</span>
-<span class="no">X</span> <span class="kw">&lt;-</span> <span class="no">iris</span>[,<span class="fl">1</span>:<span class="fl">4</span>]
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">X</span>)
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
 <span class="co">##   Sepal.Length Sepal.Width Petal.Length Petal.Width</span>
 <span class="co">## 1          5.1         3.5          1.4         0.2</span>
 <span class="co">## 2          4.9         3.0          1.4         0.2</span>
@@ -316,8 +329,8 @@
 <span class="co">## 4          4.6         3.1          1.5         0.2</span>
 <span class="co">## 5          5.0         3.6          1.4         0.2</span>
 <span class="co">## 6          5.4         3.9          1.7         0.4</span>
-<span class="no">mod2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustDA.html">MclustDA</a></span>(<span class="no">X</span>, <span class="no">class</span>, <span class="kw">modelType</span> <span class="kw">=</span> <span class="st">"EDDA"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod2</span>)
+<span class="va">mod2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustDA.html">MclustDA</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">class</span>, modelType <span class="op">=</span> <span class="st">"EDDA"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span>
 <span class="co">## ------------------------------------------------ </span>
 <span class="co">## Gaussian finite mixture model for classification </span>
 <span class="co">## ------------------------------------------------ </span>
@@ -340,22 +353,24 @@
 <span class="co">##   virginica       0          0        50</span>
 <span class="co">## Classification error = 0.02 </span>
 <span class="co">## Brier score          = 0.0127</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod2</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"scatterplot"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod2</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-6-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod2</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"classification"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod2</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-6-2.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div id="mclustda" class="section level2">
 <h2 class="hasAnchor">
 <a href="#mclustda" class="anchor"></a>MclustDA</h2>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">banknote</span>)
-<span class="no">class</span> <span class="kw">&lt;-</span> <span class="no">banknote</span>$<span class="no">Status</span>
-<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">class</span>)
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">)</span>
+<span class="va">class</span> <span class="op">&lt;-</span> <span class="va">banknote</span><span class="op">$</span><span class="va">Status</span>
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>
 <span class="co">## class</span>
 <span class="co">## counterfeit     genuine </span>
 <span class="co">##         100         100</span>
-<span class="no">X</span> <span class="kw">&lt;-</span> <span class="no">banknote</span>[,-<span class="fl">1</span>]
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">X</span>)
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="va">banknote</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
 <span class="co">##   Length  Left Right Bottom  Top Diagonal</span>
 <span class="co">## 1  214.8 131.0 131.1    9.0  9.7    141.0</span>
 <span class="co">## 2  214.6 129.7 129.7    8.1  9.5    141.7</span>
@@ -363,8 +378,8 @@
 <span class="co">## 4  214.8 129.7 129.6    7.5 10.4    142.0</span>
 <span class="co">## 5  215.0 129.6 129.7   10.4  7.7    141.8</span>
 <span class="co">## 6  215.7 130.8 130.5    9.0 10.1    141.4</span>
-<span class="no">mod3</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustDA.html">MclustDA</a></span>(<span class="no">X</span>, <span class="no">class</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod3</span>)
+<span class="va">mod3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustDA.html">MclustDA</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">class</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span>
 <span class="co">## ------------------------------------------------ </span>
 <span class="co">## Gaussian finite mixture model for classification </span>
 <span class="co">## ------------------------------------------------ </span>
@@ -385,16 +400,18 @@
 <span class="co">##   genuine               0     100</span>
 <span class="co">## Classification error = 0 </span>
 <span class="co">## Brier score          = 0</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod3</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"scatterplot"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod3</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-7-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod3</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"classification"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod3</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-7-2.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div id="cross-validation-error" class="section level2">
 <h2 class="hasAnchor">
 <a href="#cross-validation-error" class="anchor"></a>Cross-validation error</h2>
-<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="no">cv</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/cvMclustDA.html">cvMclustDA</a></span>(<span class="no">mod2</span>, <span class="kw">nfold</span> <span class="kw">=</span> <span class="fl">10</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">cv</span>)
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cv</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cvMclustDA.html">cvMclustDA</a></span><span class="op">(</span><span class="va">mod2</span>, nfold <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">cv</span><span class="op">)</span>
 <span class="co">## List of 5</span>
 <span class="co">##  $ classification: Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="co">##  $ z             : num [1:150, 1:3] 1 1 1 1 1 1 1 1 1 1 ...</span>
@@ -404,11 +421,11 @@
 <span class="co">##  $ error         : num 0.0267</span>
 <span class="co">##  $ brier         : logi NA</span>
 <span class="co">##  $ se            : num 0.0109</span>
-<span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(<span class="no">cv</span>[<span class="fl">3</span>:<span class="fl">4</span>])
+<span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">cv</span><span class="op">[</span><span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>
 <span class="co">##      error      brier </span>
 <span class="co">## 0.02666667         NA</span>
-<span class="no">cv</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/cvMclustDA.html">cvMclustDA</a></span>(<span class="no">mod3</span>, <span class="kw">nfold</span> <span class="kw">=</span> <span class="fl">10</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">cv</span>)
+<span class="va">cv</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cvMclustDA.html">cvMclustDA</a></span><span class="op">(</span><span class="va">mod3</span>, nfold <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">cv</span><span class="op">)</span>
 <span class="co">## List of 5</span>
 <span class="co">##  $ classification: Factor w/ 2 levels "counterfeit",..: 2 2 2 2 2 2 2 2 2 2 ...</span>
 <span class="co">##  $ z             : num [1:200, 1:2] 1.56e-06 3.50e-19 5.41e-28 3.33e-20 2.42e-29 ...</span>
@@ -418,9 +435,9 @@
 <span class="co">##  $ error         : num 0.005</span>
 <span class="co">##  $ brier         : logi NA</span>
 <span class="co">##  $ se            : num 0.005</span>
-<span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(<span class="no">cv</span>[<span class="fl">3</span>:<span class="fl">4</span>])
+<span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">cv</span><span class="op">[</span><span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>
 <span class="co">## error brier </span>
-<span class="co">## 0.005    NA</span></pre></body></html></div>
+<span class="co">## 0.005    NA</span></code></pre></div>
 </div>
 </div>
 <div id="density-estimation" class="section level1">
@@ -429,9 +446,10 @@
 <div id="univariate" class="section level2">
 <h2 class="hasAnchor">
 <a href="#univariate" class="anchor"></a>Univariate</h2>
-<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">acidity</span>)
-<span class="no">mod4</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/densityMclust.html">densityMclust</a></span>(<span class="no">acidity</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod4</span>)
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">acidity</span><span class="op">)</span>
+<span class="va">mod4</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">acidity</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod4</span><span class="op">)</span>
 <span class="co">## ------------------------------------------------------- </span>
 <span class="co">## Density estimation via Gaussian finite mixture modeling </span>
 <span class="co">## ------------------------------------------------------- </span>
@@ -440,21 +458,25 @@
 <span class="co">## </span>
 <span class="co">##  log-likelihood   n df       BIC       ICL</span>
 <span class="co">##       -185.9493 155  4 -392.0723 -398.5554</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"BIC"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod4</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-9-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"density"</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">acidity</span>, <span class="kw">breaks</span> <span class="kw">=</span> <span class="fl">15</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod4</span>, what <span class="op">=</span> <span class="st">"density"</span>, data <span class="op">=</span> <span class="va">acidity</span>, breaks <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-9-2.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"diagnostic"</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"cdf"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod4</span>, what <span class="op">=</span> <span class="st">"diagnostic"</span>, type <span class="op">=</span> <span class="st">"cdf"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-9-3.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb20"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"diagnostic"</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"qq"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod4</span>, what <span class="op">=</span> <span class="st">"diagnostic"</span>, type <span class="op">=</span> <span class="st">"qq"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-9-4.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div id="multivariate" class="section level2">
 <h2 class="hasAnchor">
 <a href="#multivariate" class="anchor"></a>Multivariate</h2>
-<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">faithful</span>)
-<span class="no">mod5</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/densityMclust.html">densityMclust</a></span>(<span class="no">faithful</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod5</span>)
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span>
+<span class="va">mod5</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod5</span><span class="op">)</span>
 <span class="co">## ------------------------------------------------------- </span>
 <span class="co">## Density estimation via Gaussian finite mixture modeling </span>
 <span class="co">## ------------------------------------------------------- </span>
@@ -464,23 +486,27 @@
 <span class="co">## </span>
 <span class="co">##  log-likelihood   n df       BIC       ICL</span>
 <span class="co">##       -1126.326 272 11 -2314.316 -2357.824</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod5</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"BIC"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod5</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-10-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb22"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod5</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"density"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod5</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-10-2.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb23"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod5</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"density"</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"hdr"</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod5</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"density"</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"hdr"</span>,
-     <span class="kw">data</span> <span class="kw">=</span> <span class="no">faithful</span>, <span class="kw">points.cex</span> <span class="kw">=</span> <span class="fl">0.5</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod5</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"hdr"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod5</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"hdr"</span>,
+     data <span class="op">=</span> <span class="va">faithful</span>, points.cex <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-10-3.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb24"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod5</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"density"</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"persp"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod5</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"persp"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-10-4.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div id="bootstrap-inference" class="section level1">
 <h1 class="hasAnchor">
 <a href="#bootstrap-inference" class="anchor"></a>Bootstrap inference</h1>
-<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="no">boot1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustBootstrap.html">MclustBootstrap</a></span>(<span class="no">mod1</span>, <span class="kw">nboot</span> <span class="kw">=</span> <span class="fl">999</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"bs"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">boot1</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"se"</span>)
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">boot1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">mod1</span>, nboot <span class="op">=</span> <span class="fl">999</span>, type <span class="op">=</span> <span class="st">"bs"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">boot1</span>, what <span class="op">=</span> <span class="st">"se"</span><span class="op">)</span>
 <span class="co">## ---------------------------------------------------------- </span>
 <span class="co">## Resampling standard errors </span>
 <span class="co">## ---------------------------------------------------------- </span>
@@ -515,7 +541,7 @@
 <span class="co">## glucose 1045.6542  4178.685  667.2709</span>
 <span class="co">## insulin 4178.6846 18873.253 2495.0278</span>
 <span class="co">## sspg     667.2709  2495.028  506.8173</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">boot1</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"ci"</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">boot1</span>, what <span class="op">=</span> <span class="st">"ci"</span><span class="op">)</span>
 <span class="co">## ---------------------------------------------------------- </span>
 <span class="co">## Resampling confidence intervals </span>
 <span class="co">## ---------------------------------------------------------- </span>
@@ -558,13 +584,15 @@
 <span class="co">## 2.5%  3377.773  47477.74 1317.041</span>
 <span class="co">## 97.5% 7379.344 120297.75 3229.747</span>
 
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4</span>,<span class="fl">3</span>))
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">boot1</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"pro"</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">boot1</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"mean"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">boot1</span>, what <span class="op">=</span> <span class="st">"pro"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">boot1</span>, what <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-11-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb26"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">1</span>))</pre></body></html></div>
-<div class="sourceCode" id="cb27"><html><body><pre class="r"><span class="no">boot4</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustBootstrap.html">MclustBootstrap</a></span>(<span class="no">mod4</span>, <span class="kw">nboot</span> <span class="kw">=</span> <span class="fl">999</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"bs"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">boot4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"se"</span>)
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">boot4</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">mod4</span>, nboot <span class="op">=</span> <span class="fl">999</span>, type <span class="op">=</span> <span class="st">"bs"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">boot4</span>, what <span class="op">=</span> <span class="st">"se"</span><span class="op">)</span>
 <span class="co">## ---------------------------------------------------------- </span>
 <span class="co">## Resampling standard errors </span>
 <span class="co">## ---------------------------------------------------------- </span>
@@ -584,7 +612,7 @@
 <span class="co">## Variances:</span>
 <span class="co">##          1          2 </span>
 <span class="co">## 0.02376885 0.02376885</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">boot4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"ci"</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">boot4</span>, what <span class="op">=</span> <span class="st">"ci"</span><span class="op">)</span>
 <span class="co">## ---------------------------------------------------------- </span>
 <span class="co">## Resampling confidence intervals </span>
 <span class="co">## ---------------------------------------------------------- </span>
@@ -609,11 +637,12 @@
 <span class="co">## 2.5%  0.1395796 0.1395796</span>
 <span class="co">## 97.5% 0.2317769 0.2317769</span>
 
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>))
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">boot4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"pro"</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">boot4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"mean"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">boot4</span>, what <span class="op">=</span> <span class="st">"pro"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">boot4</span>, what <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-12-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb28"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">1</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="dimension-reduction" class="section level1">
 <h1 class="hasAnchor">
@@ -621,8 +650,9 @@
 <div id="clustering-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#clustering-1" class="anchor"></a>Clustering</h2>
-<div class="sourceCode" id="cb29"><html><body><pre class="r"><span class="no">mod1dr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span>(<span class="no">mod1</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod1dr</span>)
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod1dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod1dr</span><span class="op">)</span>
 <span class="co">## ----------------------------------------------------------------- </span>
 <span class="co">## Dimension reduction for model-based clustering and classification </span>
 <span class="co">## ----------------------------------------------------------------- </span>
@@ -643,13 +673,15 @@
 <span class="co">##                Dir1     Dir2      Dir3</span>
 <span class="co">## Eigenvalues  1.3506  0.75608   0.53412</span>
 <span class="co">## Cum. %      51.1440 79.77436 100.00000</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod1dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"pairs"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod1dr</span>, what <span class="op">=</span> <span class="st">"pairs"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-13-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb30"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod1dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"boundaries"</span>, <span class="kw">ngrid</span> <span class="kw">=</span> <span class="fl">200</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod1dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-13-2.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb31"><html><body><pre class="r">
-<span class="no">mod1dr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span>(<span class="no">mod1</span>, <span class="kw">lambda</span> <span class="kw">=</span> <span class="fl">1</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod1dr</span>)
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">mod1dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod1</span>, lambda <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod1dr</span><span class="op">)</span>
 <span class="co">## ----------------------------------------------------------------- </span>
 <span class="co">## Dimension reduction for model-based clustering and classification </span>
 <span class="co">## ----------------------------------------------------------------- </span>
@@ -670,16 +702,18 @@
 <span class="co">##                Dir1      Dir2</span>
 <span class="co">## Eigenvalues  1.2629   0.35218</span>
 <span class="co">## Cum. %      78.1939 100.00000</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod1dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"scatterplot"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod1dr</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-13-3.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb32"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod1dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"boundaries"</span>, <span class="kw">ngrid</span> <span class="kw">=</span> <span class="fl">200</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod1dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-13-4.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div id="classification-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#classification-1" class="anchor"></a>Classification</h2>
-<div class="sourceCode" id="cb33"><html><body><pre class="r"><span class="no">mod2dr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span>(<span class="no">mod2</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod2dr</span>)
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod2dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod2dr</span><span class="op">)</span>
 <span class="co">## ----------------------------------------------------------------- </span>
 <span class="co">## Dimension reduction for model-based clustering and classification </span>
 <span class="co">## ----------------------------------------------------------------- </span>
@@ -701,13 +735,15 @@
 <span class="co">##                 Dir1     Dir2      Dir3       Dir4</span>
 <span class="co">## Eigenvalues  0.94747  0.68835  0.076141   0.052607</span>
 <span class="co">## Cum. %      53.69408 92.70374 97.018700 100.000000</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod2dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"scatterplot"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod2dr</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-14-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb34"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod2dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"boundaries"</span>, <span class="kw">ngrid</span> <span class="kw">=</span> <span class="fl">200</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod2dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-14-2.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb35"><html><body><pre class="r">
-<span class="no">mod3dr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span>(<span class="no">mod3</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">mod3dr</span>)
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">mod3dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod3dr</span><span class="op">)</span>
 <span class="co">## ----------------------------------------------------------------- </span>
 <span class="co">## Dimension reduction for model-based clustering and classification </span>
 <span class="co">## ----------------------------------------------------------------- </span>
@@ -730,9 +766,10 @@
 <span class="co">##                 Dir1     Dir2     Dir3     Dir4      Dir5       Dir6</span>
 <span class="co">## Eigenvalues  0.87242  0.55373  0.48546  0.13291  0.053075   0.027273</span>
 <span class="co">## Cum. %      41.05755 67.11689 89.96377 96.21866 98.716489 100.000000</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod3dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"scatterplot"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod3dr</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-14-3.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb36"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod3dr</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"boundaries"</span>, <span class="kw">ngrid</span> <span class="kw">=</span> <span class="fl">200</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod3dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
 <p><img src="mclust_files/figure-html/unnamed-chunk-14-4.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -740,33 +777,43 @@
 <h1 class="hasAnchor">
 <a href="#using-colorblind-friendly-palettes" class="anchor"></a>Using colorblind-friendly palettes</h1>
 <p>Most of the graphs produced by <strong>mclust</strong> use colors that by default are defined in the following options:</p>
-<div class="sourceCode" id="cb37"><html><body><pre class="r"><span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span>(<span class="st">"bicPlotColors"</span>)
-<span class="co">##       EII       VII       EEI       EVI       VEI       VVI       EEE       EVE </span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"bicPlotColors"</span><span class="op">)</span>
+<span class="co">##       EII       VII       EEI       EVI       VEI       VVI       EEE       VEE </span>
 <span class="co">##    "gray"   "black" "#218B21" "#41884F" "#508476" "#58819C" "#597DC3" "#5178EA" </span>
-<span class="co">##       VEE       VVE       EEV       VEV       EVV       VVV         E         V </span>
+<span class="co">##       EVE       VVE       EEV       VEV       EVV       VVV         E         V </span>
 <span class="co">## "#716EE7" "#9B60B8" "#B2508B" "#C03F60" "#C82A36" "#CC0000"    "gray"   "black"</span>
-<span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span>(<span class="st">"classPlotColors"</span>)
+<span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span>
 <span class="co">##  [1] "dodgerblue2"    "red3"           "green3"         "slateblue"     </span>
 <span class="co">##  [5] "darkorange"     "skyblue1"       "violetred4"     "forestgreen"   </span>
 <span class="co">##  [9] "steelblue4"     "slategrey"      "brown"          "black"         </span>
 <span class="co">## [13] "darkseagreen"   "darkgoldenrod3" "olivedrab"      "royalblue"     </span>
-<span class="co">## [17] "tomato4"        "cyan2"          "springgreen2"</span></pre></body></html></div>
+<span class="co">## [17] "tomato4"        "cyan2"          "springgreen2"</span></code></pre></div>
 <p>The first option controls colors used for plotting BIC, ICL, etc. curves, whereas the second option is used to assign colors for indicating clusters or classes when plotting data.</p>
-<p>Color-blind-friendly palettes can be defined and assigned to the above options as follows:</p>
-<div class="sourceCode" id="cb38"><html><body><pre class="r"><span class="no">cbPalette</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"#009E73"</span>, <span class="st">"#999999"</span>, <span class="st">"#F0E442"</span>, <span class="st">"#0072B2"</span>, <span class="st">"#D55E00"</span>, <span class="st">"#CC79A7"</span>)
-<span class="no">bicPlotColors</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span>(<span class="st">"bicPlotColors"</span>)
-<span class="no">bicPlotColors</span>[<span class="fl">1</span>:<span class="fl">14</span>] <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">cbPalette</span>, <span class="no">cbPalette</span>[<span class="fl">1</span>:<span class="fl">6</span>])
-<span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span>(<span class="st">"bicPlotColors"</span> <span class="kw">=</span> <span class="no">bicPlotColors</span>)
-<span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span>(<span class="st">"classPlotColors"</span> <span class="kw">=</span> <span class="no">cbPalette</span>)
+<p>Starting with  version 4.0, the function  can be used for retrieving colors from some pre-defined palettes. For instance</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/grDevices/palette.html">palette.colors</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Okabe-Ito"</span><span class="op">)</span></code></pre></div>
+<p>returns a color-blind-friendly palette for individuals suffering from protanopia or deuteranopia, the two most common forms of inherited color blindness. For earlier versions of  such palette can be defined as:</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cbPalette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#000000"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"#009E73"</span>, <span class="st">"#F0E442"</span>, <span class="st">"#0072B2"</span>, 
+<span class="st">"#D55E00"</span>, <span class="st">"#CC79A7"</span>, <span class="st">"#999999"</span><span class="op">)</span></code></pre></div>
+<p>and then assigned to the <strong>mclust</strong> options as follows:</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">bicPlotColors</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"bicPlotColors"</span><span class="op">)</span>
+<span class="va">bicPlotColors</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">14</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">cbPalette</span>, <span class="va">cbPalette</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"bicPlotColors"</span> <span class="op">=</span> <span class="va">bicPlotColors</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span> <span class="op">=</span> <span class="va">cbPalette</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
 
-<span class="fu"><a href="../reference/clPairs.html">clPairs</a></span>(<span class="no">iris</span>[,-<span class="fl">5</span>], <span class="no">iris</span>$<span class="no">Species</span>)</pre></body></html></div>
-<p><img src="mclust_files/figure-html/unnamed-chunk-16-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb39"><html><body><pre class="r"><span class="no">mod</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/Mclust.html">Mclust</a></span>(<span class="no">iris</span>[,-<span class="fl">5</span>])
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"BIC"</span>)</pre></body></html></div>
-<p><img src="mclust_files/figure-html/unnamed-chunk-16-2.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb40"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">mod</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"classification"</span>)</pre></body></html></div>
-<p><img src="mclust_files/figure-html/unnamed-chunk-16-3.png" width="90%" style="display: block; margin: auto;"></p>
-<p>The above color definitions are adapted from <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>, but users can easily define their own palettes if needed.</p>
+<span class="fu"><a href="../reference/clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></code></pre></div>
+<p><img src="mclust_files/figure-html/unnamed-chunk-18-1.png" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></code></pre></div>
+<p><img src="mclust_files/figure-html/unnamed-chunk-18-2.png" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></code></pre></div>
+<p><img src="mclust_files/figure-html/unnamed-chunk-18-3.png" width="90%" style="display: block; margin: auto;"></p>
+<p>If needed, users can easily define their own palettes following the same procedure outlined above.</p>
 </div>
 <div id="references" class="section level1">
 <h1 class="hasAnchor">
@@ -775,14 +822,15 @@
 <p>Fraley C. and Raftery A. E. (2002) Model-based clustering, discriminant analysis and density estimation, <em>Journal of the American Statistical Association</em>, 97/458, pp. 611-631.</p>
 <p>Fraley C., Raftery A. E., Murphy T. B. and Scrucca L. (2012) mclust Version 4 for R: Normal Mixture Modeling for Model-Based Clustering, Classification, and Density Estimation. <em>Technical Report</em> No. 597, Department of Statistics, University of Washington.</p>
 <hr>
-<div class="sourceCode" id="cb41"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span>()
-<span class="co">## R version 3.6.3 (2020-02-29)</span>
-<span class="co">## Platform: x86_64-apple-darwin15.6.0 (64-bit)</span>
-<span class="co">## Running under: macOS Catalina 10.15.4</span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">## R version 4.0.2 (2020-06-22)</span>
+<span class="co">## Platform: x86_64-apple-darwin17.0 (64-bit)</span>
+<span class="co">## Running under: macOS Catalina 10.15.6</span>
 <span class="co">## </span>
 <span class="co">## Matrix products: default</span>
-<span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib</span>
-<span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib</span>
+<span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib</span>
+<span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib</span>
 <span class="co">## </span>
 <span class="co">## locale:</span>
 <span class="co">## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
@@ -791,15 +839,15 @@
 <span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">## </span>
 <span class="co">## other attached packages:</span>
-<span class="co">## [1] mclust_5.4.6 knitr_1.28  </span>
+<span class="co">## [1] mclust_5.4.7 knitr_1.30  </span>
 <span class="co">## </span>
 <span class="co">## loaded via a namespace (and not attached):</span>
-<span class="co">##  [1] Rcpp_1.0.4.6     rprojroot_1.3-2  crayon_1.3.4     digest_0.6.25   </span>
-<span class="co">##  [5] assertthat_0.2.1 MASS_7.3-51.5    R6_2.4.1         backports_1.1.6 </span>
-<span class="co">##  [9] magrittr_1.5     evaluate_0.14    stringi_1.4.6    rlang_0.4.5     </span>
-<span class="co">## [13] rstudioapi_0.11  fs_1.4.1         rmarkdown_2.1    pkgdown_1.5.1   </span>
-<span class="co">## [17] desc_1.2.0       tools_3.6.3      stringr_1.4.0    yaml_2.2.1      </span>
-<span class="co">## [21] xfun_0.12        compiler_3.6.3   memoise_1.1.0    htmltools_0.4.0</span></pre></body></html></div>
+<span class="co">##  [1] rprojroot_1.3-2   digest_0.6.27     crayon_1.3.4.9000 assertthat_0.2.1 </span>
+<span class="co">##  [5] R6_2.4.1          backports_1.1.10  magrittr_2.0.1    evaluate_0.14    </span>
+<span class="co">##  [9] stringi_1.5.3     rlang_0.4.8       rstudioapi_0.11   fs_1.5.0         </span>
+<span class="co">## [13] rmarkdown_2.5     pkgdown_1.6.1     desc_1.2.0        tools_4.0.2      </span>
+<span class="co">## [17] stringr_1.4.0     yaml_2.2.1        xfun_0.19         compiler_4.0.2   </span>
+<span class="co">## [21] memoise_1.1.0     htmltools_0.5.0</span></code></pre></div>
 </div>
   </div>
 
@@ -818,7 +866,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

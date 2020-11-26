@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -126,7 +126,7 @@
     <p>Converts a classification into a matrix of indicator variables.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>unmap</span>(<span class='no'>classification</span>, <span class='kw'>groups</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>noise</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>unmap</span><span class='op'>(</span><span class='va'>classification</span>, groups<span class='op'>=</span><span class='cn'>NULL</span>, noise<span class='op'>=</span><span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,21 +171,24 @@
   <code><a href='me.html'>me</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'>unmap</span>(<span class='no'>iris</span>[,<span class='fl'>5</span>])
-<span class='no'>z</span>[<span class='fl'>1</span>:<span class='fl'>5</span>, ]</div><div class='output co'>#&gt;      [,1] [,2] [,3]
+    <pre class="examples"><div class='input'><span class='va'>z</span> <span class='op'>&lt;-</span> <span class='fu'>unmap</span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>z</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='op'>]</span>
+</div><div class='output co'>#&gt;      [,1] [,2] [,3]
 #&gt; [1,]    1    0    0
 #&gt; [2,]    1    0    0
 #&gt; [3,]    1    0    0
 #&gt; [4,]    1    0    0
-#&gt; [5,]    1    0    0</div><div class='input'>
-<span class='no'>emEst</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='me.html'>me</a></span>(<span class='kw'>modelName</span> <span class='kw'>=</span> <span class='st'>"VVV"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>z</span>)
-<span class='no'>emEst</span>$<span class='no'>z</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,]</div><div class='output co'>#&gt;      [,1]         [,2]         [,3]
+#&gt; [5,]    1    0    0</div><div class='input'>  
+<span class='va'>emEst</span> <span class='op'>&lt;-</span> <span class='fu'><a href='me.html'>me</a></span><span class='op'>(</span>modelName <span class='op'>=</span> <span class='st'>"VVV"</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, z <span class='op'>=</span> <span class='va'>z</span><span class='op'>)</span>
+<span class='va'>emEst</span><span class='op'>$</span><span class='va'>z</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>
+</div><div class='output co'>#&gt;      [,1]         [,2]         [,3]
 #&gt; [1,]    1 1.340380e-44 1.861339e-34
 #&gt; [2,]    1 2.201405e-31 6.676298e-28
 #&gt; [3,]    1 1.896748e-36 1.102178e-29
 #&gt; [4,]    1 3.488647e-32 6.409600e-26
-#&gt; [5,]    1 4.393475e-47 7.745885e-35</div><div class='input'>
-<span class='fu'><a href='map.html'>map</a></span>(<span class='no'>emEst</span>$<span class='no'>z</span>)</div><div class='output co'>#&gt;   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+#&gt; [5,]    1 4.393475e-47 7.745885e-35</div><div class='input'>  
+<span class='fu'><a href='map.html'>map</a></span><span class='op'>(</span><span class='va'>emEst</span><span class='op'>$</span><span class='va'>z</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 #&gt;  [38] 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 3 2 3 2
 #&gt;  [75] 2 2 2 3 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3
 #&gt; [112] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -205,7 +208,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

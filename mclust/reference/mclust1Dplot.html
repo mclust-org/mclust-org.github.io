@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,13 +128,13 @@
   for the data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mclust1Dplot</span>(<span class='no'>data</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-             <span class='kw'>classification</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>truth</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>uncertainty</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-             <span class='kw'>what</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"classification"</span>, <span class='st'>"density"</span>, <span class='st'>"error"</span>, <span class='st'>"uncertainty"</span>),
-             <span class='kw'>symbols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ngrid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>data</span>),
-             <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-             <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-             <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>mclust1Dplot</span><span class='op'>(</span><span class='va'>data</span>, parameters <span class='op'>=</span> <span class='cn'>NULL</span>, z <span class='op'>=</span> <span class='cn'>NULL</span>, 
+             classification <span class='op'>=</span> <span class='cn'>NULL</span>, truth <span class='op'>=</span> <span class='cn'>NULL</span>, uncertainty <span class='op'>=</span> <span class='cn'>NULL</span>, 
+             what <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"classification"</span>, <span class='st'>"density"</span>, <span class='st'>"error"</span>, <span class='st'>"uncertainty"</span><span class='op'>)</span>,
+             symbols <span class='op'>=</span> <span class='cn'>NULL</span>, colors <span class='op'>=</span> <span class='cn'>NULL</span>, ngrid <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span>, 
+             xlab <span class='op'>=</span> <span class='cn'>NULL</span>, ylab <span class='op'>=</span> <span class='cn'>NULL</span>, 
+             xlim <span class='op'>=</span> <span class='cn'>NULL</span>, ylim <span class='op'>=</span> <span class='cn'>NULL</span>,
+             cex <span class='op'>=</span> <span class='fl'>1</span>, main <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,7 +148,7 @@
       <th>parameters</th>
       <td><p>A named list giving the parameters of an <em>MCLUST</em> model,
      used to produce superimposing ellipses on the plot.
-     The relevant components are as follows:</p><dl'>
+     The relevant components are as follows:</p><dl>
         <dt><code>pro</code></dt><dd><p>Mixing proportions for the components of the mixture. 
               There should one more mixing proportion than the number of 
               Gaussian components if the mixture model includes 
@@ -252,27 +252,28 @@
   <code><a href='coordProj.html'>coordProj</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>250</span> <span class='co'>## create artificial data</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span>,-<span class='fl'>5</span>), <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span>,<span class='fl'>5</span>))
-<span class='no'>yclass</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>,<span class='no'>n</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>2</span>,<span class='no'>n</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>3</span>,<span class='no'>n</span>))
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>250</span> <span class='co'>## create artificial data</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>,<span class='fl'>0</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>,<span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>yclass</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='va'>n</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='va'>n</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='no'>yModel</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>y</span>)
+<span class='va'>yModel</span> <span class='op'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
 
-<span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>,
-             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"classification"</span>)
+<span class='fu'>mclust1Dplot</span><span class='op'>(</span><span class='va'>y</span>, parameters <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>parameters</span>, z <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>z</span>, 
+             what <span class='op'>=</span> <span class='st'>"classification"</span><span class='op'>)</span>
 
-<span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>,
-             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"error"</span>, <span class='kw'>truth</span> <span class='kw'>=</span> <span class='no'>yclass</span>)
+<span class='fu'>mclust1Dplot</span><span class='op'>(</span><span class='va'>y</span>, parameters <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>parameters</span>, z <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>z</span>, 
+             what <span class='op'>=</span> <span class='st'>"error"</span>, truth <span class='op'>=</span> <span class='va'>yclass</span><span class='op'>)</span>
 
-<span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>,
-             <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"density"</span>)
+<span class='fu'>mclust1Dplot</span><span class='op'>(</span><span class='va'>y</span>, parameters <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>parameters</span>, z <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>z</span>, 
+             what <span class='op'>=</span> <span class='st'>"density"</span><span class='op'>)</span>
 
-<span class='fu'>mclust1Dplot</span>(<span class='no'>y</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>z</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>yModel</span>$<span class='no'>parameters</span>,
-            <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"uncertainty"</span>)
+<span class='fu'>mclust1Dplot</span><span class='op'>(</span><span class='va'>y</span>, z <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>z</span>, parameters <span class='op'>=</span> <span class='va'>yModel</span><span class='op'>$</span><span class='va'>parameters</span>,
+            what <span class='op'>=</span> <span class='st'>"uncertainty"</span><span class='op'>)</span>
 
-}</div></pre>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -288,7 +289,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

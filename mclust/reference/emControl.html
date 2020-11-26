@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
   convergence assessment, for use functions involving EM within <em>MCLUST</em>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>emControl</span>(<span class='no'>eps</span>, <span class='no'>tol</span>, <span class='no'>itmax</span>, <span class='no'>equalPro</span>)</pre>
+    <pre class="usage"><span class='fu'>emControl</span><span class='op'>(</span><span class='va'>eps</span>, <span class='va'>tol</span>, <span class='va'>itmax</span>, <span class='va'>equalPro</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,8 +146,8 @@
       <th>tol</th>
       <td><p>A vector of length two giving relative convergence tolerances for the 
     log-likelihood and for parameter convergence in the inner loop for models
-    with iterative M-step ("VEI", "EVE", "VEE", "VVE", "VEV"), respectively.
-    The default is <code><a href='https://rdrr.io/r/base/c.html'>c(1.e-5,sqrt(.Machine$double.eps))</a></code>.
+    with iterative M-step ("VEI", "VEE", "EVE", "VVE", "VEV"), respectively.
+    The default is <code><a href='https://rdrr.io/r/base/c.html'>c(1.e-5, sqrt(.Machine$double.eps))</a></code>.
     If only one number is supplied, it is used as the tolerance 
     for the outer iterations and the tolerance for the inner
     iterations is as in the default.</p></td>
@@ -156,7 +156,7 @@
       <th>itmax</th>
       <td><p>A vector of length two giving integer limits on the number of EM
     iterations and on the number of iterations in the inner loop for
-    models with iterative M-step ("VEI", "EVE", "VEE", "VVE", "VEV"),
+    models with iterative M-step ("VEI", "VEE", "EVE", "VVE", "VEV"),
     respectively. The default is 
     <code><a href='https://rdrr.io/r/base/c.html'>c(.Machine$integer.max, .Machine$integer.max)</a></code> 
     allowing termination to be completely governed by <code>tol</code>. 
@@ -187,8 +187,9 @@
   <code><a href='mclustBIC.html'>mclustBIC</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>irisBIC</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>control</span> <span class='kw'>=</span> <span class='fu'>emControl</span>(<span class='kw'>tol</span> <span class='kw'>=</span> <span class='fl'>1.e-6</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>irisBIC</span>, <span class='no'>iris</span>[,-<span class='fl'>5</span>])</div><div class='output co'>#&gt; Best BIC values:
+    <pre class="examples"><div class='input'><span class='va'>irisBIC</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, control <span class='op'>=</span> <span class='fu'>emControl</span><span class='op'>(</span>tol <span class='op'>=</span> <span class='fl'>1.e-6</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>irisBIC</span>, <span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Best BIC values:
 #&gt;              VEV,2        VEV,3      VVV,2
 #&gt; BIC      -561.7285 -562.5508708 -574.01783
 #&gt; BIC diff    0.0000   -0.8224087  -12.28937
@@ -212,7 +213,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

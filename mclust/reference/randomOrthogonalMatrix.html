@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Random orthogonal matrix — randomOrthogonalMatrix" />
-<meta property="og:description" content="Generate a random orthogonal basis matrix of dimension \((n x d)\) using 
+<meta property="og:description" content="Generate a random orthogonal basis matrix of dimension \((nrow x ncol)\) using 
 the method in Heiberger (1978)." />
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
 
@@ -81,7 +81,7 @@ the method in Heiberger (1978)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -124,28 +124,46 @@ the method in Heiberger (1978)." />
     </div>
 
     <div class="ref-description">
-    <p>Generate a random orthogonal basis matrix of dimension \((n x d)\) using 
+    <p>Generate a random orthogonal basis matrix of dimension \((nrow x ncol)\) using 
 the method in Heiberger (1978).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>randomOrthogonalMatrix</span>(<span class='no'>n</span>, <span class='no'>d</span>)</pre>
+    <pre class="usage"><span class='fu'>randomOrthogonalMatrix</span><span class='op'>(</span><span class='va'>nrow</span>, <span class='va'>ncol</span>, n <span class='op'>=</span> <span class='va'>nrow</span>, d <span class='op'>=</span> <span class='va'>ncol</span>, seed <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>n</th>
+      <th>nrow</th>
       <td><p>the number of rows of the resulting orthogonal matrix.</p></td>
     </tr>
     <tr>
-      <th>d</th>
+      <th>ncol</th>
       <td><p>the number of columns of the resulting orthogonal matrix.</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>deprecated. See <code>nrow</code> above.</p></td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td><p>deprecated. See <code>ncol</code> above.</p></td>
+    </tr>
+    <tr>
+      <th>seed</th>
+      <td><p>an optional integer argument to use in <code><a href='https://rdrr.io/r/base/Random.html'>set.seed()</a></code> for 
+              reproducibility. By default the current seed will be used.
+              Reproducibility can also be achieved by calling <code><a href='https://rdrr.io/r/base/Random.html'>set.seed()</a></code>
+              before calling this function.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The use of arguments <code>n</code> and <code>d</code> is deprecated and they will be removed in the future.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An orthogonal matrix of dimension \(n x d\) such that each column is orthogonal to the other and has unit lenght.</p>
+    <p>An orthogonal matrix of dimension \(nrow x ncol\) such that each column is orthogonal to the other and has unit lenght. Because of the latter, it is also called orthonormal.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='coordProj.html'>coordProj</a></code></p></div>
@@ -154,8 +172,9 @@ the method in Heiberger (1978).</p>
     <p>Heiberger R. (1978) Generation of random orthogonal matrices. <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em>, 27(2), 199-206.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>B</span> <span class='kw'>&lt;-</span> <span class='fu'>randomOrthogonalMatrix</span>(<span class='fl'>10</span>,<span class='fl'>3</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/zapsmall.html'>zapsmall</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/crossprod.html'>crossprod</a></span>(<span class='no'>B</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3]
+    <pre class="examples"><div class='input'><span class='va'>B</span> <span class='op'>&lt;-</span> <span class='fu'>randomOrthogonalMatrix</span><span class='op'>(</span><span class='fl'>10</span>,<span class='fl'>3</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/zapsmall.html'>zapsmall</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/crossprod.html'>crossprod</a></span><span class='op'>(</span><span class='va'>B</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1] [,2] [,3]
 #&gt; [1,]    1    0    0
 #&gt; [2,]    0    1    0
 #&gt; [3,]    0    0    1</div></pre>
@@ -174,7 +193,7 @@ the method in Heiberger (1978).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

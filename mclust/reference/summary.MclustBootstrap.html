@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for MclustBootstrap</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"se"</span>, <span class='st'>"ci"</span>, <span class='st'>"ave"</span>), <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, what <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"se"</span>, <span class='st'>"ci"</span>, <span class='st'>"ave"</span><span class='op'>)</span>, conf.level <span class='op'>=</span> <span class='fl'>0.95</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,20 +158,21 @@
     <div class='dont-index'><p><code><a href='MclustBootstrap.html'>MclustBootstrap</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>diabetes</span>)
-<span class='no'>X</span> <span class='kw'>=</span> <span class='no'>diabetes</span>[,-<span class='fl'>1</span>]
-<span class='no'>modClust</span> <span class='kw'>=</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>X</span>)
-<span class='no'>bootClust</span> <span class='kw'>=</span> <span class='fu'><a href='MclustBootstrap.html'>MclustBootstrap</a></span>(<span class='no'>modClust</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bootClust</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"se"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bootClust</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"ci"</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>diabetes</span><span class='op'>)</span>
+<span class='va'>X</span> <span class='op'>=</span> <span class='va'>diabetes</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>
+<span class='va'>modClust</span> <span class='op'>=</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>X</span><span class='op'>)</span> 
+<span class='va'>bootClust</span> <span class='op'>=</span> <span class='fu'><a href='MclustBootstrap.html'>MclustBootstrap</a></span><span class='op'>(</span><span class='va'>modClust</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bootClust</span>, what <span class='op'>=</span> <span class='st'>"se"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bootClust</span>, what <span class='op'>=</span> <span class='st'>"ci"</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>acidity</span>)
-<span class='no'>modDens</span> <span class='kw'>=</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>acidity</span>)
-<span class='no'>modDens</span> <span class='kw'>=</span> <span class='fu'><a href='MclustBootstrap.html'>MclustBootstrap</a></span>(<span class='no'>modDens</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>modDens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"se"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>modDens</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"ci"</span>)
-}</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>acidity</span><span class='op'>)</span>
+<span class='va'>modDens</span> <span class='op'>=</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span><span class='op'>(</span><span class='va'>acidity</span><span class='op'>)</span>
+<span class='va'>modDens</span> <span class='op'>=</span> <span class='fu'><a href='MclustBootstrap.html'>MclustBootstrap</a></span><span class='op'>(</span><span class='va'>modDens</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>modDens</span>, what <span class='op'>=</span> <span class='st'>"se"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>modDens</span>, what <span class='op'>=</span> <span class='st'>"ci"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -187,7 +188,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

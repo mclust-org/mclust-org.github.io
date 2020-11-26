@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Diagnostic plots for <code>mclustDensity</code> estimation — densityMclust.diagnostic • mclust</title>
+<title>Diagnostic plots for mclustDensity estimation — densityMclust.diagnostic • mclust</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,7 @@
 
 
 
-<meta property="og:title" content="Diagnostic plots for <code>mclustDensity</code> estimation — densityMclust.diagnostic" />
+<meta property="og:title" content="Diagnostic plots for mclustDensity estimation — densityMclust.diagnostic" />
 <meta property="og:description" content="Diagnostic plots for density estimation. Only available for the one-dimensional case." />
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -126,11 +126,11 @@
     <p>Diagnostic plots for density estimation. Only available for the one-dimensional case.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>densityMclust.diagnostic</span>(<span class='no'>object</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"cdf"</span>, <span class='st'>"qq"</span>),
-                         <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"black"</span>),
-                         <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>), <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>),
-                         <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                         <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>densityMclust.diagnostic</span><span class='op'>(</span><span class='va'>object</span>, type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"cdf"</span>, <span class='st'>"qq"</span><span class='op'>)</span>, 
+                         col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"black"</span>, <span class='st'>"black"</span><span class='op'>)</span>, 
+                         lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>1</span><span class='op'>)</span>, lty <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span>, 
+                         legend <span class='op'>=</span> <span class='cn'>TRUE</span>, grid <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+                         <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -141,7 +141,7 @@
     </tr>
     <tr>
       <th>type</th>
-      <td><p>The type of graph requested:</p><dl'>
+      <td><p>The type of graph requested:</p><dl>
       <dt><code>"cdf"</code> =</dt><dd><p>a plot of the estimated CDF versus the empirical distribution function.</p></dd>
       <dt><code>"qq"</code> =</dt><dd><p>a Q-Q plot of sample quantiles versus the quantiles obtained from the inverse of the estimated cdf.</p></dd>
     
@@ -183,20 +183,24 @@
   mclust Version 4 for R: Normal Mixture Modeling for Model-Based 
   Clustering, Classification, and Density Estimation. 
   Technical Report No. 597, Department of Statistics, University of Washington.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='densityMclust.html'>densityMclust</a></code>, 
   <code><a href='plot.densityMclust.html'>plot.densityMclust</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>faithful</span>$<span class='no'>waiting</span>
-<span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span>(<span class='no'>x</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>dens</span>, <span class='no'>x</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"diagnostic"</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>faithful</span><span class='op'>$</span><span class='va'>waiting</span>
+<span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclust.html'>densityMclust</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, <span class='va'>x</span>, what <span class='op'>=</span> <span class='st'>"diagnostic"</span><span class='op'>)</span>
 <span class='co'># or</span>
-<span class='fu'>densityMclust.diagnostic</span>(<span class='no'>dens</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"cdf"</span>)
-<span class='fu'>densityMclust.diagnostic</span>(<span class='no'>dens</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"qq"</span>)
-}</div></pre>
+<span class='fu'>densityMclust.diagnostic</span><span class='op'>(</span><span class='va'>dens</span>, type <span class='op'>=</span> <span class='st'>"cdf"</span><span class='op'>)</span>
+<span class='fu'>densityMclust.diagnostic</span><span class='op'>(</span><span class='va'>dens</span>, type <span class='op'>=</span> <span class='st'>"qq"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -212,7 +216,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

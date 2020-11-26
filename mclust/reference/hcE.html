@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,12 +128,12 @@
   for a Gaussian mixture model parameterized by eigenvalue decomposition.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>hcE</span>(<span class='no'>data</span>, <span class='no'>partition</span>, <span class='kw'>minclus</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='no'>...</span>)
-<span class='fu'>hcV</span>(<span class='no'>data</span>, <span class='no'>partition</span>, <span class='kw'>minclus</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
-<span class='fu'>hcEII</span>(<span class='no'>data</span>, <span class='no'>partition</span>, <span class='kw'>minclus</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
-<span class='fu'>hcVII</span>(<span class='no'>data</span>, <span class='no'>partition</span>, <span class='kw'>minclus</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
-<span class='fu'>hcEEE</span>(<span class='no'>data</span>, <span class='no'>partition</span>, <span class='kw'>minclus</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
-<span class='fu'>hcVVV</span>(<span class='no'>data</span>, <span class='no'>partition</span>, <span class='kw'>minclus</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>hcE</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>partition</span>, minclus<span class='op'>=</span><span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>hcV</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>partition</span>, minclus <span class='op'>=</span> <span class='fl'>1</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>hcEII</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>partition</span>, minclus <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>hcVII</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>partition</span>, minclus <span class='op'>=</span> <span class='fl'>1</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>hcEEE</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>partition</span>, minclus <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>hcVVV</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>partition</span>, minclus <span class='op'>=</span> <span class='fl'>1</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, beta <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -196,22 +196,23 @@
 
     <div class='dont-index'><p><code><a href='hc.html'>hc</a></code>,
   <code><a href='hclass.html'>hclass</a></code>
-  <code><a href='randomPairs.html'>randomPairs</a></code></p></div>
+  <code><a href='hcRandomPairs.html'>hcRandomPairs</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>hcTree</span> <span class='kw'>&lt;-</span> <span class='fu'>hcEII</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>[,-<span class='fl'>5</span>])
-<span class='no'>cl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hclass.html'>hclass</a></span>(<span class='no'>hcTree</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>3</span>))
+    <pre class="examples"><div class='input'><span class='va'>hcTree</span> <span class='op'>&lt;-</span> <span class='fu'>hcEII</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>cl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='hclass.html'>hclass</a></span><span class='op'>(</span><span class='va'>hcTree</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>pty</span> <span class='kw'>=</span> <span class='st'>"s"</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
-<span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>],<span class='kw'>cl</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"2"</span>])
-<span class='fu'><a href='clPairs.html'>clPairs</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>],<span class='kw'>cl</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"3"</span>])
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>pty <span class='op'>=</span> <span class='st'>"s"</span>, mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='clPairs.html'>clPairs</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>,cl<span class='op'>=</span><span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"2"</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='clPairs.html'>clPairs</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>,cl<span class='op'>=</span><span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"3"</span><span class='op'>]</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
-<span class='no'>dimens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>)
-<span class='fu'><a href='coordProj.html'>coordProj</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>classification</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"2"</span>], <span class='kw'>dimens</span><span class='kw'>=</span><span class='no'>dimens</span>)
-<span class='fu'><a href='coordProj.html'>coordProj</a></span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>], <span class='kw'>classification</span><span class='kw'>=</span><span class='no'>cl</span>[,<span class='st'>"3"</span>], <span class='kw'>dimens</span><span class='kw'>=</span><span class='no'>dimens</span>)
-}</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>dimens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span>
+<span class='fu'><a href='coordProj.html'>coordProj</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, classification<span class='op'>=</span><span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"2"</span><span class='op'>]</span>, dimens<span class='op'>=</span><span class='va'>dimens</span><span class='op'>)</span>
+<span class='fu'><a href='coordProj.html'>coordProj</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, classification<span class='op'>=</span><span class='va'>cl</span><span class='op'>[</span>,<span class='st'>"3"</span><span class='op'>]</span>, dimens<span class='op'>=</span><span class='va'>dimens</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -227,7 +228,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

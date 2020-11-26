@@ -81,7 +81,7 @@ mixture models by taking the best from BIC results as returned by mclustBIC." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@ mixture models by taking the best from BIC results as returned by mclustBIC." />
 mixture models by taking the best from BIC results as returned by <code><a href='mclustBIC.html'>mclustBIC</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mclustBICupdate</span>(<span class='no'>BIC</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>mclustBICupdate</span><span class='op'>(</span><span class='va'>BIC</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,24 +156,25 @@ the corresponding best model (see example).</p>
   <code><a href='Mclust.html'>Mclust</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>galaxies</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='no'>galaxies</span> <span class='kw'>&lt;-</span> <span class='no'>galaxies</span> / <span class='fl'>1000</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>galaxies</span>, package <span class='op'>=</span> <span class='st'>"MASS"</span><span class='op'>)</span> 
+<span class='va'>galaxies</span> <span class='op'>&lt;-</span> <span class='va'>galaxies</span> <span class='op'>/</span> <span class='fl'>1000</span>
 
 <span class='co'># use several random starting points</span>
-<span class='no'>BIC</span> <span class='kw'>&lt;-</span> <span class='kw'>NULL</span>
-<span class='kw'>for</span>(<span class='no'>j</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fl'>100</span>)
-{
-  <span class='no'>rBIC</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span>(<span class='no'>galaxies</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-                    <span class='kw'>initialization</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>hcPairs</span> <span class='kw'>=</span> <span class='fu'><a href='randomPairs.html'>randomPairs</a></span>(<span class='no'>galaxies</span>)))
-  <span class='no'>BIC</span> <span class='kw'>&lt;-</span> <span class='fu'>mclustBICupdate</span>(<span class='no'>BIC</span>, <span class='no'>rBIC</span>)
-}
-<span class='fu'><a href='mclust-internal.html'>pickBIC</a></span>(<span class='no'>BIC</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>BIC</span>)
+<span class='va'>BIC</span> <span class='op'>&lt;-</span> <span class='cn'>NULL</span>
+<span class='kw'>for</span><span class='op'>(</span><span class='va'>j</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='op'>{</span>
+  <span class='va'>rBIC</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mclustBIC.html'>mclustBIC</a></span><span class='op'>(</span><span class='va'>galaxies</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span>,
+                    initialization <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>hcPairs <span class='op'>=</span> <span class='fu'><a href='hcRandomPairs.html'>hcRandomPairs</a></span><span class='op'>(</span><span class='va'>galaxies</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>BIC</span> <span class='op'>&lt;-</span> <span class='fu'>mclustBICupdate</span><span class='op'>(</span><span class='va'>BIC</span>, <span class='va'>rBIC</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='fu'><a href='mclust-internal.html'>pickBIC</a></span><span class='op'>(</span><span class='va'>BIC</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>BIC</span><span class='op'>)</span>
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>galaxies</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>BIC</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)
-}</div></pre>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>galaxies</span>, x <span class='op'>=</span> <span class='va'>BIC</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -189,7 +190,7 @@ the corresponding best model (see example).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -130,12 +130,12 @@
   colors and symbols than non missing values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>imputePairs</span>(<span class='no'>data</span>, <span class='no'>dataImp</span>,
-            <span class='kw'>symbols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>16</span>), <span class='kw'>colors</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"red"</span>), <span class='no'>labels</span>,
-            <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>points</span>, <span class='no'>...</span>, <span class='kw'>lower.panel</span> <span class='kw'>=</span> <span class='no'>panel</span>, <span class='kw'>upper.panel</span> <span class='kw'>=</span> <span class='no'>panel</span>,
-            <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>text.panel</span> <span class='kw'>=</span> <span class='no'>textPanel</span>, <span class='kw'>label.pos</span> <span class='kw'>=</span> <span class='fl'>0.5</span> +
-            <span class='no'>has.diag</span>/<span class='fl'>3</span>, <span class='kw'>cex.labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>font.labels</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>row1attop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-            <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)</pre>
+    <pre class="usage"><span class='fu'>imputePairs</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>dataImp</span>, 
+            symbols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>16</span><span class='op'>)</span>, colors <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"black"</span>, <span class='st'>"red"</span><span class='op'>)</span>, <span class='va'>labels</span>,
+            panel <span class='op'>=</span> <span class='va'>points</span>, <span class='va'>...</span>, lower.panel <span class='op'>=</span> <span class='va'>panel</span>, upper.panel <span class='op'>=</span> <span class='va'>panel</span>, 
+            diag.panel <span class='op'>=</span> <span class='cn'>NULL</span>, text.panel <span class='op'>=</span> <span class='va'>textPanel</span>, label.pos <span class='op'>=</span> <span class='fl'>0.5</span> <span class='op'>+</span> 
+            <span class='va'>has.diag</span><span class='op'>/</span><span class='fl'>3</span>, cex.labels <span class='op'>=</span> <span class='cn'>NULL</span>, font.labels <span class='op'>=</span> <span class='fl'>1</span>, row1attop <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+            gap <span class='op'>=</span> <span class='fl'>0.2</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -226,16 +226,17 @@
   <code><a href='imputeData.html'>imputeData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Note that package 'mix' must be installed</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>stlouis</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"mix"</span>)
-
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>stlouis</span>, package <span class='op'>=</span> <span class='st'>"mix"</span><span class='op'>)</span>
+ 
 <span class='co'># impute the continuos variables in the stlouis data</span>
-<span class='no'>stlimp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='imputeData.html'>imputeData</a></span>(<span class='no'>stlouis</span>[,-(<span class='fl'>1</span>:<span class='fl'>3</span>)])
+<span class='va'>stlimp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='imputeData.html'>imputeData</a></span><span class='op'>(</span><span class='va'>stlouis</span><span class='op'>[</span>,<span class='op'>-</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
 
 <span class='co'># plot imputed values</span>
-<span class='fu'>imputePairs</span>(<span class='no'>stlouis</span>[,-(<span class='fl'>1</span>:<span class='fl'>3</span>)], <span class='no'>stlimp</span>)
-}</div></pre>
+<span class='fu'>imputePairs</span><span class='op'>(</span><span class='va'>stlouis</span><span class='op'>[</span>,<span class='op'>-</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>]</span>, <span class='va'>stlimp</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -251,7 +252,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

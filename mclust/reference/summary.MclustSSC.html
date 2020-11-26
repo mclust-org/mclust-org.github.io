@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Random hierarchical structure — randomPairs • mclust</title>
+<title>Summarizing semi-supervised classification model based on Gaussian finite mixtures — summary.MclustSSC • mclust</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Random hierarchical structure — randomPairs" />
-<meta property="og:description" content="Create a hierarchical structure using a random partition of the data." />
+<meta property="og:title" content="Summarizing semi-supervised classification model based on Gaussian finite mixtures — summary.MclustSSC" />
+<meta property="og:description" content="Summary method for class &quot;MclustSSC&quot;." />
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -117,66 +117,55 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Random hierarchical structure</h1>
+    <h1>Summarizing semi-supervised classification model based on Gaussian finite mixtures</h1>
     
-    <div class="hidden name"><code>randomPairs.Rd</code></div>
+    <div class="hidden name"><code>summary.MclustSSC.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create a hierarchical structure using a random partition of the data.</p>
+    <p>Summary method for class <code>"MclustSSC"</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>randomPairs</span>(<span class='no'>data</span>, <span class='no'>seed</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for MclustSSC</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, parameters <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='co'># S3 method for summary.MclustSSC</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, digits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"digits"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>A numeric matrix or data frame of observations.
-    If a matrix or data frame, rows correspond to observations and
-    columns correspond to variables.</p></td>
+      <th>object</th>
+      <td><p>An object of class <code>'MclustSSC'</code> resulting from a call to <code><a href='MclustSSC.html'>MclustSSC</a></code>.</p></td>
     </tr>
     <tr>
-      <th>seed</th>
-      <td><p>Optional single value, interpreted as an integer, specifying the seed for random partition.</p></td>
+      <th>x</th>
+      <td><p>An object of class <code>'summary.MclustSSC'</code>, usually, a result of a call to <code>summary.MclustSSC</code>.</p></td>
+    </tr>
+    <tr>
+      <th>parameters</th>
+      <td><p>Logical; if <code>TRUE</code>, the parameters of mixture components are printed.</p></td>
+    </tr>
+    <tr>
+      <th>digits</th>
+      <td><p>The number of significant digits to use when printing.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></td>
+      <td><p>Further arguments passed to or from other methods.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A numeric two-column matrix in which the <em>i</em>th row gives the minimum 
-  index for observations in each of the two clusters merged at the
-  <em>i</em>th stage of a random agglomerative hierarchical clustering.</p>
+    <p>The function <code>summary.MclustSSC</code> computes and returns a list of summary statistics of the estimated MclustSSC model for semi-supervised classification.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='hc.html'>hc</a></code>,
-  <code><a href='hclass.html'>hclass</a></code>
-  <code><a href='hcE.html'>hcVVV</a></code></p></div>
+    <div class='dont-index'><p><code><a href='MclustSSC.html'>MclustSSC</a></code>, <code><a href='plot.MclustSSC.html'>plot.MclustSSC</a></code>.</p></div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>]
-<span class='no'>randPairs</span> <span class='kw'>&lt;-</span> <span class='fu'>randomPairs</span>(<span class='no'>data</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>randPairs</span>)</div><div class='output co'>#&gt;  int [1:2, 1:149] 70 104 75 103 13 40 23 89 84 110 ...
-#&gt;  - attr(*, "initialPartition")= int [1:150] 1 2 3 4 5 6 7 8 9 10 ...
-#&gt;  - attr(*, "dimensions")= num [1:2] 150 2</div><div class='input'><span class='co'># start model-based clustering from a random partition</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>data</span>, <span class='kw'>initialization</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>hcPairs</span> <span class='kw'>=</span> <span class='no'>randPairs</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; ---------------------------------------------------- 
-#&gt; Gaussian finite mixture model fitted by EM algorithm 
-#&gt; ---------------------------------------------------- 
-#&gt; 
-#&gt; Mclust VEV (ellipsoidal, equal shape) model with 2 components: 
-#&gt; 
-#&gt;  log-likelihood   n df       BIC       ICL
-#&gt;        -215.726 150 26 -561.7285 -561.7289
-#&gt; 
-#&gt; Clustering table:
-#&gt;   1   2 
-#&gt; 100  50 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -192,7 +181,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

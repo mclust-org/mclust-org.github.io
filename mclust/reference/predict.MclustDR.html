@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for MclustDR</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>object</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='no'>object</span>$<span class='no'>numdir</span>, <span class='no'>newdata</span>, <span class='no'>eval.points</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>object</span>, dim <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>object</span><span class='op'>$</span><span class='va'>numdir</span>, <span class='va'>newdata</span>, <span class='va'>eval.points</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,15 +169,19 @@
 
     <p>Scrucca, L. (2010) Dimension reduction for model-based clustering. 
   <em>Statistics and Computing</em>, 20(4), pp. 471-484.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='MclustDR.html'>MclustDR</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>=</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>4</span>])
-<span class='no'>dr</span> <span class='kw'>=</span> <span class='fu'><a href='MclustDR.html'>MclustDR</a></span>(<span class='no'>mod</span>)
-<span class='no'>pred</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>dr</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>pred</span>)</div><div class='output co'>#&gt; List of 5
+    <pre class="examples"><div class='input'><span class='va'>mod</span> <span class='op'>=</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>dr</span> <span class='op'>=</span> <span class='fu'><a href='MclustDR.html'>MclustDR</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+<span class='va'>pred</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>dr</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; List of 5
 #&gt;  $ dir           : num [1:150, 1:4] 1.86 1.45 1.62 1.41 1.91 ...
 #&gt;   ..- attr(*, "dimnames")=List of 2
 #&gt;   .. ..$ : NULL
@@ -186,11 +190,12 @@
 #&gt;  $ z             : num [1:150, 1:2] 1 1 1 1 1 ...
 #&gt;  $ uncertainty   : num [1:150] 2.51e-11 5.56e-08 3.64e-09 8.61e-08 8.50e-12 ...
 #&gt;  $ classification: Factor w/ 2 levels "1","2": 1 1 1 1 1 1 1 1 1 1 ...</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>banknote</span>)
-<span class='no'>mod</span> <span class='kw'>=</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span>(<span class='no'>banknote</span>[,<span class='fl'>2</span>:<span class='fl'>7</span>], <span class='no'>banknote</span>$<span class='no'>Status</span>)
-<span class='no'>dr</span> <span class='kw'>=</span> <span class='fu'><a href='MclustDR.html'>MclustDR</a></span>(<span class='no'>mod</span>)
-<span class='no'>pred</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>dr</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>pred</span>)</div><div class='output co'>#&gt; List of 5
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>banknote</span><span class='op'>)</span>
+<span class='va'>mod</span> <span class='op'>=</span> <span class='fu'><a href='MclustDA.html'>MclustDA</a></span><span class='op'>(</span><span class='va'>banknote</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span>, <span class='va'>banknote</span><span class='op'>$</span><span class='va'>Status</span><span class='op'>)</span>
+<span class='va'>dr</span> <span class='op'>=</span> <span class='fu'><a href='MclustDR.html'>MclustDR</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+<span class='va'>pred</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>dr</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; List of 5
 #&gt;  $ dir           : num [1:200, 1:6] -0.862 -1.911 -1.748 -1.92 -1.685 ...
 #&gt;   ..- attr(*, "dimnames")=List of 2
 #&gt;   .. ..$ : NULL
@@ -214,7 +219,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

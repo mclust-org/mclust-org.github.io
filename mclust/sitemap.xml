@@ -31,6 +31,9 @@
     <loc>https://mclust-org.github.io/mclust/reference/MclustDRsubsel.html</loc>
   </url>
   <url>
+    <loc>https://mclust-org.github.io/mclust/reference/MclustSSC.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/mclust/reference/acidity.html</loc>
   </url>
   <url>
@@ -143,6 +146,9 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/hcE.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/reference/hcRandomPairs.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/hclass.html</loc>
@@ -265,10 +271,16 @@
     <loc>https://mclust-org.github.io/mclust/reference/plot.MclustDR.html</loc>
   </url>
   <url>
+    <loc>https://mclust-org.github.io/mclust/reference/plot.MclustSSC.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/mclust/reference/plot.clustCombi.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/plot.densityMclust.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/reference/plot.hc.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/plot.mclustBIC.html</loc>
@@ -286,6 +298,9 @@
     <loc>https://mclust-org.github.io/mclust/reference/predict.MclustDR.html</loc>
   </url>
   <url>
+    <loc>https://mclust-org.github.io/mclust/reference/predict.MclustSSC.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/mclust/reference/predict.densityMclust.html</loc>
   </url>
   <url>
@@ -296,9 +311,6 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/randomOrthogonalMatrix.html</loc>
-  </url>
-  <url>
-    <loc>https://mclust-org.github.io/mclust/reference/randomPairs.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/sigma2decomp.html</loc>
@@ -320,6 +332,9 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/summary.MclustDR.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/reference/summary.MclustSSC.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/summary.mclustBIC.html</loc>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Missing data imputation via the <span class="pkg">mix</span> package — imputeData • mclust</title>
+<title>Missing data imputation via the mix package — imputeData • mclust</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,7 @@
 
 
 
-<meta property="og:title" content="Missing data imputation via the <span class="pkg">mix</span> package — imputeData" />
+<meta property="og:title" content="Missing data imputation via the mix package — imputeData" />
 <meta property="og:description" content="Imputes missing data using the mix package." />
 <meta property="og:image" content="https://mclust-org.github.io/mclust/logo.png" />
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -126,7 +126,7 @@
     <p>Imputes missing data using the <span class="pkg">mix</span> package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>imputeData</span>(<span class='no'>data</span>, <span class='kw'>categorical</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())</pre>
+    <pre class="usage"><span class='fu'>imputeData</span><span class='op'>(</span><span class='va'>data</span>, categorical <span class='op'>=</span> <span class='cn'>NULL</span>, seed <span class='op'>=</span> <span class='cn'>NULL</span>, verbose <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,16 +170,17 @@
     <div class='dont-index'><p><code><a href='imputePairs.html'>imputePairs</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Note that package 'mix' must be installed</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>stlouis</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"mix"</span>)
-
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>stlouis</span>, package <span class='op'>=</span> <span class='st'>"mix"</span><span class='op'>)</span>
+ 
 <span class='co'># impute the continuos variables in the stlouis data</span>
-<span class='no'>stlimp</span> <span class='kw'>&lt;-</span> <span class='fu'>imputeData</span>(<span class='no'>stlouis</span>[,-(<span class='fl'>1</span>:<span class='fl'>3</span>)])
+<span class='va'>stlimp</span> <span class='op'>&lt;-</span> <span class='fu'>imputeData</span><span class='op'>(</span><span class='va'>stlouis</span><span class='op'>[</span>,<span class='op'>-</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
 
 <span class='co'># plot imputed values</span>
-<span class='fu'><a href='imputePairs.html'>imputePairs</a></span>(<span class='no'>stlouis</span>[,-(<span class='fl'>1</span>:<span class='fl'>3</span>)], <span class='no'>stlimp</span>)
-}</div></pre>
+<span class='fu'><a href='imputePairs.html'>imputePairs</a></span><span class='op'>(</span><span class='va'>stlouis</span><span class='op'>[</span>,<span class='op'>-</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>]</span>, <span class='va'>stlimp</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -195,7 +196,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

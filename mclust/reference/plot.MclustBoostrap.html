@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.4.7</span>
       </span>
     </div>
 
@@ -127,11 +127,11 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for MclustBootstrap</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"pro"</span>, <span class='st'>"mean"</span>, <span class='st'>"var"</span>),
-     <span class='kw'>show.parest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>show.confint</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-     <span class='kw'>hist.col</span> <span class='kw'>=</span> <span class='st'>"grey"</span>, <span class='kw'>hist.border</span> <span class='kw'>=</span> <span class='st'>"lightgrey"</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='st'>"Sturges"</span>,
-     <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"forestgreen"</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-     <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, what <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pro"</span>, <span class='st'>"mean"</span>, <span class='st'>"var"</span><span class='op'>)</span>, 
+     show.parest <span class='op'>=</span> <span class='cn'>TRUE</span>, show.confint <span class='op'>=</span> <span class='cn'>TRUE</span>,
+     hist.col <span class='op'>=</span> <span class='st'>"grey"</span>, hist.border <span class='op'>=</span> <span class='st'>"lightgrey"</span>, breaks <span class='op'>=</span> <span class='st'>"Sturges"</span>, 
+     col <span class='op'>=</span> <span class='st'>"forestgreen"</span>, lwd <span class='op'>=</span> <span class='fl'>2</span>, lty <span class='op'>=</span> <span class='fl'>3</span>, 
+     xlab <span class='op'>=</span> <span class='cn'>NULL</span>, xlim <span class='op'>=</span> <span class='cn'>NULL</span>, ylim <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,16 +193,17 @@
     <div class='dont-index'><p><code><a href='MclustBootstrap.html'>MclustBootstrap</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>diabetes</span>)
-<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>diabetes</span>[,-<span class='fl'>1</span>]
-<span class='no'>modClust</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span>(<span class='no'>X</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>modelNames</span> <span class='kw'>=</span> <span class='st'>"VVV"</span>)
-<span class='no'>bootClust</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='MclustBootstrap.html'>MclustBootstrap</a></span>(<span class='no'>modClust</span>, <span class='kw'>nboot</span> <span class='kw'>=</span> <span class='fl'>99</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>), <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>0.5</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>bootClust</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"pro"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>,<span class='fl'>3</span>), <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>0.5</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>bootClust</span>, <span class='kw'>what</span> <span class='kw'>=</span> <span class='st'>"mean"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>diabetes</span><span class='op'>)</span>
+<span class='va'>X</span> <span class='op'>&lt;-</span> <span class='va'>diabetes</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>
+<span class='va'>modClust</span> <span class='op'>&lt;-</span> <span class='fu'><a href='Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>X</span>, G <span class='op'>=</span> <span class='fl'>3</span>, modelNames <span class='op'>=</span> <span class='st'>"VVV"</span><span class='op'>)</span>
+<span class='va'>bootClust</span> <span class='op'>&lt;-</span> <span class='fu'><a href='MclustBootstrap.html'>MclustBootstrap</a></span><span class='op'>(</span><span class='va'>modClust</span>, nboot <span class='op'>=</span> <span class='fl'>99</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>3</span><span class='op'>)</span>, mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>bootClust</span>, what <span class='op'>=</span> <span class='st'>"pro"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='fl'>3</span><span class='op'>)</span>, mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>bootClust</span>, what <span class='op'>=</span> <span class='st'>"mean"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -218,7 +219,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
