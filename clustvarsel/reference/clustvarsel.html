@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,11 +45,11 @@
 
 
 
-<meta property="og:title" content="Variable Selection for Gaussian Model-Based Clustering — clustvarsel" />
 
+<meta property="og:title" content="Variable Selection for Gaussian Model-Based Clustering — clustvarsel" />
 <meta property="og:description" content="A function which implements variable selection methodology for model-based clustering which allows to find the (locally) optimal subset of variables in a dataset that have group/cluster information. 
 A greedy or headlong search can be used, either in a forward-backward or backward-forward direction, with or without sub-sampling at the hierarchical clustering stage for starting  mclust models. By default the algorithm uses a sequential search, but parallelisation is also available." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -55,9 +63,10 @@ A greedy or headlong search can be used, either in a forward-backward or backwar
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -71,7 +80,7 @@ A greedy or headlong search can be used, either in a forward-backward or backwar
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">clustvarsel</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.4</span>
       </span>
     </div>
 
@@ -87,11 +96,10 @@ A greedy or headlong search can be used, either in a forward-backward or backwar
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     mclust-org
   </a>
@@ -103,6 +111,7 @@ A greedy or headlong search can be used, either in a forward-backward or backwar
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -114,31 +123,29 @@ A greedy or headlong search can be used, either in a forward-backward or backwar
     </div>
 
     <div class="ref-description">
-    
     <p>A function which implements variable selection methodology for model-based clustering which allows to find the (locally) optimal subset of variables in a dataset that have group/cluster information. 
-A greedy or headlong search can be used, either in a forward-backward or backward-forward direction, with or without sub-sampling at the hierarchical clustering stage for starting  <code><a href='https://www.rdocumentation.org/packages/mclust/topics/mclust-package'>mclust</a></code> models. By default the algorithm uses a sequential search, but parallelisation is also available.</p>
-    
+A greedy or headlong search can be used, either in a forward-backward or backward-forward direction, with or without sub-sampling at the hierarchical clustering stage for starting  <code><a href='https://mclust-org.github.io/mclust/reference/mclust-package.html'>mclust</a></code> models. By default the algorithm uses a sequential search, but parallelisation is also available.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clustvarsel</span>(<span class='no'>data</span>,
-            <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>9</span>,
-            <span class='kw'>search</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"greedy"</span>, <span class='st'>"headlong"</span>),
-            <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"forward"</span>, <span class='st'>"backward"</span>),
-            <span class='kw'>emModels1</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"E"</span>, <span class='st'>"V"</span>),
-            <span class='kw'>emModels2</span> <span class='kw'>=</span> <span class='fu'>mclust.options</span>(<span class='st'>"emModelNames"</span>),
-            <span class='kw'>samp</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-            <span class='kw'>sampsize</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Round'>round</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>nrow</a></span>(<span class='no'>data</span>)/<span class='fl'>2</span>),
-            <span class='kw'>hcModel</span> <span class='kw'>=</span> <span class='st'>"VVV"</span>,
-            <span class='kw'>allow.EEE</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-            <span class='kw'>forcetwo</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-            <span class='kw'>BIC.diff</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-            <span class='kw'>BIC.upper</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-            <span class='kw'>BIC.lower</span> <span class='kw'>=</span> -<span class='fl'>10</span>,
-            <span class='kw'>itermax</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-            <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-            <span class='kw'>fit</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-            <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>())</pre>
-    
+    <pre class="usage"><span class='fu'>clustvarsel</span><span class='op'>(</span><span class='va'>data</span>, 
+            G <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>9</span>, 
+            search <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"greedy"</span>, <span class='st'>"headlong"</span><span class='op'>)</span>,
+            direction <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"forward"</span>, <span class='st'>"backward"</span><span class='op'>)</span>,
+            emModels1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"E"</span>, <span class='st'>"V"</span><span class='op'>)</span>, 
+            emModels2 <span class='op'>=</span> <span class='fu'>mclust.options</span><span class='op'>(</span><span class='st'>"emModelNames"</span><span class='op'>)</span>,
+            samp <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+            sampsize <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span>, 
+            hcModel <span class='op'>=</span> <span class='st'>"VVV"</span>, 
+            allow.EEE <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+            forcetwo <span class='op'>=</span> <span class='cn'>TRUE</span>,
+            BIC.diff <span class='op'>=</span> <span class='fl'>0</span>, 
+            BIC.upper <span class='op'>=</span> <span class='fl'>0</span>, 
+            BIC.lower <span class='op'>=</span> <span class='op'>-</span><span class='fl'>10</span>, 
+            itermax <span class='op'>=</span> <span class='fl'>100</span>, 
+            parallel <span class='op'>=</span> <span class='cn'>FALSE</span>,
+            fit <span class='op'>=</span> <span class='cn'>TRUE</span>,
+            verbose <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -207,11 +214,11 @@ A greedy or headlong search can be used, either in a forward-backward or backwar
       <td><p>An optional argument which allows to specify if the selected <code>"greedy"</code> algorithm should be run sequentially or in parallel.</p>
 <p>For a single machine with multiple cores, possible values are:</p><ul>
 <li><p>a logical value specifying if parallel computing should be used (<code>TRUE</code>) or not (<code>FALSE</code>, default) for running the algorithm;</p></li>
-<li><p>a numerical value which gives the number of cores to employ. By default, this is obtained from the function <code><a href='https://www.rdocumentation.org/packages/parallel/topics/detectCores'>detectCores</a></code>;</p></li>
+<li><p>a numerical value which gives the number of cores to employ. By default, this is obtained from the function <code><a href='https://rdrr.io/r/parallel/detectCores.html'>detectCores</a></code>;</p></li>
 <li><p>a character string specifying the type of parallelisation to use. This depends on system OS: on Windows OS only <code>"snow"</code> type functionality is available, while on Unix/Linux/Mac OSX both <code>"snow"</code> and <code>"multicore"</code> (default) functionalities are available.</p></li>
 </ul><p>In all the cases described above, at the end of the search the cluster is automatically stopped by shutting down the workers.</p>
 <p>If a cluster of multiple machines is available, the algorithm can be run in parallel using all, or a subset of, the cores available to the machines belonging to the cluster. However, this option requires more work from the user, who needs to set up and register a parallel back end. 
-In this case, the cluster must be explicitly stopped with <code><a href='https://www.rdocumentation.org/packages/parallel/topics/makeCluster'>stopCluster</a></code>.</p></td>
+In this case, the cluster must be explicitly stopped with <code><a href='https://rdrr.io/r/parallel/makeCluster.html'>stopCluster</a></code>.</p></td>
     </tr>
     <tr>
       <th>fit</th>
@@ -222,7 +229,7 @@ In this case, the cluster must be explicitly stopped with <code><a href='https:/
       <td><p>A logical indicating if info must be provided at each step of the algorithm. By default is set to <code>TRUE</code> during interactive sessions, and <code>FALSE</code> otherwise.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function implements variable selection methodology for model-based clustering. 
@@ -232,15 +239,14 @@ The <em>headlong search</em> only checks until a variable is included or exclude
 Greedy search can be performed <em>forward-backward</em> starting from the empty model, or <em>backward-forward</em> starting from the model with all the variables included (see argument <code>direction</code>). Currently, headlong search can only run <em>forward-backward</em>.
 <!-- % Both greedy and headlong searches can be performed forward-backward starting from the empty model, or backward-forward from the model with all the variables included (see argument \code{direction}).  --></p>
 <p>The criterion to assess each variable's evidence for being useful to the clustering is given by the difference between the BIC for the clustering model using the set of clustering variables already included and the variable being checked, and the sum of BICs for the model with clustering using the set of already selected clustering variables without the variable being checked and the model for the variable being checked being conditionally independent of the clustering given the other clustering variables. The latter is modeled as a regression of the variable being checked on the other clustering variables. A subset selection procedure is also performed on the regression step.</p>
-<p>Clustering models are fitted using <code><a href='https://www.rdocumentation.org/packages/mclust/topics/Mclust'>Mclust</a></code>, where each model is allowed to vary over the specified number of components <code>G</code> and any of the different covariance parameterisations set in <code>emModels1</code> and <code>emModels2</code>.</p>
+<p>Clustering models are fitted using <code><a href='https://mclust-org.github.io/mclust/reference/Mclust.html'>Mclust</a></code>, where each model is allowed to vary over the specified number of components <code>G</code> and any of the different covariance parameterisations set in <code>emModels1</code> and <code>emModels2</code>.</p>
 <p>The default value for <code>forcetwo</code> is <code>TRUE</code> because often in practice there will be little evidence of clustering on the univariate or bivariate level although there is multivariate clustering present and these variables are used as starting points to attempt to find this clustering, if necessary being removed later in the algorithm.</p>
 <p>The default value for <code>allow.EEE</code> is <code>TRUE</code> but if necessary to speed up the algorithm it can be set to <code>FALSE</code>. Other speeding-up restrictions include reducing the <code>emModels1</code> (to <code>"E"</code>, say) and the <code>emModels2</code> to a smaller set of covariance parameterisations. 
 Reducing the maximum possible number of clusters present in the data will also increase the speed of the algorithm.
-Another time-saving device is the <code>samp</code> option which uses the same algorithm but uses only a subset of the observations in the expensive hierarchical phase for initialisation of EM algorithm in <code><a href='https://www.rdocumentation.org/packages/mclust/topics/Mclust'>Mclust</a></code>. 
+Another time-saving device is the <code>samp</code> option which uses the same algorithm but uses only a subset of the observations in the expensive hierarchical phase for initialisation of EM algorithm in <code><a href='https://mclust-org.github.io/mclust/reference/Mclust.html'>Mclust</a></code>. 
 Finally, the headlong search may be quicker than the greedy search option in data sets with large numbers of variables (depending on the values of the upper and lower bounds chosen for the BIC difference).</p>
 <p>The defaults for the <code>eps</code>, <code>tol</code> and <code>itmax</code> options for the Mclust
-steps run in the algorithm can be changed by using the <code><a href='https://www.rdocumentation.org/packages/mclust/topics/mclust.options'>mclust.options</a></code> function.</p>
-    
+steps run in the algorithm can be changed by using the <code><a href='https://mclust-org.github.io/mclust/reference/mclust.options.html'>mclust.options</a></code> function.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An object of class <code>'clustvarsel'</code> with the following components:</p>
@@ -248,9 +254,7 @@ steps run in the algorithm can be changed by using the <code><a href='https://ww
 
 <dt>subset</dt><dd><p>A vector of values specifying for the selected variables the columns position in the input data.frame or matrix.</p></dd>
 
-<dt>steps.info</dt><dd><p>A matrix with a row for each step of the algorithm providing:<br />
-
-<ul>
+<dt>steps.info</dt><dd><p>A matrix with a row for each step of the algorithm providing:<br /><ul>
 <li><p>the name of the variable proposed;</p></li>
 <li><p>the BIC of the clustering variables' model at the end of the step;</p></li>
 <li><p>the BIC difference between clustering and not clustering for the variable;</p></li>
@@ -264,46 +268,48 @@ steps run in the algorithm can be changed by using the <code><a href='https://ww
 
 <dt>model</dt><dd><p>If input argument <code>fit = TRUE</code>, a <code>'Mclust'</code> object containing the final model fitted on the "best" subset selected.</p></dd>
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Raftery, A. E. and Dean, N. (2006) Variable Selection for Model-Based Clustering. <em>Journal of the American Statistical Association</em>, 101(473), 168-178.
-<a href='http://www.stat.washington.edu/www/research/reports/2004/tr452.pdf'>http://www.stat.washington.edu/www/research/reports/2004/tr452.pdf</a></p>
+    <p>Raftery, A. E. and Dean, N. (2006) Variable Selection for Model-Based Clustering. <em>Journal of the American Statistical Association</em>, 101(473), 168-178.</p>
 <p>Badsberg, J. H. (1992) Model search in contingency tables by CoCo. In Dodge, Y. and Whittaker, J. (Eds.), <em>Computational Statistics</em>, Volume 1, pp. 251-256</p>
 <p>Maugis, C., Celeux, G., Martin-Magniette M. (2009) Variable Selection for Clustering With Gaussian Mixture Models. <em>Biometrics</em>, 65(3), 701-709.</p>
 <p>Scrucca, L. and Raftery, A. E. (2018) clustvarsel: A Package Implementing Variable Selection for Gaussian Model-based Clustering in R. <em>Journal of Statistical Software</em>, 84(1), pp. 1-28.</p>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>N. Dean, A. E. Raftery, and L. Scrucca</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/mclust/topics/Mclust'>Mclust</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='https://mclust-org.github.io/mclust/reference/Mclust.html'>Mclust</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Simulate data with 2 clusters in the first two variables and no </span>
 <span class='co'># clustering in the rest. Clusters have mixing proportion pro, means </span>
 <span class='co'># mu1 and mu2 and variances sigma1 and sigma2</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>MASS</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: MASS</span></div><div class='input'><span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
-<span class='no'>pro</span> <span class='kw'>&lt;-</span> <span class='fl'>0.5</span>
-<span class='no'>mu1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>)
-<span class='no'>mu2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>3</span>,<span class='fl'>3</span>)
-<span class='no'>sigma1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0.5</span>,<span class='fl'>0.5</span>,<span class='fl'>1</span>),<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='kw'>byrow</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='no'>sigma2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>,-<span class='fl'>0.7</span>,-<span class='fl'>0.7</span>,<span class='fl'>1.5</span>),<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='kw'>byrow</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fl'>0</span>, <span class='no'>n</span>, <span class='fl'>5</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>X</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='st'>"X"</span>, <span class='fl'>1</span>:<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>ncol</a></span>(<span class='no'>X</span>), <span class='kw'>sep</span> <span class='kw'>=</span><span class='st'>""</span>)
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://www.stats.ox.ac.uk/pub/MASS4/'>MASS</a></span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: MASS</span></div><div class='input'><span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
+<span class='va'>pro</span> <span class='op'>&lt;-</span> <span class='fl'>0.5</span>
+<span class='va'>mu1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>mu2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>sigma1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>0.5</span>,<span class='fl'>0.5</span>,<span class='fl'>1</span><span class='op'>)</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,byrow<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>sigma2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.5</span>,<span class='op'>-</span><span class='fl'>0.7</span>,<span class='op'>-</span><span class='fl'>0.7</span>,<span class='fl'>1.5</span><span class='op'>)</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,byrow<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>X</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='va'>n</span>, <span class='fl'>5</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>X</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"X"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>X</span><span class='op'>)</span>, sep <span class='op'>=</span><span class='st'>""</span><span class='op'>)</span>
 <span class='co'># generate the clustering variables</span>
-<span class='no'>u</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='no'>n</span>)
-<span class='no'>Class</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/ifelse'>ifelse</a></span>(<span class='no'>u</span> <span class='kw'>&lt;</span> <span class='no'>pro</span>, <span class='fl'>1</span>, <span class='fl'>2</span>)
-<span class='no'>X</span>[<span class='no'>u</span> <span class='kw'>&lt;</span> <span class='no'>pro</span>, <span class='fl'>1</span>:<span class='fl'>2</span>]  <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/MASS/topics/mvrnorm'>mvrnorm</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sum'>sum</a></span>(<span class='no'>u</span> <span class='kw'>&lt;</span> <span class='no'>pro</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='no'>mu1</span>, <span class='kw'>Sigma</span> <span class='kw'>=</span> <span class='no'>sigma1</span>)
-<span class='no'>X</span>[<span class='no'>u</span> <span class='kw'>&gt;=</span> <span class='no'>pro</span>, <span class='fl'>1</span>:<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/MASS/topics/mvrnorm'>mvrnorm</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sum'>sum</a></span>(<span class='no'>u</span> <span class='kw'>&gt;=</span> <span class='no'>pro</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='no'>mu2</span>, <span class='kw'>Sigma</span> <span class='kw'>=</span> <span class='no'>sigma2</span>)
+<span class='va'>u</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
+<span class='va'>Class</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>u</span> <span class='op'>&lt;</span> <span class='va'>pro</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>X</span><span class='op'>[</span><span class='va'>u</span> <span class='op'>&lt;</span> <span class='va'>pro</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/MASS/man/mvrnorm.html'>mvrnorm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>u</span> <span class='op'>&lt;</span> <span class='va'>pro</span><span class='op'>)</span>, mu <span class='op'>=</span> <span class='va'>mu1</span>, Sigma <span class='op'>=</span> <span class='va'>sigma1</span><span class='op'>)</span>
+<span class='va'>X</span><span class='op'>[</span><span class='va'>u</span> <span class='op'>&gt;=</span> <span class='va'>pro</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/MASS/man/mvrnorm.html'>mvrnorm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>u</span> <span class='op'>&gt;=</span> <span class='va'>pro</span><span class='op'>)</span>, mu <span class='op'>=</span> <span class='va'>mu2</span>, Sigma <span class='op'>=</span> <span class='va'>sigma2</span><span class='op'>)</span>
 <span class='co'># generate the non-clustering variables</span>
-<span class='no'>X</span>[,<span class='fl'>3</span>] <span class='kw'>&lt;-</span> <span class='no'>X</span>[,<span class='fl'>1</span>] + <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span>)
-<span class='no'>X</span>[,<span class='fl'>4</span>] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>2</span>)
-<span class='no'>X</span>[,<span class='fl'>5</span>] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='va'>X</span><span class='op'>[</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>X</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>]</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
+<span class='va'>X</span><span class='op'>[</span>,<span class='fl'>4</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, mean <span class='op'>=</span> <span class='fl'>1.5</span>, sd <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>X</span><span class='op'>[</span>,<span class='fl'>5</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, mean <span class='op'>=</span> <span class='fl'>2</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 <span class='co'># plot the data</span>
-<span class='fu'>clPairs</span>(<span class='no'>X</span>, <span class='no'>Class</span>, <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='img'><img src='clustvarsel-1.png' alt='' width='504' height='432' /></div><div class='input'>
+<span class='fu'>clPairs</span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>Class</span>, gap <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</div><div class='img'><img src='clustvarsel-1.png' alt='' width='504' height='432' /></div><div class='input'>
 <span class='co'># sequential forward greedy search (default)</span>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'>clustvarsel</span>(<span class='no'>X</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>)
-<span class='no'>out</span></div><div class='output co'>#&gt; ------------------------------------------------------ 
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'>clustvarsel</span><span class='op'>(</span><span class='va'>X</span>, G <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>out</span>
+</div><div class='output co'>#&gt; ------------------------------------------------------ 
 #&gt; Variable selection for Gaussian model-based clustering
 #&gt; Stepwise (forward/backward) greedy search
 #&gt; ------------------------------------------------------ 
@@ -314,57 +320,47 @@ steps run in the algorithm can be changed by using the <code><a href='https://ww
 #&gt;                 X5          Add -2085.4979   VII 3 -12.56056 Rejected
 #&gt;                 X1       Remove  -812.2814     V 4  55.23453 Rejected
 #&gt; 
-#&gt; Selected subset: X2, X1</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>out</span>$<span class='no'>model</span>)</div><div class='output co'>#&gt; ---------------------------------------------------- 
+#&gt; Selected subset: X2, X1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>$</span><span class='va'>model</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ---------------------------------------------------- 
 #&gt; Gaussian finite mixture model fitted by EM algorithm 
 #&gt; ---------------------------------------------------- 
 #&gt; 
 #&gt; Mclust VEV (ellipsoidal, equal shape) model with 2 components: 
 #&gt; 
-#&gt;  log.likelihood   n df       BIC       ICL
+#&gt;  log-likelihood   n df       BIC       ICL
 #&gt;       -718.5595 200 10 -1490.102 -1501.624
 #&gt; 
 #&gt; Clustering table:
 #&gt;   1   2 
-#&gt;  93 107 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/table'>table</a></span>(<span class='no'>Class</span>, <span class='no'>out</span>$<span class='no'>mod</span>$<span class='no'>classification</span>)</div><div class='output co'>#&gt;      
+#&gt;  93 107 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>Class</span>, <span class='va'>out</span><span class='op'>$</span><span class='va'>mod</span><span class='op'>$</span><span class='va'>classification</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      
 #&gt; Class   1   2
 #&gt;     1  93   3
 #&gt;     2   0 104</div><div class='input'>
-</div><span class='co'># NOT RUN {</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># sequential backward greedy search</span>
-<span class='fu'>clustvarsel</span>(<span class='no'>X</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"backward"</span>)
+<span class='fu'>clustvarsel</span><span class='op'>(</span><span class='va'>X</span>, G <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, direction <span class='op'>=</span> <span class='st'>"backward"</span><span class='op'>)</span>
 
 <span class='co'># sequential backward greedy search with subsampling at hierarchical </span>
 <span class='co'># intialisation stage</span>
-<span class='fu'>clustvarsel</span>(<span class='no'>X</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"backward"</span>,
-            <span class='kw'>samp</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sampsize</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+<span class='fu'>clustvarsel</span><span class='op'>(</span><span class='va'>X</span>, G <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, direction <span class='op'>=</span> <span class='st'>"backward"</span>, 
+            samp <span class='op'>=</span> <span class='cn'>TRUE</span>, sampsize <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
 
 <span class='co'># parallel backward greedy search </span>
-<span class='fu'>clustvarsel</span>(<span class='no'>X</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"backward"</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>clustvarsel</span><span class='op'>(</span><span class='va'>X</span>, G <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, direction <span class='op'>=</span> <span class='st'>"backward"</span>, parallel <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># headlong search </span>
-<span class='fu'>clustvarsel</span>(<span class='no'>X</span>, <span class='kw'>G</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='kw'>search</span> <span class='kw'>=</span> <span class='st'>"headlong"</span>)
-<span class='co'># }</span></pre>
+<span class='fu'>clustvarsel</span><span class='op'>(</span><span class='va'>X</span>, G <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, search <span class='op'>=</span> <span class='st'>"headlong"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>N. Dean, A. E. Raftery, and L. Scrucca.</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -372,13 +368,16 @@ steps run in the algorithm can be changed by using the <code><a href='https://ww
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
