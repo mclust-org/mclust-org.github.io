@@ -8,21 +8,29 @@
 
 <title>Local Polynomial Regression Fitting with Variability bands — loess.sd • msir</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="Local Polynomial Regression Fitting with Variability bands — loess.sd" />
 
+<meta property="og:title" content="Local Polynomial Regression Fitting with Variability bands — loess.sd" />
 <meta property="og:description" content="Nonparametric estimation of mean function with variability bands." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">msir</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.3</span>
       </span>
     </div>
 
@@ -79,11 +88,10 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     mclust-org
   </a>
@@ -95,6 +103,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -106,16 +115,14 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Nonparametric estimation of mean function with variability bands.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>loess.sd</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>nsigma</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>loess.sd</span><span class='op'>(</span><span class='va'>x</span>, y <span class='op'>=</span> <span class='cn'>NULL</span>, nsigma <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>panel.loess</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='st'>"col"</span>), <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='st'>"pch"</span>), <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-            <span class='kw'>col.smooth</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>2</span>/<span class='fl'>3</span>, <span class='kw'>degree</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>nsigma</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)</pre>
-    
+<span class='fu'>panel.loess</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='cn'>NA</span>, pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>, cex <span class='op'>=</span> <span class='fl'>1</span>, 
+            col.smooth <span class='op'>=</span> <span class='st'>"red"</span>, span <span class='op'>=</span> <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span>, degree <span class='op'>=</span> <span class='fl'>2</span>, nsigma <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -133,7 +140,7 @@
     </tr>
     <tr>
       <th>col, bg, pch, cex</th>
-      <td><p>numeric or character codes for the color(s), point type and size of points; see also <code><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></code>.</p></td>
+      <td><p>numeric or character codes for the color(s), point type and size of points; see also <code><a href='https://rdrr.io/r/graphics/par.html'>par</a></code>.</p></td>
     </tr>
     <tr>
       <th>col.smooth</th>
@@ -141,54 +148,47 @@
     </tr>
     <tr>
       <th>span</th>
-      <td><p>smoothing parameter for <code><a href='https://www.rdocumentation.org/packages/stats/topics/loess'>loess</a></code>.</p></td>
+      <td><p>smoothing parameter for <code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code>.</p></td>
     </tr>
     <tr>
       <th>degree</th>
-      <td><p>the degree of the polynomials to be used, see <code><a href='https://www.rdocumentation.org/packages/stats/topics/loess'>loess</a></code>.</p></td>
+      <td><p>the degree of the polynomials to be used, see <code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further argument passed to the function <code><a href='https://www.rdocumentation.org/packages/stats/topics/loess'>loess</a></code>.</p></td>
+      <td><p>further argument passed to the function <code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The function <code>loess.sd</code> computes the loess smooth for the mean function and the mean plus and minus <code>k</code> times the standard deviation function.</p>  
 <p>The function <code>panel.loess</code> can be used to add to a scatterplot matrix panel a smoothing of mean function using loess with variability bands at plus and minus <code>nsigmas</code> times the standard deviation.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Weisberg, S. (2005) Applied Linear Regression, 3rd ed., Wiley, New York, pp. 275-278.</p>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca <a href='mailto:luca.scrucca@unipg.it'>luca.scrucca@unipg.it</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/stats/topics/loess'>loess</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>cars</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>cars</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"lowess.sd(cars)"</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/lines'>lines</a></span>(<span class='no'>l</span> <span class='kw'>&lt;-</span> <span class='fu'>loess.sd</span>(<span class='no'>cars</span>))</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/lines'>lines</a></span>(<span class='no'>l</span>$<span class='no'>x</span>, <span class='no'>l</span>$<span class='no'>upper</span>, <span class='kw'>lty</span><span class='kw'>=</span><span class='fl'>2</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/lines'>lines</a></span>(<span class='no'>l</span>$<span class='no'>x</span>, <span class='no'>l</span>$<span class='no'>lower</span>, <span class='kw'>lty</span><span class='kw'>=</span><span class='fl'>2</span>)</div><div class='img'><img src='loess.sd-1.png' alt='' width='504' height='432' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>cars</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cars</span>, main <span class='op'>=</span> <span class='st'>"lowess.sd(cars)"</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='va'>l</span> <span class='op'>&lt;-</span> <span class='fu'>loess.sd</span><span class='op'>(</span><span class='va'>cars</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='va'>l</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>l</span><span class='op'>$</span><span class='va'>upper</span>, lty<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='va'>l</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>l</span><span class='op'>$</span><span class='va'>lower</span>, lty<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+</div><div class='img'><img src='loess.sd-1.png' alt='' width='504' height='432' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Luca Scrucca <a href='mailto:luca.scrucca@unipg.it'>luca.scrucca@unipg.it</a></p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -196,13 +196,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

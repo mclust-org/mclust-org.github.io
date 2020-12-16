@@ -8,21 +8,29 @@
 
 <title>Rotating three-dimensional plot — spinplot • msir</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="Rotating three-dimensional plot — spinplot" />
 
+<meta property="og:title" content="Rotating three-dimensional plot — spinplot" />
 <meta property="og:description" content="General function to draw a rgl-based rotating 3D scatterplot." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">msir</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.3</span>
       </span>
     </div>
 
@@ -79,11 +88,10 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     mclust-org
   </a>
@@ -95,6 +103,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -106,29 +115,27 @@
     </div>
 
     <div class="ref-description">
-    
     <p>General function to draw a rgl-based rotating 3D scatterplot.</p>
-    
     </div>
 
-    <pre class="usage">spinplot(x, y, z, 
-         scaling = c("abc", "aaa"), 
-         rem.lin.trend = FALSE, 
-         uncor.vars = FALSE, 
-         fit.ols = FALSE, 
-         fit.smooth = FALSE, 
-         span = 0.75, 
-         ngrid = 25, 
-         markby, 
-         pch.points = 1, 
-         col.points = "black", 
-         cex.points = 1,
-         col.axis   = "gray50", 
-         col.smooth = "limegreen", 
-         col.ols    = "lightsteelblue",
-         background = "white", 
-         &#8230;)</pre>
-    
+    <pre class="usage"><span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>z</span>, 
+         scaling <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abc"</span>, <span class='st'>"aaa"</span><span class='op'>)</span>, 
+         rem.lin.trend <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+         uncor.vars <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+         fit.ols <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+         fit.smooth <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+         span <span class='op'>=</span> <span class='fl'>0.75</span>, 
+         ngrid <span class='op'>=</span> <span class='fl'>25</span>, 
+         <span class='va'>markby</span>, 
+         pch.points <span class='op'>=</span> <span class='fl'>1</span>, 
+         col.points <span class='op'>=</span> <span class='st'>"black"</span>, 
+         cex.points <span class='op'>=</span> <span class='fl'>1</span>,
+         col.axis   <span class='op'>=</span> <span class='st'>"gray50"</span>, 
+         col.smooth <span class='op'>=</span> <span class='st'>"limegreen"</span>, 
+         col.ols    <span class='op'>=</span> <span class='st'>"lightsteelblue"</span>,
+         background <span class='op'>=</span> <span class='st'>"white"</span>, 
+         <span class='va'>...</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -166,7 +173,7 @@
     </tr>
     <tr>
       <th>span</th>
-      <td><p>the span used by <code><a href='https://www.rdocumentation.org/packages/stats/topics/loess'>loess</a></code> to fit the polynomial surface.</p></td>
+      <td><p>the span used by <code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code> to fit the polynomial surface.</p></td>
     </tr>
     <tr>
       <th>ngrid</th>
@@ -205,60 +212,53 @@
       <td><p>the color of background space.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>catch further unused arguments.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function is mainly based on the functionality of the <code>spin-plot</code> function once available in XLisp-Stat software <a href='https://en.wikipedia.org/wiki/XLispStat'>https://en.wikipedia.org/wiki/XLispStat</a>, and the adds-on introduced by the Arc software <a href='http://www.stat.umn.edu/arc/index.html'>http://www.stat.umn.edu/arc/index.html</a>.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Cook R. D., Weisberg S. (1999) <em>Applied Regression Including Computing and Graphics</em>, Wiley, Chapter 8</p>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca <a href='mailto:luca.scrucca@unipg.it'>luca.scrucca@unipg.it</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>x1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>)
-<span class='no'>x2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>)
-<span class='no'>y</span>  <span class='kw'>&lt;-</span> <span class='fl'>2</span>*<span class='no'>x1</span> + <span class='no'>x2</span>^<span class='fl'>2</span> + <span class='fl'>0.5</span>*<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>100</span>)
-<span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>)
-<span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>, <span class='kw'>scaling</span> <span class='kw'>=</span> <span class='st'>"aaa"</span>)
-<span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>, <span class='kw'>rem.lin.trend</span> <span class='kw'>=</span> <span class='st'>"TRUE"</span>)
-<span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>, <span class='kw'>fit.smooth</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'>spinplot</span>(<span class='no'>x1</span>, <span class='no'>y</span>, <span class='no'>x2</span>, <span class='kw'>fit.ols</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>x1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='va'>x2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='va'>y</span>  <span class='op'>&lt;-</span> <span class='fl'>2</span><span class='op'>*</span><span class='va'>x1</span> <span class='op'>+</span> <span class='va'>x2</span><span class='op'>^</span><span class='fl'>2</span> <span class='op'>+</span> <span class='fl'>0.5</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>y</span>, <span class='va'>x2</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>y</span>, <span class='va'>x2</span>, scaling <span class='op'>=</span> <span class='st'>"aaa"</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>y</span>, <span class='va'>x2</span>, rem.lin.trend <span class='op'>=</span> <span class='st'>"TRUE"</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>y</span>, <span class='va'>x2</span>, fit.smooth <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>y</span>, <span class='va'>x2</span>, fit.ols <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>3</span>]
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>[,<span class='fl'>5</span>]
-<span class='fu'>spinplot</span>(<span class='no'>x</span>)
-<span class='fu'>spinplot</span>(<span class='no'>x</span>, <span class='kw'>markby</span> <span class='kw'>=</span> <span class='no'>y</span>)
-<span class='fu'>spinplot</span>(<span class='no'>x</span>, <span class='kw'>markby</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>col.points</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"dodgerblue2"</span>, <span class='st'>"orange"</span>, <span class='st'>"green3"</span>))
-<span class='fu'>spinplot</span>(<span class='no'>x</span>, <span class='kw'>markby</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>3</span>,<span class='fl'>1</span>), <span class='kw'>col.points</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"dodgerblue2"</span>, <span class='st'>"orange"</span>, <span class='st'>"green3"</span>))
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>5</span><span class='op'>]</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x</span>, markby <span class='op'>=</span> <span class='va'>y</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x</span>, markby <span class='op'>=</span> <span class='va'>y</span>, col.points <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"dodgerblue2"</span>, <span class='st'>"orange"</span>, <span class='st'>"green3"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>spinplot</span><span class='op'>(</span><span class='va'>x</span>, markby <span class='op'>=</span> <span class='va'>y</span>, pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>3</span>,<span class='fl'>1</span><span class='op'>)</span>, col.points <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"dodgerblue2"</span>, <span class='st'>"orange"</span>, <span class='st'>"green3"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># to save plots use </span>
 <span class='co'># rgl.postscript("plot.pdf", fmt="pdf")</span>
 <span class='co'># or</span>
 <span class='co'># rgl.snapshot("plot.png")</span>
-<span class='co'># }</span></pre>
+<span class='op'>}</span>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#references">References</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Luca Scrucca <a href='mailto:luca.scrucca@unipg.it'>luca.scrucca@unipg.it</a></p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -266,13 +266,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

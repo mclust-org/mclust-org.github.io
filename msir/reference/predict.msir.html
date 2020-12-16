@@ -8,21 +8,29 @@
 
 <title>Model-based Sliced Inverse Regression directions — predict.msir • msir</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="Model-based Sliced Inverse Regression directions — predict.msir" />
 
+<meta property="og:title" content="Model-based Sliced Inverse Regression directions — predict.msir" />
 <meta property="og:description" content="MSIR estimates a set of \(d \le p\) orthogonal direction vectors of length \(p\) which are estimates of the basis of the dimensional reduction subspace." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">msir</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.3</span>
       </span>
     </div>
 
@@ -79,11 +88,10 @@
   <a href="../news/index.html">News</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://mclust-org.github.io">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     mclust-org
   </a>
@@ -95,6 +103,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -106,14 +115,12 @@
     </div>
 
     <div class="ref-description">
-    
     <p>MSIR estimates a set of \(d \le p\) orthogonal direction vectors of length \(p\) which are estimates of the basis of the dimensional reduction subspace.</p>
-    
     </div>
 
-    <pre class="usage"># S3 method for msir
-predict(object, dim = 1:object$numdir, newdata, &#8230;)</pre>
-    
+    <pre class="usage"><span class='co'># S3 method for msir</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>object</span>, dim <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>object</span><span class='op'>$</span><span class='va'>numdir</span>, <span class='va'>newdata</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -130,33 +137,35 @@ predict(object, dim = 1:object$numdir, newdata, &#8230;)</pre>
       <td><p>a data frame or matrix giving the data. If missing the data obtained from the call to <code><a href='msir.html'>msir</a></code> are used.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>further arguments passed to or from other methods.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The function returns a matrix of points projected on the subspace spanned by the estimated basis vectors.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Scrucca, L. (2011) Model-based SIR for dimension reduction. <em>Computational Statistics &amp; Data Analysis</em>, 55(11), 3010-3026.</p>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Luca Scrucca <a href='mailto:luca.scrucca@unipg.it'>luca.scrucca@unipg.it</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code>{msir}</code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
-<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fl'>5</span>
-<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,-<span class='fl'>1</span>,<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0</span>,<span class='no'>p</span>-<span class='fl'>2</span>)))
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span>*<span class='no'>p</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='no'>n</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>p</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fl'>0.5</span> * <span class='no'>x</span><span class='kw'>%*%</span><span class='no'>b</span>) + <span class='fl'>0.1</span>*<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/pairs'>pairs</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>(<span class='no'>y</span>,<span class='no'>x</span>), <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='img'><img src='predict.msir-1.png' alt='' width='504' height='432' /></div><div class='input'>
-<span class='no'>MSIR</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='msir.html'>msir</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>MSIR</span>)</div><div class='output co'>#&gt; -------------------------------------------------- 
+    <pre class="examples"><div class='input'><span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
+<span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fl'>5</span>
+<span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='op'>-</span><span class='fl'>1</span>,<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>p</span><span class='op'>-</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>*</span><span class='va'>p</span><span class='op'>)</span>, nrow <span class='op'>=</span> <span class='va'>n</span>, ncol <span class='op'>=</span> <span class='va'>p</span><span class='op'>)</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fl'>0.5</span> <span class='op'>*</span> <span class='va'>x</span><span class='op'>%*%</span><span class='va'>b</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>0.1</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>y</span>,<span class='va'>x</span><span class='op'>)</span>, gap <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</div><div class='img'><img src='predict.msir-1.png' alt='' width='504' height='432' /></div><div class='input'>
+<span class='va'>MSIR</span> <span class='op'>&lt;-</span> <span class='fu'><a href='msir.html'>msir</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>MSIR</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; -------------------------------------------------- 
 #&gt; Model-based SIR 
 #&gt; -------------------------------------------------- 
 #&gt; 
@@ -176,7 +185,10 @@ predict(object, dim = 1:object$numdir, newdata, &#8230;)</pre>
 #&gt; 
 #&gt;                 Dir1     Dir2      Dir3       Dir4       Dir5
 #&gt; Eigenvalues  0.90385  0.17272  0.027781  0.0099567 1.5621e-03
-#&gt; Cum. %      80.99980 96.47811 98.967727 99.8600128 1.0000e+02</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>MSIR</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"2Dplot"</span>)</div><div class='img'><img src='predict.msir-2.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all.equal'>all.equal</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>MSIR</span>), <span class='no'>MSIR</span>$<span class='no'>dir</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>MSIR</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>2</span>)</div><div class='output co'>#&gt;                Dir1          Dir2
+#&gt; Cum. %      80.99980 96.47811 98.967727 99.8600128 1.0000e+02</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MSIR</span>, which <span class='op'>=</span> <span class='fl'>1</span>, type <span class='op'>=</span> <span class='st'>"2Dplot"</span><span class='op'>)</span>
+</div><div class='img'><img src='predict.msir-2.png' alt='' width='504' height='432' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>MSIR</span><span class='op'>)</span>, <span class='va'>MSIR</span><span class='op'>$</span><span class='va'>dir</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>MSIR</span>, dim <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                Dir1          Dir2
 #&gt;   [1,] -0.821705532 -0.3145079535
 #&gt;   [2,] -0.927094335 -1.1552851473
 #&gt;   [3,] -0.918105965  0.0478013341
@@ -377,28 +389,18 @@ predict(object, dim = 1:object$numdir, newdata, &#8230;)</pre>
 #&gt; [198,]  1.123342727  1.3329963421
 #&gt; [199,]  0.876027446 -1.3591021518
 #&gt; [200,] -0.027879001 -0.6402515085</div><div class='input'>
-<span class='no'>x0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span>*<span class='no'>p</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='no'>n</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>p</span>)
-<span class='no'>y0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fl'>0.5</span> * <span class='no'>x0</span><span class='kw'>%*%</span><span class='no'>b</span>) + <span class='fl'>0.1</span>*<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>MSIR</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>x0</span>), <span class='no'>y0</span>)</div><div class='img'><img src='predict.msir-3.png' alt='' width='504' height='432' /></div></pre>
+<span class='va'>x0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>*</span><span class='va'>p</span><span class='op'>)</span>, nrow <span class='op'>=</span> <span class='va'>n</span>, ncol <span class='op'>=</span> <span class='va'>p</span><span class='op'>)</span>
+<span class='va'>y0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fl'>0.5</span> <span class='op'>*</span> <span class='va'>x0</span><span class='op'>%*%</span><span class='va'>b</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>0.1</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>MSIR</span>, dim <span class='op'>=</span> <span class='fl'>1</span>, newdata <span class='op'>=</span> <span class='va'>x0</span><span class='op'>)</span>, <span class='va'>y0</span><span class='op'>)</span>
+</div><div class='img'><img src='predict.msir-3.png' alt='' width='504' height='432' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Luca Scrucca <a href='mailto:luca.scrucca@unipg.it'>luca.scrucca@unipg.it</a></p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -406,13 +408,16 @@ predict(object, dim = 1:object$numdir, newdata, &#8230;)</pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
