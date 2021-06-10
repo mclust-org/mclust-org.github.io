@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Modal EM algorithm for Gaussian Mixtures fitted via mclust package — MclustMEM • mclustAddson</title>
+<title>Plotting method for modal-clustering based on Gaussian Mixtures — plot.MclustMEM • mclustAddons</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Modal EM algorithm for Gaussian Mixtures fitted via mclust package — MclustMEM" />
-<meta property="og:description" content="Modal-clustering estimation by applying the Modal EM algorithm to Gaussian mixtures fitted using the mclust package." />
+<meta property="og:title" content="Plotting method for modal-clustering based on Gaussian Mixtures — plot.MclustMEM" />
+<meta property="og:description" content="Plots for MclustMEM objects." />
 
 
 
@@ -71,7 +71,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mclustAddson</a>
+        <a class="navbar-link" href="../index.html">mclustAddons</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4</span>
       </span>
     </div>
@@ -79,7 +79,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../articles/mclustAddson.html">Vignette</a>
+  <a href="../articles/mclustAddons.html">Vignette</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -109,41 +109,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Modal EM algorithm for Gaussian Mixtures fitted via <em>mclust</em> package</h1>
+    <h1>Plotting method for modal-clustering based on Gaussian Mixtures</h1>
     
-    <div class="hidden name"><code>MclustEM.Rd</code></div>
+    <div class="hidden name"><code>plot.MclustMEM.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Modal-clustering estimation by applying the Modal EM algorithm to Gaussian mixtures fitted using the <em>mclust</em> package.</p>
+    <p>Plots for <code>MclustMEM</code> objects.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>MclustMEM</span><span class='op'>(</span><span class='va'>mclustObject</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='co'># S3 method for MclustMEM</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, digits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"digits"</span><span class='op'>)</span><span class='op'>-</span><span class='fl'>3</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='co'># S3 method for MclustMEM</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='co'># S3 method for MclustMEM</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, dimens <span class='op'>=</span> <span class='cn'>NULL</span>, addDensity <span class='op'>=</span> <span class='cn'>TRUE</span>, addPoints <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+     symbols <span class='op'>=</span> <span class='cn'>NULL</span>, colors <span class='op'>=</span> <span class='cn'>NULL</span>, cex <span class='op'>=</span> <span class='cn'>NULL</span>, 
+     labels <span class='op'>=</span> <span class='cn'>NULL</span>, cex.labels <span class='op'>=</span> <span class='cn'>NULL</span>, gap <span class='op'>=</span> <span class='fl'>0.2</span>,
+    <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>mclustObject</th>
-      <td><p>An object of class <code>'Mclust'</code> or <code>'densityMclust'</code> obtained by fitting a Gaussian mixture via, respectively, <code>Mclust</code> and <code>densityMclust</code>.</p></td>
+      <th>x</th>
+      <td><p>An object of class <code>"densityMclustBounded"</code> obtained from a call to <code><a href='densityMclustBounded.html'>densityMclustBounded</a></code>.</p></td>
     </tr>
     <tr>
-      <th>data</th>
-      <td><p>If provided, a numeric vector, matrix, or data frame of observations. If a matrix or data frame, rows correspond to observations (\(n\)) and columns correspond to variables (\(d\)). If not provided, the data used for fitting the Gaussian mixture model, and provided with the <code>object</code> argument, are used.</p></td>
+      <th>dimens</th>
+      <td><p>A vector of integers specifying the dimensions of the coordinate projections.</p></td>
     </tr>
     <tr>
-      <th>x, object</th>
-      <td><p>An object of class <code>'MclustMEM'</code>.</p></td>
+      <th>addDensity</th>
+      <td><p>A logical indicating whether or not to add density estimates to the plot.</p></td>
     </tr>
     <tr>
-      <th>digits</th>
-      <td><p>The number of significant digits to use for printing.</p></td>
+      <th>addPoints</th>
+      <td><p>A logical indicating whether or not to add data points to the plot.</p></td>
+    </tr>
+    <tr>
+      <th>symbols</th>
+      <td><p>Either an integer or character vector assigning a plotting symbol to each unique class in <code>classification</code>. Elements in <code>symbols</code> correspond to classes in order of appearance in the sequence of observations (the order used by the function <code>unique</code>). The default is given by <code>mclust.options("classPlotSymbols")</code>.</p></td>
+    </tr>
+    <tr>
+      <th>colors</th>
+      <td><p>Either an integer or character vector assigning a color to each unique class in <code>classification</code>. Elements in <code>colors</code> correspond to classes in order of appearance in the sequence of observations (the order used by the function <code>unique</code>). The default is given by <code>mclust.options("classPlotColors")</code>.</p></td>
+    </tr>
+    <tr>
+      <th>cex</th>
+      <td><p>A vector of numerical values specifying the size of the plotting symbol for each unique class in <code>classification</code>. By default <code>cex = 1</code> for all classes is used.</p></td>
+    </tr>
+    <tr>
+      <th>labels</th>
+      <td><p>A vector of character strings for labelling the variables. The default is to use the column dimension names of <code>data</code>.</p></td>
+    </tr>
+    <tr>
+      <th>cex.labels</th>
+      <td><p>A numerical value specifying the size of the text labels.</p></td>
+    </tr>
+    <tr>
+      <th>gap</th>
+      <td><p>A numerical argument specifying the distance between subplots (see <code><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></code>).</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -151,12 +173,9 @@
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Returns an object of class <code>'MclustMEM'</code>. See also the output returned by <code><a href='GaussianMixtureMEM.html'>GaussianMixtureMEM</a></code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='GaussianMixtureMEM.html'>GaussianMixtureMEM</a></code>, <code><a href='plot.MclustMEM.html'>plot.MclustMEM</a></code>.</p></div>
+    <div class='dont-index'><p><code><a href='MclustMEM.html'>MclustMEM</a></code>.</p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Luca Scrucca</p>
@@ -166,21 +185,24 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Baudry_etal_2010_JCGS_examples</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>ex4.1</span><span class='op'>)</span>
-<span class='va'>GMM</span> <span class='op'>&lt;-</span> <span class='fu'>Mclust</span><span class='op'>(</span><span class='va'>ex4.1</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>GMM</span>, what <span class='op'>=</span> <span class='st'>"classification"</span><span class='op'>)</span>
-<span class='va'>MEM</span> <span class='op'>&lt;-</span> <span class='fu'>MclustMEM</span><span class='op'>(</span><span class='va'>GMM</span><span class='op'>)</span>
-<span class='va'>MEM</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>MEM</span><span class='op'>)</span>
+<span class='co'># 1-d example</span>
+<span class='va'>GMM</span> <span class='op'>&lt;-</span> <span class='fu'>Mclust</span><span class='op'>(</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Petal.Length</span><span class='op'>)</span>
+<span class='va'>MEM</span> <span class='op'>&lt;-</span> <span class='fu'><a href='MclustMEM.html'>MclustMEM</a></span><span class='op'>(</span><span class='va'>GMM</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MEM</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>ex4.4.2</span><span class='op'>)</span>
+<span class='co'># 2-d example</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Baudry_etal_2010_JCGS_examples</span><span class='op'>)</span>
+<span class='va'>GMM</span> <span class='op'>&lt;-</span> <span class='fu'>Mclust</span><span class='op'>(</span><span class='va'>ex4.1</span><span class='op'>)</span>
+<span class='va'>MEM</span> <span class='op'>&lt;-</span> <span class='fu'><a href='MclustMEM.html'>MclustMEM</a></span><span class='op'>(</span><span class='va'>GMM</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MEM</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MEM</span>, addPoints <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MEM</span>, addDensity <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+
+<span class='co'># 3-d example</span>
 <span class='va'>GMM</span> <span class='op'>&lt;-</span> <span class='fu'>Mclust</span><span class='op'>(</span><span class='va'>ex4.4.2</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>GMM</span>, what <span class='op'>=</span> <span class='st'>"classification"</span><span class='op'>)</span>
-<span class='va'>MEM</span> <span class='op'>&lt;-</span> <span class='fu'>MclustMEM</span><span class='op'>(</span><span class='va'>GMM</span><span class='op'>)</span>
-<span class='va'>MEM</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>MEM</span><span class='op'>)</span>
+<span class='va'>MEM</span> <span class='op'>&lt;-</span> <span class='fu'><a href='MclustMEM.html'>MclustMEM</a></span><span class='op'>(</span><span class='va'>GMM</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MEM</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MEM</span>, addPoints <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>MEM</span>, addDensity <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>

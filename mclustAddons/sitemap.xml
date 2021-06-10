@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/GaussianMixtureMEM.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/MclustMEM.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/densityMclustBounded.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/plot.MclustMEM.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/plot.densityMclustBounded.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/predict.densityMclustBounded.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/racial.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/suicide.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/articles/mclustAddons.html</loc>
+  </url>
+</urlset>
