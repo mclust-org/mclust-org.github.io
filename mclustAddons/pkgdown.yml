@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   mclustAddons: mclustAddons.html
-last_built: 2021-09-27T08:03Z
+last_built: 2021-09-27T20:36Z
 urls:
   reference: https://mclust-org.github.io/mclustAddons/reference
   article: https://mclust-org.github.io/mclustAddons/articles
