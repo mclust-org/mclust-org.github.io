@@ -10,7 +10,13 @@
     <loc>https://mclust-org.github.io/mclustAddons/reference/MclustMEM.html</loc>
   </url>
   <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/cdfDensityBounded.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/mclustAddons/reference/densityMclustBounded.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/densityMclustBounded.diagnostic.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclustAddons/reference/plot.MclustMEM.html</loc>

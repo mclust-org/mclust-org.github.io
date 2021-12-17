@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclustAddons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6</span>
       </span>
     </div>
 
@@ -65,13 +65,13 @@
 
       
 
-      </header><script src="mclustAddons_files/header-attrs-2.10/header-attrs.js"></script><div class="row">
+      </header><script src="mclustAddons_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>A quick tour of mclustAddons</h1>
                         <h4 class="author">Luca Scrucca</h4>
             
-            <h4 class="date">27 Sep 2021</h4>
+            <h4 class="date">17 Dec 2021</h4>
       
       
       <div class="hidden name"><code>mclustAddons.Rmd</code></div>
@@ -89,12 +89,12 @@ In particular, the following methods are included:</p>
 <li><p>density estimation for data with bounded support;</p></li>
 <li><p>modal clustering using modal EM algorithm for Gaussian mixtures.</p></li>
 </ul>
-<p>This document gives a quick tour of <strong>mclustAddons</strong> (version 0.5). It was written in <a href="https://rmarkdown.rstudio.com">R Markdown</a>, using the <a href="https://cran.r-project.org/package=knitr">knitr</a> package for production.</p>
-<p>References on the methodologies implemented are provided by <code><a href="https://rdrr.io/r/utils/citation.html">citation("mclustAddons")</a></code>. See also at the end of this document.</p>
+<p>This document gives a quick tour of <strong>mclustAddons</strong> (version 0.6). It was written in <a href="https://rmarkdown.rstudio.com">R Markdown</a>, using the <a href="https://cran.r-project.org/package=knitr">knitr</a> package for production.</p>
+<p>References on the methodologies implemented are provided by <code>citation("mclustAddons")</code>. See also at the end of this document.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mclust-org.github.io/mclustAddons/">mclustAddons</a></span><span class="op">)</span>
 <span class="co">## Loading required package: mclust</span>
-<span class="co">## Package 'mclust' version 5.4.8</span>
+<span class="co">## Package 'mclust' version 5.4.9</span>
 <span class="co">## Type 'citation("mclust")' for citing this R package in publications.</span></code></pre></div>
 </div>
 <div id="density-estimation-for-data-with-bounded-support" class="section level1">
@@ -118,23 +118,23 @@ In particular, the following methods are included:</p>
 <span class="co">## Model E (univariate, equal variance) model with 1 component</span>
 <span class="co">## on the transformation scale:</span>
 <span class="co">## </span>
-<span class="co">##  log.likelihood   n df  BIC  ICL</span>
-<span class="co">##          -390.1 200  3 -796 -796</span>
+<span class="co">##  log-likelihood   n df       BIC       ICL</span>
+<span class="co">##       -390.0517 200  3 -795.9983 -795.9983</span>
 <span class="co">## </span>
-<span class="co">##                                  x</span>
-<span class="co">## Range-power transformation: 0.3715</span>
+<span class="co">##                                     x</span>
+<span class="co">## Range-power transformation: 0.3715163</span>
 <span class="co">## </span>
 <span class="co">## Mixing probabilities:</span>
 <span class="co">## 1 </span>
 <span class="co">## 1 </span>
 <span class="co">## </span>
 <span class="co">## Means:</span>
-<span class="co">##      1 </span>
-<span class="co">## 0.9191 </span>
+<span class="co">##         1 </span>
+<span class="co">## 0.9191207 </span>
 <span class="co">## </span>
 <span class="co">## Variances:</span>
-<span class="co">##     1 </span>
-<span class="co">## 1.309</span>
+<span class="co">##        1 </span>
+<span class="co">## 1.309037</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">xgrid</span>, <span class="va">f</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-2-1.png" width="80%" style="display: block; margin: auto;"></p>
@@ -160,23 +160,23 @@ In particular, the following methods are included:</p>
 <span class="co">## Model E (univariate, equal variance) model with 1 component</span>
 <span class="co">## on the transformation scale:</span>
 <span class="co">## </span>
-<span class="co">##  log.likelihood   n df BIC ICL</span>
-<span class="co">##           104.5 200  3 193 193</span>
+<span class="co">##  log-likelihood   n df      BIC      ICL</span>
+<span class="co">##        104.4678 200  3 193.0407 193.0407</span>
 <span class="co">## </span>
-<span class="co">##                                   x</span>
-<span class="co">## Range-power transformation: -0.1601</span>
+<span class="co">##                                      x</span>
+<span class="co">## Range-power transformation: -0.1600959</span>
 <span class="co">## </span>
 <span class="co">## Mixing probabilities:</span>
 <span class="co">## 1 </span>
 <span class="co">## 1 </span>
 <span class="co">## </span>
 <span class="co">## Means:</span>
-<span class="co">##     1 </span>
-<span class="co">## 1.164 </span>
+<span class="co">##        1 </span>
+<span class="co">## 1.164398 </span>
 <span class="co">## </span>
 <span class="co">## Variances:</span>
-<span class="co">##      1 </span>
-<span class="co">## 0.7222</span>
+<span class="co">##         1 </span>
+<span class="co">## 0.7221851</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-3-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -201,26 +201,26 @@ In particular, the following methods are included:</p>
 <span class="co">## Model VEE (ellipsoidal, equal shape and orientation) model with 1 component</span>
 <span class="co">## on the transformation scale:</span>
 <span class="co">## </span>
-<span class="co">##  log.likelihood   n df   BIC   ICL</span>
-<span class="co">##            -882 200  7 -1801 -1801</span>
+<span class="co">##  log-likelihood   n df       BIC       ICL</span>
+<span class="co">##       -882.0264 200  7 -1801.141 -1801.141</span>
 <span class="co">## </span>
-<span class="co">##                                 x1     x2</span>
-<span class="co">## Range-power transformation: 0.2835 0.3095</span>
+<span class="co">##                                    x1        x2</span>
+<span class="co">## Range-power transformation: 0.2835466 0.3094675</span>
 <span class="co">## </span>
 <span class="co">## Mixing probabilities:</span>
 <span class="co">## 1 </span>
 <span class="co">## 1 </span>
 <span class="co">## </span>
 <span class="co">## Means:</span>
-<span class="co">##        [,1]</span>
-<span class="co">## [1,] 0.8882</span>
-<span class="co">## [2,] 2.1712</span>
+<span class="co">##           [,1]</span>
+<span class="co">## [1,] 0.8882233</span>
+<span class="co">## [2,] 2.1712294</span>
 <span class="co">## </span>
 <span class="co">## Variances:</span>
 <span class="co">## [,,1]</span>
-<span class="co">##       [,1]   [,2]</span>
-<span class="co">## [1,] 1.182 0.4040</span>
-<span class="co">## [2,] 0.404 0.9491</span>
+<span class="co">##           [,1]      [,2]</span>
+<span class="co">## [1,] 1.1820458 0.4040468</span>
+<span class="co">## [2,] 0.4040468 0.9491492</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-4-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -253,23 +253,23 @@ In particular, the following methods are included:</p>
 <span class="co">## Model E (univariate, equal variance) model with 1 component</span>
 <span class="co">## on the transformation scale:</span>
 <span class="co">## </span>
-<span class="co">##  log.likelihood  n df   BIC   ICL</span>
-<span class="co">##          -497.8 86  3 -1009 -1009</span>
+<span class="co">##  log-likelihood  n df       BIC       ICL</span>
+<span class="co">##       -497.8204 86  3 -1009.004 -1009.004</span>
 <span class="co">## </span>
-<span class="co">##                             suicide</span>
-<span class="co">## Range-power transformation:  0.1929</span>
+<span class="co">##                               suicide</span>
+<span class="co">## Range-power transformation: 0.1929267</span>
 <span class="co">## </span>
 <span class="co">## Mixing probabilities:</span>
 <span class="co">## 1 </span>
 <span class="co">## 1 </span>
 <span class="co">## </span>
 <span class="co">## Means:</span>
-<span class="co">##   1 </span>
-<span class="co">## 6.7 </span>
+<span class="co">##        1 </span>
+<span class="co">## 6.700073 </span>
 <span class="co">## </span>
 <span class="co">## Variances:</span>
-<span class="co">##     1 </span>
-<span class="co">## 7.788</span>
+<span class="co">##        1 </span>
+<span class="co">## 7.788326</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, 
      lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"dodgerblue2"</span>,
      data <span class="op">=</span> <span class="va">suicide</span>, breaks <span class="op">=</span> <span class="fl">15</span>, 
@@ -295,23 +295,23 @@ In particular, the following methods are included:</p>
 <span class="co">## Model E (univariate, equal variance) model with 1 component</span>
 <span class="co">## on the transformation scale:</span>
 <span class="co">## </span>
-<span class="co">##  log.likelihood  n df   BIC   ICL</span>
-<span class="co">##           42.46 56  3 72.84 72.84</span>
+<span class="co">##  log-likelihood  n df      BIC      ICL</span>
+<span class="co">##         42.4598 56  3 72.84355 72.84355</span>
 <span class="co">## </span>
-<span class="co">##                                  x</span>
-<span class="co">## Range-power transformation: 0.3869</span>
+<span class="co">##                                     x</span>
+<span class="co">## Range-power transformation: 0.3869476</span>
 <span class="co">## </span>
 <span class="co">## Mixing probabilities:</span>
 <span class="co">## 1 </span>
 <span class="co">## 1 </span>
 <span class="co">## </span>
 <span class="co">## Means:</span>
-<span class="co">##     1 </span>
-<span class="co">## 2.795 </span>
+<span class="co">##        1 </span>
+<span class="co">## 2.795429 </span>
 <span class="co">## </span>
 <span class="co">## Variances:</span>
-<span class="co">##     1 </span>
-<span class="co">## 5.253</span>
+<span class="co">##        1 </span>
+<span class="co">## 5.253254</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, 
      lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"dodgerblue2"</span>,
      data <span class="op">=</span> <span class="va">x</span>, breaks <span class="op">=</span> <span class="fl">15</span>, 
@@ -329,7 +329,7 @@ In particular, the following methods are included:</p>
 <a href="#simulated-datasets" class="anchor"></a>Simulated datasets</h2>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">Baudry_etal_2010_JCGS_examples</span><span class="op">)</span>
-<span class="va">GMM</span> <span class="op">&lt;-</span> <span class="fu">Mclust</span><span class="op">(</span><span class="va">ex4.1</span><span class="op">)</span>
+<span class="va">GMM</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mclust-org.github.io/mclust/reference/Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">ex4.1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">GMM</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-7-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -343,11 +343,11 @@ In particular, the following methods are included:</p>
 <span class="co">## Number of modes = 4 </span>
 <span class="co">## </span>
 <span class="co">## Modes:</span>
-<span class="co">##             X1       X2</span>
-<span class="co">## mode1  8.06742 -0.01772</span>
-<span class="co">## mode2  8.07370  4.98485</span>
-<span class="co">## mode3  1.10623  4.97231</span>
-<span class="co">## mode4 -0.01639  0.06464</span>
+<span class="co">##                X1          X2</span>
+<span class="co">## mode1  8.06741504 -0.01772230</span>
+<span class="co">## mode2  8.07370160  4.98485099</span>
+<span class="co">## mode3  1.10622966  4.97230749</span>
+<span class="co">## mode4 -0.01639289  0.06464381</span>
 <span class="co">## </span>
 <span class="co">## Modal clustering:</span>
 <span class="co">##   1   2   3   4 </span>
@@ -358,7 +358,7 @@ In particular, the following methods are included:</p>
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">MEM</span>, addPoints <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-7-3.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">GMM</span> <span class="op">&lt;-</span> <span class="fu">Mclust</span><span class="op">(</span><span class="va">ex4.4.2</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">GMM</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mclust-org.github.io/mclust/reference/Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">ex4.4.2</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">GMM</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-8-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -372,9 +372,9 @@ In particular, the following methods are included:</p>
 <span class="co">## Number of modes = 2 </span>
 <span class="co">## </span>
 <span class="co">## Modes:</span>
-<span class="co">##           X1     X2     X3</span>
-<span class="co">## mode1 0.7965 0.7444 0.4547</span>
-<span class="co">## mode2 0.4996 0.5014 0.4958</span>
+<span class="co">##              X1        X2        X3</span>
+<span class="co">## mode1 0.7964915 0.7444244 0.4547285</span>
+<span class="co">## mode2 0.4996361 0.5014374 0.4957522</span>
 <span class="co">## </span>
 <span class="co">## Modal clustering:</span>
 <span class="co">##   1   2 </span>
@@ -409,17 +409,17 @@ In particular, the following methods are included:</p>
 <span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">## </span>
 <span class="co">## other attached packages:</span>
-<span class="co">## [1] mclustAddons_0.5 mclust_5.4.8     knitr_1.34      </span>
+<span class="co">## [1] mclustAddons_0.6 mclust_5.4.9     knitr_1.36      </span>
 <span class="co">## </span>
 <span class="co">## loaded via a namespace (and not attached):</span>
 <span class="co">##  [1] Rcpp_1.0.7       rstudioapi_0.13  magrittr_2.0.1   R6_2.5.1        </span>
-<span class="co">##  [5] rlang_0.4.11     fastmap_1.1.0    foreach_1.5.1    highr_0.9       </span>
-<span class="co">##  [9] stringr_1.4.0    tools_4.1.0      xfun_0.25        cli_3.0.1       </span>
+<span class="co">##  [5] rlang_0.4.12     fastmap_1.1.0    foreach_1.5.1    highr_0.9       </span>
+<span class="co">##  [9] stringr_1.4.0    tools_4.1.0      xfun_0.28        cli_3.1.0       </span>
 <span class="co">## [13] jquerylib_0.1.4  htmltools_0.5.2  iterators_1.0.13 yaml_2.2.1      </span>
-<span class="co">## [17] digest_0.6.27    rprojroot_2.0.2  pkgdown_1.6.1    crayon_1.4.1    </span>
+<span class="co">## [17] digest_0.6.28    rprojroot_2.0.2  pkgdown_1.6.1    crayon_1.4.2    </span>
 <span class="co">## [21] codetools_0.2-18 sass_0.4.0       fs_1.5.0         memoise_2.0.0   </span>
-<span class="co">## [25] cachem_1.0.6     evaluate_0.14    rmarkdown_2.10   stringi_1.7.4   </span>
-<span class="co">## [29] compiler_4.1.0   bslib_0.3.0      desc_1.3.0       jsonlite_1.7.2</span></code></pre></div>
+<span class="co">## [25] cachem_1.0.6     evaluate_0.14    rmarkdown_2.11   stringi_1.7.5   </span>
+<span class="co">## [29] compiler_4.1.0   bslib_0.3.1      desc_1.4.0       jsonlite_1.7.2</span></code></pre></div>
 </div>
   </div>
 

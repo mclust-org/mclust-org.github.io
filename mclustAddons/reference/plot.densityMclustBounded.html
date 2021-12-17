@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclustAddons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6</span>
       </span>
     </div>
 
@@ -167,6 +167,9 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>No return value, called for side effects.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='densityMclustBounded.html'>densityMclustBounded</a></code>,
@@ -179,30 +182,38 @@
     <p>Scrucca L. (2019) A transformation-based approach to Gaussian mixture density estimation for bounded data. <em>Biometrical Journal</em>, 61:4, 873–888. https://doi.org/10.1002/bimj.201800174</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># univariate case with lower bound</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Chisquare.html'>rchisq</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>3</span><span class='op'>)</span>
-<span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclustBounded.html'>densityMclustBounded</a></span><span class='op'>(</span><span class='va'>x</span>, lbound <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"BIC"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>x</span>, breaks <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>
-
-<span class='co'># univariate case with lower &amp; upper bound</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Beta.html'>rbeta</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>5</span>, <span class='fl'>1.5</span><span class='op'>)</span>
-<span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclustBounded.html'>densityMclustBounded</a></span><span class='op'>(</span><span class='va'>x</span>, lbound <span class='op'>=</span> <span class='fl'>0</span>, ubound <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"BIC"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>x</span>, breaks <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span>
-
-<span class='co'># bivariate case with lower bounds</span>
-<span class='va'>x1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Chisquare.html'>rchisq</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>3</span><span class='op'>)</span>
-<span class='va'>x2</span> <span class='op'>&lt;-</span> <span class='fl'>0.5</span><span class='op'>*</span><span class='va'>x1</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='fl'>0.5</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Chisquare.html'>rchisq</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>5</span><span class='op'>)</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>x2</span><span class='op'>)</span>
-<span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclustBounded.html'>densityMclustBounded</a></span><span class='op'>(</span><span class='va'>x</span>, lbound <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>x</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"hdr"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"persp"</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='co'># univariate case with lower bound</span></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Chisquare.html'>rchisq</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>3</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclustBounded.html'>densityMclustBounded</a></span><span class='op'>(</span><span class='va'>x</span>, lbound <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"BIC"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-1.png' alt='' width='672' height='576' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>x</span>, breaks <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-2.png' alt='' width='672' height='576' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># univariate case with lower &amp; upper bound</span></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Beta.html'>rbeta</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>5</span>, <span class='fl'>1.5</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclustBounded.html'>densityMclustBounded</a></span><span class='op'>(</span><span class='va'>x</span>, lbound <span class='op'>=</span> <span class='fl'>0</span>, ubound <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"BIC"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-3.png' alt='' width='672' height='576' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>x</span>, breaks <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-4.png' alt='' width='672' height='576' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># bivariate case with lower bounds</span></span>
+<span class='r-in'><span class='va'>x1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Chisquare.html'>rchisq</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>3</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>x2</span> <span class='op'>&lt;-</span> <span class='fl'>0.5</span><span class='op'>*</span><span class='va'>x1</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='fl'>0.5</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Chisquare.html'>rchisq</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>x2</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='densityMclustBounded.html'>densityMclustBounded</a></span><span class='op'>(</span><span class='va'>x</span>, lbound <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-5.png' alt='' width='672' height='576' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, data <span class='op'>=</span> <span class='va'>x</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-6.png' alt='' width='672' height='576' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"hdr"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-7.png' alt='' width='672' height='576' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dens</span>, what <span class='op'>=</span> <span class='st'>"density"</span>, type <span class='op'>=</span> <span class='st'>"persp"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='plot.densityMclustBounded-8.png' alt='' width='672' height='576' /></span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
