@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://mclust-org.github.io/mclust/404.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/articles/mclust.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/authors.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/mclust/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/news/index.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/Baudry_etal_2010_JCGS_examples.html</loc>
@@ -91,6 +106,9 @@
     <loc>https://mclust-org.github.io/mclust/reference/covw.html</loc>
   </url>
   <url>
+    <loc>https://mclust-org.github.io/mclust/reference/crimcoords.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/mclust/reference/cross.html</loc>
   </url>
   <url>
@@ -106,16 +124,19 @@
     <loc>https://mclust-org.github.io/mclust/reference/dens.html</loc>
   </url>
   <url>
-    <loc>https://mclust-org.github.io/mclust/reference/densityMclust.html</loc>
+    <loc>https://mclust-org.github.io/mclust/reference/densityMclust.diagnostic.html</loc>
   </url>
   <url>
-    <loc>https://mclust-org.github.io/mclust/reference/densityMclust.diagnostic.html</loc>
+    <loc>https://mclust-org.github.io/mclust/reference/densityMclust.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/diabetes.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/dmvnorm.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/reference/dupPartition.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/em.html</loc>
@@ -167,6 +188,9 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/imputePairs.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/reference/index.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/logLik.Mclust.html</loc>
@@ -356,8 +380,5 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/wreath.html</loc>
-  </url>
-  <url>
-    <loc>https://mclust-org.github.io/mclust/articles/mclust.html</loc>
   </url>
 </urlset>
