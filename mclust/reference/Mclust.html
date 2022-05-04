@@ -18,7 +18,7 @@ Models are estimated by EM algorithm initialized by hierarchical model-based agg
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
       </span>
     </div>
 
@@ -114,10 +114,11 @@ Models are estimated by EM algorithm initialized by hierarchical model-based agg
   <dt><code>subset</code></dt>
 <dd><p>A logical or numeric vector specifying a subset of the data
   to be used in the initial hierarchical clustering phase.
-  By default no subset is used unless the number of observations exceeds 
-  the value specified by <code>mclust.options("subset")</code>. Note that to
-  guarantee exact reproducibility of results a seed must be specified 
-  (see <code><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></code>).</p></dd>
+  No subset is used unless the number of observations exceeds 
+  the value specified by <code>mclust.options("subset")</code>, which by 
+  default is set to 2000 (see <code><a href="mclust.options.html">mclust.options</a></code>).
+  Note that in this case to guarantee exact reproducibility of results 
+  a seed must be specified (see <code><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></code>).</p></dd>
 
   <dt><code>noise</code></dt>
 <dd><p>A logical or numeric vector indicating an initial guess as to
@@ -386,7 +387,7 @@ Models are estimated by EM algorithm initialized by hierarchical model-based agg
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer></div>
