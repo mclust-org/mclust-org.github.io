@@ -158,8 +158,7 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">$</span><span class="va">waiting</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-1.png" alt="" width="504" height="432"></span>
+<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">$</span><span class="va">waiting</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">dens</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Density estimation via Gaussian finite mixture modeling </span>
@@ -191,12 +190,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>        1        2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 34.44093 34.44093 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"BIC"</span>, legendArgs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"topright"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-2.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-1.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, data <span class="op">=</span> <span class="va">faithful</span><span class="op">$</span><span class="va">waiting</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-3.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-2.png" alt="" width="504" height="432"></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-4.png" alt="" width="504" height="432"></span>
+<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">dens</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Density estimation via Gaussian finite mixture modeling </span>
@@ -242,18 +240,17 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> waiting   0.48019785 33.7671464</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, data <span class="op">=</span> <span class="va">faithful</span>, </span>
 <span class="r-in">     drawlabels <span class="op">=</span> <span class="cn">FALSE</span>, points.pch <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-5.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-3.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"hdr"</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-6.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-4.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"hdr"</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.9</span>, by <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-7.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-5.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"hdr"</span>, data <span class="op">=</span> <span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-8.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-6.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"persp"</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-9.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-7.png" alt="" width="504" height="432"></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-10.png" alt="" width="504" height="432"></span>
+<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">dens</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Density estimation via Gaussian finite mixture modeling </span>
@@ -290,11 +287,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Width     0.1436826  0.07284384    0.2573899  0.16808182</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, </span>
 <span class="r-in">     col <span class="op">=</span> <span class="st">"slategrey"</span>, drawlabels <span class="op">=</span> <span class="cn">FALSE</span>, nlevels <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-11.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-8.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"hdr"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-12.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-9.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span>, type <span class="op">=</span> <span class="st">"persp"</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0.9</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="plot.densityMclust-13.png" alt="" width="504" height="432"></span>
+<span class="r-plt img"><img src="plot.densityMclust-10.png" alt="" width="504" height="432"></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

@@ -3,7 +3,7 @@ pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   mclust: mclust.html
-last_built: 2022-05-04T14:22Z
+last_built: 2022-05-20T10:43Z
 urls:
   reference: https://mclust-org.github.io/mclust/reference
   article: https://mclust-org.github.io/mclust/articles

@@ -89,7 +89,8 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mod1</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
+<span class="r-in"><span class="va">mod1</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model fitted by EM algorithm </span>
@@ -138,8 +139,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Length    0.3994018  0.12389040    0.6109024  0.25738990</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Width     0.1436826  0.07284384    0.2573899  0.16808182</span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">mod2</span> <span class="op">=</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="summary.Mclust-1.png" alt="" width="504" height="432"></span>
+<span class="r-in"><span class="va">mod2</span> <span class="op">=</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Density estimation via Gaussian finite mixture modeling </span>
@@ -183,6 +183,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>            eruptions    waiting</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> eruptions 0.07825448  0.4801979</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> waiting   0.48019785 33.7671464</span>
+<span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>
   </div>
