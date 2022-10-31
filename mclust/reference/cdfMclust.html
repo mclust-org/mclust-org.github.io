@@ -19,7 +19,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -60,22 +60,27 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cdfMclust</span><span class="op">(</span><span class="va">object</span>, <span class="va">data</span>, ngrid <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">quantileMclust</span><span class="op">(</span><span class="va">object</span>, <span class="va">p</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cdfMclust</span><span class="op">(</span><span class="va">object</span>, <span class="va">data</span>, ngrid <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">quantileMclust</span><span class="op">(</span><span class="va">object</span>, <span class="va">p</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>a <code>densityMclust</code> model object.</p></dd>
-<dt>data</dt>
+
+  <dt>data</dt>
 <dd><p>a numeric vector of evaluation points.</p></dd>
-<dt>ngrid</dt>
+
+  <dt>ngrid</dt>
 <dd><p>the number of points in a regular grid to be used as evaluation points if no <code>data</code> are provided.</p></dd>
-<dt>p</dt>
+
+  <dt>p</dt>
 <dd><p>a numeric vector of probabilities.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -84,8 +89,12 @@
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>cdfMclust</code> returns a list of <code>x</code> and <code>y</code> values providing, respectively, the evaluation points and the estimated cdf. 
-<code>quantileMclust</code> returns a vector of quantiles.</p>
+    
+
+<p><code>cdfMclust</code> returns a list of <code>x</code> and <code>y</code> values providing, respectively, the evaluation points and the estimated cdf.</p>
+
+
+<p><code>quantileMclust</code> returns a vector of quantiles.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -99,10 +108,10 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">x</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">dens</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">x</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">dens</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Density estimation via Gaussian finite mixture modeling </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
@@ -123,33 +132,33 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Variances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         1         2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.8938594 4.3252118 </span>
-<span class="r-in"><span class="va">cdf</span> <span class="op">&lt;-</span> <span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">cdf</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">cdf</span> <span class="op">&lt;-</span> <span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">cdf</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ x: num [1:100] -3.8 -3.66 -3.52 -3.38 -3.25 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ y: num [1:100] 0.000357 0.000458 0.000591 0.000766 0.001 ...</span>
-<span class="r-in"><span class="va">q</span> <span class="op">&lt;-</span> <span class="fu">quantileMclust</span><span class="op">(</span><span class="va">dens</span>, p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.99</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>quantile <span class="op">=</span> <span class="va">q</span>, cdf <span class="op">=</span> <span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fu">quantileMclust</span><span class="op">(</span><span class="va">dens</span>, p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.99</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>quantile <span class="op">=</span> <span class="va">q</span>, cdf <span class="op">=</span> <span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        quantile  cdf</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -2.1730968 0.01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.9526056 0.10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  0.9295521 0.50</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  4.6968529 0.90</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  7.1950392 0.99</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">cdf</span>, type <span class="op">=</span> <span class="st">"l"</span>, xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">q</span>, <span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span>, pch <span class="op">=</span> <span class="fl">20</span>, col <span class="op">=</span> <span class="st">"red3"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">cdf</span>, type <span class="op">=</span> <span class="st">"l"</span>, xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">q</span>, <span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span>, pch <span class="op">=</span> <span class="fl">20</span>, col <span class="op">=</span> <span class="st">"red3"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="cdfMclust-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dens.waiting</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">$</span><span class="va">waiting</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens.waiting</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, </span>
-<span class="r-in">     xlab <span class="op">=</span> <span class="va">dens.waiting</span><span class="op">$</span><span class="va">varname</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dens.eruptions</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">$</span><span class="va">eruptions</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens.eruptions</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, </span>
-<span class="r-in">     xlab <span class="op">=</span> <span class="va">dens.eruptions</span><span class="op">$</span><span class="va">varname</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dens.waiting</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">$</span><span class="va">waiting</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens.waiting</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, </span></span>
+<span class="r-in"><span>     xlab <span class="op">=</span> <span class="va">dens.waiting</span><span class="op">$</span><span class="va">varname</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dens.eruptions</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">$</span><span class="va">eruptions</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">cdfMclust</span><span class="op">(</span><span class="va">dens.eruptions</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, </span></span>
+<span class="r-in"><span>     xlab <span class="op">=</span> <span class="va">dens.eruptions</span><span class="op">$</span><span class="va">varname</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="cdfMclust-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -164,7 +173,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

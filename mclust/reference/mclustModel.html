@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,55 +59,70 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mclustModel</span><span class="op">(</span><span class="va">data</span>, <span class="va">BICvalues</span>, <span class="va">G</span>, <span class="va">modelNames</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mclustModel</span><span class="op">(</span><span class="va">data</span>, <span class="va">BICvalues</span>, <span class="va">G</span>, <span class="va">modelNames</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>The matrix or vector of observations used to generate `object'.</p></dd>
-<dt>BICvalues</dt>
+
+  <dt>BICvalues</dt>
 <dd><p>An <code>'mclustBIC'</code> object, 
     which is the result of applying <code>mclustBIC</code> 
     to <code>data</code>.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>A vector of integers giving the numbers of mixture components (clusters)
     from which the best model according to BIC will be selected 
    (<code>as.character(G)</code> must be a subset of the row names of 
      <code>BICvalues</code>).
     The default is to select the best model for all numbers 
     of mixture components used to obtain <code>BICvalues</code>.</p></dd>
-<dt>modelNames</dt>
+
+  <dt>modelNames</dt>
 <dd><p>A vector of integers giving the model parameterizations
     from which the best model according to BIC will be selected 
    (<code>as.character(model)</code> must be a subset of the column names of 
      <code>BICvalues</code>).
     The default is to select the best model for parameterizations
     used to obtain <code>BICvalues</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Not used. For generic/method consistency.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list giving the optimal (according to BIC) parameters,
+    
+
+<p>A list giving the optimal (according to BIC) parameters,
   conditional probabilities <code>z</code>, and log-likelihood,
-  together with the associated classification and its uncertainty.
-  The details of the output components are as follows:</p>
+  together with the associated classification and its uncertainty.</p>
+
+
+<p>The details of the output components are as follows:</p>
 <dl><dt>modelName</dt>
 <dd><p>A character string indicating the model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>n</dt>
+
+   <dt>n</dt>
 <dd><p>The number of observations in the data.</p></dd>
-<dt>d</dt>
+
+  <dt>d</dt>
 <dd><p>The dimension of the data.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>The number of components in the Gaussian mixture model corresponding
     to the optimal BIC.</p></dd>
-<dt>bic</dt>
+
+  <dt>bic</dt>
 <dd><p>The optimal BIC value.</p></dd>
-<dt>loglik</dt>
+
+  <dt>loglik</dt>
 <dd><p>The log-likelihood corresponding to the optimal BIC.</p></dd>
-<dt>parameters</dt>
+
+ <dt>parameters</dt>
 <dd><p>A list with the following components:</p><dl><dt><code>pro</code></dt>
 <dd><p>A vector whose <em>k</em>th component is the mixing proportion for
               the <em>k</em>th component of the mixture model.
@@ -131,9 +146,11 @@
 
       
 </dl><p></p></dd>
-<dt>z</dt>
+
+  <dt>z</dt>
 <dd><p>A matrix whose <em>[i,k]</em>th entry is the probability that observation
     <em>i</em> in the test data belongs to the <em>k</em>th class.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -142,8 +159,8 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mclustModel</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mclustModel</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $modelName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VEV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -385,7 +402,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "mclustModel"</span>
-<span class="r-in"><span class="fu">mclustModel</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, modelNames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"VII"</span>, <span class="st">"VVI"</span>, <span class="st">"VVV"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mclustModel</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, modelNames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"VII"</span>, <span class="st">"VVI"</span>, <span class="st">"VVV"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $modelName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VVV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -635,7 +652,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

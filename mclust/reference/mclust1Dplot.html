@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,13 +59,13 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">data</span>, parameters <span class="op">=</span> <span class="cn">NULL</span>, z <span class="op">=</span> <span class="cn">NULL</span>, 
-             classification <span class="op">=</span> <span class="cn">NULL</span>, truth <span class="op">=</span> <span class="cn">NULL</span>, uncertainty <span class="op">=</span> <span class="cn">NULL</span>, 
-             what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"classification"</span>, <span class="st">"density"</span>, <span class="st">"error"</span>, <span class="st">"uncertainty"</span><span class="op">)</span>,
-             symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, ngrid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, 
-             xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="cn">NULL</span>, 
-             xlim <span class="op">=</span> <span class="cn">NULL</span>, ylim <span class="op">=</span> <span class="cn">NULL</span>,
-             cex <span class="op">=</span> <span class="fl">1</span>, main <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">data</span>, parameters <span class="op">=</span> <span class="cn">NULL</span>, z <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>             classification <span class="op">=</span> <span class="cn">NULL</span>, truth <span class="op">=</span> <span class="cn">NULL</span>, uncertainty <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>             what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"classification"</span>, <span class="st">"density"</span>, <span class="st">"error"</span>, <span class="st">"uncertainty"</span><span class="op">)</span>,</span>
+<span>             symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, ngrid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, </span>
+<span>             xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>             xlim <span class="op">=</span> <span class="cn">NULL</span>, ylim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>             cex <span class="op">=</span> <span class="fl">1</span>, main <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -73,7 +73,8 @@
     <dl><dt>data</dt>
 <dd><p>A numeric vector of observations.
     Categorical variables are not allowed.</p></dd>
-<dt>parameters</dt>
+
+ <dt>parameters</dt>
 <dd><p>A named list giving the parameters of an <em>MCLUST</em> model,
      used to produce superimposing ellipses on the plot.
      The relevant components are as follows:</p><dl><dt><code>pro</code></dt>
@@ -95,28 +96,34 @@
 
      
 </dl><p></p></dd>
+
 <dt>z</dt>
 <dd><p>A matrix in which the <code>[i,k]</code>th entry gives the
         probability of observation <em>i</em> belonging to the <em>k</em>th class.
         Used to compute <code>classification</code> and
         <code>uncertainty</code> if those arguments aren't available.</p></dd>
+
 <dt>classification</dt>
 <dd><p>A numeric or character vector representing a classification of
         observations (rows) of <code>data</code>. If present argument <code>z</code>
         will be ignored.</p></dd>
-<dt>truth</dt>
+
+  <dt>truth</dt>
 <dd><p>A numeric or character vector giving a known
         classification of each data point.
         If <code>classification</code> or <code>z</code> is also present,
         this is used for displaying classification errors.</p></dd>
-<dt>uncertainty</dt>
+
+  <dt>uncertainty</dt>
 <dd><p>A numeric vector of values in <em>(0,1)</em> giving the
         uncertainty of each data point. If present argument <code>z</code>
         will be ignored.</p></dd>
-<dt>what</dt>
+
+  <dt>what</dt>
 <dd><p>Choose from one of the following options: <code>"classification"</code>
     (default), <code>"density"</code>, <code>"error"</code>, <code>"uncertainty"</code>.</p></dd>
-<dt>symbols</dt>
+
+  <dt>symbols</dt>
 <dd><p>Either an integer or character vector assigning a plotting symbol to
     each unique class <code>classification</code>. Elements in <code>symbols</code>
     correspond to classes in <code>classification</code> in order of
@@ -124,32 +131,42 @@
     function <code>unique</code>). The default is to use a single plotting
     symbol <em>|</em>. Classes are delineated by showing them in separate
     lines above the whole of the data.</p></dd>
-<dt>colors</dt>
+
+  <dt>colors</dt>
 <dd><p>Either an integer or character vector assigning a color to each
     unique class <code>classification</code>. Elements in <code>colors</code>
     correspond to classes in order of appearance in the observations 
     (the order used by the function <code>unique</code>).
     The default is given is <code>mclust.options("classPlotColors")</code>.</p></dd>
-<dt>ngrid</dt>
+
+  <dt>ngrid</dt>
 <dd><p>Number of grid points to use for density computation over the interval
     spanned by the data. The default is the length of the data set.</p></dd>
-<dt>xlab, ylab</dt>
+
+  <dt>xlab, ylab</dt>
 <dd><p>An argument specifying a label for the axes.</p></dd>
-<dt>xlim, ylim</dt>
+
+  <dt>xlim, ylim</dt>
 <dd><p>An argument specifying bounds of the plot.
     This may be useful for when comparing plots.</p></dd>
-<dt>cex</dt>
+
+  <dt>cex</dt>
 <dd><p>An argument specifying the size of the plotting symbols. 
     The default value is 1.</p></dd>
-<dt>main</dt>
+
+  <dt>main</dt>
 <dd><p>A logical variable or <code>NULL</code> indicating whether or not to add a title
     to the plot identifying the dimensions used.</p></dd>
+
 <dt>...</dt>
 <dd><p>Other graphics parameters.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A plot showing location of the mixture components, classification, uncertainty, density and/or classification errors. Points in the different classes are shown in separated levels above the whole of the data.</p>
+    
+
+<p>A plot showing location of the mixture components, classification, uncertainty, density and/or classification errors. Points in the different classes are shown in separated levels above the whole of the data.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -160,31 +177,31 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">250</span> <span class="co">## create artificial data</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="op">-</span><span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">yclass</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">yModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, </span>
-<span class="r-in">             what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">250</span> <span class="co">## create artificial data</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="op">-</span><span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">yclass</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="va">n</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">yModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, </span></span>
+<span class="r-in"><span>             what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclust1Dplot-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, </span>
-<span class="r-in">             what <span class="op">=</span> <span class="st">"error"</span>, truth <span class="op">=</span> <span class="va">yclass</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, </span></span>
+<span class="r-in"><span>             what <span class="op">=</span> <span class="st">"error"</span>, truth <span class="op">=</span> <span class="va">yclass</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclust1Dplot-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, </span>
-<span class="r-in">             what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, </span></span>
+<span class="r-in"><span>             what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclust1Dplot-3.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>,</span>
-<span class="r-in">            what <span class="op">=</span> <span class="st">"uncertainty"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mclust1Dplot</span><span class="op">(</span><span class="va">y</span>, z <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">z</span>, parameters <span class="op">=</span> <span class="va">yModel</span><span class="op">$</span><span class="va">parameters</span>,</span></span>
+<span class="r-in"><span>            what <span class="op">=</span> <span class="st">"uncertainty"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclust1Dplot-4.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -199,7 +216,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

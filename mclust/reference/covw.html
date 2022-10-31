@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,27 +57,34 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">covw</span><span class="op">(</span><span class="va">X</span>, <span class="va">Z</span>, normalize <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">covw</span><span class="op">(</span><span class="va">X</span>, <span class="va">Z</span>, normalize <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>X</dt>
 <dd><p>A \((n x p)\) data matrix, with \(n\) observations on \(p\) variables.</p></dd>
-<dt>Z</dt>
+
+  <dt>Z</dt>
 <dd><p>A \((n x G)\) matrix of weights, with \(G\) number of groups.</p></dd>
-<dt>normalize</dt>
+
+  <dt>normalize</dt>
 <dd><p>A logical indicating if rows of <code>Z</code> should be normalized to sum to one.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>A list with the following components:</p>
 <dl><dt>mean</dt>
 <dd><p>A \((p x G)\) matrix of weighted means.</p></dd>
-<dt>S</dt>
+
+  <dt>S</dt>
 <dd><p>A \((p x p x G)\) array of weighted covariance matrices.</p></dd>
-<dt>W</dt>
+
+  <dt>W</dt>
 <dd><p>A \((p x p x G)\) array of weighted scattering matrices.</p></dd>
+
+  
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -86,17 +93,17 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Z as an indicator matrix</span></span>
-<span class="r-in"><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">Z</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">covw</span><span class="op">(</span><span class="va">X</span>, <span class="va">Z</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Z as an indicator matrix</span></span></span>
+<span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">Z</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">covw</span><span class="op">(</span><span class="va">X</span>, <span class="va">Z</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ mean: num [1:4, 1:3] 5.006 3.428 1.462 0.246 5.936 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ S   : num [1:4, 1:4, 1:3] 0.1218 0.0972 0.016 0.0101 0.0972 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ W   : num [1:4, 1:4, 1:3] 6.088 4.862 0.801 0.506 4.862 ...</span>
-<span class="r-in"><span class="co"># Z as a matrix of weights</span></span>
-<span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">X</span>, G <span class="op">=</span> <span class="fl">3</span>, modelNames <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">covw</span><span class="op">(</span><span class="va">X</span>, <span class="va">mod</span><span class="op">$</span><span class="va">z</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># Z as a matrix of weights</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">X</span>, G <span class="op">=</span> <span class="fl">3</span>, modelNames <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">covw</span><span class="op">(</span><span class="va">X</span>, <span class="va">mod</span><span class="op">$</span><span class="va">z</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ mean: num [1:4, 1:3] 5.006 3.428 1.462 0.246 5.915 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ S   : num [1:4, 1:4, 1:3] 0.1218 0.0972 0.016 0.0101 0.0972 ...</span>
@@ -115,7 +122,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

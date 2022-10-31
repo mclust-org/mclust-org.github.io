@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,37 +57,53 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for MclustDR</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">object</span>, dim <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">object</span><span class="op">$</span><span class="va">numdir</span>, <span class="va">newdata</span>, <span class="va">eval.points</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for MclustDR</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">object</span>, dim <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">object</span><span class="op">$</span><span class="va">numdir</span>, <span class="va">newdata</span>, <span class="va">eval.points</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>an object of class <code>'MclustDR'</code> resulting from a call to <code><a href="MclustDR.html">MclustDR</a>.</code></p></dd>
-<dt>dim</dt>
+
+
+  <dt>dim</dt>
 <dd><p>the dimensions of the reduced subspace used for prediction.</p></dd>
-<dt>newdata</dt>
+
+
+  <dt>newdata</dt>
 <dd><p>a data frame or matrix giving the data. If missing the data obtained from the call to <code><a href="MclustDR.html">MclustDR</a></code> are used.</p></dd>
-<dt>eval.points</dt>
+
+
+  <dt>eval.points</dt>
 <dd><p>a data frame or matrix giving the data projected on the reduced subspace. If provided <code>newdata</code> is not used.</p></dd>
-<dt>...</dt>
+
+
+  <dt>...</dt>
 <dd><p>further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Returns a list of with the following components:</p>
+    
+
+<p>Returns a list of with the following components:</p>
 <dl><dt>dir</dt>
 <dd><p>a matrix containing the data projected onto the <code>dim</code> dimensions of the reduced subspace.</p></dd>
-<dt>density</dt>
+
+  <dt>density</dt>
 <dd><p>densities from mixture model for each data point.</p></dd>
-<dt>z</dt>
+
+  <dt>z</dt>
 <dd><p>a matrix whose <em>[i,k]</em>th entry is the probability that 
            observation <em>i</em> in <code>newdata</code> belongs to the <em>k</em>th class.</p></dd>
-<dt>uncertainty</dt>
+
+  <dt>uncertainty</dt>
 <dd><p>The uncertainty associated with the classification.</p></dd>
-<dt>classification</dt>
+
+  <dt>classification</dt>
 <dd><p>A vector of values giving the MAP classification.</p></dd>
+
 </dl></div>
     <div id="references">
     <h2>References</h2>
@@ -105,10 +121,10 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dr</span> <span class="op">=</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pred</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">dr</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dr</span> <span class="op">=</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pred</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">dr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ dir           : num [1:150, 1] 1.89 1.49 1.66 1.44 1.94 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "dimnames")=List of 2</span>
@@ -118,12 +134,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ z             : num [1:150, 1:2] 1 1 1 1 1 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ uncertainty   : num [1:150] 1.08e-09 3.75e-07 2.88e-08 8.46e-07 5.17e-10 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ classification: Factor w/ 2 levels "1","2": 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="MclustDA.html">MclustDA</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span>, <span class="va">banknote</span><span class="op">$</span><span class="va">Status</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dr</span> <span class="op">=</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pred</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">dr</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="MclustDA.html">MclustDA</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span>, <span class="va">banknote</span><span class="op">$</span><span class="va">Status</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dr</span> <span class="op">=</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pred</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">dr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ dir           : num [1:200, 1:2] -0.946 -1.751 -1.583 -1.742 -1.528 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "dimnames")=List of 2</span>
@@ -147,7 +163,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

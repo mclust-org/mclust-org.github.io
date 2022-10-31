@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,26 +57,37 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for Mclust</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, classification <span class="op">=</span> <span class="cn">TRUE</span>, parameters <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-<span class="co"># S3 method for summary.Mclust</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for Mclust</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, classification <span class="op">=</span> <span class="cn">TRUE</span>, parameters <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for summary.Mclust</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>An object of class <code>'Mclust'</code> resulting of a call to <code><a href="Mclust.html">Mclust</a></code> or <code><a href="densityMclust.html">densityMclust</a></code>.</p></dd>
-<dt>x</dt>
+
+
+  <dt>x</dt>
 <dd><p>An object of class <code>'summary.Mclust'</code>, usually, a result of a call to <code>summary.Mclust</code>.</p></dd>
-<dt>classification</dt>
+
+
+  <dt>classification</dt>
 <dd><p>Logical; if <code>TRUE</code> a table of MAP classification/clustering of observations is printed.</p></dd>
-<dt>parameters</dt>
+
+
+  <dt>parameters</dt>
 <dd><p>Logical; if <code>TRUE</code>, the parameters of mixture components are printed.</p></dd>
-<dt>digits</dt>
+
+
+  <dt>digits</dt>
 <dd><p>The number of significant digits to use when printing.</p></dd>
-<dt>...</dt>
+
+
+  <dt>...</dt>
 <dd><p>Further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -89,9 +100,9 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">mod1</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">mod1</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model fitted by EM algorithm </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
@@ -104,7 +115,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Clustering table:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  50 100 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod1</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span>, classification <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod1</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span>, classification <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model fitted by EM algorithm </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
@@ -138,9 +149,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sepal.Width     0.1086544  0.10928077    0.1238904  0.07284384</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Length    0.3994018  0.12389040    0.6109024  0.25738990</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Width     0.1436826  0.07284384    0.2573899  0.16808182</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">mod2</span> <span class="op">=</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mod2</span> <span class="op">=</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">faithful</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Density estimation via Gaussian finite mixture modeling </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
@@ -150,7 +161,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  log-likelihood   n df       BIC       ICL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       -1126.326 272 11 -2314.316 -2357.824</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod2</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod2</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Density estimation via Gaussian finite mixture modeling </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------- </span>
@@ -183,7 +194,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>            eruptions    waiting</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> eruptions 0.07825448  0.4801979</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> waiting   0.48019785 33.7671464</span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -198,7 +209,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

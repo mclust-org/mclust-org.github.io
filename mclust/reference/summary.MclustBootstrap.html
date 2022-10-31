@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,20 +57,24 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for MclustBootstrap</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"se"</span>, <span class="st">"ci"</span>, <span class="st">"ave"</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for MclustBootstrap</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"se"</span>, <span class="st">"ci"</span>, <span class="st">"ave"</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>An object of class <code>'MclustBootstrap'</code> as returned by <code><a href="MclustBootstrap.html">MclustBootstrap</a></code>.</p></dd>
-<dt>what</dt>
+
+  <dt>what</dt>
 <dd><p>A character string: <code>"se"</code> for the standard errors; <code>"ci"</code> for the confidence intervals; <code>"ave"</code> for the averages.</p></dd>
-<dt>conf.level</dt>
+
+  <dt>conf.level</dt>
 <dd><p>A value specifying the confidence level of the interval.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -83,12 +87,12 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">diabetes</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">X</span> <span class="op">=</span> <span class="va">diabetes</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">modClust</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">bootClust</span> <span class="op">=</span> <span class="fu"><a href="MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">modClust</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"se"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">diabetes</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">X</span> <span class="op">=</span> <span class="va">diabetes</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">modClust</span> <span class="op">=</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">bootClust</span> <span class="op">=</span> <span class="fu"><a href="MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">modClust</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"se"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Resampling standard errors </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
@@ -123,7 +127,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> glucose  981.2215  4087.832  646.5159</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> insulin 4087.8323 19042.861 2505.3844</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> sspg     646.5159  2505.384  501.4012</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"ci"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"ci"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Resampling confidence intervals </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
@@ -165,11 +169,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>        glucose   insulin     sspg</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2.5%  3386.800  47497.23 1343.209</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 97.5% 7226.332 120173.04 3312.181</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">acidity</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">modDens</span> <span class="op">=</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">acidity</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">modDens</span> <span class="op">=</span> <span class="fu"><a href="MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">modDens</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">modDens</span>, what <span class="op">=</span> <span class="st">"se"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">acidity</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">modDens</span> <span class="op">=</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">acidity</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">modDens</span> <span class="op">=</span> <span class="fu"><a href="MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">modDens</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">modDens</span>, what <span class="op">=</span> <span class="st">"se"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Resampling standard errors </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
@@ -189,7 +193,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Variances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          1          2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.02317383 0.02317383 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">modDens</span>, what <span class="op">=</span> <span class="st">"ci"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">modDens</span>, what <span class="op">=</span> <span class="st">"ci"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Resampling confidence intervals </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------- </span>
@@ -213,7 +217,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>               1         2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2.5%  0.1393808 0.1393808</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 97.5% 0.2311163 0.2311163</span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -228,7 +232,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

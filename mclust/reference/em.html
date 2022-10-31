@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,8 +59,8 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">em</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">parameters</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>,
-   warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">em</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">parameters</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>   warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -69,10 +69,12 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>modelName</dt>
+
+  <dt>modelName</dt>
 <dd><p>A character string indicating the model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>parameters</dt>
+
+  <dt>parameters</dt>
 <dd><p>A names list giving the parameters of the model.
      The components are as follows:</p><dl><dt><code>pro</code></dt>
 <dd><p>Mixing proportions for the components of the mixture. 
@@ -100,34 +102,46 @@
 
      
 </dl><p></p></dd>
-<dt>prior</dt>
+
+ <dt>prior</dt>
 <dd><p>Specification of a conjugate prior on the means and variances.
       The default assumes no prior.</p></dd>
-<dt>control</dt>
+
+ <dt>control</dt>
 <dd><p>A list of control parameters for EM. The defaults are set by the call 
        <code><a href="emControl.html">emControl()</a></code>.</p></dd>
-<dt>warn</dt>
+
+ <dt>warn</dt>
 <dd><p>A logical value indicating whether or not a warning should be issued
     when computations fail. The default is <code>warn=FALSE</code>.</p></dd>
-<dt>...</dt>
+
+ <dt>...</dt>
 <dd><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list including the following components:</p>
+    
+
+<p>A list including the following components:</p>
 <dl><dt>modelName</dt>
 <dd><p>A character string identifying the model (same as the input argument).</p></dd>
-<dt>n</dt>
+
+  <dt>n</dt>
 <dd><p>The number of observations in the data.</p></dd>
-<dt>d</dt>
+
+  <dt>d</dt>
 <dd><p>The dimension of the data.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>The number of mixture components.</p></dd>
-<dt>z</dt>
+  
+  <dt>z</dt>
 <dd><p>A matrix whose <code>[i,k]</code>th entry is the
     conditional probability of the <em>i</em>th observation belonging to
     the <em>k</em>th component of the mixture.</p></dd>
-<dt>parameters</dt>
+
+  <dt>parameters</dt>
 <dd><p></p><dl><dt><code>pro</code></dt>
 <dd><p>A vector whose <em>k</em>th component is the mixing proportion for 
               the <em>k</em>th component of the mixture model.
@@ -153,16 +167,21 @@
 
       
 </dl><p></p></dd>
-<dt>loglik</dt>
+
+  <dt>loglik</dt>
 <dd><p>The log likelihood for the data in the mixture model.</p></dd>
-<dt>control</dt>
+
+  <dt>control</dt>
 <dd><p>The list of control parameters for EM used.</p></dd>
-<dt>prior</dt>
+
+  <dt>prior</dt>
 <dd><p>The specification of a conjugate prior on the means and variances used,
      <code>NULL</code> if no prior is used.</p></dd>
-<dt>Attributes:</dt>
+        
+  <dt>Attributes:</dt>
 <dd><p><code>"info"</code> Information on the iteration.<br><code>"WARNING"</code> An appropriate warning if problems are 
       encountered in the computations.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -177,15 +196,15 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">msEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="mstep.html">mstep</a></span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"EEE"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, </span>
-<span class="r-in">               z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">msEst</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">msEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="mstep.html">mstep</a></span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"EEE"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, </span></span>
+<span class="r-in"><span>               z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">msEst</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "modelName"  "prior"      "n"          "d"          "G"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "z"          "parameters"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">em</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">msEst</span><span class="op">$</span><span class="va">modelName</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>,</span>
-<span class="r-in">   parameters <span class="op">=</span> <span class="va">msEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">em</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">msEst</span><span class="op">$</span><span class="va">modelName</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>   parameters <span class="op">=</span> <span class="va">msEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $modelName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "EEE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -442,8 +461,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4.00000e+00 1.76651e-06 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"returnCode")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"em"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>, <span class="va">msEst</span><span class="op">)</span><span class="op">)</span>   <span class="co">## alternative call</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"em"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>, <span class="va">msEst</span><span class="op">)</span><span class="op">)</span>   <span class="co">## alternative call</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $modelName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "EEE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -700,7 +719,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4.00000e+00 1.76651e-06 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"returnCode")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -715,7 +734,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

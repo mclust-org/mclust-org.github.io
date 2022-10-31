@@ -18,7 +18,7 @@ Observations in different classes are represented by different colors and symbol
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,12 +59,12 @@ Observations in different classes are represented by different colors and symbol
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">clPairs</span><span class="op">(</span><span class="va">data</span>, <span class="va">classification</span>, 
-        symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, cex <span class="op">=</span> <span class="cn">NULL</span>,
-        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dimnames.html" class="external-link">dimnames</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, cex.labels <span class="op">=</span> <span class="fl">1.5</span>, 
-        gap <span class="op">=</span> <span class="fl">0.2</span>, grid <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">clPairsLegend</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">class</span>, <span class="va">col</span>, <span class="va">pch</span>, <span class="va">cex</span>, box <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">clPairs</span><span class="op">(</span><span class="va">data</span>, <span class="va">classification</span>, </span>
+<span>        symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, cex <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dimnames.html" class="external-link">dimnames</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, cex.labels <span class="op">=</span> <span class="fl">1.5</span>, </span>
+<span>        gap <span class="op">=</span> <span class="fl">0.2</span>, grid <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">clPairsLegend</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">class</span>, <span class="va">col</span>, <span class="va">pch</span>, <span class="va">cex</span>, box <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -73,48 +73,62 @@ Observations in different classes are represented by different colors and symbol
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>classification</dt>
+
+  <dt>classification</dt>
 <dd><p>A numeric or character vector representing a classification of observations
    (rows) of <code>data</code>.</p></dd>
-<dt>symbols</dt>
+
+  <dt>symbols</dt>
 <dd><p>Either an integer or character vector assigning a plotting symbol to each
     unique class in <code>classification</code>. Elements in <code>symbols</code>
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>unique</code>). 
     The default is given by <code>mclust.options("classPlotSymbols")</code>.</p></dd>
-<dt>colors</dt>
+
+  <dt>colors</dt>
 <dd><p>Either an integer or character vector assigning a color to each
     unique class in <code>classification</code>. Elements in <code>colors</code>
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>unique</code>). 
     The default is given by <code>mclust.options("classPlotColors")</code>.</p></dd>
-<dt>cex</dt>
+
+  <dt>cex</dt>
 <dd><p>A vector of numerical values specifying the size of the plotting 
 		symbol for each unique class in <code>classification</code>. Values in 
 		<code>cex</code> correspond to classes in order of appearance in the 
 		sequence of observations (the order used by the function <code>unique</code>). 
     By default <code>cex = 1</code> for all classes is used.</p></dd>
-<dt>labels</dt>
+
+  <dt>labels</dt>
 <dd><p>A vector of character strings for labelling the variables. The default
     is to use the column dimension names of <code>data</code>.</p></dd>
-<dt>cex.labels</dt>
+
+  <dt>cex.labels</dt>
 <dd><p>A numerical value specifying the size of the text labels.</p></dd>
-<dt>gap</dt>
+
+  <dt>gap</dt>
 <dd><p>An argument specifying the distance between subplots (see <code><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs</a></code>).</p></dd>
-<dt>grid</dt>
+
+  <dt>grid</dt>
 <dd><p>A logical specifying if grid lines should be added to panels (see <code><a href="https://rdrr.io/r/graphics/grid.html" class="external-link">grid</a></code>).</p></dd>
-<dt>x,y</dt>
+
+  <dt>x,y</dt>
 <dd><p>The x and y co-ordinates with respect to a graphic device having 
     plotting region coordinates <code>par("usr" = c(0,1,0,1))</code>.</p></dd>
-<dt>class</dt>
+
+  <dt>class</dt>
 <dd><p>The class labels.</p></dd>
-<dt>box</dt>
+
+  <dt>box</dt>
 <dd><p>A logical, if <code>TRUE</code> then a box is drawn around the current plot figure.</p></dd>
-<dt>col, pch</dt>
+
+  <dt>col, pch</dt>
 <dd><p>The colors and plotting symbols appearing in the legend.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>For a <code>clPairs</code> call may be additional arguments to be passed to <code><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs</a></code>. 
     For a <code>clPairsLegend</code> call may be additional arguments to be passed to <code><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></code>.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -123,13 +137,18 @@ Observations in different classes are represented by different colors and symbol
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p>The function <code>clPairs()</code> invisibly returns a list with the following components:</p>
+    
+
+<p>The function <code>clPairs()</code> invisibly returns a list with the following components:</p>
 <dl><dt>class</dt>
 <dd><p>A character vector of class labels.</p></dd>
-<dt>col</dt>
+
+  <dt>col</dt>
 <dd><p>A vector of colors used for each class.</p></dd>
-<dt>pch</dt>
+
+  <dt>pch</dt>
 <dd><p>A vector of plotting symbols used for each class.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -140,15 +159,15 @@ Observations in different classes are represented by different colors and symbol
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">clPairs</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, cl <span class="op">=</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">clPairs</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, cl <span class="op">=</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="clPairs-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">clp</span> <span class="op">&lt;-</span> <span class="fu">clPairs</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, cl <span class="op">=</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span>, lower.panel <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">clPairsLegend</span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.4</span>, class <span class="op">=</span> <span class="va">clp</span><span class="op">$</span><span class="va">class</span>, </span>
-<span class="r-in">              col <span class="op">=</span> <span class="va">clp</span><span class="op">$</span><span class="va">col</span>, pch <span class="op">=</span> <span class="va">clp</span><span class="op">$</span><span class="va">pch</span>, </span>
-<span class="r-in">              title <span class="op">=</span> <span class="st">"Iris data"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">clp</span> <span class="op">&lt;-</span> <span class="fu">clPairs</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, cl <span class="op">=</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span>, lower.panel <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">clPairsLegend</span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.4</span>, class <span class="op">=</span> <span class="va">clp</span><span class="op">$</span><span class="va">class</span>, </span></span>
+<span class="r-in"><span>              col <span class="op">=</span> <span class="va">clp</span><span class="op">$</span><span class="va">col</span>, pch <span class="op">=</span> <span class="va">clp</span><span class="op">$</span><span class="va">pch</span>, </span></span>
+<span class="r-in"><span>              title <span class="op">=</span> <span class="st">"Iris data"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="clPairs-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -163,7 +182,7 @@ Observations in different classes are represented by different colors and symbol
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

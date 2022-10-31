@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,15 +57,17 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for MclustSSC</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BIC"</span>, <span class="st">"classification"</span>, <span class="st">"uncertainty"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for MclustSSC</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BIC"</span>, <span class="st">"classification"</span>, <span class="st">"uncertainty"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>An object of class <code>'MclustSSC'</code> resulting from a call to <code><a href="MclustSSC.html">MclustSSC</a></code>.</p></dd>
-<dt>what</dt>
+
+
+ <dt>what</dt>
 <dd><p>A string specifying the type of graph requested. Available choices are:</p><dl><dt><code>"BIC"</code> =</dt>
 <dd><p>plot of BIC values used for model selection, i.e. for choosing the model class covariances.</p></dd>
 
@@ -77,8 +79,11 @@
 
    
 </dl><p>If not specified, in interactive sessions a menu of choices is proposed.</p></dd>
-<dt>...</dt>
+
+
+  <dt>...</dt>
 <dd><p>further arguments passed to or from other methods. See  <code><a href="plot.Mclust.html">plot.Mclust</a></code>.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -91,23 +96,23 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">class</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span></span>
-<span class="r-in"><span class="co"># randomly remove class labels</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">class</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">120</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">class</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">class</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span></span></span>
+<span class="r-in"><span><span class="co"># randomly remove class labels</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">class</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">120</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">class</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     setosa versicolor  virginica       &lt;NA&gt; </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         10         15          5        120 </span>
-<span class="r-in"><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">X</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">class</span><span class="op">)</span>,</span>
-<span class="r-in">        symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">16</span>, <span class="fl">17</span>, <span class="fl">18</span><span class="op">)</span>, colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grey"</span>, <span class="fl">4</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
-<span class="r-in">        main <span class="op">=</span> <span class="st">"Partially classified data"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">X</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">class</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">16</span>, <span class="fl">17</span>, <span class="fl">18</span><span class="op">)</span>, colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grey"</span>, <span class="fl">4</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        main <span class="op">=</span> <span class="st">"Partially classified data"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustSSC-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Fit semi-supervised classification model</span></span>
-<span class="r-in"><span class="va">mod_SSC</span>  <span class="op">&lt;-</span> <span class="fu"><a href="MclustSSC.html">MclustSSC</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">class</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod_SSC</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Fit semi-supervised classification model</span></span></span>
+<span class="r-in"><span><span class="va">mod_SSC</span>  <span class="op">&lt;-</span> <span class="fu"><a href="MclustSSC.html">MclustSSC</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">class</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod_SSC</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for semi-supervised classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------- </span>
@@ -159,20 +164,20 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   versicolor      0         15         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          0         5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;NA&gt;           40         45        35</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">pred_SSC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mod_SSC</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span>Predicted <span class="op">=</span> <span class="va">pred_SSC</span><span class="op">$</span><span class="va">classification</span>, Actual <span class="op">=</span> <span class="va">class</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">pred_SSC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mod_SSC</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span>Predicted <span class="op">=</span> <span class="va">pred_SSC</span><span class="op">$</span><span class="va">classification</span>, Actual <span class="op">=</span> <span class="va">class</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             Actual</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Predicted    setosa versicolor virginica &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   setosa         10          0         0   40</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   versicolor      0         15         0   45</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          0         5   35</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod_SSC</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod_SSC</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustSSC-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod_SSC</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod_SSC</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustSSC-3.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod_SSC</span>, what <span class="op">=</span> <span class="st">"uncertainty"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod_SSC</span>, what <span class="op">=</span> <span class="st">"uncertainty"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustSSC-4.png" alt="" width="504" height="432"></span>
 </code></pre></div>
     </div>
@@ -188,7 +193,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

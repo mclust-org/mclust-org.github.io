@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">map</span><span class="op">(</span><span class="va">z</span>, warn <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"warn"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">map</span><span class="op">(</span><span class="va">z</span>, warn <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"warn"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -68,19 +68,27 @@
 <dd><p>A matrix (for example a matrix of conditional
     probabilities  in which each row sums to 1
     as produced by the E-step of the EM algorithm).</p></dd>
-<dt>warn</dt>
+
+  <dt>warn</dt>
 <dd><p>A logical variable indicating whether or not a warning should be
     issued when there are some columns of <code>z</code> for which no row
     attains a maximum.</p></dd>
-<dt>... </dt>
+
+  <dt>... </dt>
 <dd><p>Provided to allow lists with elements other than the arguments can
     be passed in indirect or list calls with <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A integer vector with one entry for each row of z,
-  in which the <em>i</em>-th value is the column index at which the
-<em>i</em>-th row of <code>z</code> attains a maximum.</p>
+    
+
+<p>A integer vector with one entry for each row of z,
+  in which the <em>i</em>-th value is the column index at which the</p>
+<p></p>
+<p><em>i</em>-th row of <code>z</code> attains a maximum.</p>
+  
+
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -92,9 +100,9 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">emEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="me.html">me</a></span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"VVV"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">map</span><span class="op">(</span><span class="va">emEst</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">emEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="me.html">me</a></span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"VVV"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">map</span><span class="op">(</span><span class="va">emEst</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 3 2 3 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 2 2 3 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3</span>
@@ -114,7 +122,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dmvnorm</span><span class="op">(</span><span class="va">data</span>, <span class="va">mean</span>, <span class="va">sigma</span>, log <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dmvnorm</span><span class="op">(</span><span class="va">data</span>, <span class="va">mean</span>, <span class="va">sigma</span>, log <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -66,18 +66,25 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>mean</dt>
+
+ <dt>mean</dt>
 <dd><p>A vector of means for each variable.</p></dd>
-<dt>sigma</dt>
+
+ <dt>sigma</dt>
 <dd><p>A positive definite covariance matrix.</p></dd>
-<dt>log</dt>
+
+  <dt>log</dt>
 <dd><p>A logical value indicating whether or not the logarithm of the densities 
     should be returned.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric vector whose <em>i</em>th element gives the density of the
-<em>ith</em> observation in <code>data</code> for the multivariate Gaussian 
+    
+
+<p>A numeric vector whose <em>i</em>th element gives the density of the</p>
+<p></p>
+<p><em>ith</em> observation in <code>data</code> for the multivariate Gaussian 
 	distribution with parameters <code>mean</code> and <code>sigma</code>.</p>
     </div>
     <div id="see-also">
@@ -88,22 +95,22 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># univariate</span></span>
-<span class="r-in"><span class="va">ngrid</span> <span class="op">&lt;-</span> <span class="fl">101</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span>, length <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu">dmvnorm</span><span class="op">(</span><span class="va">x</span>, mean <span class="op">=</span> <span class="fl">1</span>, sigma <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">dens</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># univariate</span></span></span>
+<span class="r-in"><span><span class="va">ngrid</span> <span class="op">&lt;-</span> <span class="fl">101</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span>, length <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu">dmvnorm</span><span class="op">(</span><span class="va">x</span>, mean <span class="op">=</span> <span class="fl">1</span>, sigma <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">dens</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="dmvnorm-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># bivariate</span></span>
-<span class="r-in"><span class="va">ngrid</span> <span class="op">&lt;-</span> <span class="fl">101</span></span>
-<span class="r-in"><span class="va">x1</span> <span class="op">&lt;-</span> <span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span>, length <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">2</span><span class="op">)</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu">dmvnorm</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span><span class="op">)</span><span class="op">)</span>, <span class="va">mu</span>, <span class="va">sigma</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="va">dens</span>, <span class="va">ngrid</span>, <span class="va">ngrid</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">dens</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html" class="external-link">contour</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">dens</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># bivariate</span></span></span>
+<span class="r-in"><span><span class="va">ngrid</span> <span class="op">&lt;-</span> <span class="fl">101</span></span></span>
+<span class="r-in"><span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span>, length <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">2</span><span class="op">)</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu">dmvnorm</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span><span class="op">)</span><span class="op">)</span>, <span class="va">mu</span>, <span class="va">sigma</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="va">dens</span>, <span class="va">ngrid</span>, <span class="va">ngrid</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">dens</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html" class="external-link">contour</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">dens</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="dmvnorm-2.png" alt="" width="504" height="432"></span>
 </code></pre></div>
     </div>
@@ -119,7 +126,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

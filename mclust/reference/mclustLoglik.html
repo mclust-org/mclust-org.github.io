@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mclustLoglik</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mclustLoglik</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -65,12 +65,16 @@
     <dl><dt>object</dt>
 <dd><p>An object of class <code>'mclustBIC'</code> containing the 
   BIC values as returned by a call to <code><a href="mclustBIC.html">mclustBIC</a></code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Catches unused arguments in an indirect or list call via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of class <code>'mclustLoglik'</code> containing the maximal log-likelihood values for the Gaussian mixture models provided as input.</p>
+    
+
+<p>An object of class <code>'mclustLoglik'</code> containing the maximal log-likelihood values for the Gaussian mixture models provided as input.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -79,9 +83,9 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">BIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mclustLoglik</span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">BIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mclustLoglik</span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log-likelihood: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         EII       VII       EEI       VEI       EVI       VVI       EEE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -889.5161 -889.5161 -741.0175 -741.0175 -741.0175 -741.0175 -379.9146</span>
@@ -103,7 +107,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7        NA -194.4254 -174.9438 -154.5511 -136.9276 -159.3927 -142.9108</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8 -187.1141 -174.8416 -162.0602 -139.7393 -110.9183 -135.2804 -117.1858</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9        NA -169.4178 -151.6925 -123.9250  -98.8269 -125.5495 -106.1340</span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -118,7 +122,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

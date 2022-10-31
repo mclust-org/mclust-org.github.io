@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">imputeData</span><span class="op">(</span><span class="va">data</span>, categorical <span class="op">=</span> <span class="cn">NULL</span>, seed <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">imputeData</span><span class="op">(</span><span class="va">data</span>, categorical <span class="op">=</span> <span class="cn">NULL</span>, seed <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -67,22 +67,28 @@
     missing values. Categorical variables are allowed. If a matrix
     or data frame, rows correspond to observations and columns
     correspond to variables.</p></dd>
-<dt>categorical</dt>
+
+  <dt>categorical</dt>
 <dd><p>A logical vectors whose <em>i</em>th entry is <code>TRUE</code> if the
     <em>i</em>th variable or column of <code>data</code> is to be interpreted as
     categorical and <code>FALSE</code> otherwise. The default is to assume that a
     variable is to be interpreted as categorical only if it is a factor.</p></dd>
-<dt>seed</dt>
+
+  <dt>seed</dt>
 <dd><p>A seed for the function <code>rngseed</code> that is used to initialize
     the random number generator in <span class="pkg">mix</span>. By default, a seed is
     chosen uniformly in the interval <code>(.Machine$integer.max/1024,
     .Machine$integer.max)</code>.</p></dd>
-<dt>verbose</dt>
+
+  <dt>verbose</dt>
 <dd><p>A logical, if <code>TRUE</code> reports info about iterations of the algorithm.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A dataset of the same dimensions as <code>data</code> with missing values
+    
+
+<p>A dataset of the same dimensions as <code>data</code> with missing values
   filled in.</p>
     </div>
     <div id="references">
@@ -96,17 +102,17 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># Note that package 'mix' must be installed</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">stlouis</span>, package <span class="op">=</span> <span class="st">"mix"</span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"><span class="co"># impute the continuos variables in the stlouis data</span></span>
-<span class="r-in"><span class="va">stlimp</span> <span class="op">&lt;-</span> <span class="fu">imputeData</span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># plot imputed values</span></span>
-<span class="r-in"><span class="fu"><a href="imputePairs.html">imputePairs</a></span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span>, <span class="va">stlimp</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># Note that package 'mix' must be installed</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">stlouis</span>, package <span class="op">=</span> <span class="st">"mix"</span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span><span class="co"># impute the continuos variables in the stlouis data</span></span></span>
+<span class="r-in"><span><span class="va">stlimp</span> <span class="op">&lt;-</span> <span class="fu">imputeData</span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># plot imputed values</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="imputePairs.html">imputePairs</a></span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span>, <span class="va">stlimp</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="imputeData-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -121,7 +127,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

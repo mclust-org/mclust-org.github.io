@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,14 +59,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">randProj</span><span class="op">(</span><span class="va">data</span>, seeds <span class="op">=</span> <span class="cn">NULL</span>, parameters <span class="op">=</span> <span class="cn">NULL</span>, z <span class="op">=</span> <span class="cn">NULL</span>,
-         classification <span class="op">=</span> <span class="cn">NULL</span>, truth <span class="op">=</span> <span class="cn">NULL</span>, uncertainty <span class="op">=</span> <span class="cn">NULL</span>, 
-         what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"classification"</span>, <span class="st">"error"</span>, <span class="st">"uncertainty"</span><span class="op">)</span>,
-         quantiles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="fl">0.95</span><span class="op">)</span>, 
-         addEllipses <span class="op">=</span> <span class="cn">TRUE</span>, fillEllipses <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"fillEllipses"</span><span class="op">)</span>,
-         symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, scale <span class="op">=</span> <span class="cn">FALSE</span>, 
-         xlim <span class="op">=</span> <span class="cn">NULL</span>, ylim <span class="op">=</span> <span class="cn">NULL</span>, xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="cn">NULL</span>,
-         cex <span class="op">=</span> <span class="fl">1</span>, PCH <span class="op">=</span> <span class="st">"."</span>, main <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">randProj</span><span class="op">(</span><span class="va">data</span>, seeds <span class="op">=</span> <span class="cn">NULL</span>, parameters <span class="op">=</span> <span class="cn">NULL</span>, z <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>         classification <span class="op">=</span> <span class="cn">NULL</span>, truth <span class="op">=</span> <span class="cn">NULL</span>, uncertainty <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"classification"</span>, <span class="st">"error"</span>, <span class="st">"uncertainty"</span><span class="op">)</span>,</span>
+<span>         quantiles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="fl">0.95</span><span class="op">)</span>, </span>
+<span>         addEllipses <span class="op">=</span> <span class="cn">TRUE</span>, fillEllipses <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"fillEllipses"</span><span class="op">)</span>,</span>
+<span>         symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, scale <span class="op">=</span> <span class="cn">FALSE</span>, </span>
+<span>         xlim <span class="op">=</span> <span class="cn">NULL</span>, ylim <span class="op">=</span> <span class="cn">NULL</span>, xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>         cex <span class="op">=</span> <span class="fl">1</span>, PCH <span class="op">=</span> <span class="st">"."</span>, main <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -76,13 +76,15 @@
     Categorical variables are not allowed.
     If a matrix or data frame, rows correspond to observations and
     columns correspond to variables.</p></dd>
-<dt>seeds</dt>
+
+  <dt>seeds</dt>
 <dd><p>An integer value or a vector of integer values to be used as seed for 
     random number generation. If multiple values are provided, then each seed 
     should produce a different projection. 
     By default, a single seed is drawn randomnly, so each call of 
     <code>randProj()</code> produces different projections.</p></dd>
-<dt>parameters</dt>
+
+ <dt>parameters</dt>
 <dd><p>A named list giving the parameters of an <em>MCLUST</em> model, 
      used to produce superimposing ellipses on the plot. 
      The relevant components are as follows:</p><dl><dt><code>mean</code></dt>
@@ -98,81 +100,103 @@
 
      
 </dl><p></p></dd>
-<dt>z</dt>
+
+ <dt>z</dt>
 <dd><p>A matrix in which the <code>[i,k]</code>th entry gives the
   probability of observation <em>i</em> belonging to the <em>k</em>th class. 
   Used to compute <code>classification</code> and
   <code>uncertainty</code> if those arguments aren't available.</p></dd>
-<dt>classification</dt>
+
+  <dt>classification</dt>
 <dd><p>A numeric or character vector representing a classification of
   observations (rows) of <code>data</code>. If present argument <code>z</code>
         will be ignored.</p></dd>
-<dt>truth</dt>
+
+  <dt>truth</dt>
 <dd><p>A numeric or character vector giving a known
   classification of each data point.
   If <code>classification</code>
   or <code>z</code> is also present, 
   this is used for displaying classification errors.</p></dd>
-<dt>uncertainty</dt>
+
+  <dt>uncertainty</dt>
 <dd><p>A numeric vector of values in <em>(0,1)</em> giving the
   uncertainty of each data point. If present argument <code>z</code>
         will be ignored.</p></dd>
-<dt>what</dt>
+
+  <dt>what</dt>
 <dd><p>Choose from one of the following three options: <code>"classification"</code>
     (default), <code>"error"</code>, <code>"uncertainty"</code>.</p></dd>
-<dt>quantiles</dt>
+
+  <dt>quantiles</dt>
 <dd><p>A vector of length 2 giving quantiles used in plotting
     uncertainty. The smallest symbols correspond to the smallest
     quantile (lowest uncertainty), medium-sized (open) symbols to points
     falling between the given quantiles, and large (filled) symbols to
     those in the largest quantile (highest uncertainty). The default is
     <em>(0.75,0.95)</em>.</p></dd>
-<dt>addEllipses</dt>
+
+  <dt>addEllipses</dt>
 <dd><p>A logical indicating whether or not to add ellipses with axes 
     corresponding to the within-cluster covariances in case of 
     <code>"classification"</code> or <code>"uncertainty"</code> plots.</p></dd>
-<dt>fillEllipses</dt>
+
+  <dt>fillEllipses</dt>
 <dd><p>A logical specifying whether or not to fill ellipses with transparent
     colors when <code>addEllipses = TRUE</code>.</p></dd>
-<dt>symbols</dt>
+
+  <dt>symbols</dt>
 <dd><p>Either an integer or character vector assigning a plotting symbol to each
     unique class in <code>classification</code>. Elements in <code>colors</code>
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>unique</code>). 
     The default is given by <code>mclust.options("classPlotSymbols")</code>.</p></dd>
-<dt>colors</dt>
+ 
+  <dt>colors</dt>
 <dd><p>Either an integer or character vector assigning a color to each
     unique class in <code>classification</code>. Elements in <code>colors</code>
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>unique</code>). 
     The default is given by <code>mclust.options("classPlotColors")</code>.</p></dd>
-<dt>scale</dt>
+
+  <dt>scale</dt>
 <dd><p>A logical variable indicating whether or not the two chosen
     dimensions should be plotted on the same scale, and
     thus preserve the shape of the distribution.
     Default: <code>scale=FALSE</code></p></dd>
-<dt>xlim, ylim</dt>
+
+  <dt>xlim, ylim</dt>
 <dd><p>Optional arguments specifying bounds for the ordinate, abscissa of the plot.
     This may be useful for when comparing plots.</p></dd>
-<dt>xlab, ylab</dt>
+
+  <dt>xlab, ylab</dt>
 <dd><p>Optional arguments specifying the labels for, respectively, the horizontal 
     and vertical axis.</p></dd>
-<dt>cex</dt>
+ 
+  <dt>cex</dt>
 <dd><p>A numerical value specifying the size of the plotting symbols. 
     The default value is 1.</p></dd>
-<dt>PCH</dt>
+
+  <dt>PCH</dt>
 <dd><p>An argument specifying the symbol to be used when a classificatiion
     has not been specified for the data. The default value is a small dot ".".</p></dd>
-<dt>main</dt>
+
+  <dt>main</dt>
 <dd><p>A logical variable or <code>NULL</code> indicating whether or not to add a title 
     to the plot identifying the dimensions used.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Other graphics parameters.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A plot showing a random two-dimensional projection of the data, together with the location of the  mixture components, classification, uncertainty, and/or classification errors. 
-The function also returns an invisible list with components <code>basis</code>, the randomnly generated basis of the projection subspace, <code>data</code>, a matrix of projected data, and <code>mu</code> and <code>sigma</code> the component parameters transformed to the projection subspace.</p>
+    
+
+<p>A plot showing a random two-dimensional projection of the data, together with the location of the  mixture components, classification, uncertainty, and/or classification errors.</p>
+
+
+<p>The function also returns an invisible list with components <code>basis</code>, the randomnly generated basis of the projection subspace, <code>data</code>, a matrix of projected data, and <code>mu</code> and <code>sigma</code> the component parameters transformed to the projection subspace.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -184,25 +208,25 @@ The function also returns an invisible list with components <code>basis</code>, 
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">est</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meVVV</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty <span class="op">=</span> <span class="st">"s"</span>, mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">randProj</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, seeds<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, parameters <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">z</span>,</span>
-<span class="r-in">          what <span class="op">=</span> <span class="st">"classification"</span>, main <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">est</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meVVV</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty <span class="op">=</span> <span class="st">"s"</span>, mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">randProj</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, seeds<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, parameters <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">z</span>,</span></span>
+<span class="r-in"><span>          what <span class="op">=</span> <span class="st">"classification"</span>, main <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="randProj-1.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="randProj-2.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="randProj-3.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu">randProj</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, seeds<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, parameters <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">z</span>,</span>
-<span class="r-in">          truth <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span>, what <span class="op">=</span> <span class="st">"error"</span>, main <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="fu">randProj</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, seeds<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, parameters <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">z</span>,</span></span>
+<span class="r-in"><span>          truth <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span>, what <span class="op">=</span> <span class="st">"error"</span>, main <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="randProj-4.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="randProj-5.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="randProj-6.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu">randProj</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, seeds<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, parameters <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">z</span>,</span>
-<span class="r-in">          what <span class="op">=</span> <span class="st">"uncertainty"</span>, main <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="fu">randProj</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, seeds<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, parameters <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">parameters</span>, z <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">z</span>,</span></span>
+<span class="r-in"><span>          what <span class="op">=</span> <span class="st">"uncertainty"</span>, main <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="randProj-7.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="randProj-8.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="randProj-9.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -217,7 +241,7 @@ The function also returns an invisible list with components <code>basis</code>, 
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -18,7 +18,7 @@ bars are drawn vertically, otherwise horizontally."><meta property="og:image" co
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,48 +59,56 @@ bars are drawn vertically, otherwise horizontally.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">errorBars</span><span class="op">(</span><span class="va">x</span>, <span class="va">upper</span>, <span class="va">lower</span>, width <span class="op">=</span> <span class="fl">0.1</span>, code <span class="op">=</span> <span class="fl">3</span>, angle <span class="op">=</span> <span class="fl">90</span>, horizontal <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">errorBars</span><span class="op">(</span><span class="va">x</span>, <span class="va">upper</span>, <span class="va">lower</span>, width <span class="op">=</span> <span class="fl">0.1</span>, code <span class="op">=</span> <span class="fl">3</span>, angle <span class="op">=</span> <span class="fl">90</span>, horizontal <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A vector of values where the bars must be drawn.</p></dd>
-<dt>upper</dt>
+
+  <dt>upper</dt>
 <dd><p>A vector of upper values where the bars must end.</p></dd>
-<dt>lower</dt>
+
+  <dt>lower</dt>
 <dd><p>A vector of lower values where the bars must start.</p></dd>
-<dt>width</dt>
+
+  <dt>width</dt>
 <dd><p>A value specifying the width of the end-point segment.</p></dd>
-<dt>code</dt>
+
+  <dt>code</dt>
 <dd><p>An integer code specifying the kind of arrows to be drawn. For details see <code><a href="https://rdrr.io/r/graphics/arrows.html" class="external-link">arrows</a></code>.</p></dd>
-<dt>angle</dt>
+
+  <dt>angle</dt>
 <dd><p>A value specifying the angle at the arrow edge. For details see <code><a href="https://rdrr.io/r/graphics/arrows.html" class="external-link">arrows</a></code>.</p></dd>
-<dt>horizontal</dt>
+
+  <dt>horizontal</dt>
 <dd><p>A logical specifying if bars should be drawn vertically (default) or horizontally.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Further arguments are passed to <code><a href="https://rdrr.io/r/graphics/arrows.html" class="external-link">arrows</a></code>.</p></dd>
+
 </dl></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># Create a simple example dataset</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">12</span>, <span class="fl">6</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">se</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.2</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">.5</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># upper and lower bars</span></span>
-<span class="r-in"><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="va">n</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">errorBars</span><span class="op">(</span><span class="va">b</span>, lower <span class="op">=</span> <span class="va">n</span><span class="op">-</span><span class="va">se</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red3"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># one side bars</span></span>
-<span class="r-in"><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="va">n</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">errorBars</span><span class="op">(</span><span class="va">b</span>, lower <span class="op">=</span> <span class="va">n</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red3"</span>, code <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># </span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">n</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">errorBars</span><span class="op">(</span><span class="va">x</span>, lower <span class="op">=</span> <span class="va">n</span><span class="op">-</span><span class="va">se</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red3"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">#</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/dotchart.html" class="external-link">dotchart</a></span><span class="op">(</span><span class="va">n</span>, labels <span class="op">=</span> <span class="va">x</span>, pch <span class="op">=</span> <span class="fl">19</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">errorBars</span><span class="op">(</span><span class="va">x</span>, lower <span class="op">=</span> <span class="va">n</span><span class="op">-</span><span class="va">se</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, col <span class="op">=</span> <span class="st">"red3"</span>, horizontal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Create a simple example dataset</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">12</span>, <span class="fl">6</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">se</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.2</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">.5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># upper and lower bars</span></span></span>
+<span class="r-in"><span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="va">n</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">errorBars</span><span class="op">(</span><span class="va">b</span>, lower <span class="op">=</span> <span class="va">n</span><span class="op">-</span><span class="va">se</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red3"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># one side bars</span></span></span>
+<span class="r-in"><span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="va">n</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">errorBars</span><span class="op">(</span><span class="va">b</span>, lower <span class="op">=</span> <span class="va">n</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red3"</span>, code <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># </span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">n</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">errorBars</span><span class="op">(</span><span class="va">x</span>, lower <span class="op">=</span> <span class="va">n</span><span class="op">-</span><span class="va">se</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red3"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">#</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/dotchart.html" class="external-link">dotchart</a></span><span class="op">(</span><span class="va">n</span>, labels <span class="op">=</span> <span class="va">x</span>, pch <span class="op">=</span> <span class="fl">19</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">errorBars</span><span class="op">(</span><span class="va">x</span>, lower <span class="op">=</span> <span class="va">n</span><span class="op">-</span><span class="va">se</span>, upper <span class="op">=</span> <span class="va">n</span><span class="op">+</span><span class="va">se</span>, col <span class="op">=</span> <span class="st">"red3"</span>, horizontal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="errorBars-1.png" alt="" width="504" height="432"></span>
 </code></pre></div>
     </div>
@@ -116,7 +124,7 @@ bars are drawn vertically, otherwise horizontally.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

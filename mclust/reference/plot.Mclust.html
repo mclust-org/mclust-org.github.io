@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,17 +57,18 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for Mclust</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BIC"</span>, <span class="st">"classification"</span>, <span class="st">"uncertainty"</span>, <span class="st">"density"</span><span class="op">)</span>, 
-     dimens <span class="op">=</span> <span class="cn">NULL</span>, xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="cn">NULL</span>,
-     addEllipses <span class="op">=</span> <span class="cn">TRUE</span>, main <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for Mclust</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BIC"</span>, <span class="st">"classification"</span>, <span class="st">"uncertainty"</span>, <span class="st">"density"</span><span class="op">)</span>, </span>
+<span>     dimens <span class="op">=</span> <span class="cn">NULL</span>, xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>     addEllipses <span class="op">=</span> <span class="cn">TRUE</span>, main <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Output from <code>Mclust</code>.</p></dd>
-<dt>what</dt>
+
+ <dt>what</dt>
 <dd><p>A string specifying the type of graph requested. Available choices are:</p><dl><dt><code>"BIC"</code></dt>
 <dd><p>plot of BIC values used for choosing the number of clusters.</p></dd>
 
@@ -82,21 +83,27 @@
 
     
 </dl><p>If not specified, in interactive sessions a menu of choices is proposed.</p></dd>
+
 <dt>dimens</dt>
 <dd><p>A vector of integers specifying the dimensions of the coordinate projections
     in case of <code>"classification"</code>, <code>"uncertainty"</code>, or <code>"density"</code>
     plots.</p></dd>
-<dt>xlab, ylab</dt>
+
+ <dt>xlab, ylab</dt>
 <dd><p>Optional labels for the x-axis and the y-axis.</p></dd>
-<dt>addEllipses</dt>
+
+ <dt>addEllipses</dt>
 <dd><p>A logical indicating whether or not to add ellipses with axes 
     corresponding to the within-cluster covariances in case of 
     <code>"classification"</code> or <code>"uncertainty"</code> plots.</p></dd>
-<dt>main</dt>
+
+ <dt>main</dt>
 <dd><p>A logical or <code>NULL</code> indicating whether or not to add a title 
     to the plot identifying the type of plot drawn.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Other graphics parameters.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -118,28 +125,28 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">precipMclust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">precip</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">precipMclust</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">precipMclust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">precip</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">precipMclust</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.Mclust-1.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-2.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-3.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-4.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">faithfulMclust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithfulMclust</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">faithfulMclust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithfulMclust</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.Mclust-5.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-6.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-7.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-8.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">irisMclust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclust</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">irisMclust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclust</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.Mclust-9.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-10.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-11.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.Mclust-12.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -154,7 +161,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

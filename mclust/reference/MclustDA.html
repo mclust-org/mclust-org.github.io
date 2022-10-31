@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,38 +57,46 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">MclustDA</span><span class="op">(</span><span class="va">data</span>, <span class="va">class</span>, G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, 
-         modelType <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MclustDA"</span>, <span class="st">"EDDA"</span><span class="op">)</span>, 
-         prior <span class="op">=</span> <span class="cn">NULL</span>, 
-         control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, 
-         initialization <span class="op">=</span> <span class="cn">NULL</span>, 
-         warn <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"warn"</span><span class="op">)</span>, 
-         verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>,
-         <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">MclustDA</span><span class="op">(</span><span class="va">data</span>, <span class="va">class</span>, G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         modelType <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MclustDA"</span>, <span class="st">"EDDA"</span><span class="op">)</span>, </span>
+<span>         prior <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>         initialization <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         warn <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"warn"</span><span class="op">)</span>, </span>
+<span>         verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>         <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>A data frame or matrix giving the training data.</p></dd>
-<dt>class</dt>
+
+	
+  <dt>class</dt>
 <dd><p>A vector giving the known class labels (either a numerical value or 
 		a character string) for the observations in the training data.</p></dd>
-<dt>G</dt>
+
+    
+ <dt>G</dt>
 <dd><p>An integer vector specifying the numbers of mixture components
     (clusters) for which the BIC is to be calculated within each class. 
     The default is <code>G = 1:5</code>.<br>
     A different set of mixture components for each class can be specified
     by providing this argument with a list of integers for each class. 
     See the examples below.</p></dd>
-<dt>modelNames</dt>
+
+  
+  <dt>modelNames</dt>
 <dd><p>A vector of character strings indicating the models to be fitted 
     by EM within each class (see the description in 
     <code><a href="mclustModelNames.html">mclustModelNames</a></code>).
     A different set of mixture models for each class can be specified
     by providing this argument with a list of character strings.
     See the examples below.</p></dd>
-<dt>modelType</dt>
+
+   
+  <dt>modelType</dt>
 <dd><p>A character string specifying whether the models given in
     <code>modelNames</code> should fit a different number of mixture 
     components and covariance structures for each class 
@@ -96,14 +104,20 @@
     to have a single component for each class with the same covariance 
     structure among classes (<code>"EDDA"</code>).
     See Details section and the examples below.</p></dd>
-<dt>prior</dt>
+
+
+  <dt>prior</dt>
 <dd><p>The default assumes no prior, but this argument allows specification of a 
     conjugate prior on the means and variances through the function 
     <code><a href="priorControl.html">priorControl</a></code>.</p></dd>
-<dt>control</dt>
+
+  
+  <dt>control</dt>
 <dd><p>A list of control parameters for EM. The defaults are set by the call
     <code><a href="emControl.html">emControl()</a></code>.</p></dd>
-<dt>initialization</dt>
+
+  
+  <dt>initialization</dt>
 <dd><p>A list containing zero or more of the following components:</p><dl><dt><code>hcPairs</code></dt>
 <dd><p>A matrix of merge pairs for hierarchical clustering such as produced
     by function <code>hc</code>. The default is to compute a hierarchical
@@ -120,45 +134,73 @@
 
   
 </dl><p></p></dd>
-<dt>warn</dt>
+
+  
+  <dt>warn</dt>
 <dd><p>A logical value indicating whether or not certain warnings
     (usually related to singularity) should be issued when
     estimation fails. 
     The default is controlled by <code><a href="mclust.options.html">mclust.options</a></code>.</p></dd>
-<dt>verbose</dt>
+
+  <dt>verbose</dt>
 <dd><p>A logical controlling if a text progress bar is displayed during the
     fitting procedure. By default is <code>TRUE</code> if the session is 
     interactive, and <code>FALSE</code> otherwise.</p></dd>
-<dt>... </dt>
+  
+  <dt>... </dt>
 <dd><p>Further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of class <code>'MclustDA'</code> providing the optimal (according 
- to BIC) mixture model.
- The details of the output components are as follows:</p>
+    
+
+<p>An object of class <code>'MclustDA'</code> providing the optimal (according 
+ to BIC) mixture model.</p>
+ 
+
+<p>The details of the output components are as follows:</p>
 <dl><dt>call</dt>
 <dd><p>The matched call.</p></dd>
-<dt>data</dt>
+ 
+
+  <dt>data</dt>
 <dd><p>The input data matrix.</p></dd>
-<dt>class</dt>
+ 
+  
+  <dt>class</dt>
 <dd><p>The input class labels.</p></dd>
-<dt>type</dt>
+ 
+    
+  <dt>type</dt>
 <dd><p>A character string specifying the <code>modelType</code> estimated.</p></dd>
-<dt>models</dt>
+
+    
+  <dt>models</dt>
 <dd><p>A list of <code><a href="Mclust.html">Mclust</a></code> objects containing information
   on fitted model for each class.</p></dd>
-<dt>n</dt>
+ 
+    
+  <dt>n</dt>
 <dd><p>The total number of observations in the data.</p></dd>
-<dt>d</dt>
+
+
+  <dt>d</dt>
 <dd><p>The dimension of the data.</p></dd>
-</dl><p><!-- % \item{BIC}{All BIC values.} --></p>
+
+
+  </dl><p><!-- % \item{BIC}{All BIC values.} --></p>
 <dl><dt>bic</dt>
 <dd><p>Optimal BIC value.</p></dd>
-<dt>loglik</dt>
+
+    
+  <dt>loglik</dt>
 <dd><p>Log-likelihood for the selected model.</p></dd>
-<dt>df</dt>
+
+  
+  <dt>df</dt>
 <dd><p>Number of estimated parameters.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -185,16 +227,16 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span>
-<span class="r-in"><span class="va">X.train</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">Class.train</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">odd</span>,<span class="fl">5</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">X.test</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">Class.test</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">even</span>,<span class="fl">5</span><span class="op">]</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># common EEE covariance structure (which is essentially equivalent to linear discriminant analysis)</span></span>
-<span class="r-in"><span class="va">irisMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">X.train</span>, <span class="va">Class.train</span>, modelType <span class="op">=</span> <span class="st">"EDDA"</span>, modelNames <span class="op">=</span> <span class="st">"EEE"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">X.train</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">Class.train</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">odd</span>,<span class="fl">5</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">X.test</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">Class.test</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">even</span>,<span class="fl">5</span><span class="op">]</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># common EEE covariance structure (which is essentially equivalent to linear discriminant analysis)</span></span></span>
+<span class="r-in"><span><span class="va">irisMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">X.train</span>, <span class="va">Class.train</span>, modelType <span class="op">=</span> <span class="st">"EDDA"</span>, modelNames <span class="op">=</span> <span class="st">"EEE"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -272,7 +314,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          1        24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.0267 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0097 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -304,10 +346,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          2        23</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.04 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0243 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># common covariance structure selected by BIC</span></span>
-<span class="r-in"><span class="va">irisMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">X.train</span>, <span class="va">Class.train</span>, modelType <span class="op">=</span> <span class="st">"EDDA"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># common covariance structure selected by BIC</span></span></span>
+<span class="r-in"><span><span class="va">irisMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">X.train</span>, <span class="va">Class.train</span>, modelType <span class="op">=</span> <span class="st">"EDDA"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -385,7 +427,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          0        25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.0133 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0054 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -417,10 +459,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          2        23</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.04 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0297 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># general covariance structure selected by BIC</span></span>
-<span class="r-in"><span class="va">irisMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">X.train</span>, <span class="va">Class.train</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># general covariance structure selected by BIC</span></span></span>
+<span class="r-in"><span><span class="va">irisMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">X.train</span>, <span class="va">Class.train</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -516,7 +558,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          0        25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0041 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -548,66 +590,66 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   virginica       0          1        24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.0267 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0159 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-1.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-2.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-3.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-4.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-5.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-6.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-7.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-8.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-9.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-10.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-11.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="MclustDA-12.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-13.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">X.test</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">X.test</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-14.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-15.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-16.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-17.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fl">4</span>, newdata <span class="op">=</span> <span class="va">X.test</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fl">4</span>, newdata <span class="op">=</span> <span class="va">X.test</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-18.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">X.test</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">X.test</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-19.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-20.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-21.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-22.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-23.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-24.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-25.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span>, dimens <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-26.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">irisMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">X.test</span>, newclass <span class="op">=</span> <span class="va">Class.test</span>, dimens <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-27.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># simulated 1D data</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">250</span> </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">triModal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="op">-</span><span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">triClass</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">triModal</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span>
-<span class="r-in"><span class="va">triMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">triModal</span><span class="op">[</span><span class="va">odd</span><span class="op">]</span>, <span class="va">triClass</span><span class="op">[</span><span class="va">odd</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">triMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># simulated 1D data</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">250</span> </span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">triModal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="op">-</span><span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">triClass</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="va">n</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">triModal</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">triMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">triModal</span><span class="op">[</span><span class="va">odd</span><span class="op">]</span>, <span class="va">triClass</span><span class="op">[</span><span class="va">odd</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">triMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -664,7 +706,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     3   0   0 125</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.0053 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0073 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">triMclustDA</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">triClass</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">triMclustDA</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">triClass</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -696,25 +738,25 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     3   0   1 124</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.0133 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0089 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-28.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-29.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-30.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-31.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-32.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">triClass</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">triMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span> <span class="va">triModal</span><span class="op">[</span><span class="va">even</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">triClass</span><span class="op">[</span><span class="va">even</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-33.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># simulated 2D cross data</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span>
-<span class="r-in"><span class="va">crossMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, <span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># simulated 2D cross data</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">crossMclustDA</span> <span class="op">&lt;-</span> <span class="fu">MclustDA</span><span class="op">(</span><span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, <span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -769,7 +811,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     2  13 112</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.104 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0563 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, newdata <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, newdata <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------ </span>
@@ -798,19 +840,19 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     2   5 120</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Classification error = 0.048 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Brier score          = 0.0298 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-34.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-35.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"classification"</span>, newdata <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-36.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"train&amp;test"</span>, newdata <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-37.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-38.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span><span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">crossMclustDA</span>, what <span class="op">=</span> <span class="st">"error"</span>, newdata <span class="op">=</span><span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, newclass <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustDA-39.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -825,7 +867,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">hclass</span><span class="op">(</span><span class="va">hcPairs</span>, <span class="va">G</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hclass</span><span class="op">(</span><span class="va">hcPairs</span>, <span class="va">G</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -68,13 +68,17 @@
 <dd><p>A numeric two-column matrix in which the <em>i</em>th row gives the minimum 
     index for observations in each of the two clusters merged at the
     <em>i</em>th stage of agglomerative hierarchical clustering.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>An integer or vector of integers giving the number of clusters for which
     the corresponding classfications are wanted.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A matrix with <code>length(G)</code> columns, each column 
+    
+
+<p>A matrix with <code>length(G)</code> columns, each column 
   corresponding to a classification. Columns are indexed by the character
   representation of the integers in <code>G</code>.</p>
     </div>
@@ -86,16 +90,16 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">hcTree</span> <span class="op">&lt;-</span> <span class="fu"><a href="hc.html">hc</a></span><span class="op">(</span>modelName<span class="op">=</span><span class="st">"VVV"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">cl</span> <span class="op">&lt;-</span> <span class="fu">hclass</span><span class="op">(</span><span class="va">hcTree</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty <span class="op">=</span> <span class="st">"s"</span>, mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>,cl<span class="op">=</span><span class="va">cl</span><span class="op">[</span>,<span class="st">"2"</span><span class="op">]</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">hcTree</span> <span class="op">&lt;-</span> <span class="fu"><a href="hc.html">hc</a></span><span class="op">(</span>modelName<span class="op">=</span><span class="st">"VVV"</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cl</span> <span class="op">&lt;-</span> <span class="fu">hclass</span><span class="op">(</span><span class="va">hcTree</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty <span class="op">=</span> <span class="st">"s"</span>, mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>,cl<span class="op">=</span><span class="va">cl</span><span class="op">[</span>,<span class="st">"2"</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="hclass-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>,cl<span class="op">=</span><span class="va">cl</span><span class="op">[</span>,<span class="st">"3"</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>,cl<span class="op">=</span><span class="va">cl</span><span class="op">[</span>,<span class="st">"3"</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="hclass-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -110,7 +114,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

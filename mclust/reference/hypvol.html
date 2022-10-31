@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">hypvol</span><span class="op">(</span><span class="va">data</span>, reciprocal<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hypvol</span><span class="op">(</span><span class="va">data</span>, reciprocal<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -68,17 +68,24 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>reciprocal</dt>
+
+  <dt>reciprocal</dt>
 <dd><p>A logical variable indicating whether or not the reciprocal
     hypervolume is desired rather than the hypervolume itself. The
     default is to return the hypervolume.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Returns the minimum of the hypervolume computed from simple variable bounds
+    
+
+<p>Returns the minimum of the hypervolume computed from simple variable bounds
   and that computed from variable bounds of the principal component scores.
   Used for the default hypervolume parameter for the noise 
-  component when observations are designated as noise in  <code>Mclust</code>  and <code>mclustBIC</code>.</p>
+  component when observations are designated as noise in  <code>Mclust</code></p>
+
+
+<p>and <code>mclustBIC</code>.</p>
     </div>
     <div id="references">
     <h2>References</h2>
@@ -99,7 +106,7 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">hypvol</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">hypvol</span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 27.2412</span>
 </code></pre></div>
     </div>
@@ -115,7 +122,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

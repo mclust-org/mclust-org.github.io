@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dens</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">parameters</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dens</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">parameters</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -66,10 +66,12 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>modelName</dt>
+
+  <dt>modelName</dt>
 <dd><p>A character string indicating the model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>parameters</dt>
+
+  <dt>parameters</dt>
 <dd><p>The parameters of the model:</p><dl><dt><code>pro</code></dt>
 <dd><p>The vector of mixing proportions for the components of the mixture.</p></dd>
 
@@ -87,20 +89,27 @@
  
      
 </dl><p></p></dd>
-<dt>logarithm</dt>
+
+  <dt>logarithm</dt>
 <dd><p>A logical value indicating whether or not the logarithm of the component 
       densities should be returned. The default is to return the component 
       densities, obtained from the log component densities by exponentiation.</p></dd>
-<dt>warn</dt>
+
+  <dt>warn</dt>
 <dd><p>A logical value indicating whether or not a warning should be issued
     when computations fail. The default is <code>warn=FALSE</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric vector whose <em>i</em>th component is the density of the
-<em>ith</em> observation in <code>data</code> in the MVN mixture specified 
+    
+
+<p>A numeric vector whose <em>i</em>th component is the density of the</p>
+<p></p>
+<p><em>ith</em> observation in <code>data</code> in the MVN mixture specified 
   by <code>parameters</code>.</p>
     </div>
     <div id="see-also">
@@ -112,11 +121,11 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">faithfulModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">Dens</span> <span class="op">&lt;-</span> <span class="fu">dens</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">faithfulModel</span><span class="op">$</span><span class="va">modelName</span>, data <span class="op">=</span> <span class="va">faithful</span>,</span>
-<span class="r-in">             parameters <span class="op">=</span> <span class="va">faithfulModel</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">Dens</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">faithfulModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Dens</span> <span class="op">&lt;-</span> <span class="fu">dens</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">faithfulModel</span><span class="op">$</span><span class="va">modelName</span>, data <span class="op">=</span> <span class="va">faithful</span>,</span></span>
+<span class="r-in"><span>             parameters <span class="op">=</span> <span class="va">faithfulModel</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Dens</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            1            2            3            4            5            6 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.0122707769 0.0250791544 0.0043706519 0.0138530357 0.0382956210 0.0002669332 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            7            8            9           10           11           12 </span>
@@ -209,9 +218,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.0047576298 0.0205470761 0.0113825738 0.0292875446 0.0085827041 0.0117658465 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          271          272 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.0117107647 0.0232041075 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## alternative call</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"dens"</span>, <span class="va">faithfulModel</span><span class="op">)</span><span class="co"># }</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## alternative call</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"dens"</span>, <span class="va">faithfulModel</span><span class="op">)</span><span class="co"># }</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            1            2            3            4            5            6 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.0122707769 0.0250791544 0.0043706519 0.0138530357 0.0382956210 0.0002669332 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            7            8            9           10           11           12 </span>
@@ -318,7 +327,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

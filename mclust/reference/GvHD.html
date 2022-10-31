@@ -18,7 +18,7 @@ A treatment of this data by combining mixtures is proposed in Baudry et al. (201
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@ A treatment of this data by combining mixtures is proposed in Baudry et al. (201
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">GvHD</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">GvHD</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="format">
@@ -100,33 +100,33 @@ A treatment of this data by combining mixtures is proposed in Baudry et al. (201
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">GvHD</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">GvHD.pos</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span>,<span class="op">]</span> <span class="co"># only a few lines for a quick example</span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">output</span> <span class="co"># is of class clustCombi</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">GvHD</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">GvHD.pos</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span>,<span class="op">]</span> <span class="co"># only a few lines for a quick example</span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="co"># is of class clustCombi</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 'clustCombi' object:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mclust model: (VEV,6)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Available object components: classification combiM combiz MclustOutput </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Combining matrix (K+1 classes -&gt; K classes): &lt;object_name&gt;$combiM[[K]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Classification for K classes: &lt;object_name&gt;$classification[[K]]</span>
-<span class="r-in"><span class="co"># plot the hierarchy of combined solutions</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="co"># plot the hierarchy of combined solutions</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="GvHD-1.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="GvHD-2.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="GvHD-3.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="GvHD-4.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="GvHD-5.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="GvHD-6.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># plot some "entropy plots" which may help one to select the number of classes</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"entropy"</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="co"># plot some "entropy plots" which may help one to select the number of classes</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"entropy"</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="GvHD-7.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="GvHD-8.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># plot the tree structure obtained from combining mixture components</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"tree"</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="co"># plot the tree structure obtained from combining mixture components</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"tree"</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="GvHD-9.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -141,7 +141,7 @@ A treatment of this data by combining mixtures is proposed in Baudry et al. (201
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

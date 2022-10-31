@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,33 +57,40 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">gmmhd</span><span class="op">(</span><span class="va">object</span>, 
-      ngrid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span>, 
-      dr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">3</span>, lambda <span class="op">=</span> <span class="fl">1</span>, cumEvalues <span class="op">=</span> <span class="cn">NULL</span>, mindir <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
-      classify <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, 
-                      modelNames <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"emModelNames"</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>,
-      <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for gmmhd</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mode"</span>, <span class="st">"cores"</span>, <span class="st">"clusters"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">gmmhd</span><span class="op">(</span><span class="va">object</span>, </span>
+<span>      ngrid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>      dr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">3</span>, lambda <span class="op">=</span> <span class="fl">1</span>, cumEvalues <span class="op">=</span> <span class="cn">NULL</span>, mindir <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>      classify <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, </span>
+<span>                      modelNames <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"emModelNames"</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>      <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for gmmhd</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mode"</span>, <span class="st">"cores"</span>, <span class="st">"clusters"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>An object returned by <code><a href="Mclust.html">Mclust</a></code>.</p></dd>
-<dt>ngrid</dt>
+
+  <dt>ngrid</dt>
 <dd><p>An integer specifying the number of grid points used to compute the density levels.</p></dd>
-<dt>dr</dt>
+
+  <dt>dr</dt>
 <dd><p>A list of parameters used in the dimension reduction step.</p></dd>
-<dt>classify</dt>
+
+  <dt>classify</dt>
 <dd><p>A list of parameters used in the classification step.</p></dd>
-<dt>x</dt>
+
+  <dt>x</dt>
 <dd><p>An object of class <code>'gmmhd'</code> as returned by the function <code>gmmhd</code>.</p></dd>
-<dt>what</dt>
+
+  <dt>what</dt>
 <dd><p>A string specifying the type of plot to be produced. See Examples section.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -96,33 +103,48 @@ Once cluster cores are identified, the remaining observations are allocated to t
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list of class <code>gmmhd</code> with the following components:</p>
+    
+
+<p>A list of class <code>gmmhd</code> with the following components:</p>
 <dl><dt>Mclust</dt>
 <dd><p>The input object of class <code>"Mclust"</code> representing an estimated Gaussian finite mixture model.</p></dd>
+
 <dt>MclustDA</dt>
 <dd><p>An object of class <code>"MclustDA"</code> containing the model used for the classification step.</p></dd>
+
 <dt>MclustDR</dt>
 <dd><p>An object of class <code>"MclustDR"</code> containing the dimension reduction step if performed, otherwise <code>NULL</code>.</p></dd>
+
 <dt>x</dt>
 <dd><p>The data used in the algorithm. This can be the input data or a projection if a preliminary dimension reduction step is performed.</p></dd>
+
 <dt>density</dt>
 <dd><p>The density estimated from the input Gaussian finite mixture model evaluated at the input data.</p></dd>
+
 <dt>con</dt>
 <dd><p>A list of connected components at each step.</p></dd>
+
 <dt>nc</dt>
 <dd><p>A vector giving the number of connected components (i.e. modes) at each step.</p></dd>
+
 <dt>pn</dt>
 <dd><p>Vector of values over a uniform grid of proportions of length <code>ngrid</code>.</p></dd>
+
 <dt>qn</dt>
 <dd><p>Vector of density quantiles corresponding to proportions <code>pn</code>.</p></dd>
+
 <dt>pc</dt>
 <dd><p>Vector of empirical proportions corresponding to quantiles <code>qn</code>.</p></dd>
+
 <dt>clusterCores</dt>
 <dd><p>Vector of cluster cores numerical labels; <code>NA</code>s indicate that an observation does not belong to any cluster core.</p></dd>
+
 <dt>clusterCores</dt>
 <dd><p>Vector of numerical labels giving the final clustering.</p></dd>
+
 <dt>numClusters</dt>
 <dd><p>An integer giving the number of clusters.</p></dd>
+
 </dl></div>
     <div id="references">
     <h2>References</h2>
@@ -139,10 +161,10 @@ Once cluster cores are identified, the remaining observations are allocated to t
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model fitted by EM algorithm </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
@@ -156,13 +178,13 @@ Once cluster cores are identified, the remaining observations are allocated to t
 <span class="r-out co"><span class="r-pr">#&gt;</span> Clustering table:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2   3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  40  97 135 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclust-internal.html">as.densityMclust</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>, <span class="va">faithful</span>, what <span class="op">=</span> <span class="st">"density"</span>, </span>
-<span class="r-in">     points.pch <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotSymbols"</span><span class="op">)</span><span class="op">[</span><span class="va">mod</span><span class="op">$</span><span class="va">classification</span><span class="op">]</span>, </span>
-<span class="r-in">     points.col <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">[</span><span class="va">mod</span><span class="op">$</span><span class="va">classification</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclust-internal.html">as.densityMclust</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>, <span class="va">faithful</span>, what <span class="op">=</span> <span class="st">"density"</span>, </span></span>
+<span class="r-in"><span>     points.pch <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotSymbols"</span><span class="op">)</span><span class="op">[</span><span class="va">mod</span><span class="op">$</span><span class="va">classification</span><span class="op">]</span>, </span></span>
+<span class="r-in"><span>     points.col <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">[</span><span class="va">mod</span><span class="op">$</span><span class="va">classification</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="gmmhd-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">GMMHD</span> <span class="op">&lt;-</span> <span class="fu">gmmhd</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">GMMHD</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">GMMHD</span> <span class="op">&lt;-</span> <span class="fu">gmmhd</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">GMMHD</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GMM with high-density connected components for clustering </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------</span>
@@ -176,14 +198,14 @@ Once cluster cores are identified, the remaining observations are allocated to t
 <span class="r-out co"><span class="r-pr">#&gt;</span> Final clustering:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 178  94 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">GMMHD</span>, what <span class="op">=</span> <span class="st">"mode"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">GMMHD</span>, what <span class="op">=</span> <span class="st">"mode"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="gmmhd-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">GMMHD</span>, what <span class="op">=</span> <span class="st">"cores"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">GMMHD</span>, what <span class="op">=</span> <span class="st">"cores"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="gmmhd-3.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">GMMHD</span>, what <span class="op">=</span> <span class="st">"clusters"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">GMMHD</span>, what <span class="op">=</span> <span class="st">"clusters"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="gmmhd-4.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -198,7 +220,7 @@ Once cluster cores are identified, the remaining observations are allocated to t
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

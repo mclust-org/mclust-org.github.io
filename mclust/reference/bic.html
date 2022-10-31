@@ -19,7 +19,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -61,7 +61,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">bic</span><span class="op">(</span><span class="va">modelName</span>, <span class="va">loglik</span>, <span class="va">n</span>, <span class="va">d</span>, <span class="va">G</span>, noise<span class="op">=</span><span class="cn">FALSE</span>, equalPro<span class="op">=</span><span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bic</span><span class="op">(</span><span class="va">modelName</span>, <span class="va">loglik</span>, <span class="va">n</span>, <span class="va">d</span>, <span class="va">G</span>, noise<span class="op">=</span><span class="cn">FALSE</span>, equalPro<span class="op">=</span><span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -69,30 +69,40 @@
     <dl><dt>modelName</dt>
 <dd><p>A character string indicating the model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>loglik</dt>
+
+  <dt>loglik</dt>
 <dd><p>The log-likelihood for a data set with respect to the Gaussian mixture model
     specified in the <code>modelName</code> argument.</p></dd>
-<dt>n</dt>
+
+  <dt>n</dt>
 <dd><p>The number of observations in the data used to compute <code>loglik</code>.</p></dd>
-<dt>d</dt>
+
+  <dt>d</dt>
 <dd><p>The dimension of the data used to compute <code>loglik</code>.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>The number of components in the Gaussian mixture model used to compute
     <code>loglik</code>.</p></dd>
-<dt>noise</dt>
+
+ <dt>noise</dt>
 <dd><p>A logical variable indicating whether or not the model includes an
    optional Poisson noise component. The default is to assume no noise
    component.</p></dd>
-<dt>equalPro</dt>
+
+ <dt>equalPro</dt>
 <dd><p>A logical variable indicating whether or not the components in the
     model are assumed to be present in equal proportion. The default is
     to assume unequal mixing proportions.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Catches unused arguments in an indirect or list call via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The BIC or Bayesian Information Criterion for the given input arguments.</p>
+    
+
+<p>The BIC or Bayesian Information Criterion for the given input arguments.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -103,24 +113,24 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span></span>
-<span class="r-in"><span class="va">G</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">emEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="me.html">me</a></span><span class="op">(</span>modelName<span class="op">=</span><span class="st">"VVI"</span>, data<span class="op">=</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">emEst</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">G</span> <span class="op">&lt;-</span> <span class="fl">3</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">emEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="me.html">me</a></span><span class="op">(</span>modelName<span class="op">=</span><span class="st">"VVI"</span>, data<span class="op">=</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">emEst</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "modelName"  "prior"      "n"          "d"          "G"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "z"          "parameters" "control"    "loglik"    </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/args.html" class="external-link">args</a></span><span class="op">(</span><span class="va">bic</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/args.html" class="external-link">args</a></span><span class="op">(</span><span class="va">bic</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> function (modelName, loglik, n, d, G, noise = FALSE, equalPro = FALSE, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     ...) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-in"><span class="fu">bic</span><span class="op">(</span>modelName<span class="op">=</span><span class="st">"VVI"</span>, loglik<span class="op">=</span><span class="va">emEst</span><span class="op">$</span><span class="va">loglik</span>, n<span class="op">=</span><span class="va">n</span>, d<span class="op">=</span><span class="va">d</span>, G<span class="op">=</span><span class="va">G</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">bic</span><span class="op">(</span>modelName<span class="op">=</span><span class="st">"VVI"</span>, loglik<span class="op">=</span><span class="va">emEst</span><span class="op">$</span><span class="va">loglik</span>, n<span class="op">=</span><span class="va">n</span>, d<span class="op">=</span><span class="va">d</span>, G<span class="op">=</span><span class="va">G</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -744.0273</span>
-<span class="r-in"><span class="co"># do.call("bic", emEst)    ## alternative call</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># do.call("bic", emEst)    ## alternative call</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -135,7 +145,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

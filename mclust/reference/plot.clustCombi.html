@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,22 +57,27 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for clustCombi</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"classification"</span>, <span class="st">"entropy"</span>, <span class="st">"tree"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for clustCombi</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"classification"</span>, <span class="st">"entropy"</span>, <span class="st">"tree"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Object returned by <code><a href="clustCombi.html">clustCombi</a></code> function.</p></dd>
-<dt>what</dt>
+
+  <dt>what</dt>
 <dd><p>Type of plot.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Other arguments to be passed to other functions: <code><a href="combiPlot.html">combiPlot</a></code>, <code><a href="entPlot.html">entPlot</a></code>, <code><a href="combiTree.html">combiTree</a></code>. Please see the corresponding documentations.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Classifications are plotted with <code><a href="combiPlot.html">combiPlot</a></code>, which relies on the <code>Mclust</code> plot functions. 
+    
+
+<p>Classifications are plotted with <code><a href="combiPlot.html">combiPlot</a></code>, which relies on the <code>Mclust</code> plot functions. 
 Entropy plots are plotted with <code><a href="entPlot.html">entPlot</a></code> and may help to select a number of classes: please see the article cited in the references.
 Tree plots are produced by <code><a href="combiTree.html">combiTree</a></code> and graph the tree structure implied by the clusters combining  process.</p>
     </div>
@@ -91,16 +96,16 @@ Tree plots are produced by <code><a href="combiTree.html">combiTree</a></code> a
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Baudry_etal_2010_JCGS_examples</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## 1D Example </span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">Test1D</span>, G<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># plots the hierarchy of combined solutions, then some "entropy plots" which </span></span>
-<span class="r-in"><span class="co"># may help one to select the number of classes (please see the article cited </span></span>
-<span class="r-in"><span class="co"># in the references)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span> </span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Baudry_etal_2010_JCGS_examples</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## 1D Example </span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">Test1D</span>, G<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># plots the hierarchy of combined solutions, then some "entropy plots" which </span></span></span>
+<span class="r-in"><span><span class="co"># may help one to select the number of classes (please see the article cited </span></span></span>
+<span class="r-in"><span><span class="co"># in the references)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="plot.clustCombi-1.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-2.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-3.png" alt="" width="504" height="432"></span>
@@ -114,14 +119,14 @@ Tree plots are produced by <code><a href="combiTree.html">combiTree</a></code> a
 <span class="r-plt img"><img src="plot.clustCombi-11.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-12.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-13.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## 2D Example </span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span><span class="op">)</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># plots the hierarchy of combined solutions, then some "entropy plots" which </span></span>
-<span class="r-in"><span class="co"># may help one to select the number of classes (please see the article cited </span></span>
-<span class="r-in"><span class="co"># in the references)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## 2D Example </span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span><span class="op">)</span> </span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># plots the hierarchy of combined solutions, then some "entropy plots" which </span></span></span>
+<span class="r-in"><span><span class="co"># may help one to select the number of classes (please see the article cited </span></span></span>
+<span class="r-in"><span><span class="co"># in the references)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="plot.clustCombi-14.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-15.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-16.png" alt="" width="504" height="432"></span>
@@ -131,22 +136,22 @@ Tree plots are produced by <code><a href="combiTree.html">combiTree</a></code> a
 <span class="r-plt img"><img src="plot.clustCombi-20.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-21.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-22.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## 3D Example </span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.4.2</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># plots the hierarchy of combined solutions, then some "entropy plots" which </span></span>
-<span class="r-in"><span class="co"># may help one to select the number of classes (please see the article cited </span></span>
-<span class="r-in"><span class="co"># in the references)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## 3D Example </span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.4.2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># plots the hierarchy of combined solutions, then some "entropy plots" which </span></span></span>
+<span class="r-in"><span><span class="co"># may help one to select the number of classes (please see the article cited </span></span></span>
+<span class="r-in"><span><span class="co"># in the references)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.clustCombi-23.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-24.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-25.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-26.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-27.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="plot.clustCombi-28.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -161,7 +166,7 @@ Tree plots are produced by <code><a href="combiTree.html">combiTree</a></code> a
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

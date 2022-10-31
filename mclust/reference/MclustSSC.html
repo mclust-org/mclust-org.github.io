@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,77 +57,112 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">MclustSSC</span><span class="op">(</span><span class="va">data</span>, <span class="va">class</span>, 
-          G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, 
-          prior <span class="op">=</span> <span class="cn">NULL</span>, control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, 
-          warn <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"warn"</span><span class="op">)</span>, 
-          verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>,
-          <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">MclustSSC</span><span class="op">(</span><span class="va">data</span>, <span class="va">class</span>, </span>
+<span>          G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>          prior <span class="op">=</span> <span class="cn">NULL</span>, control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>          warn <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"warn"</span><span class="op">)</span>, </span>
+<span>          verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>          <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>A data frame or matrix giving the training data.</p></dd>
-<dt>class</dt>
+
+  <dt>class</dt>
 <dd><p>A vector giving the known class labels (either a numerical value or 
     a character string) for the observations in the training data. 
     Observations with unknown class are encoded as <code>NA</code>.</p></dd>
-<dt>G</dt>
+
+ <dt>G</dt>
 <dd><p>An integer value specifying the numbers of mixture components or classes. 
     By default is set equal to the number of known classes.
     See the examples below.</p></dd>
-<dt>modelNames</dt>
+
+  <dt>modelNames</dt>
 <dd><p>A vector of character strings indicating the models to be fitted 
     by EM (see the description in <code><a href="mclustModelNames.html">mclustModelNames</a></code>).
     See the examples below.</p></dd>
-<dt>prior</dt>
+
+  <dt>prior</dt>
 <dd><p>The default assumes no prior, but this argument allows specification of a 
     conjugate prior on the means and variances through the function 
     <code><a href="priorControl.html">priorControl</a></code>.</p></dd>
-<dt>control</dt>
+
+  <dt>control</dt>
 <dd><p>A list of control parameters for EM. The defaults are set by the call
     <code><a href="emControl.html">emControl()</a></code>.</p></dd>
-<dt>warn</dt>
+
+  <dt>warn</dt>
 <dd><p>A logical value indicating whether or not certain warnings
     (usually related to singularity) should be issued when
     estimation fails. 
     The default is controlled by <code><a href="mclust.options.html">mclust.options</a></code>.</p></dd>
-<dt>verbose</dt>
+
+  <dt>verbose</dt>
 <dd><p>A logical controlling if a text progress bar is displayed during the
     fitting procedure. By default is <code>TRUE</code> if the session is 
     interactive, and <code>FALSE</code> otherwise.</p></dd>
-<dt>... </dt>
+  
+  <dt>... </dt>
 <dd><p>Further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of class <code>'MclustSSC'</code> providing the optimal (according 
- to BIC) Gaussian mixture model for semi-supervised classification.
- The details of the output components are as follows:</p>
+    
+
+<p>An object of class <code>'MclustSSC'</code> providing the optimal (according 
+ to BIC) Gaussian mixture model for semi-supervised classification.</p>
+ 
+
+<p>The details of the output components are as follows:</p>
 <dl><dt>call</dt>
 <dd><p>The matched call.</p></dd>
-<dt>data</dt>
+ 
+
+  <dt>data</dt>
 <dd><p>The input data matrix.</p></dd>
-<dt>class</dt>
+ 
+  
+  <dt>class</dt>
 <dd><p>The input class labels (including <code>NA</code>s for unknown labels.</p></dd>
-<dt>modelName</dt>
+ 
+    
+  <dt>modelName</dt>
 <dd><p>A character string specifying the "best" estimated model.</p></dd>
-<dt>G</dt>
+
+    
+  <dt>G</dt>
 <dd><p>A numerical value specifying the number of mixture components or classes of the "best" estimated model.</p></dd>
-<dt>n</dt>
+ 
+    
+  <dt>n</dt>
 <dd><p>The total number of observations in the data.</p></dd>
-<dt>d</dt>
+
+
+  <dt>d</dt>
 <dd><p>The dimension of the data.</p></dd>
-<dt>BIC</dt>
+
+
+  <dt>BIC</dt>
 <dd><p>All BIC values.</p></dd>
-<dt>loglik</dt>
+
+
+  <dt>loglik</dt>
 <dd><p>Log-likelihood for the selected model.</p></dd>
-<dt>df</dt>
+
+  
+  <dt>df</dt>
 <dd><p>Number of estimated parameters.</p></dd>
-<dt>bic</dt>
+
+
+  <dt>bic</dt>
 <dd><p>Optimal BIC value.</p></dd>
-<dt>parameters</dt>
+
+  
+  <dt>parameters</dt>
 <dd><p>A list with the following components:</p><dl><dt><code>pro</code></dt>
 <dd><p>A vector whose <em>k</em>th component is the mixing proportion for
         the <em>k</em>th component of the mixture model.</p></dd>
@@ -144,15 +179,23 @@
 
     
 </dl><p></p></dd>
-<dt>z</dt>
+
+  
+  <dt>z</dt>
 <dd><p>A matrix whose <em>[i,k]</em>th entry is the probability that observation
   <em>i</em> in the test data belongs to the <em>k</em>th class.</p></dd>
-<dt>classification</dt>
+
+  
+  <dt>classification</dt>
 <dd><p>The classification corresponding to <code>z</code>, i.e. <code>map(z)</code>.</p></dd>
-<dt>prior</dt>
+
+  
+  <dt>prior</dt>
 <dd><p>The prior used (if any).</p></dd>
-<dt>control</dt>
+
+  <dt>control</dt>
 <dd><p>A list of control parameters used in the EM algorithm.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -175,32 +218,32 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Simulate two overlapping groups</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">200</span></span>
-<span class="r-in"><span class="va">pars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pro <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span class="r-in">             mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
-<span class="r-in">             variance <span class="op">=</span> <span class="fu"><a href="mclustVariance.html">mclustVariance</a></span><span class="op">(</span><span class="st">"EII"</span>, d <span class="op">=</span> <span class="fl">2</span>, G <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pars</span><span class="op">$</span><span class="va">variance</span><span class="op">$</span><span class="va">sigmasq</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
-<span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="sim.html">sim</a></span><span class="op">(</span><span class="st">"EII"</span>, parameters <span class="op">=</span> <span class="va">pars</span>, n <span class="op">=</span> <span class="va">n</span>, seed <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">class</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span></span>
-<span class="r-in"><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">class</span>, symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Full classified data"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Simulate two overlapping groups</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">200</span></span></span>
+<span class="r-in"><span><span class="va">pars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pro <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>             mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>             variance <span class="op">=</span> <span class="fu"><a href="mclustVariance.html">mclustVariance</a></span><span class="op">(</span><span class="st">"EII"</span>, d <span class="op">=</span> <span class="fl">2</span>, G <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pars</span><span class="op">$</span><span class="va">variance</span><span class="op">$</span><span class="va">sigmasq</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="sim.html">sim</a></span><span class="op">(</span><span class="st">"EII"</span>, parameters <span class="op">=</span> <span class="va">pars</span>, n <span class="op">=</span> <span class="va">n</span>, seed <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">class</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">class</span>, symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Full classified data"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustSSC-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Randomly remove labels</span></span>
-<span class="r-in"><span class="va">cl</span> <span class="op">&lt;-</span> <span class="va">class</span>; <span class="va">cl</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span>, size <span class="op">=</span> <span class="fl">195</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">cl</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Randomly remove labels</span></span></span>
+<span class="r-in"><span><span class="va">cl</span> <span class="op">&lt;-</span> <span class="va">class</span>; <span class="va">cl</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span>, size <span class="op">=</span> <span class="fl">195</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">cl</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> cl</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1    2 &lt;NA&gt; </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3    2  195 </span>
-<span class="r-in"><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">X</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">class</span><span class="op">)</span>,</span>
-<span class="r-in">        symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">16</span>, <span class="fl">17</span><span class="op">)</span>, colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grey"</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span class="r-in">        main <span class="op">=</span> <span class="st">"Partially classified data"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">X</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">class</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">16</span>, <span class="fl">17</span><span class="op">)</span>, colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grey"</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        main <span class="op">=</span> <span class="st">"Partially classified data"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustSSC-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Fit semi-supervised classification model</span></span>
-<span class="r-in"><span class="va">mod_SSC</span>  <span class="op">&lt;-</span> <span class="fu">MclustSSC</span><span class="op">(</span><span class="va">X</span>, <span class="va">cl</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod_SSC</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Fit semi-supervised classification model</span></span></span>
+<span class="r-in"><span><span class="va">mod_SSC</span>  <span class="op">&lt;-</span> <span class="fu">MclustSSC</span><span class="op">(</span><span class="va">X</span>, <span class="va">cl</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod_SSC</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model for semi-supervised classification </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------- </span>
@@ -238,25 +281,25 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1     3  0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2     0  2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;NA&gt; 99 96</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">pred_SSC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mod_SSC</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span>Predicted <span class="op">=</span> <span class="va">pred_SSC</span><span class="op">$</span><span class="va">classification</span>, Actual <span class="op">=</span> <span class="va">class</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">pred_SSC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mod_SSC</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span>Predicted <span class="op">=</span> <span class="va">pred_SSC</span><span class="op">$</span><span class="va">classification</span>, Actual <span class="op">=</span> <span class="va">class</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          Actual</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Predicted  1  2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         1 91 10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         2  9 90</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">ngrid</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
-<span class="r-in"><span class="va">xgrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span>, length.out <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ygrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>, <span class="fl">4.5</span>, length.out <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">xygrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span><span class="va">xgrid</span>, <span class="va">ygrid</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pred_SSC</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mod_SSC</span>, newdata <span class="op">=</span> <span class="va">xygrid</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">col</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">[</span><span class="va">class</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">pch</span> <span class="op">&lt;-</span> <span class="va">class</span></span>
-<span class="r-in"><span class="va">pch</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">cl</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span><span class="op">]</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fl">19</span>, <span class="fl">17</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">X</span>, pch <span class="op">=</span> <span class="va">pch</span>, col <span class="op">=</span> <span class="va">col</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html" class="external-link">contour</a></span><span class="op">(</span><span class="va">xgrid</span>, <span class="va">ygrid</span>, <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="va">pred_SSC</span><span class="op">$</span><span class="va">z</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, <span class="va">ngrid</span>, <span class="va">ngrid</span><span class="op">)</span>, </span>
-<span class="r-in">        add <span class="op">=</span> <span class="cn">TRUE</span>, levels <span class="op">=</span> <span class="fl">0.5</span>, drawlabels <span class="op">=</span> <span class="cn">FALSE</span>, lty <span class="op">=</span> <span class="fl">2</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">ngrid</span> <span class="op">&lt;-</span> <span class="fl">50</span></span></span>
+<span class="r-in"><span><span class="va">xgrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span>, length.out <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ygrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>, <span class="fl">4.5</span>, length.out <span class="op">=</span> <span class="va">ngrid</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">xygrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span><span class="va">xgrid</span>, <span class="va">ygrid</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pred_SSC</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mod_SSC</span>, newdata <span class="op">=</span> <span class="va">xygrid</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">col</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">[</span><span class="va">class</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">pch</span> <span class="op">&lt;-</span> <span class="va">class</span></span></span>
+<span class="r-in"><span><span class="va">pch</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">cl</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span><span class="op">]</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fl">19</span>, <span class="fl">17</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">X</span>, pch <span class="op">=</span> <span class="va">pch</span>, col <span class="op">=</span> <span class="va">col</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html" class="external-link">contour</a></span><span class="op">(</span><span class="va">xgrid</span>, <span class="va">ygrid</span>, <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="va">pred_SSC</span><span class="op">$</span><span class="va">z</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, <span class="va">ngrid</span>, <span class="va">ngrid</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>        add <span class="op">=</span> <span class="cn">TRUE</span>, levels <span class="op">=</span> <span class="fl">0.5</span>, drawlabels <span class="op">=</span> <span class="cn">FALSE</span>, lty <span class="op">=</span> <span class="fl">2</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="MclustSSC-3.png" alt="" width="504" height="432"></span>
 </code></pre></div>
     </div>
@@ -272,7 +315,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

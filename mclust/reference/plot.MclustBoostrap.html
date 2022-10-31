@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,45 +57,68 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for MclustBootstrap</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pro"</span>, <span class="st">"mean"</span>, <span class="st">"var"</span><span class="op">)</span>, 
-     show.parest <span class="op">=</span> <span class="cn">TRUE</span>, show.confint <span class="op">=</span> <span class="cn">TRUE</span>,
-     hist.col <span class="op">=</span> <span class="st">"grey"</span>, hist.border <span class="op">=</span> <span class="st">"lightgrey"</span>, breaks <span class="op">=</span> <span class="st">"Sturges"</span>, 
-     col <span class="op">=</span> <span class="st">"forestgreen"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">3</span>, 
-     xlab <span class="op">=</span> <span class="cn">NULL</span>, xlim <span class="op">=</span> <span class="cn">NULL</span>, ylim <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for MclustBootstrap</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pro"</span>, <span class="st">"mean"</span>, <span class="st">"var"</span><span class="op">)</span>, </span>
+<span>     show.parest <span class="op">=</span> <span class="cn">TRUE</span>, show.confint <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>     hist.col <span class="op">=</span> <span class="st">"grey"</span>, hist.border <span class="op">=</span> <span class="st">"lightgrey"</span>, breaks <span class="op">=</span> <span class="st">"Sturges"</span>, </span>
+<span>     col <span class="op">=</span> <span class="st">"forestgreen"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">3</span>, </span>
+<span>     xlab <span class="op">=</span> <span class="cn">NULL</span>, xlim <span class="op">=</span> <span class="cn">NULL</span>, ylim <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Object returned by <code>MclustBootstrap</code>.</p></dd>
-<dt>what</dt>
+
+  
+  <dt>what</dt>
 <dd><p>Character string specifying if mixing proportions (<code>"pro"</code>),
     component means (<code>"mean"</code>) or component variances (<code>"var"</code>) 
     should be drawn.</p></dd>
-<dt>show.parest</dt>
+
+    
+  <dt>show.parest</dt>
 <dd><p>A logical specifying if the parameter estimate should be drawn as vertical line.</p></dd>
-<dt>show.confint</dt>
+
+    
+  <dt>show.confint</dt>
 <dd><p>A logical specifying if the resampling-based confidence interval should be drawn at the bottom of the graph. Confidence level can be provided as further argument <code>conf.level</code>; see <code><a href="summary.MclustBootstrap.html">summary.MclustBootstrap</a></code>.</p></dd>
-<dt>hist.col</dt>
+
+
+  <dt>hist.col</dt>
 <dd><p>The color to be used to fill the bars of the histograms.</p></dd>
-<dt>hist.border</dt>
+
+
+  <dt>hist.border</dt>
 <dd><p>The color of the border around the bars of the histograms.</p></dd>
-<dt>breaks</dt>
+
+  
+  <dt>breaks</dt>
 <dd><p>See the argument in function <code><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></code>.</p></dd>
-<dt>col, lwd, lty</dt>
+
+
+  <dt>col, lwd, lty</dt>
 <dd><p>The color, line width and line type to be used to represent the estimated parameters and confidence intervals.</p></dd>
-<dt>xlab</dt>
+
+
+ <dt>xlab</dt>
 <dd><p>Optional label for the horizontal axis.</p></dd>
-<dt>xlim, ylim</dt>
+
+
+ <dt>xlim, ylim</dt>
 <dd><p>A two-values vector of axis range for, respectively, horizontal and
    vertical axis.</p></dd>
-<dt>...</dt>
+
+   
+  <dt>...</dt>
 <dd><p>Other graphics parameters.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A plot for each variable/component of the selected parameters.</p>
+    
+
+<p>A plot for each variable/component of the selected parameters.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -104,18 +127,18 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">diabetes</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">diabetes</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">modClust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">X</span>, G <span class="op">=</span> <span class="fl">3</span>, modelNames <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">bootClust</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">modClust</span>, nboot <span class="op">=</span> <span class="fl">99</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"pro"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">diabetes</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">diabetes</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">modClust</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">X</span>, G <span class="op">=</span> <span class="fl">3</span>, modelNames <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">bootClust</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustBootstrap.html">MclustBootstrap</a></span><span class="op">(</span><span class="va">modClust</span>, nboot <span class="op">=</span> <span class="fl">99</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"pro"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustBoostrap-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">bootClust</span>, what <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustBoostrap-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -130,7 +153,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

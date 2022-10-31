@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,8 +57,8 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">me.weighted</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">z</span>, weights <span class="op">=</span> <span class="cn">NULL</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, 
-            control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">me.weighted</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">z</span>, weights <span class="op">=</span> <span class="cn">NULL</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>            control <span class="op">=</span> <span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -68,49 +68,62 @@
     Categorical variables are not allowed.
     If a matrix or data frame, rows correspond to observations and
     columns correspond to variables.</p></dd>
-<dt>modelName</dt>
+
+  <dt>modelName</dt>
 <dd><p>A character string indicating the model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>z</dt>
+
+  <dt>z</dt>
 <dd><p>A matrix whose <code>[i,k]</code>th entry is an initial estimate of the
     conditional probability of the ith observation belonging to
     the <em>k</em>th component of the mixture.</p></dd>
-<dt>weights</dt>
+
+  <dt>weights</dt>
 <dd><p>A vector of positive weights, where the <code>[i]</code>th entry is the weight
     for the ith observation. If any of the weights are greater than one,
     then they are scaled so that the maximum weight is one.</p></dd>
-<dt>prior</dt>
+
+ <dt>prior</dt>
 <dd><p>Specification of a conjugate prior on the means and variances.
     See the help file for <code>priorControl</code> for further information.
     The default assumes no prior.</p></dd>
-<dt>control</dt>
+
+  <dt>control</dt>
 <dd><p>A list of control parameters for EM. The defaults are set by the call
     <code><a href="emControl.html">emControl</a></code>.</p></dd>
-<dt>Vinv</dt>
+                                                             
+  <dt>Vinv</dt>
 <dd><p>If the model is to include a noise term, <code>Vinv</code> is an estimate of the 
     reciprocal hypervolume of the data region. If set to a negative value
     or 0, the model will include a noise term with the reciprocal hypervolume
     estimated by the function <code>hypvol</code>.
     The default is not to assume a noise term in the model through the
     setting <code>Vinv=NULL</code>.</p></dd>
-<dt>warn</dt>
+
+ <dt>warn</dt>
 <dd><p>A logical value indicating whether or not certain warnings 
     (usually related to singularity) should be issued when the
     estimation fails. The default is set by <code>warn</code> using
     <code><a href="mclust.options.html">mclust.options</a></code>.</p></dd>
-<dt>...</dt>
+
+ <dt>...</dt>
 <dd><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list including the following components:</p>
+    
+
+<p>A list including the following components:</p>
 <dl><dt>modelName</dt>
 <dd><p>A character string identifying the model (same as the input argument).</p></dd>
-<dt>z</dt>
+
+  <dt>z</dt>
 <dd><p>A matrix whose <code>[i,k]</code>th entry is the
     conditional probability of the <em>i</em>th observation belonging to
     the <em>k</em>th component of the mixture.</p></dd>
-<dt>parameters</dt>
+
+  <dt>parameters</dt>
 <dd><p></p><dl><dt><code>pro</code></dt>
 <dd><p>A vector whose <em>k</em>th component is the mixing proportion for 
               the <em>k</em>th component of the mixture model.
@@ -136,11 +149,14 @@
 
       
 </dl><p></p></dd>
-<dt>loglik</dt>
+
+  <dt>loglik</dt>
 <dd><p>The log likelihood for the data in the mixture model.</p></dd>
-<dt>Attributes:</dt>
+
+  <dt>Attributes:</dt>
 <dd><p><code>"info"</code> Information on the iteration.<br><code>"WARNING"</code> An appropriate warning if problems are encountered 
       in the computations.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -162,11 +178,11 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">150</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">w</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="fu">me.weighted</span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, modelName <span class="op">=</span> <span class="st">"VVV"</span>, </span>
-<span class="r-in">            z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span>, weights <span class="op">=</span> <span class="va">w</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">150</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">w</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="fu">me.weighted</span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, modelName <span class="op">=</span> <span class="st">"VVV"</span>, </span></span>
+<span class="r-in"><span>            z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span>, weights <span class="op">=</span> <span class="va">w</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $modelName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VVV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -422,7 +438,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"returnCode")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -437,7 +453,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

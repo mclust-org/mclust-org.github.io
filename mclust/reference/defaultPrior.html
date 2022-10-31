@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">defaultPrior</span><span class="op">(</span><span class="va">data</span>, <span class="va">G</span>, <span class="va">modelName</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">defaultPrior</span><span class="op">(</span><span class="va">data</span>, <span class="va">G</span>, <span class="va">modelName</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -66,15 +66,18 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>The number of mixture components.</p></dd>
-<dt>modelName</dt>
+
+  <dt>modelName</dt>
 <dd><p>A character string indicating the model: <br><br><code>"E"</code>: equal variance  (univariate) <br><code>"V"</code>: variable variance (univariate)<br><code>"EII"</code>: spherical, equal volume <br><code>"VII"</code>: spherical, unequal volume <br><code>"EEI"</code>: diagonal, equal volume and shape<br><code>"VEI"</code>: diagonal, varying volume, equal shape<br><code>"EVI"</code>: diagonal, equal volume, varying shape <br><code>"VVI"</code>: diagonal, varying volume and shape <br><code>"EEE"</code>: ellipsoidal, equal volume, shape, and orientation <br><code>"EEV"</code>: ellipsoidal, equal volume and equal shape<br><code>"VEV"</code>: ellipsoidal, equal shape <br><code>"VVV"</code>: ellipsoidal, varying volume, shape, and orientation. <br><br>
     A description of the models above is provided in the help of 
     <code><a href="mclustModelNames.html">mclustModelNames</a></code>. Note that in the multivariate case 
     only 10 out of 14 models may be used in conjunction with a prior, i.e.
     those available in <em>MCLUST</em> up to version 4.4.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>One or more of the following:</p><dl><dt><code>dof</code></dt>
 <dd><p>The degrees of freedom for the prior on the variance. 
         The default is <code>d + 2</code>, where <code>d</code> is
@@ -96,10 +99,13 @@
                    
     
 </dl><p></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list giving the prior degrees of freedom, scale, shrinkage, and mean.</p>
+    
+
+<p>A list giving the prior degrees of freedom, scale, shrinkage, and mean.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -131,10 +137,10 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># default prior</span></span>
-<span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, prior <span class="op">=</span> <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># default prior</span></span></span>
+<span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, prior <span class="op">=</span> <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The presence of BIC values equal to NA is likely due to one or more of the mixture proportions being estimated as zero, so that the model estimated reduces to one with a smaller number of components.</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Best BIC values:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              VEV,2       VEV,3      VVV,2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BIC      -580.8136 -587.403843 -592.51283</span>
@@ -144,12 +150,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  50 100 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># equivalent to previous example</span></span>
-<span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, </span>
-<span class="r-in">                     prior <span class="op">=</span> <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span>functionName <span class="op">=</span> <span class="st">"defaultPrior"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># equivalent to previous example</span></span></span>
+<span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, </span></span>
+<span class="r-in"><span>                     prior <span class="op">=</span> <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span>functionName <span class="op">=</span> <span class="st">"defaultPrior"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The presence of BIC values equal to NA is likely due to one or more of the mixture proportions being estimated as zero, so that the model estimated reduces to one with a smaller number of components.</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Best BIC values:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              VEV,2       VEV,3      VVV,2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BIC      -580.8136 -587.403843 -592.51283</span>
@@ -159,11 +165,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  50 100 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># no prior on the mean; default prior on variance</span></span>
-<span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, prior <span class="op">=</span> <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span>shrinkage <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># no prior on the mean; default prior on variance</span></span></span>
+<span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, prior <span class="op">=</span> <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span>shrinkage <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The presence of BIC values equal to NA is likely due to one or more of the mixture proportions being estimated as zero, so that the model estimated reduces to one with a smaller number of components.</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Best BIC values:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              VEV,2       VEV,3      VVV,2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BIC      -580.2861 -586.792195 -592.07132</span>
@@ -173,12 +179,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  50 100 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># equivalent to previous example</span></span>
-<span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, prior <span class="op">=</span></span>
-<span class="r-in">                     <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span>functionName<span class="op">=</span><span class="st">"defaultPrior"</span>, shrinkage<span class="op">=</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># equivalent to previous example</span></span></span>
+<span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, prior <span class="op">=</span></span></span>
+<span class="r-in"><span>                     <span class="fu"><a href="priorControl.html">priorControl</a></span><span class="op">(</span>functionName<span class="op">=</span><span class="st">"defaultPrior"</span>, shrinkage<span class="op">=</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The presence of BIC values equal to NA is likely due to one or more of the mixture proportions being estimated as zero, so that the model estimated reduces to one with a smaller number of components.</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Best BIC values:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              VEV,2       VEV,3      VVV,2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BIC      -580.2861 -586.792195 -592.07132</span>
@@ -188,8 +194,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  50 100 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">defaultPrior</span><span class="op">(</span> <span class="va">iris</span><span class="op">[</span><span class="op">-</span><span class="fl">5</span><span class="op">]</span>, G <span class="op">=</span> <span class="fl">3</span>, modelName <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">defaultPrior</span><span class="op">(</span> <span class="va">iris</span><span class="op">[</span><span class="op">-</span><span class="fl">5</span><span class="op">]</span>, G <span class="op">=</span> <span class="fl">3</span>, modelName <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $shrinkage</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -221,7 +227,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

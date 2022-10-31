@@ -19,7 +19,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -61,12 +61,12 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">imputePairs</span><span class="op">(</span><span class="va">data</span>, <span class="va">dataImp</span>, 
-            symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">16</span><span class="op">)</span>, colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"red"</span><span class="op">)</span>, <span class="va">labels</span>,
-            panel <span class="op">=</span> <span class="va">points</span>, <span class="va">...</span>, lower.panel <span class="op">=</span> <span class="va">panel</span>, upper.panel <span class="op">=</span> <span class="va">panel</span>, 
-            diag.panel <span class="op">=</span> <span class="cn">NULL</span>, text.panel <span class="op">=</span> <span class="va">textPanel</span>, label.pos <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> 
-            <span class="va">has.diag</span><span class="op">/</span><span class="fl">3</span>, cex.labels <span class="op">=</span> <span class="cn">NULL</span>, font.labels <span class="op">=</span> <span class="fl">1</span>, row1attop <span class="op">=</span> <span class="cn">TRUE</span>, 
-            gap <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">imputePairs</span><span class="op">(</span><span class="va">data</span>, <span class="va">dataImp</span>, </span>
+<span>            symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">16</span><span class="op">)</span>, colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"red"</span><span class="op">)</span>, <span class="va">labels</span>,</span>
+<span>            panel <span class="op">=</span> <span class="va">points</span>, <span class="va">...</span>, lower.panel <span class="op">=</span> <span class="va">panel</span>, upper.panel <span class="op">=</span> <span class="va">panel</span>, </span>
+<span>            diag.panel <span class="op">=</span> <span class="cn">NULL</span>, text.panel <span class="op">=</span> <span class="va">textPanel</span>, label.pos <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> </span>
+<span>            <span class="va">has.diag</span><span class="op">/</span><span class="fl">3</span>, cex.labels <span class="op">=</span> <span class="cn">NULL</span>, font.labels <span class="op">=</span> <span class="fl">1</span>, row1attop <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>            gap <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -76,45 +76,63 @@
     missing values. Categorical variables are not allowed. If a matrix
     or data frame, rows correspond to observations and columns
     correspond to variables.</p></dd>
-<dt>dataImp</dt>
+
+  <dt>dataImp</dt>
 <dd><p>The dataset <code>data</code> with missing values imputed.</p></dd>
-<dt>symbols</dt>
+
+  <dt>symbols</dt>
 <dd><p>Either an integer or character vector assigning plotting symbols to
     the nonmissing data and impued  values, respectively. The default is a
     closed circle for the nonmissing data
     and an open circle for the imputed values.</p></dd>
-<dt>colors</dt>
+
+  <dt>colors</dt>
 <dd><p>Either an integer or character vector assigning colors to
     the nonmissing data and impued  values, respectively. The default is 
     black for the nonmissing data and red for the imputed values.</p></dd>
-<dt>labels</dt>
+
+  <dt>labels</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>panel</dt>
+
+  <dt>panel</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>lower.panel</dt>
+
+  <dt>lower.panel</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>upper.panel</dt>
+
+  <dt>upper.panel</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>diag.panel</dt>
+
+  <dt>diag.panel</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>text.panel</dt>
+
+  <dt>text.panel</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>label.pos</dt>
+
+  <dt>label.pos</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>cex.labels</dt>
+
+  <dt>cex.labels</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>font.labels</dt>
+
+  <dt>font.labels</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>row1attop</dt>
+
+  <dt>row1attop</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
-<dt>gap</dt>
+
+  <dt>gap</dt>
 <dd><p>As in function <code>pairs</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A pairs plot displaying the location of missing and nonmissing values.</p>
+    
+
+<p>A pairs plot displaying the location of missing and nonmissing values.</p>
     </div>
     <div id="references">
     <h2>References</h2>
@@ -128,17 +146,17 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># Note that package 'mix' must be installed</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">stlouis</span>, package <span class="op">=</span> <span class="st">"mix"</span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"><span class="co"># impute the continuos variables in the stlouis data</span></span>
-<span class="r-in"><span class="va">stlimp</span> <span class="op">&lt;-</span> <span class="fu"><a href="imputeData.html">imputeData</a></span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># plot imputed values</span></span>
-<span class="r-in"><span class="fu">imputePairs</span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span>, <span class="va">stlimp</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># Note that package 'mix' must be installed</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">stlouis</span>, package <span class="op">=</span> <span class="st">"mix"</span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span><span class="co"># impute the continuos variables in the stlouis data</span></span></span>
+<span class="r-in"><span><span class="va">stlimp</span> <span class="op">&lt;-</span> <span class="fu"><a href="imputeData.html">imputeData</a></span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># plot imputed values</span></span></span>
+<span class="r-in"><span><span class="fu">imputePairs</span><span class="op">(</span><span class="va">stlouis</span><span class="op">[</span>,<span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span>, <span class="va">stlimp</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="imputePairs-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -153,7 +171,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

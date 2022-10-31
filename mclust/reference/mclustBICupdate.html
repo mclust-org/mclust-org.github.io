@@ -18,7 +18,7 @@ mixture models by taking the best from BIC results as returned by mclustBIC."><m
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@ mixture models by taking the best from BIC results as returned by <code><a href=
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mclustBICupdate</span><span class="op">(</span><span class="va">BIC</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mclustBICupdate</span><span class="op">(</span><span class="va">BIC</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -67,12 +67,16 @@ mixture models by taking the best from BIC results as returned by <code><a href=
     <dl><dt>BIC</dt>
 <dd><p>Object of class <code>'mclustBIC'</code> containing the 
   BIC values as returned by a call to <code><a href="mclustBIC.html">mclustBIC</a></code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Further objects of class <code>'mclustBIC'</code> to be merged.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of class <code>'mclustBIC'</code> containing the best values obtained from
+    
+
+<p>An object of class <code>'mclustBIC'</code> containing the best values obtained from
 merging the input arguments. Attributes are also updated according to the best
 BIC found, so calling <code><a href="Mclust.html">Mclust</a></code> on the resulting ouput will return
 the corresponding best model (see example).</p>
@@ -85,26 +89,26 @@ the corresponding best model (see example).</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">galaxies</span>, package <span class="op">=</span> <span class="st">"MASS"</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">galaxies</span> <span class="op">&lt;-</span> <span class="va">galaxies</span> <span class="op">/</span> <span class="fl">1000</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># use several random starting points</span></span>
-<span class="r-in"><span class="va">BIC</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
-<span class="r-in"><span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">{</span></span>
-<span class="r-in">  <span class="va">rBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">galaxies</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">                    initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="fu"><a href="hcRandomPairs.html">hcRandomPairs</a></span><span class="op">(</span><span class="va">galaxies</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">BIC</span> <span class="op">&lt;-</span> <span class="fu">mclustBICupdate</span><span class="op">(</span><span class="va">BIC</span>, <span class="va">rBIC</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"><span class="fu"><a href="mclust-internal.html">pickBIC</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">galaxies</span>, package <span class="op">=</span> <span class="st">"MASS"</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">galaxies</span> <span class="op">&lt;-</span> <span class="va">galaxies</span> <span class="op">/</span> <span class="fl">1000</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># use several random starting points</span></span></span>
+<span class="r-in"><span><span class="va">BIC</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span><span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">rBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">galaxies</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>                    initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="fu"><a href="hcRandomPairs.html">hcRandomPairs</a></span><span class="op">(</span><span class="va">galaxies</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">BIC</span> <span class="op">&lt;-</span> <span class="fu">mclustBICupdate</span><span class="op">(</span><span class="va">BIC</span>, <span class="va">rBIC</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mclust-internal.html">pickBIC</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       V,3       V,5       V,4 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -441.6122 -441.8364 -443.3891 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclustBICupdate-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">galaxies</span>, x <span class="op">=</span> <span class="va">BIC</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">galaxies</span>, x <span class="op">=</span> <span class="va">BIC</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian finite mixture model fitted by EM algorithm </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------- </span>
@@ -117,7 +121,7 @@ the corresponding best model (see example).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Clustering table:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2  3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 72  7  3 </span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -132,7 +136,7 @@ the corresponding best model (see example).</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

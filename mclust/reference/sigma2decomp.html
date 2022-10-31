@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sigma2decomp</span><span class="op">(</span><span class="va">sigma</span>, G <span class="op">=</span> <span class="cn">NULL</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sigma2decomp</span><span class="op">(</span><span class="va">sigma</span>, G <span class="op">=</span> <span class="cn">NULL</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -68,40 +68,51 @@
 <dd><p>Either a 3-D array whose [,,k]th component is the covariance matrix for the
     kth component in an MVN mixture model, or a single covariance
     matrix in the case that all components have the same covariance.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>The number of components in the mixture. When 
     <code>sigma</code> is a 3-D array, the number of components
     can be inferred from its dimensions.</p></dd>
-<dt>tol</dt>
+
+  <dt>tol</dt>
 <dd><p>Tolerance for determining whether or not the covariances have equal volume,
     shape, and or orientation. The default is the square root of the relative
     machine precision, <code>sqrt(.Machine$double.eps)</code>, which is about 
     <code>1.e-8</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Catches unused arguments from an indirect or list call via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The covariance matrices for the mixture components in decomposition form,
+    
+
+<p>The covariance matrices for the mixture components in decomposition form,
   including the following components:</p>
 <dl><dt>modelName</dt>
 <dd><p>A character string indicating the infered model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>d</dt>
+
+  <dt>d</dt>
 <dd><p>The dimension of the data.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>The number of components in the mixture model.</p></dd>
-<dt>scale</dt>
+
+  <dt>scale</dt>
 <dd><p>Either a <em>G</em>-vector giving the scale of the covariance (the
     <em>d</em>th root of its determinant) for each component in the
     mixture model, or a single numeric value if the scale is the same
     for each component.</p></dd>
-<dt>shape</dt>
+
+  <dt>shape</dt>
 <dd><p>Either a <em>G</em> by <em>d</em> matrix in which the <em>k</em>th
     column is the shape of the covariance matrix (normalized to have
     determinant 1) for the <em>k</em>th component, or a <em>d</em>-vector
     giving a common shape for all components.</p></dd>
-<dt>orientation</dt>
+
+  <dt>orientation</dt>
 <dd><p>Either a <em>d</em> by <em>d</em> by <em>G</em> array whose
     <code>[,,k]</code>th entry is the orthonomal matrix whose columns are the
     eigenvectors of the covariance matrix of the <em>k</em>th component,
@@ -110,6 +121,7 @@
     <code>decomp</code> can be omitted in spherical and diagonal models, for
     which the principal components are parallel to the coordinate axes
     so that the orientation matrix is the identity.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -118,17 +130,17 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">meEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meEEE</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">meEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meEEE</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "modelName" "d"         "G"         "sigma"     "Sigma"     "cholSigma"</span>
-<span class="r-in"><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span><span class="op">$</span><span class="va">Sigma</span></span>
+<span class="r-in"><span><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span><span class="op">$</span><span class="va">Sigma</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              Sepal.Length Sepal.Width Petal.Length Petal.Width</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sepal.Length   0.26387916  0.08987702   0.16956251  0.03932391</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sepal.Width    0.08987702  0.11197340   0.05118186  0.03002534</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Length   0.16956251  0.05118186   0.18637706  0.04196406</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Width    0.03932391  0.03002534   0.04196406  0.03974960</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">sigma2decomp</span><span class="op">(</span><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span><span class="op">$</span><span class="va">Sigma</span>, G <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">sigma2decomp</span><span class="op">(</span><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span><span class="op">$</span><span class="va">Sigma</span>, G <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $sigma</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -191,7 +203,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

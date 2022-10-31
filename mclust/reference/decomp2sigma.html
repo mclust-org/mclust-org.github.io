@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,26 +59,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">decomp2sigma</span><span class="op">(</span><span class="va">d</span>, <span class="va">G</span>, <span class="va">scale</span>, <span class="va">shape</span>, <span class="va">orientation</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">decomp2sigma</span><span class="op">(</span><span class="va">d</span>, <span class="va">G</span>, <span class="va">scale</span>, <span class="va">shape</span>, <span class="va">orientation</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>d</dt>
 <dd><p>The dimension of the data.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>The number of components in the mixture model.</p></dd>
-<dt>scale</dt>
+
+  <dt>scale</dt>
 <dd><p>Either a <em>G</em>-vector giving the scale of the covariance (the
     <em>d</em>th root of its determinant) for each component in the
     mixture model, or a single numeric value if the scale is the same
     for each component.</p></dd>
-<dt>shape</dt>
+
+  <dt>shape</dt>
 <dd><p>Either a <em>G</em> by <em>d</em> matrix in which the <em>k</em>th column
     is the shape of the covariance matrix (normalized to have
     determinant 1) for the <em>k</em>th component, or a <em>d</em>-vector
     giving a common shape for all components.</p></dd>
-<dt>orientation</dt>
+
+  <dt>orientation</dt>
 <dd><p>Either a <em>d</em> by <em>d</em> by <em>G</em> array whose <code>[,,k]</code>th
     entry is the orthonomal matrix whose columns are the eigenvectors
     of the covariance matrix of the <em>k</em>th component, or a
@@ -87,12 +91,16 @@
     be omitted in spherical and diagonal models, for which the principal
     components are parallel to the coordinate axes so that the
     orientation matrix is the identity.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Catches unused arguments from an indirect or list call via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A 3-D array whose <code>[,,k]</code>th component is the 
+    
+
+<p>A 3-D array whose <code>[,,k]</code>th component is the 
   covariance matrix of the <em>k</em>th component in an MVN mixture model.</p>
     </div>
     <div id="see-also">
@@ -102,11 +110,11 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">meEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meVEV</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">meEst</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">meEst</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meVEV</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">meEst</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "modelName"  "prior"      "n"          "d"          "G"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "z"          "parameters" "control"    "loglik"    </span>
-<span class="r-in"><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span></span>
+<span class="r-in"><span><span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $modelName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VEV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -174,10 +182,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Petal.Width    -0.1669287  0.62625279   -0.3087637   0.6961374</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">dec</span> <span class="op">&lt;-</span> <span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span></span>
-<span class="r-in"><span class="fu">decomp2sigma</span><span class="op">(</span>d<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">d</span>, G<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">G</span>, shape<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">shape</span>, scale<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">scale</span>,</span>
-<span class="r-in">             orientation <span class="op">=</span> <span class="va">dec</span><span class="op">$</span><span class="va">orientation</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">dec</span> <span class="op">&lt;-</span> <span class="va">meEst</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">variance</span></span></span>
+<span class="r-in"><span><span class="fu">decomp2sigma</span><span class="op">(</span>d<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">d</span>, G<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">G</span>, shape<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">shape</span>, scale<span class="op">=</span><span class="va">dec</span><span class="op">$</span><span class="va">scale</span>,</span></span>
+<span class="r-in"><span>             orientation <span class="op">=</span> <span class="va">dec</span><span class="op">$</span><span class="va">orientation</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]       [,4]</span>
@@ -204,8 +212,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"modelName")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VEV"</span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"decomp2sigma"</span>, <span class="va">dec</span><span class="op">)</span>  <span class="co">## alternative call</span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"decomp2sigma"</span>, <span class="va">dec</span><span class="op">)</span>  <span class="co">## alternative call</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]       [,4]</span>
@@ -232,7 +240,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"modelName")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VEV"</span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -247,7 +255,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

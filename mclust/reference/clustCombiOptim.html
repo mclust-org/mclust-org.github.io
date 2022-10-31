@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,30 +57,39 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">clustCombiOptim</span><span class="op">(</span><span class="va">object</span>, reg <span class="op">=</span> <span class="fl">2</span>, plot <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">clustCombiOptim</span><span class="op">(</span><span class="va">object</span>, reg <span class="op">=</span> <span class="fl">2</span>, plot <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>An object of class <code>'clustCombi'</code> resulting from a call to <code><a href="clustCombi.html">clustCombi</a></code>.</p></dd>
-<dt>reg</dt>
+
+  <dt>reg</dt>
 <dd><p>The number of parts of the piecewise linear regression for the entropy plots. 
   Choose 2 for a two-segment piecewise linear regression model (i.e. 1 change-point), and 3 for a three-segment piecewise linear regression model (i.e. 3 change-points).</p></dd>
-<dt>plot</dt>
+
+  <dt>plot</dt>
 <dd><p>Logical, if <code>TRUE</code> an entropy plot is also produced.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The function returns a list with the following components:</p>
+    
+
+<p>The function returns a list with the following components:</p>
 <dl><dt>numClusters.combi</dt>
 <dd><p>The estimated number of clusters.</p></dd>
+
 <dt>z.combi</dt>
 <dd><p>A matrix whose <em>[i,k]</em>th entry is the probability that observation <em>i</em> in the data belongs to the <em>k</em>th cluster.</p></dd>
+
 <dt>cluster.combi</dt>
 <dd><p>The clustering labels.</p></dd>
+
 </dl></div>
     <div id="references">
     <h2>References</h2>
@@ -97,22 +106,22 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Baudry_etal_2010_JCGS_examples</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">combiOptim</span> <span class="op">&lt;-</span> <span class="fu">clustCombiOptim</span><span class="op">(</span><span class="va">output</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">combiOptim</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Baudry_etal_2010_JCGS_examples</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="clustCombi.html">clustCombi</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">combiOptim</span> <span class="op">&lt;-</span> <span class="fu">clustCombiOptim</span><span class="op">(</span><span class="va">output</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">combiOptim</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ numClusters.combi: int 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ z.combi          : num [1:600, 1:4] 1.00 1.00 5.78e-04 1.85e-42 3.85e-35 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ cluster.combi    : num [1:600] 1 1 2 3 3 4 4 3 3 2 ...</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># plot optimal clustering with alpha color transparency proportional to uncertainty</span></span>
-<span class="r-in"><span class="va">zmax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">z.combi</span>, <span class="fl">1</span>, <span class="va">max</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">col</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">[</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">cluster.combi</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">vadjustcolor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Vectorize.html" class="external-link">Vectorize</a></span><span class="op">(</span><span class="va">adjustcolor</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">alphacol</span> <span class="op">=</span> <span class="op">(</span><span class="va">zmax</span> <span class="op">-</span> <span class="fl">1</span><span class="op">/</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">numClusters.combi</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">numClusters.combi</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">col</span> <span class="op">&lt;-</span> <span class="fu">vadjustcolor</span><span class="op">(</span><span class="va">col</span>, alpha.f <span class="op">=</span> <span class="va">alphacol</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ex4.1</span>, col <span class="op">=</span> <span class="va">col</span>, pch <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotSymbols"</span><span class="op">)</span><span class="op">[</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">cluster.combi</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># plot optimal clustering with alpha color transparency proportional to uncertainty</span></span></span>
+<span class="r-in"><span><span class="va">zmax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">z.combi</span>, <span class="fl">1</span>, <span class="va">max</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">col</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">[</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">cluster.combi</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">vadjustcolor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Vectorize.html" class="external-link">Vectorize</a></span><span class="op">(</span><span class="va">adjustcolor</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">alphacol</span> <span class="op">=</span> <span class="op">(</span><span class="va">zmax</span> <span class="op">-</span> <span class="fl">1</span><span class="op">/</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">numClusters.combi</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">numClusters.combi</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">col</span> <span class="op">&lt;-</span> <span class="fu">vadjustcolor</span><span class="op">(</span><span class="va">col</span>, alpha.f <span class="op">=</span> <span class="va">alphacol</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ex4.1</span>, col <span class="op">=</span> <span class="va">col</span>, pch <span class="op">=</span> <span class="fu"><a href="mclust.options.html">mclust.options</a></span><span class="op">(</span><span class="st">"classPlotSymbols"</span><span class="op">)</span><span class="op">[</span><span class="va">combiOptim</span><span class="op">$</span><span class="va">cluster.combi</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="clustCombiOptim-1.png" alt="" width="504" height="432"></span>
 </code></pre></div>
     </div>
@@ -128,7 +137,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

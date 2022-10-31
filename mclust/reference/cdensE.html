@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,26 +57,26 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cdensE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensX</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensEII</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensVII</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensEEI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensVEI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensEVI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensVVI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensEEE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensEEV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensVEV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensVVV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensEVE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensEVV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensVEE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensVVE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span> 
-<span class="fu">cdensXII</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensXXI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">cdensXXX</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cdensE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensX</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensEII</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensVII</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensEEI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensVEI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensEVI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensVVI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensEEE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensEEV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensVEV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensVVV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensEVE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensEVV</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensVEE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensVVE</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span> </span>
+<span><span class="fu">cdensXII</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensXXI</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">cdensXXX</span><span class="op">(</span><span class="va">data</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">parameters</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -86,12 +86,14 @@
     Categorical variables are not allowed.
     If a matrix or data frame, rows correspond to observations and
     columns correspond to variables.</p></dd>
-<dt>logarithm</dt>
+
+  <dt>logarithm</dt>
 <dd><p>A logical value indicating whether or not the logarithm of the
     component densities should be returned.
     The default is to return the component densities,
     obtained from the log component densities by exponentiation.</p></dd>
-<dt>parameters</dt>
+
+ <dt>parameters</dt>
 <dd><p>The parameters of the model:</p><dl><dt><code>mean</code></dt>
 <dd><p>The mean for each component. If there is more than one component,
               this is a matrix whose kth column is the mean of the <em>k</em>th
@@ -111,15 +113,20 @@
 
      
 </dl><p></p></dd>
-<dt>warn</dt>
+
+ <dt>warn</dt>
 <dd><p>A logical value indicating whether or not a warning should be issued
     when computations fail. The default is <code>warn=FALSE</code>.</p></dd>
-<dt>...</dt>
+
+ <dt>...</dt>
 <dd><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric matrix whose <code>[i,j]</code>th 
+    
+
+<p>A numeric matrix whose <code>[i,j]</code>th 
   entry is the density of observation <em>i</em> in component <em>j</em>. 
   The densities are not scaled by mixing proportions.</p>
     </div>
@@ -141,11 +148,11 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="fu"><a href="hclass.html">hclass</a></span><span class="op">(</span><span class="fu"><a href="hcE.html">hcVVV</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># initial value for 2 class case</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meVVV</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">faithful</span>, z<span class="op">=</span><span class="va">z2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">cdensVVV</span><span class="op">(</span>data<span class="op">=</span><span class="va">faithful</span>, logarithm <span class="op">=</span> <span class="cn">TRUE</span>, parameters <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="fu"><a href="hclass.html">hclass</a></span><span class="op">(</span><span class="fu"><a href="hcE.html">hcVVV</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># initial value for 2 class case</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meVVV</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">faithful</span>, z<span class="op">=</span><span class="va">z2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">cdensVVV</span><span class="op">(</span>data<span class="op">=</span><span class="va">faithful</span>, logarithm <span class="op">=</span> <span class="cn">TRUE</span>, parameters <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]       [,2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1    -4.197962 -23.327906</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   -23.342333  -2.639804</span>
@@ -425,15 +432,15 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VVV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"returnCode")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meEEV</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cross</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, z <span class="op">=</span> <span class="va">z2</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">EEVdensities</span> <span class="op">&lt;-</span> <span class="fu">cdensEEV</span><span class="op">(</span> data <span class="op">=</span> <span class="va">cross</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, parameters <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="fu"><a href="map.html">map</a></span><span class="op">(</span><span class="va">EEVdensities</span><span class="op">)</span><span class="op">)</span><span class="co"># }</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="meE.html">meEEV</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cross</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, z <span class="op">=</span> <span class="va">z2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">EEVdensities</span> <span class="op">&lt;-</span> <span class="fu">cdensEEV</span><span class="op">(</span> data <span class="op">=</span> <span class="va">cross</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, parameters <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="fu"><a href="map.html">map</a></span><span class="op">(</span><span class="va">EEVdensities</span><span class="op">)</span><span class="op">)</span><span class="co"># }</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                X1            X2 map(EEVdensities)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1     1.262954285 -14.370462129                 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2    -0.326233361   4.418706353                 1</span>
@@ -949,7 +956,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

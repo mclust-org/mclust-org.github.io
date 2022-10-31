@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,49 +57,60 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for mclustBIC</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, 
-     symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, 
-     xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="st">"BIC"</span>, 
-     legendArgs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"bottomright"</span>, ncol <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">1</span>, inset <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span>, 
-     <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for mclustBIC</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>     symbols <span class="op">=</span> <span class="cn">NULL</span>, colors <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>     xlab <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="st">"BIC"</span>, </span>
+<span>     legendArgs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"bottomright"</span>, ncol <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">1</span>, inset <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span>, </span>
+<span>     <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Output from <code>mclustBIC</code>.</p></dd>
-<dt>G</dt>
+
+ <dt>G</dt>
 <dd><p>One or more numbers of components corresponding to models fit in <code>x</code>.
     The default is to plot the BIC for all of the numbers of components fit.</p></dd>
-<dt>modelNames</dt>
+
+ <dt>modelNames</dt>
 <dd><p>One or more model names corresponding to models fit in <code>x</code>.
     The default is to plot the BIC for all of the models fit.</p></dd>
-<dt>symbols</dt>
+
+ <dt>symbols</dt>
 <dd><p>Either an integer or character vector assigning a plotting symbol to each
     unique class in <code>classification</code>. Elements in <code>colors</code>
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>unique</code>). 
     The default is given by <code>mclust.options("classPlotSymbols")</code>.</p></dd>
+
 <dt>colors</dt>
 <dd><p>Either an integer or character vector assigning a color to each
     unique class in <code>classification</code>. Elements in <code>colors</code>
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>unique</code>). 
     The default is given by <code>mclust.options("classPlotColors")</code>.</p></dd>
-<dt>xlab</dt>
+
+ <dt>xlab</dt>
 <dd><p>Optional label for the horizontal axis of the BIC plot.</p></dd>
-<dt>ylab</dt>
+
+ <dt>ylab</dt>
 <dd><p>Label for the vertical axis of the BIC plot.</p></dd>
-<dt>legendArgs</dt>
+
+ <dt>legendArgs</dt>
 <dd><p>Arguments to pass to the <code>legend</code> function. Set to <code>NULL</code>
     for no legend.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Other graphics parameters.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A plot of the BIC values.</p>
+    
+
+<p>A plot of the BIC values.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -108,16 +119,16 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">precip</span><span class="op">)</span>, legendArgs <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"bottomleft"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">precip</span><span class="op">)</span>, legendArgs <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"bottomleft"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.mclustBIC-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.mclustBIC-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.mclustBIC-3.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -132,7 +143,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

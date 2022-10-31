@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,14 +57,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mclustICL</span><span class="op">(</span><span class="va">data</span>, G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, 
-          initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="cn">NULL</span>, 
-                                subset <span class="op">=</span> <span class="cn">NULL</span>, 
-                                noise <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>, 
-          x <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for mclustICL</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">G</span>, <span class="va">modelNames</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mclustICL</span><span class="op">(</span><span class="va">data</span>, G <span class="op">=</span> <span class="cn">NULL</span>, modelNames <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>          initialization <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hcPairs <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>                                subset <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>                                noise <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>, </span>
+<span>          x <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for mclustICL</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">G</span>, <span class="va">modelNames</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -73,11 +73,15 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>G</dt>
+
+  
+  <dt>G</dt>
 <dd><p>An integer vector specifying the numbers of mixture components
     (clusters) for which the criteria should be calculated. 
     The default is <code>G = 1:9</code>.</p></dd>
-<dt>modelNames</dt>
+
+  
+  <dt>modelNames</dt>
 <dd><p>A vector of character strings indicating the models to be fitted 
     in the EM phase of clustering. The help file for 
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.
@@ -92,7 +96,9 @@
 
      
 </dl><p></p></dd>
-<dt>initialization</dt>
+
+
+ <dt>initialization</dt>
 <dd><p>A list containing zero or more of the following components:</p><dl><dt><code>hcPairs</code></dt>
 <dd><p>A matrix of merge pairs for hierarchical clustering such as produced
     by function <code>hc</code>. For multivariate data, the default is to compute
@@ -108,7 +114,8 @@
 
   
 </dl><p></p></dd>
-<dt>x</dt>
+
+  <dt>x</dt>
 <dd><p>An object of class <code>'mclustICL'</code>. If supplied, <code>mclustICL</code>
      will use the settings in <code>x</code> to produce another object of
      class <code>'mclustICL'</code>, but with <code>G</code> and <code>modelNames</code>
@@ -118,19 +125,28 @@
      ignored and their values are set as specified in the attributes of
      <code>x</code>. 
      Defaults for <code>G</code> and <code>modelNames</code> are taken from <code>x</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Futher arguments used in the call to <code><a href="Mclust.html">Mclust</a></code>. 
     See also <code><a href="mclustBIC.html">mclustBIC</a></code>.</p></dd>
-<dt>object</dt>
+
+
+  <dt>object</dt>
 <dd><p>An integer vector specifying the numbers of mixture components
     (clusters) for which the criteria should be calculated. 
     The default is <code>G = 1:9</code>.</p></dd>
+
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Returns an object of class <code>'mclustICL'</code> containing the the ICL criterion 
-for the specified mixture models and numbers of clusters.
-The corresponding <code>print</code> method shows the matrix of values and the top models according to the ICL criterion. The <code>summary</code> method shows only the top models.</p>
+    
+
+<p>Returns an object of class <code>'mclustICL'</code> containing the the ICL criterion 
+for the specified mixture models and numbers of clusters.</p>
+
+
+<p>The corresponding <code>print</code> method shows the matrix of values and the top models according to the ICL criterion. The <code>summary</code> method shows only the top models.</p>
     </div>
     <div id="references">
     <h2>References</h2>
@@ -151,9 +167,9 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">faithful.ICL</span> <span class="op">&lt;-</span> <span class="fu">mclustICL</span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">faithful.ICL</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">faithful.ICL</span> <span class="op">&lt;-</span> <span class="fu">mclustICL</span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">faithful.ICL</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Integrated Complete-data Likelihood (ICL) criterion: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         EII       VII       EEI       VEI       EVI       VVI       EEE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -4024.721 -4024.721 -3055.835 -3055.835 -3055.835 -3055.835 -2607.623</span>
@@ -179,17 +195,17 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 <span class="r-out co"><span class="r-pr">#&gt;</span> Top 3 models based on the ICL criterion: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     VVE,2     VVV,2     VEE,2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -2320.763 -2322.697 -2323.396 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">faithful.ICL</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">faithful.ICL</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Best ICL values:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              VVE,2        VVV,2       VEE,2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ICL      -2320.763 -2322.697467 -2323.39551</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ICL diff     0.000    -1.934645    -2.63269</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.ICL</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.ICL</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclustICL-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># compare with</span></span>
-<span class="r-in"><span class="va">faithful.BIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">faithful.BIC</span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># compare with</span></span></span>
+<span class="r-in"><span><span class="va">faithful.BIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">faithful.BIC</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bayesian Information Criterion (BIC): </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         EII       VII       EEI       VEI       EVI       VVI       EEE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -4024.721 -4024.721 -3055.835 -3055.835 -3055.835 -3055.835 -2607.623</span>
@@ -215,9 +231,9 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 <span class="r-out co"><span class="r-pr">#&gt;</span> Top 3 models based on the BIC criterion: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     EEE,3     VVE,2     VEE,3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -2314.316 -2320.433 -2322.103 </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.BIC</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.BIC</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclustICL-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -232,7 +248,7 @@ Assessing a mixture model for clustering with the integrated completed likelihoo
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

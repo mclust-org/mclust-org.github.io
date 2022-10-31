@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,26 +59,26 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">meE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meX</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meEII</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meVII</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meEEI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meVEI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meEVI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meVVI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meEEE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meVEE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meEVE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meVVE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meEEV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meVEV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meEVV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meVVV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meXII</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meXXI</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-<span class="fu">meXXX</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">meE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meX</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meEII</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meVII</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meEEI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meVEI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meEVI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meVVI</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meEEE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meVEE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meEVE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meVVE</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meEEV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meVEV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meEVV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meVVV</span><span class="op">(</span><span class="va">data</span>, <span class="va">z</span>, prior<span class="op">=</span><span class="cn">NULL</span>, control<span class="op">=</span><span class="fu"><a href="emControl.html">emControl</a></span><span class="op">(</span><span class="op">)</span>, Vinv<span class="op">=</span><span class="cn">NULL</span>, warn<span class="op">=</span><span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meXII</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meXXI</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">meXXX</span><span class="op">(</span><span class="va">data</span>, prior <span class="op">=</span> <span class="cn">NULL</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -87,39 +87,50 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>z</dt>
+
+  <dt>z</dt>
 <dd><p>A matrix whose <code>[i,k]</code>th entry is the conditional probability of 
     the ith observation belonging to the <em>k</em>th component of the mixture.</p></dd>
-<dt>prior</dt>
+
+ <dt>prior</dt>
 <dd><p>Specification of a conjugate prior on the means and variances.
     The default assumes no prior.</p></dd>
-<dt>control</dt>
+
+  <dt>control</dt>
 <dd><p>A list of control parameters for EM. The defaults are set by the call
     <code><a href="emControl.html">emControl()</a></code>.</p></dd>
-<dt>Vinv</dt>
+
+ <dt>Vinv</dt>
 <dd><p>An estimate of the reciprocal hypervolume of the data region, when the
     model is to include a noise term. Set to a negative value or zero if
     a noise term is desired, but an estimate is unavailable --- in that
     case function <code>hypvol</code> will be used to obtain the estimate.
     The default is not to assume a noise term in the model through the
     setting <code>Vinv=NULL</code>.</p></dd>
-<dt>warn</dt>
+
+  <dt>warn</dt>
 <dd><p>A logical value indicating whether or not certain warnings
     (usually related to singularity) should be issued when the
     estimation fails. The default is given by <code>mclust.options("warn")</code>.</p></dd>
-<dt>... </dt>
+
+ <dt>... </dt>
 <dd><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list including the following components:</p>
+    
+
+<p>A list including the following components:</p>
 <dl><dt>modelName</dt>
 <dd><p>A character string identifying the model (same as the input argument).</p></dd>
-<dt>z</dt>
+
+  <dt>z</dt>
 <dd><p>A matrix whose <code>[i,k]</code>th entry is the
     conditional probability of the <em>i</em>th observation belonging to
     the <em>k</em>th component of the mixture.</p></dd>
-<dt>parameters</dt>
+
+  <dt>parameters</dt>
 <dd><p></p><dl><dt><code>pro</code></dt>
 <dd><p>A vector whose <em>k</em>th component is the mixing proportion for 
               the <em>k</em>th component of the mixture model.
@@ -145,11 +156,14 @@
 
       
 </dl><p></p></dd>
-<dt>loglik</dt>
+
+  <dt>loglik</dt>
 <dd><p>The log likelihood for the data in the mixture model.</p></dd>
-<dt>Attributes:</dt>
+
+  <dt>Attributes:</dt>
 <dd><p><code>"info"</code> Information on the iteration.<br><code>"WARNING"</code> An appropriate warning if problems are encountered 
       in the computations.<br></p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -161,7 +175,7 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">meVVV</span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">meVVV</span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, z <span class="op">=</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $modelName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VVV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -444,7 +458,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

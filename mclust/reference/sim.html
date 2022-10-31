@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sim</span><span class="op">(</span><span class="va">modelName</span>, <span class="va">parameters</span>, <span class="va">n</span>, seed <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sim</span><span class="op">(</span><span class="va">modelName</span>, <span class="va">parameters</span>, <span class="va">n</span>, seed <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -65,7 +65,8 @@
     <dl><dt>modelName</dt>
 <dd><p>A character string indicating the model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>parameters</dt>
+
+ <dt>parameters</dt>
 <dd><p>A list with the following components:</p><dl><dt><code>pro</code></dt>
 <dd><p>A vector whose <em>k</em>th component is the mixing proportion for
               the <em>k</em>th component of the mixture model.
@@ -84,24 +85,31 @@
 
       
 </dl><p></p></dd>
-<dt>n</dt>
+
+  <dt>n</dt>
 <dd><p>An integer specifying the number of data points to be simulated.</p></dd>
-<dt>seed</dt>
+
+  <dt>seed</dt>
 <dd><p>An optional integer argument to <code>set.seed</code> for reproducible
     random class assignment.  By default the current seed will be used.
     Reproducibility can also be achieved by calling <code>set.seed</code>
     before calling <code>sim</code>.</p></dd>
-<dt>... </dt>
+
+  <dt>... </dt>
 <dd><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A matrix in which first column is the classification and the remaining
+    
+
+<p>A matrix in which first column is the classification and the remaining
   columns are the <code>n</code> observations simulated from the specified MVN 
   mixture model.</p>
 <dl><dt>Attributes:</dt>
 <dd><p><code>"modelName"</code> A character string indicating the variance 
       model used for the simulation.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -121,17 +129,17 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">irisModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustModel.html">mclustModel</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">irisModel</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">irisModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustModel.html">mclustModel</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">irisModel</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "modelName"  "n"          "d"          "G"          "bic"       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "loglik"     "parameters" "z"         </span>
-<span class="r-in"><span class="va">irisSim</span> <span class="op">&lt;-</span> <span class="fu">sim</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">irisModel</span><span class="op">$</span><span class="va">modelName</span>, </span>
-<span class="r-in">               parameters <span class="op">=</span> <span class="va">irisModel</span><span class="op">$</span><span class="va">parameters</span>, </span>
-<span class="r-in">               n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"sim"</span>, <span class="va">irisModel</span><span class="op">)</span> <span class="co"># alternative call</span></span>
+<span class="r-in"><span><span class="va">irisSim</span> <span class="op">&lt;-</span> <span class="fu">sim</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">irisModel</span><span class="op">$</span><span class="va">modelName</span>, </span></span>
+<span class="r-in"><span>               parameters <span class="op">=</span> <span class="va">irisModel</span><span class="op">$</span><span class="va">parameters</span>, </span></span>
+<span class="r-in"><span>               n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"sim"</span>, <span class="va">irisModel</span><span class="op">)</span> <span class="co"># alternative call</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        group       x1       x2       x3         x4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1,]     2 6.532836 2.375805 5.285487 2.01327710</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [2,]     2 6.049105 3.201455 5.677393 2.07384119</span>
@@ -285,36 +293,36 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [150,]     2 5.900522 3.359951 4.403118 1.47297650</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"modelName")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VEV"</span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty <span class="op">=</span> <span class="st">"s"</span>, mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/dimnames.html" class="external-link">dimnames</a></span><span class="op">(</span><span class="va">irisSim</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dummy"</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/dimnames.html" class="external-link">dimnames</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">dimens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">lim1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="va">dimens</span><span class="op">]</span>,<span class="fl">2</span>,<span class="va">range</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">lim2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">irisSim</span><span class="op">[</span>,<span class="va">dimens</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>,<span class="fl">2</span>,<span class="va">range</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">lims</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">lim1</span>,<span class="va">lim2</span><span class="op">)</span>,<span class="fl">2</span>,<span class="va">range</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">xlim</span> <span class="op">&lt;-</span> <span class="va">lims</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">ylim</span> <span class="op">&lt;-</span> <span class="va">lims</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="coordProj.html">coordProj</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, parameters<span class="op">=</span><span class="va">irisModel</span><span class="op">$</span><span class="va">parameters</span>, </span>
-<span class="r-in">          classification<span class="op">=</span><span class="fu"><a href="map.html">map</a></span><span class="op">(</span><span class="va">irisModel</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>, </span>
-<span class="r-in">          dimens<span class="op">=</span><span class="va">dimens</span>, xlim<span class="op">=</span><span class="va">xlim</span>, ylim<span class="op">=</span><span class="va">ylim</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="coordProj.html">coordProj</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, parameters<span class="op">=</span><span class="va">irisModel</span><span class="op">$</span><span class="va">parameters</span>, </span>
-<span class="r-in">          classification<span class="op">=</span><span class="fu"><a href="map.html">map</a></span><span class="op">(</span><span class="va">irisModel</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>, truth <span class="op">=</span> <span class="va">irisSim</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>,</span>
-<span class="r-in">          dimens<span class="op">=</span><span class="va">dimens</span>, xlim<span class="op">=</span><span class="va">xlim</span>, ylim<span class="op">=</span><span class="va">ylim</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty <span class="op">=</span> <span class="st">"s"</span>, mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dimnames.html" class="external-link">dimnames</a></span><span class="op">(</span><span class="va">irisSim</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dummy"</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/dimnames.html" class="external-link">dimnames</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">dimens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lim1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="va">dimens</span><span class="op">]</span>,<span class="fl">2</span>,<span class="va">range</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lim2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">irisSim</span><span class="op">[</span>,<span class="va">dimens</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>,<span class="fl">2</span>,<span class="va">range</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lims</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">lim1</span>,<span class="va">lim2</span><span class="op">)</span>,<span class="fl">2</span>,<span class="va">range</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">xlim</span> <span class="op">&lt;-</span> <span class="va">lims</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">ylim</span> <span class="op">&lt;-</span> <span class="va">lims</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="coordProj.html">coordProj</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, parameters<span class="op">=</span><span class="va">irisModel</span><span class="op">$</span><span class="va">parameters</span>, </span></span>
+<span class="r-in"><span>          classification<span class="op">=</span><span class="fu"><a href="map.html">map</a></span><span class="op">(</span><span class="va">irisModel</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>          dimens<span class="op">=</span><span class="va">dimens</span>, xlim<span class="op">=</span><span class="va">xlim</span>, ylim<span class="op">=</span><span class="va">ylim</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="coordProj.html">coordProj</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, parameters<span class="op">=</span><span class="va">irisModel</span><span class="op">$</span><span class="va">parameters</span>, </span></span>
+<span class="r-in"><span>          classification<span class="op">=</span><span class="fu"><a href="map.html">map</a></span><span class="op">(</span><span class="va">irisModel</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>, truth <span class="op">=</span> <span class="va">irisSim</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>          dimens<span class="op">=</span><span class="va">dimens</span>, xlim<span class="op">=</span><span class="va">xlim</span>, ylim<span class="op">=</span><span class="va">ylim</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="sim-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">irisModel3</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustModel.html">mclustModel</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span>, G<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">irisSim3</span> <span class="op">&lt;-</span> <span class="fu">sim</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">modelName</span>, </span>
-<span class="r-in">               parameters <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">parameters</span>, n <span class="op">=</span> <span class="fl">500</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"> <span class="va">irisModel3</span><span class="op">$</span><span class="va">n</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
-<span class="r-in"> <span class="va">irisSim3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"sim"</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">500</span>,seed<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,<span class="va">irisModel3</span><span class="op">)</span><span class="op">)</span> <span class="co"># alternative call</span></span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">irisSim3</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, cl <span class="op">=</span> <span class="va">irisSim3</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">irisModel3</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustModel.html">mclustModel</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, <span class="va">irisBIC</span>, G<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">irisSim3</span> <span class="op">&lt;-</span> <span class="fu">sim</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">modelName</span>, </span></span>
+<span class="r-in"><span>               parameters <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">parameters</span>, n <span class="op">=</span> <span class="fl">500</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">n</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span> <span class="va">irisSim3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"sim"</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">500</span>,seed<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,<span class="va">irisModel3</span><span class="op">)</span><span class="op">)</span> <span class="co"># alternative call</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="clPairs.html">clPairs</a></span><span class="op">(</span><span class="va">irisSim3</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, cl <span class="op">=</span> <span class="va">irisSim3</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="sim-2.png" alt="" width="504" height="432"></span>
 </code></pre></div>
     </div>
@@ -330,7 +338,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">uncerPlot</span><span class="op">(</span><span class="va">z</span>, <span class="va">truth</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">uncerPlot</span><span class="op">(</span><span class="va">z</span>, <span class="va">truth</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -68,19 +68,25 @@
 <dd><p>A matrix whose <em>[i,k]</em>th entry is the
     conditional probability of the ith observation belonging to
     the <em>k</em>th component of the mixture.</p></dd>
-<dt>truth</dt>
+
+  <dt>truth</dt>
 <dd><p>A numeric or character vector giving the true classification of the data.</p></dd>
-<dt>... </dt>
+
+  <dt>... </dt>
 <dd><p>Provided to allow lists with elements other than the arguments can
     be passed in indirect or list calls with <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A plot of the uncertainty profile of the data,
+    
+
+<p>A plot of the uncertainty profile of the data,
   with uncertainties in increasing order of magnitude.
   If <code>truth</code> is supplied and the number of
-  classes is the same as the number of columns of 
-<code>z</code>, the uncertainty
+  classes is the same as the number of columns of</p>
+<p></p>
+<p><code>z</code>, the uncertainty
   of the misclassified data is marked by vertical lines on the plot.</p>
     </div>
     <div id="details">
@@ -99,12 +105,12 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">irisModel3</span> <span class="op">&lt;-</span>  <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, G <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">uncerPlot</span><span class="op">(</span>z <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">irisModel3</span> <span class="op">&lt;-</span>  <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, G <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">uncerPlot</span><span class="op">(</span>z <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="uncerPlot-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"> </span>
-<span class="r-in"><span class="fu">uncerPlot</span><span class="op">(</span>z <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">z</span>, truth <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span><span class="fu">uncerPlot</span><span class="op">(</span>z <span class="op">=</span> <span class="va">irisModel3</span><span class="op">$</span><span class="va">z</span>, truth <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="uncerPlot-2.png" alt="" width="504" height="432"></span>
 </code></pre></div>
     </div>
@@ -120,7 +126,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

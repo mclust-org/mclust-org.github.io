@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cdens</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">parameters</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cdens</span><span class="op">(</span><span class="va">data</span>, <span class="va">modelName</span>, <span class="va">parameters</span>, logarithm <span class="op">=</span> <span class="cn">FALSE</span>, warn <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -68,10 +68,12 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>modelName</dt>
+
+  <dt>modelName</dt>
 <dd><p>A character string indicating the model. The help file for
     <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>parameters</dt>
+
+  <dt>parameters</dt>
 <dd><p>The parameters of the model:</p><dl><dt><code>mean</code></dt>
 <dd><p>The mean for each component. If there is more than one component,
               this is a matrix whose kth column is the mean of the <em>k</em>th 
@@ -85,19 +87,25 @@
 
      
 </dl><p></p></dd>
-<dt>logarithm</dt>
+
+  <dt>logarithm</dt>
 <dd><p>A logical value indicating whether or not the logarithm of the component 
       densities should be returned. The default is to return the component 
       densities, obtained from the log component densities by exponentiation.</p></dd>
-<dt>warn</dt>
+
+  <dt>warn</dt>
 <dd><p>A logical value indicating whether or not a warning should be issued
     when computations fail. The default is <code>warn=FALSE</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Catches unused arguments in indirect or list calls via <code>do.call</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric matrix whose <code>[i,k]</code>th entry is the 
+    
+
+<p>A numeric matrix whose <code>[i,k]</code>th entry is the 
   density or log density of observation <em>i</em> in component <em>k</em>. 
   The densities are not scaled by mixing proportions.</p>
     </div>
@@ -121,30 +129,30 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="fu"><a href="hclass.html">hclass</a></span><span class="op">(</span><span class="fu"><a href="hcE.html">hcVVV</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># initial value for 2 class case</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="me.html">me</a></span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"EEE"</span>, data <span class="op">=</span> <span class="va">faithful</span>, z <span class="op">=</span> <span class="va">z2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">cdens</span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"EEE"</span>, data <span class="op">=</span> <span class="va">faithful</span>, logarithm <span class="op">=</span> <span class="cn">TRUE</span>, </span>
-<span class="r-in">      parameters <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="unmap.html">unmap</a></span><span class="op">(</span><span class="fu"><a href="hclass.html">hclass</a></span><span class="op">(</span><span class="fu"><a href="hcE.html">hcVVV</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># initial value for 2 class case</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="me.html">me</a></span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"EEE"</span>, data <span class="op">=</span> <span class="va">faithful</span>, z <span class="op">=</span> <span class="va">z2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">cdens</span><span class="op">(</span>modelName <span class="op">=</span> <span class="st">"EEE"</span>, data <span class="op">=</span> <span class="va">faithful</span>, logarithm <span class="op">=</span> <span class="cn">TRUE</span>, </span></span>
+<span class="r-in"><span>      parameters <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         [,1]       [,2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  -4.504988 -15.570952</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 -28.297451  -2.782971</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3  -6.042371 -11.151408</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 -18.516948  -3.349049</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  -2.967399 -30.134605</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">oddBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">oddModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustModel.html">mclustModel</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, <span class="va">oddBIC</span><span class="op">)</span> <span class="co">## best parameter estimates</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">oddModel</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">odd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">cross</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">oddBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">oddModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustModel.html">mclustModel</a></span><span class="op">(</span><span class="va">cross</span><span class="op">[</span><span class="va">odd</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, <span class="va">oddBIC</span><span class="op">)</span> <span class="co">## best parameter estimates</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">oddModel</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "modelName"  "n"          "d"          "G"          "bic"       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "loglik"     "parameters" "z"         </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span>
-<span class="r-in"><span class="va">densities</span> <span class="op">&lt;-</span> <span class="fu">cdens</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">oddModel</span><span class="op">$</span><span class="va">modelName</span>, data <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, </span>
-<span class="r-in">                   parameters <span class="op">=</span> <span class="va">oddModel</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>class <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="fl">1</span><span class="op">]</span>, <span class="va">densities</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">even</span> <span class="op">&lt;-</span> <span class="va">odd</span> <span class="op">+</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">densities</span> <span class="op">&lt;-</span> <span class="fu">cdens</span><span class="op">(</span>modelName <span class="op">=</span> <span class="va">oddModel</span><span class="op">$</span><span class="va">modelName</span>, data <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, </span></span>
+<span class="r-in"><span>                   parameters <span class="op">=</span> <span class="va">oddModel</span><span class="op">$</span><span class="va">parameters</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>class <span class="op">=</span> <span class="va">cross</span><span class="op">[</span><span class="va">even</span>,<span class="fl">1</span><span class="op">]</span>, <span class="va">densities</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    class                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2      1 0.014497007 1.123598e-07</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4      1 0.001087501 1.333448e-75</span>
@@ -165,7 +173,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

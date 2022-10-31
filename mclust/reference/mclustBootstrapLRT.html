@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,15 +57,15 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mclustBootstrapLRT</span><span class="op">(</span><span class="va">data</span>, modelName <span class="op">=</span> <span class="cn">NULL</span>, nboot <span class="op">=</span> <span class="fl">999</span>, level <span class="op">=</span> <span class="fl">0.05</span>, maxG <span class="op">=</span> <span class="cn">NULL</span>, 
-                   verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span>
-                   
-<span class="co"># S3 method for mclustBootstrapLRT</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for mclustBootstrapLRT</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, G <span class="op">=</span> <span class="fl">1</span>, hist.col <span class="op">=</span> <span class="st">"grey"</span>, hist.border <span class="op">=</span> <span class="st">"lightgrey"</span>, breaks <span class="op">=</span> <span class="st">"Scott"</span>, 
-    col <span class="op">=</span> <span class="st">"forestgreen"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">3</span>, main <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mclustBootstrapLRT</span><span class="op">(</span><span class="va">data</span>, modelName <span class="op">=</span> <span class="cn">NULL</span>, nboot <span class="op">=</span> <span class="fl">999</span>, level <span class="op">=</span> <span class="fl">0.05</span>, maxG <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>                   verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span>                   </span>
+<span><span class="co"># S3 method for mclustBootstrapLRT</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for mclustBootstrapLRT</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, G <span class="op">=</span> <span class="fl">1</span>, hist.col <span class="op">=</span> <span class="st">"grey"</span>, hist.border <span class="op">=</span> <span class="st">"lightgrey"</span>, breaks <span class="op">=</span> <span class="st">"Scott"</span>, </span>
+<span>    col <span class="op">=</span> <span class="st">"forestgreen"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">3</span>, main <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -74,35 +74,49 @@
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical
     variables are not allowed. If a matrix or data frame, rows
     correspond to observations and columns correspond to variables.</p></dd>
-<dt>modelName</dt>
+
+  <dt>modelName</dt>
 <dd><p>A character string indicating the mixture model to be fitted. 
   The help file for <code><a href="mclustModelNames.html">mclustModelNames</a></code> describes the available models.</p></dd>
-<dt>nboot</dt>
+
+  <dt>nboot</dt>
 <dd><p>The number of bootstrap replications to use (by default 999).</p></dd>
-<dt>level</dt>
+
+  <dt>level</dt>
 <dd><p>The significance level to be used to terminate the sequential bootstrap procedure.</p></dd>
-<dt>maxG</dt>
+
+  <dt>maxG</dt>
 <dd><p>The maximum number of mixture components \(G\) to test. If not provided
   the procedure is stopped when a test is not significant at the specified <code>level</code>.</p></dd>
-<dt>verbose</dt>
+
+  <dt>verbose</dt>
 <dd><p>A logical controlling if a text progress bar is displayed during the bootstrap procedure. By default is <code>TRUE</code> if the session is interactive, and <code>FALSE</code> otherwise.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Further arguments passed to or from other methods. In particular, see the optional arguments in  <code><a href="mclustBIC.html">mclustBIC</a></code>.</p></dd>
-<dt>x</dt>
+
+  <dt>x</dt>
 <dd><p>An <code>'mclustBootstrapLRT'</code> object.</p></dd>
-<dt>G</dt>
+
+  <dt>G</dt>
 <dd><p>A value specifying the number of components for which to plot the 
            bootstrap distribution.</p></dd>
-<dt>hist.col</dt>
+
+  <dt>hist.col</dt>
 <dd><p>The colour to be used to fill the bars of the histogram.</p></dd>
-<dt>hist.border</dt>
+
+  <dt>hist.border</dt>
 <dd><p>The color of the border around the bars of the histogram.</p></dd>
-<dt>breaks</dt>
+
+  <dt>breaks</dt>
 <dd><p>See the argument in function <code><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></code>.</p></dd>
-<dt>col, lwd, lty</dt>
+
+  <dt>col, lwd, lty</dt>
 <dd><p>The color, line width and line type to be used to represent the observed LRT statistic.</p></dd>
-<dt>main</dt>
+
+  <dt>main</dt>
 <dd><p>The title for the graph.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -119,16 +133,21 @@ where <br>
     <p>An object of class <code>'mclustBootstrapLRT'</code> with the following components:</p>
 <dl><dt>G</dt>
 <dd><p>A vector of number of components tested under the null hypothesis.</p></dd>
-<dt>modelName</dt>
+ 
+  <dt>modelName</dt>
 <dd><p>A character string specifying the mixture model as provided 
                    in the function call (see above).</p></dd>
-<dt>obs</dt>
+
+  <dt>obs</dt>
 <dd><p>The observed values of the LRTS.</p></dd>
-<dt>boot</dt>
+
+  <dt>boot</dt>
 <dd><p>A matrix of dimension <code>nboot</code> x the number of components tested 
               containing the bootstrap values of LRTS.</p></dd>
-<dt>p.value</dt>
+
+  <dt>p.value</dt>
 <dd><p>A vector of p-values.</p></dd>
+
 </dl></div>
     <div id="references">
     <h2>References</h2>
@@ -144,10 +163,10 @@ where <br>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">faithful.boot</span> <span class="op">=</span> <span class="fu">mclustBootstrapLRT</span><span class="op">(</span><span class="va">faithful</span>, model <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">faithful.boot</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">faithful</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">faithful.boot</span> <span class="op">=</span> <span class="fu">mclustBootstrapLRT</span><span class="op">(</span><span class="va">faithful</span>, model <span class="op">=</span> <span class="st">"VVV"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">faithful.boot</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bootstrap sequential LRT for the number of mixture components </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------- </span>
@@ -156,11 +175,11 @@ where <br>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                LRTS bootstrap p-value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 vs 2   319.065354             0.001</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 vs 3     6.130516             0.560</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.boot</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.boot</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclustBootstrapLRT-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.boot</span>, G <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">faithful.boot</span>, G <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclustBootstrapLRT-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -175,7 +194,7 @@ where <br>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

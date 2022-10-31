@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,18 +57,20 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">densityMclust.diagnostic</span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cdf"</span>, <span class="st">"qq"</span><span class="op">)</span>, 
-                         col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"black"</span><span class="op">)</span>, 
-                         lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>, lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, 
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>, grid <span class="op">=</span> <span class="cn">TRUE</span>, 
-                         <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">densityMclust.diagnostic</span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cdf"</span>, <span class="st">"qq"</span><span class="op">)</span>, </span>
+<span>                         col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"black"</span><span class="op">)</span>, </span>
+<span>                         lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>, lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>, grid <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                         <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>An object of class <code>'mclustDensity'</code> obtained from a call to <code><a href="densityMclust.html">densityMclust</a></code> function.</p></dd>
-<dt>type</dt>
+
+
+  <dt>type</dt>
 <dd><p>The type of graph requested:</p><dl><dt><code>"cdf"</code> =</dt>
 <dd><p>a plot of the estimated CDF versus the empirical distribution function.</p></dd>
 
@@ -77,18 +79,31 @@
 
     
 </dl><p></p></dd>
-<dt>col</dt>
+
+  
+  <dt>col</dt>
 <dd><p>A pair of values for the color to be used for plotting, respectively, the estimated CDF and the empirical cdf.</p></dd>
-<dt>lwd</dt>
+
+
+  <dt>lwd</dt>
 <dd><p>A pair of values for the line width to be used for plotting, respectively, the estimated CDF and the empirical cdf.</p></dd>
-<dt>lty</dt>
+
+
+  <dt>lty</dt>
 <dd><p>A pair of values for the line type to be used for plotting, respectively, the estimated CDF and the empirical cdf.</p></dd>
-<dt>legend</dt>
+
+
+  <dt>legend</dt>
 <dd><p>A logical indicating if a legend must be added to the plot of fitted CDF vs the empirical CDF.</p></dd>
-<dt>grid</dt>
+
+
+  <dt>grid</dt>
 <dd><p>A logical indicating if a <code><a href="https://rdrr.io/r/graphics/grid.html" class="external-link">grid</a></code> should be added to the plot.</p></dd>
-<dt>...</dt>
+
+
+  <dt>...</dt>
 <dd><p>Additional arguments.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -114,18 +129,18 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">faithful</span><span class="op">$</span><span class="va">waiting</span></span>
-<span class="r-in"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">x</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, <span class="va">x</span>, what <span class="op">=</span> <span class="st">"diagnostic"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">faithful</span><span class="op">$</span><span class="va">waiting</span></span></span>
+<span class="r-in"><span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="densityMclust.html">densityMclust</a></span><span class="op">(</span><span class="va">x</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, <span class="va">x</span>, what <span class="op">=</span> <span class="st">"diagnostic"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="densityMclust.diagnostic-1.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="densityMclust.diagnostic-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># or</span></span>
-<span class="r-in"><span class="fu">densityMclust.diagnostic</span><span class="op">(</span><span class="va">dens</span>, type <span class="op">=</span> <span class="st">"cdf"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># or</span></span></span>
+<span class="r-in"><span><span class="fu">densityMclust.diagnostic</span><span class="op">(</span><span class="va">dens</span>, type <span class="op">=</span> <span class="st">"cdf"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="densityMclust.diagnostic-3.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu">densityMclust.diagnostic</span><span class="op">(</span><span class="va">dens</span>, type <span class="op">=</span> <span class="st">"qq"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">densityMclust.diagnostic</span><span class="op">(</span><span class="va">dens</span>, type <span class="op">=</span> <span class="st">"qq"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="densityMclust.diagnostic-4.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -140,7 +155,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,22 +57,24 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for MclustDR</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">dimens</span>, 
-     what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scatterplot"</span>, <span class="st">"pairs"</span>, <span class="st">"contour"</span>, <span class="st">"classification"</span>,
-              <span class="st">"boundaries"</span>, <span class="st">"density"</span>, <span class="st">"evalues"</span><span class="op">)</span>, 
-     <span class="va">symbols</span>, <span class="va">colors</span>, col.contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">gray</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span>, col.sep <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0.4</span><span class="op">)</span>, 
-     ngrid <span class="op">=</span> <span class="fl">200</span>, nlevels <span class="op">=</span> <span class="fl">5</span>, asp <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for MclustDR</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">dimens</span>, </span>
+<span>     what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scatterplot"</span>, <span class="st">"pairs"</span>, <span class="st">"contour"</span>, <span class="st">"classification"</span>,</span>
+<span>              <span class="st">"boundaries"</span>, <span class="st">"density"</span>, <span class="st">"evalues"</span><span class="op">)</span>, </span>
+<span>     <span class="va">symbols</span>, <span class="va">colors</span>, col.contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">gray</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span>, col.sep <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0.4</span><span class="op">)</span>, </span>
+<span>     ngrid <span class="op">=</span> <span class="fl">200</span>, nlevels <span class="op">=</span> <span class="fl">5</span>, asp <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>An object of class <code>'MclustDR'</code> resulting from a call to <code><a href="MclustDR.html">MclustDR</a></code>.</p></dd>
-<dt>dimens</dt>
+
+  <dt>dimens</dt>
 <dd><p>A vector of integers giving the dimensions of the desired coordinate
     projections for multivariate data.</p></dd>
-<dt>what</dt>
+
+  <dt>what</dt>
 <dd><p>The type of graph requested:</p><dl><dt><code>"scatterplot"</code> =</dt>
 <dd><p>a two-dimensional plot of data projected onto the first two directions specified by <code>dimens</code> and with data points marked according to the corresponding mixture component.
       By default, the first two directions are selected for plotting.</p></dd>
@@ -96,31 +98,40 @@
 
 
 </dl></dd>
-<dt>symbols</dt>
+
+  <dt>symbols</dt>
 <dd><p>Either an integer or character vector assigning a plotting symbol to each
     unique mixture component. Elements in <code>colors</code> correspond to classes
     in order of appearance in the sequence of observations (the order used by
     the function <code>factor</code>). 
     The default is given by <code>mclust.options("classPlotSymbols")</code>.</p></dd>
-<dt>colors</dt>
+
+  <dt>colors</dt>
 <dd><p>Either an integer or character vector assigning a color to each
     unique cluster or known class. Elements in <code>colors</code>
     correspond to classes in order of appearance in the sequence of
     observations (the order used by the function <code>factor</code>). 
     The default is given by <code>mclust.options("classPlotColors")</code>.</p></dd>
-<dt>col.contour</dt>
+
+  <dt>col.contour</dt>
 <dd><p>The color of contours in case <code>what = "contour"</code>.</p></dd>
-<dt>col.sep</dt>
+
+  <dt>col.sep</dt>
 <dd><p>The color of classification boundaries in case <code>what = "classification"</code>.</p></dd>
-<dt>ngrid</dt>
+
+  <dt>ngrid</dt>
 <dd><p>An integer specifying the number of grid points to use in evaluating the classification regions.</p></dd>
-<dt>nlevels</dt>
+
+  <dt>nlevels</dt>
 <dd><p>The number of levels to use in case <code>what = "contour"</code>.</p></dd>
-<dt>asp</dt>
+
+  <dt>asp</dt>
 <dd><p>For scatterplots the \(y/x\) aspect ratio, see
     <code><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">plot.window</a></code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="references">
     <h2>References</h2>
@@ -138,44 +149,44 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, G <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod</span>, lambda <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"evalues"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, G <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">mod</span>, lambda <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"evalues"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"pairs"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"pairs"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-2.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span>, dimens <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"scatterplot"</span>, dimens <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-3.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"contour"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"contour"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-4.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"classification"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"classification"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-5.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-6.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-7.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span>, dimens <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span>, dimens <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-8.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">da</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustDA.html">MclustDA</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span>, <span class="va">banknote</span><span class="op">$</span><span class="va">Status</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">da</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"evalues"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">da</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustDA.html">MclustDA</a></span><span class="op">(</span><span class="va">banknote</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span>, <span class="va">banknote</span><span class="op">$</span><span class="va">Status</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dr</span> <span class="op">&lt;-</span> <span class="fu"><a href="MclustDR.html">MclustDR</a></span><span class="op">(</span><span class="va">da</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"evalues"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-9.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"pairs"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"pairs"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-10.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"contour"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"contour"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-11.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"classification"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"classification"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-12.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"boundaries"</span>, ngrid <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-13.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-14.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span>, dimens <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dr</span>, what <span class="op">=</span> <span class="st">"density"</span>, dimens <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.MclustDR-15.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -190,7 +201,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

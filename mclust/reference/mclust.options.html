@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mclust.options</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mclust.options</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -65,6 +65,7 @@
     <dl><dt>...</dt>
 <dd><p>one or more arguments provided in the <code>name = value</code> form, or no argument at all may be given. <br>
 Available arguments are described in the Details section below.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -169,7 +170,9 @@ Available arguments are described in the Details section below.</p></dd>
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p>If the argument list is empty the function returns the current list of values.  
+    
+
+<p>If the argument list is empty the function returns the current list of values.  
 If the argument list is not empty, the returned list is invisible.</p>
     </div>
     <div id="see-also">
@@ -187,9 +190,9 @@ If the argument list is not empty, the returned list is invisible.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">opt</span> <span class="op">&lt;-</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span> <span class="co"># save default values</span></span>
-<span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">opt</span> <span class="op">&lt;-</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span> <span class="co"># save default values</span></span></span>
+<span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Best BIC values:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              VEV,2        VEV,3      VVV,2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BIC      -561.7285 -562.5522369 -574.01783</span>
@@ -199,10 +202,10 @@ If the argument list is not empty, the returned list is invisible.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  50 100 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mclust.options</span><span class="op">(</span>emModelNames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EII"</span>, <span class="st">"EEI"</span>, <span class="st">"EEE"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mclust.options</span><span class="op">(</span>emModelNames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EII"</span>, <span class="st">"EEI"</span>, <span class="st">"EEE"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">irisBIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="mclustBIC.html">mclustBIC</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">irisBIC</span>, <span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Best BIC values:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              EEE,5       EEE,6      EEE,7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BIC      -604.8131 -609.854322 -632.49473</span>
@@ -212,9 +215,9 @@ If the argument list is not empty, the returned list is invisible.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2  3  4  5 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  6 44 49 35 16 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mclust.options</span><span class="op">(</span><span class="va">opt</span><span class="op">)</span>    <span class="co"># restore default values</span></span>
-<span class="r-in"><span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mclust.options</span><span class="op">(</span><span class="va">opt</span><span class="op">)</span>    <span class="co"># restore default values</span></span></span>
+<span class="r-in"><span><span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $emModelNames</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "EII" "VII" "EEI" "VEI" "EVI" "VVI" "EEE" "VEE" "EVE" "VVE" "EEV" "VEV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [13] "EVV" "VVV"</span>
@@ -254,22 +257,22 @@ If the argument list is not empty, the returned list is invisible.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $warn</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">oldpar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>, no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span>, </span>
-<span class="r-in">          <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">bicPlotSymbols</span>, <span class="va">bicPlotColors</span><span class="op">)</span>,<span class="va">length</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">""</span>, xlab <span class="op">=</span> <span class="st">""</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, </span>
-<span class="r-in">     pch <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"bicPlotSymbols"</span><span class="op">)</span>, </span>
-<span class="r-in">     col <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"bicPlotColors"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"mclust.options(\"bicPlotSymbols\") \n mclust.options(\"bicPlotColors\")"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span>, </span>
-<span class="r-in">          <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">classPlotSymbols</span>, <span class="va">classPlotColors</span><span class="op">)</span>,<span class="va">length</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">""</span>, xlab <span class="op">=</span> <span class="st">""</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, </span>
-<span class="r-in">     pch <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"classPlotSymbols"</span><span class="op">)</span>, </span>
-<span class="r-in">     col <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"mclust.options(\"classPlotSymbols\") \n mclust.options(\"classPlotColors\")"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">oldpar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>, no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">bicPlotSymbols</span>, <span class="va">bicPlotColors</span><span class="op">)</span>,<span class="va">length</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">""</span>, xlab <span class="op">=</span> <span class="st">""</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, </span></span>
+<span class="r-in"><span>     pch <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"bicPlotSymbols"</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>     col <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"bicPlotColors"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"mclust.options(\"bicPlotSymbols\") \n mclust.options(\"bicPlotColors\")"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="fu">mclust.options</span><span class="op">(</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">classPlotSymbols</span>, <span class="va">classPlotColors</span><span class="op">)</span>,<span class="va">length</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">n</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">""</span>, xlab <span class="op">=</span> <span class="st">""</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, </span></span>
+<span class="r-in"><span>     pch <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"classPlotSymbols"</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>     col <span class="op">=</span> <span class="fu">mclust.options</span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"mclust.options(\"classPlotSymbols\") \n mclust.options(\"classPlotColors\")"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mclust.options-1.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">oldpar</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">oldpar</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -284,7 +287,7 @@ If the argument list is not empty, the returned list is invisible.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

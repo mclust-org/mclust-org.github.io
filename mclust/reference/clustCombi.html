@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclust</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.4.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">6.0.0</span>
       </span>
     </div>
 
@@ -57,17 +57,20 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">clustCombi</span><span class="op">(</span>object <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">clustCombi</span><span class="op">(</span>object <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>An object returned by <code><a href="Mclust.html">Mclust</a></code> giving the optimal (according to BIC) parameters, conditional probabilities, and log-likelihood, together with the associated classification and its uncertainty. If not provided, the <code>data</code> argument must be specified.</p></dd>
-<dt>data</dt>
+
+  <dt>data</dt>
 <dd><p>A numeric vector, matrix, or data frame of observations. Categorical variables are not allowed. If a matrix or data frame, rows correspond to observations and columns correspond to variables. If the <code>object</code> argument is not provided, the function <code><a href="Mclust.html">Mclust</a></code> is applied to the given <code>data</code> to fit a mixture model.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Optional arguments to be passed to called functions. Notably, any argument (such as the numbers of components for which the BIC is computed; the models to be fitted by EM; initialization parameters for the EM algorithm, etc.) to be passed to <code><a href="Mclust.html">Mclust</a></code> in case <code>object = NULL</code>. Please see the <code><a href="Mclust.html">Mclust</a></code> documentation for more details.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -75,15 +78,21 @@
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list of class <code>clustCombi</code> giving the hierarchy of combined solutions from the number of components selected by BIC to one. The details of the output components are as follows:</p>
+    
+
+<p>A list of class <code>clustCombi</code> giving the hierarchy of combined solutions from the number of components selected by BIC to one. The details of the output components are as follows:</p>
 <dl><dt>classification</dt>
 <dd><p>A list of the data classifications obtained for each combined solution of the hierarchy through a MAP assignment</p></dd>
-<dt>combiM</dt>
+
+ <dt>combiM</dt>
 <dd><p>A list of matrices. <code>combiM[[K]]</code> is the matrix used to combine the components of the (K+1)-classes solution to get the K-classes solution. Please see the examples.</p></dd>
-<dt>combiz</dt>
+
+ <dt>combiz</dt>
 <dd><p>A list of matrices. <code>combiz[[K]]</code> is a matrix whose [i,k]th entry is the probability that observation i in the data belongs to the kth class according to the K-classes combined solution.</p></dd>
-<dt>MclustOutput</dt>
+
+ <dt>MclustOutput</dt>
 <dd><p>A list of class <code>Mclust</code>. Output of a call to the Mclust function (as provided by the user or the result of a call to the Mclust function) used to initiate the combined solutions hierarchy: please see the <code><a href="Mclust.html">Mclust</a></code> function documentation for details.</p></dd>
+
 </dl></div>
     <div id="references">
     <h2>References</h2>
@@ -100,23 +109,23 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Baudry_etal_2010_JCGS_examples</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># run Mclust using provided data</span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">clustCombi</span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span><span class="op">)</span> </span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># or run Mclust and then clustcombi on the returned object</span></span>
-<span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">ex4.1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">clustCombi</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">output</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Baudry_etal_2010_JCGS_examples</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># run Mclust using provided data</span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">clustCombi</span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># or run Mclust and then clustcombi on the returned object</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="Mclust.html">Mclust</a></span><span class="op">(</span><span class="va">ex4.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">clustCombi</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">output</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 'clustCombi' object:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mclust model: (EEV,6)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Available object components: classification combiM combiz MclustOutput </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Combining matrix (K+1 classes -&gt; K classes): &lt;object_name&gt;$combiM[[K]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Classification for K classes: &lt;object_name&gt;$classification[[K]]</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Combining Gaussian mixture components for clustering </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------</span>
@@ -134,30 +143,30 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3   |             3 &amp; 5             | 1 2 3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4   |             1 &amp; 2             | 1 3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5   |             1 &amp; 3             | 1 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># run Mclust using provided data and any further optional argument provided</span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">clustCombi</span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span>, modelName <span class="op">=</span> <span class="st">"EEV"</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># plot the hierarchy of combined solutions</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># run Mclust using provided data and any further optional argument provided</span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">clustCombi</span><span class="op">(</span>data <span class="op">=</span> <span class="va">ex4.1</span>, modelName <span class="op">=</span> <span class="st">"EEV"</span>, G <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># plot the hierarchy of combined solutions</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="clustCombi-1.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="clustCombi-2.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="clustCombi-3.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="clustCombi-4.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="clustCombi-5.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="clustCombi-6.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># plot some "entropy plots" which may help one to select the number of classes</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"entropy"</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="co"># plot some "entropy plots" which may help one to select the number of classes</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"entropy"</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="clustCombi-7.png" alt="" width="504" height="432"></span>
 <span class="r-plt img"><img src="clustCombi-8.png" alt="" width="504" height="432"></span>
-<span class="r-in"><span class="co"># plot the tree structure obtained from combining mixture components</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"tree"</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="co"># plot the tree structure obtained from combining mixture components</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">output</span>, what <span class="op">=</span> <span class="st">"tree"</span><span class="op">)</span> </span></span>
 <span class="r-plt img"><img src="clustCombi-9.png" alt="" width="504" height="432"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># the selected model and number of components obtained from Mclust using BIC</span></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">MclustOutput</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># the selected model and number of components obtained from Mclust using BIC</span></span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">MclustOutput</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 'Mclust' model object: (EEV,6) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Available components: </span>
@@ -165,10 +174,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "d"              "G"              "BIC"            "loglik"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "df"             "bic"            "icl"            "hypvol"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [13] "parameters"     "z"              "classification" "uncertainty"   </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># the matrix whose [i,k]th entry is the probability that i-th observation in </span></span>
-<span class="r-in"><span class="co"># the data belongs to the k-th class according to the BIC solution</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="va">output</span><span class="op">$</span><span class="va">MclustOutput</span><span class="op">$</span><span class="va">G</span><span class="op">]</span><span class="op">]</span> <span class="op">)</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># the matrix whose [i,k]th entry is the probability that i-th observation in </span></span></span>
+<span class="r-in"><span><span class="co"># the data belongs to the k-th class according to the BIC solution</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="va">output</span><span class="op">$</span><span class="va">MclustOutput</span><span class="op">$</span><span class="va">G</span><span class="op">]</span><span class="op">]</span> <span class="op">)</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]          [,2]         [,3]          [,4]          [,5]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2.828057e-02  2.256054e-24 8.867772e-86 7.080395e-102 8.459454e-122</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 9.727840e-01  1.741462e-24 3.144224e-61  2.073383e-81  3.054390e-90</span>
@@ -183,9 +192,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 4.526171e-103</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 3.969503e-109</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 2.716310e-154</span>
-<span class="r-in"><span class="co"># the matrix whose [i,k]th entry is the probability that i-th observation in </span></span>
-<span class="r-in"><span class="co"># the data belongs to the k-th class according to the first combined solution</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="va">output</span><span class="op">$</span><span class="va">MclustOutput</span><span class="op">$</span><span class="va">G</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">)</span> </span>
+<span class="r-in"><span><span class="co"># the matrix whose [i,k]th entry is the probability that i-th observation in </span></span></span>
+<span class="r-in"><span><span class="co"># the data belongs to the k-th class according to the first combined solution</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="va">output</span><span class="op">$</span><span class="va">MclustOutput</span><span class="op">$</span><span class="va">G</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">)</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]          [,2]         [,3]          [,4]          [,5]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2.828057e-02  2.256054e-24 8.867772e-86 8.459454e-122  9.717194e-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 9.727840e-01  1.741462e-24 3.144224e-61  3.054390e-90  2.721601e-02</span>
@@ -193,33 +202,33 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 1.853089e-42  1.068300e-81 9.999411e-01  5.893101e-05 4.526171e-103</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 3.845124e-35  4.648777e-94 9.994256e-01  5.744098e-04 3.969503e-109</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 1.036548e-17 8.888312e-226 1.859291e-14  1.000000e+00 2.716310e-154</span>
-<span class="r-in"><span class="co"># the matrix describing how to merge the 6-classes solution to get the </span></span>
-<span class="r-in"><span class="co"># 5-classes solution</span></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">combiM</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> </span>
+<span class="r-in"><span><span class="co"># the matrix describing how to merge the 6-classes solution to get the </span></span></span>
+<span class="r-in"><span><span class="co"># 5-classes solution</span></span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">combiM</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3] [,4] [,5] [,6]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    0    0    0    0    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0    1    0    0    0    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,]    0    0    1    1    0    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,]    0    0    0    0    1    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,]    0    0    0    0    0    1</span>
-<span class="r-in"><span class="co"># for example the following code returns the label of the class (in the </span></span>
-<span class="r-in"><span class="co"># 5-classes combined solution) to which the 4th class (in the 6-classes</span></span>
-<span class="r-in"><span class="co"># solution) is assigned. Only two classes in the (K+1)-classes solution </span></span>
-<span class="r-in"><span class="co"># are assigned the same class in the K-classes solution: the two which </span></span>
-<span class="r-in"><span class="co"># are merged at this step </span></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">combiM</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> </span>
+<span class="r-in"><span><span class="co"># for example the following code returns the label of the class (in the </span></span></span>
+<span class="r-in"><span><span class="co"># 5-classes combined solution) to which the 4th class (in the 6-classes</span></span></span>
+<span class="r-in"><span><span class="co"># solution) is assigned. Only two classes in the (K+1)-classes solution </span></span></span>
+<span class="r-in"><span><span class="co"># are assigned the same class in the K-classes solution: the two which </span></span></span>
+<span class="r-in"><span><span class="co"># are merged at this step </span></span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">combiM</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3] [,4] [,5] [,6]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    0    0    0    0    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0    1    0    0    0    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,]    0    0    1    1    0    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,]    0    0    0    0    1    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,]    0    0    0    0    0    1</span>
-<span class="r-in"><span class="co"># recover the 5-classes soft clustering from the 6-classes soft clustering </span></span>
-<span class="r-in"><span class="co"># and the 6 -&gt; 5 combining matrix</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiM</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="fl">6</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">)</span> <span class="op">)</span> </span>
+<span class="r-in"><span><span class="co"># recover the 5-classes soft clustering from the 6-classes soft clustering </span></span></span>
+<span class="r-in"><span><span class="co"># and the 6 -&gt; 5 combining matrix</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">combiM</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">output</span><span class="op">$</span><span class="va">combiz</span><span class="op">[[</span><span class="fl">6</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">)</span> <span class="op">)</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span class="co"># the hard clustering under the 5-classes solution</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">classification</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> <span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># the hard clustering under the 5-classes solution</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span> <span class="va">output</span><span class="op">$</span><span class="va">classification</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span> <span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5 1 2 3 3 4</span>
 </code></pre></div>
     </div>
@@ -235,7 +244,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
