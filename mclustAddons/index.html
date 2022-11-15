@@ -13,17 +13,21 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Addons for the mclust Package">
 <meta property="og:description" content="Extend the functionality of the mclust package for 
-  Gaussian finite mixture modelling by including: 
+  Gaussian finite mixture modeling by including: 
   density estimation for data with bounded support 
   (Scrucca, 2019 &lt;doi:10.1002/bimj.201800174&gt;);
   modal clustering using MEM algorithm for Gaussian mixtures 
-  (Scrucca, 2021 &lt;doi:10.1002/sam.11527&gt;).">
+  (Scrucca, 2021 &lt;doi:10.1002/sam.11527&gt;);
+  entropy estimation via Gaussian mixture modeling
+  (Robin &amp; Scrucca, 2023 &lt;doi:10.1016/j.csda.2022.107582&gt;).">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -36,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mclustAddons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7</span>
       </span>
     </div>
 
@@ -54,7 +58,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://mclust-org.github.io">
+  <a href="https://mclust-org.github.io" class="external-link">
     <span class="fa fa-home"></span>
      
     mclust-org
@@ -72,78 +76,86 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="mclustaddons" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#mclustaddons" class="anchor"></a>mclustAddons</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="mclustaddons">mclustAddons<a class="anchor" aria-label="anchor" href="#mclustaddons"></a>
+</h1></div>
 
-<p>An <a href="https://www.r-project.org/">R</a> package extending the functionality of the <a href="https://mclust-org.github.io/mclust/index.html">mclust</a> package (Scrucca et al. 2016) by including:</p>
-<ul>
-<li>density estimation for data with bounded support using a transform-based approach to Gaussian mixture density estimation;</li>
-<li>modal clustering using modal EM algorithm for Gaussian mixtures.</li>
-</ul>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<p>An <a href="https://www.r-project.org/" class="external-link">R</a> package extending the functionality of the <a href="https://mclust-org.github.io/mclust/index.html" class="external-link">mclust</a> package (Scrucca et al. 2016) by including: - density estimation for data with bounded support using a transform-based approach to Gaussian mixture density estimation; - modal clustering using modal EM algorithm for Gaussian mixtures.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the released version of <strong>mclustAddons</strong> from CRAN using:</p>
-<pre class="{r}"><code>install.packages("mclustAddons")</code></pre>
+<pre class="{r}"><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mclustAddons"</span><span class="op">)</span></span></code></pre>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p>For an introduction to the main functions and several examples see the vignette <strong>A quick tour of mclustAddons</strong>, which is available as</p>
-<pre class="{r}"><code><a href="articles/mclustAddons.html">vignette("mclustAddons")</a></code></pre>
+<pre class="{r}"><code><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"mclustAddons"</span><span class="op">)</span></span></code></pre>
 <p>The vignette is also available in the <em>Vignette</em> section on the navigation bar on top of the package’s web page.</p>
 <p><br><br></p>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
-<p>Scrucca L., Fop M., Murphy T. B. and Raftery A. E. (2016) mclust 5: clustering, classification and density estimation using Gaussian finite mixture models, <em>The R Journal</em>, 8/1, 205-233. <a href="https://doi.org/10.32614/RJ-2016-021" class="uri">https://doi.org/10.32614/RJ-2016-021</a></p>
-<p>Scrucca L. (2019) A transformation-based approach to Gaussian mixture density estimation for bounded data, <em>Biometrical Journal</em>, 61:4, 873–888. <a href="https://doi.org/10.1002/bimj.201800174" class="uri">https://doi.org/10.1002/bimj.201800174</a></p>
-<p>Scrucca L. (2021) A fast and efficient Modal EM algorithm for Gaussian mixtures. <em>Statistical Analysis and Data Mining</em>, 14:4, 305–314. <a href="https://doi.org/10.1002/sam.11527" class="uri">https://doi.org/10.1002/sam.11527</a></p>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<p>Scrucca L., Fop M., Murphy T. B. and Raftery A. E. (2016) mclust 5: clustering, classification and density estimation using Gaussian finite mixture models, <em>The R Journal</em>, 8/1, 205-233. <a href="https://doi.org/10.32614/RJ-2016-021" class="external-link uri">https://doi.org/10.32614/RJ-2016-021</a></p>
+<p>Scrucca L. (2019) A transformation-based approach to Gaussian mixture density estimation for bounded data, <em>Biometrical Journal</em>, 61:4, 873–888. <a href="https://doi.org/10.1002/bimj.201800174" class="external-link uri">https://doi.org/10.1002/bimj.201800174</a></p>
+<p>Scrucca L. (2021) A fast and efficient Modal EM algorithm for Gaussian mixtures. <em>Statistical Analysis and Data Mining</em>, 14:4, 305–314. <a href="https://doi.org/10.1002/sam.11527" class="external-link uri">https://doi.org/10.1002/sam.11527</a></p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=mclustAddons">https://​cloud.r-project.org/​package=mclustAddons</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=mclustAddons" class="external-link">View on CRAN</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;= 2)</li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>
-<a href="http://www.stat.unipg.it/luca">Luca Scrucca</a> <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="authors.html#citation">Citing mclustAddons</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=mclustAddons"><img src="http://www.r-pkg.org/badges/version/mclustAddons" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://cran.r-project.org/package=mclustAddons"><img src="http://cranlogs.r-pkg.org/badges/mclustAddons" alt="CRAN_MonthlyDownloads"></a></li>
+<li>
+<a href="http://www.stat.unipg.it/luca" class="external-link">Luca Scrucca</a> <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=mclustAddons" class="external-link"><img src="http://www.r-pkg.org/badges/version/mclustAddons" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=mclustAddons" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/mclustAddons" alt="CRAN_MonthlyDownloads"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="http://www.stat.unipg.it/luca">Luca Scrucca</a>.</p>
+  <p></p>
+<p>Developed by <a href="http://www.stat.unipg.it/luca" class="external-link">Luca Scrucca</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -151,6 +163,8 @@
 
   
 
+
+  
 
   </body>
 </html>
