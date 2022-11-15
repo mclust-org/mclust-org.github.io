@@ -1,0 +1,10 @@
+pandoc: 2.19.2
+pkgdown: 2.0.6
+pkgdown_sha: ~
+articles:
+  mclustAddons: mclustAddons.html
+last_built: 2022-11-15T21:24Z
+urls:
+  reference: https://mclust-org.github.io/mclustAddons/reference
+  article: https://mclust-org.github.io/mclustAddons/articles
+
