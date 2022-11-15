@@ -91,14 +91,14 @@ multinomial logistic) function</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">logsumexp</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.5065565 -0.4305177  0.1158167  0.1308190 -0.2673274</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.4162853  0.6089217  1.2772069  0.3989763 -0.3524082</span>
 <span class="r-in"><span><span class="op">(</span><span class="va">z</span> <span class="op">=</span> <span class="fu">softmax</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2]       [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.09076722 0.1541055 0.75512729</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.41164027 0.2460676 0.34229208</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.39978432 0.5699156 0.03030008</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.28496747 0.5051948 0.20983774</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.39252509 0.1551233 0.45235157</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]       [,2]       [,3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.7585451 0.20973427 0.03172062</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.1993703 0.67952449 0.12110522</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.7523993 0.06220221 0.18539850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.8967697 0.02820879 0.07502147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.3355877 0.35641135 0.30800097</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 1 1 1 1</span>
 </code></pre></div>

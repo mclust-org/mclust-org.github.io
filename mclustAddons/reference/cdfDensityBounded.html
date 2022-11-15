@@ -114,7 +114,7 @@
 <span class="r-in"><span><span class="va">cdf</span> <span class="op">&lt;-</span> <span class="fu">cdfDensityBounded</span><span class="op">(</span><span class="va">dens</span>, <span class="va">xgrid</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">cdf</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ x: num [1:1000] -2 -1.98 -1.97 -1.95 -1.94 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ x: num [1:1000] -2 -1.99 -1.97 -1.96 -1.94 ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ y: num [1:1000] 0 0 0 0 0 0 0 0 0 0 ...</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">xgrid</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html" class="external-link">pchisq</a></span><span class="op">(</span><span class="va">xgrid</span>, df <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">cdf</span>, col <span class="op">=</span> <span class="fl">4</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
@@ -123,11 +123,11 @@
 <span class="r-in"><span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fu">quantileDensityBounded</span><span class="op">(</span><span class="va">dens</span>, p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.99</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>quantile <span class="op">=</span> <span class="va">q</span>, cdf <span class="op">=</span> <span class="fu">cdfDensityBounded</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         quantile  cdf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.04758488 0.01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.64053477 0.10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  2.69297510 0.50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  6.60070952 0.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 11.38605727 0.99</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.09669062 0.01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.56574157 0.10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  2.37110384 0.50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  6.71632660 0.90</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 13.25255609 0.99</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">cdf</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="fl">4</span>, xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">q</span>, <span class="fu">cdfDensityBounded</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span>, pch <span class="op">=</span> <span class="fl">19</span>, col <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="cdfDensityBounded-2.png" alt="" width="672" height="576"></span>
@@ -149,11 +149,11 @@
 <span class="r-in"><span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fu">quantileDensityBounded</span><span class="op">(</span><span class="va">dens</span>, p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.99</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>quantile <span class="op">=</span> <span class="va">q</span>, cdf <span class="op">=</span> <span class="fu">cdfDensityBounded</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       quantile  cdf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.3647232 0.01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5532487 0.10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.7985454 0.50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.9499108 0.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.9917930 0.99</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.4120287 0.01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5849330 0.10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.8067774 0.50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.9510807 0.90</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.9931288 0.99</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">cdf</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="fl">4</span>, xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"CDF"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">q</span>, <span class="fu">cdfDensityBounded</span><span class="op">(</span><span class="va">dens</span>, <span class="va">q</span><span class="op">)</span><span class="op">$</span><span class="va">y</span>, pch <span class="op">=</span> <span class="fl">19</span>, col <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="cdfDensityBounded-4.png" alt="" width="672" height="576"></span>
