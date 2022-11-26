@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclustAddons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.1</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
 <p>where \(m_{[i]} = \max(x_{[i,]} + a)\).</p>
 <p><code>softmax()</code> calculates for each row \(x_{[i,]}\) the softmax (aka 
 multinomial logistic) function</p>
-<p>$$\dfrac{\exp( x_{[i,c]} + a_{[c]} )}{\sum_{j=1}^k\exp( x_{[i,j]} + a_{[j]})}$$</p>
+<p>$$\frac{\exp( x_{[i,c]} + a_{[c]} )}{\sum_{j=1}^k\exp( x_{[i,j]} + a_{[j]})}$$</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -91,14 +91,14 @@ multinomial logistic) function</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">logsumexp</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.50988975 0.30304482 1.11666187 0.01756273 0.34634217</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.43006355 -0.28289509  1.11087356 -0.03191038 -0.21497665</span>
 <span class="r-in"><span><span class="op">(</span><span class="va">z</span> <span class="op">=</span> <span class="fu">softmax</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]       [,2]       [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.7688972 0.10514940 0.12595339</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.3719938 0.60021244 0.02779378</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.1895548 0.55066016 0.25978509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.6921724 0.20983835 0.09798930</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.8911855 0.01621134 0.09260312</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]       [,3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.2488194 0.3167904 0.43439013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.2995139 0.4892268 0.21125930</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.1489564 0.7598548 0.09118886</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.8293512 0.1184213 0.05222754</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.4674990 0.1257348 0.40676624</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 1 1 1 1</span>
 </code></pre></div>
