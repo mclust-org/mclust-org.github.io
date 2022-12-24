@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclustAddons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.2</span>
       </span>
     </div>
 
@@ -57,8 +57,8 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">logsumexp</span><span class="op">(</span><span class="va">x</span>, a <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
-<span><span class="fu">softmax</span><span class="op">(</span><span class="va">x</span>, a <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">logsumexp</span><span class="op">(</span><span class="va">x</span>, v <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">softmax</span><span class="op">(</span><span class="va">x</span>, v <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -66,20 +66,25 @@
     <dl><dt>x</dt>
 <dd><p>a matrix of dimension \((n \times k)\).</p></dd>
 
-  <dt>a</dt>
-<dd><p>an optional vector of length \(k\). If not provided a vector of 
-           zeros is used.</p></dd>
+  <dt>v</dt>
+<dd><p>an optional vector of length \(k\). If not provided a vector 
+           of zeros is used.</p></dd>
 
 </dl></div>
     <div id="details">
     <h2>Details</h2>
     <p>Given the matrix \(x\) <code>logsumexp()</code> calculates for each row 
 \(x_{[i,]}\) the log-sum-exp function computed as</p>
-<p>$$m_{[i]} + \log\sum(\exp(x_{[i,]} + a) - m_{[i]})$$</p>
-<p>where \(m_{[i]} = \max(x_{[i,]} + a)\).</p>
+<p>$$m_{[i]} + \log\sum(\exp(x_{[i,]} + v) - m_{[i]})$$</p>
+<p>where \(m_{[i]} = \max(x_{[i,]} + v)\).</p>
 <p><code>softmax()</code> calculates for each row \(x_{[i,]}\) the softmax (aka 
 multinomial logistic) function</p>
-<p>$$\frac{\exp( x_{[i,c]} + a_{[c]} )}{\sum_{j=1}^k\exp( x_{[i,j]} + a_{[j]})}$$</p>
+<p>$$\frac{\exp( x_{[i,c]} + v_{[c]} )}{\sum_{j=1}^k\exp( x_{[i,j]} + v_{[j]})}$$</p>
+    </div>
+    <div id="value">
+    <h2>Value</h2>
+    <p><code>logsumexp()</code> returns a vector of values of length equal to the number of rows of \(x\).
+<code>softmax()</code> returns a matrix of values of the same dimension as \(x\).</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -89,16 +94,21 @@ multinomial logistic) function</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">logsumexp</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.43006355 -0.28289509  1.11087356 -0.03191038 -0.21497665</span>
-<span class="r-in"><span><span class="op">(</span><span class="va">z</span> <span class="op">=</span> <span class="fu">softmax</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]       [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.2488194 0.3167904 0.43439013</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.2995139 0.4892268 0.21125930</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.1489564 0.7598548 0.09118886</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.8293512 0.1184213 0.05222754</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.4674990 0.1257348 0.40676624</span>
+<span class="r-in"><span><span class="va">v</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">logsumexp</span><span class="op">(</span><span class="va">x</span>, <span class="va">v</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.09204403</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.61696627</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] -0.08576664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.55401124</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  0.32615700</span>
+<span class="r-in"><span><span class="op">(</span><span class="va">z</span> <span class="op">=</span> <span class="fu">softmax</span><span class="op">(</span><span class="va">x</span>, <span class="va">v</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.6281898 0.2243804 0.1474298</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.2581928 0.3132437 0.4285635</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 0.8257873 0.0524195 0.1217932</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.6350734 0.1841644 0.1807622</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 0.1329911 0.3369560 0.5300529</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 1 1 1 1</span>
 </code></pre></div>

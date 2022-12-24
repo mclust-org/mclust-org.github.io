@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mclustAddons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.2</span>
       </span>
     </div>
 
@@ -74,7 +74,7 @@
                         <h4 data-toc-skip class="author">Luca
 Scrucca</h4>
             
-            <h4 data-toc-skip class="date">26 Nov 2022</h4>
+            <h4 data-toc-skip class="date">24 Dec 2022</h4>
       
       
       <div class="hidden name"><code>mclustAddons.Rmd</code></div>
@@ -91,22 +91,24 @@ the functionality available in the <strong>mclust</strong> package
 (Scrucca et al. 2016).<br>
 In particular, the following methods are included:</p>
 <ul>
-<li><p>density estimation for data with bounded support;</p></li>
-<li><p>modal clustering using modal EM algorithm for Gaussian
-mixtures.</p></li>
+<li><p>density estimation for data with bounded support (Scrucca,
+2019);</p></li>
+<li><p>modal clustering using modal EM algorithm for Gaussian mixtures
+(Scrucca, 2021);</p></li>
+<li><p>entropy estimation via Gaussian mixture modeling (Robin &amp;
+Scrucca, 2023).</p></li>
 </ul>
 <p>This document gives a quick tour of <strong>mclustAddons</strong>
-(version 0.7.1). It was written in <a href="https://rmarkdown.rstudio.com" class="external-link">R Markdown</a>, using the <a href="https://cran.r-project.org/package=knitr" class="external-link">knitr</a> package for
+(version 0.7.2). It was written in <a href="https://rmarkdown.rstudio.com" class="external-link">R Markdown</a>, using the <a href="https://cran.r-project.org/package=knitr" class="external-link">knitr</a> package for
 production.</p>
-<p>References on the methodologies implemented are provided by
-<code>citation("mclustAddons")</code>. See also at the end of this
-document.</p>
+<p>References on the methodologies implemented are provided at the end
+of this document.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mclust-org.github.io/mclustAddons/">mclustAddons</a></span><span class="op">)</span></span>
 <span><span class="co">## Loading required package: mclust</span></span>
 <span><span class="co">## Package 'mclust' version 6.0.0</span></span>
 <span><span class="co">## Type 'citation("mclust")' for citing this R package in publications.</span></span>
-<span><span class="co">## Loaded package 'mclustAddons' version 0.7.1</span></span></code></pre></div>
+<span><span class="co">## Loaded package 'mclustAddons' version 0.7.2</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="density-estimation-for-data-with-bounded-support">Density estimation for data with bounded support<a class="anchor" aria-label="anchor" href="#density-estimation-for-data-with-bounded-support"></a>
@@ -431,6 +433,7 @@ N(2,1)\)</span>, whose entropy is 2.051939 in the population.</p>
 <span><span class="co">## [1] 2.042949</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"density"</span>, data <span class="op">=</span> <span class="va">x</span>, breaks <span class="op">=</span> <span class="fl">31</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/graphics/rug.html" class="external-link">rug</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-10-1.png" width="50%" style="display: block; margin: auto;"></p>
+<p><br></p>
 <p><strong>Multivariate Chi-squared</strong><br>
 Consider a 10-dimensional independent <span class="math inline">\(\chi^2\)</span> distribution, whose entropy is
 24.23095 in the population.</p>
@@ -463,11 +466,15 @@ Consider a 10-dimensional independent <span class="math inline">\(\chi^2\)</span
 <span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="https://mclust-org.github.io/mclust/reference/densityMclust.html" class="external-link">densityMclust</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/EntropyGMM.html">EntropyGMM</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>       <span class="co"># GMM-based entropy estimate</span></span>
 <span><span class="co">## [1] 1.438173</span></span></code></pre></div>
+<p><br></p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
+<p>Scrucca L., Fop M., Murphy T. B. and Raftery A. E. (2016) mclust 5:
+clustering, classification and density estimation using Gaussian finite
+mixture models. <em>The R Journal</em> 8/1, pp. 289-317. <a href="https://doi.org/10.32614/RJ-2016-021" class="external-link uri">https://doi.org/10.32614/RJ-2016-021</a></p>
 <p>Scrucca L. (2019) A transformation-based approach to Gaussian mixture
 density estimation for bounded data, <em>Biometrical Journal</em>, 61:4,
 873–888. <a href="https://doi.org/10.1002/bimj.201800174" class="external-link uri">https://doi.org/10.1002/bimj.201800174</a></p>
@@ -494,17 +501,18 @@ Gaussian mixtures. <em>Statistical Analysis and Data Mining</em>, 14:4,
 <span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## other attached packages:</span></span>
-<span><span class="co">## [1] mclustAddons_0.7.1 mclust_6.0.0       knitr_1.40        </span></span>
+<span><span class="co">## [1] mclustAddons_0.7.2 mclust_6.0.0       knitr_1.41        </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span><span class="co">##  [1] Rcpp_1.0.9       magrittr_2.0.3   R6_2.5.1         rlang_1.0.6     </span></span>
-<span><span class="co">##  [5] fastmap_1.1.0    foreach_1.5.2    highr_0.9        stringr_1.4.1   </span></span>
-<span><span class="co">##  [9] tools_4.2.2      xfun_0.34        cli_3.4.1        jquerylib_0.1.4 </span></span>
-<span><span class="co">## [13] iterators_1.0.14 htmltools_0.5.3  yaml_2.3.6       digest_0.6.30   </span></span>
-<span><span class="co">## [17] rprojroot_2.0.3  crayon_1.5.2     pkgdown_2.0.6    purrr_0.3.5     </span></span>
-<span><span class="co">## [21] codetools_0.2-18 sass_0.4.2       fs_1.5.2         memoise_2.0.1   </span></span>
-<span><span class="co">## [25] cachem_1.0.6     evaluate_0.18    rmarkdown_2.18   stringi_1.7.8   </span></span>
-<span><span class="co">## [29] compiler_4.2.2   bslib_0.4.1      desc_1.4.2       jsonlite_1.8.3</span></span></code></pre></div>
+<span><span class="co">##  [1] Rcpp_1.0.9       rstudioapi_0.14  magrittr_2.0.3   R6_2.5.1        </span></span>
+<span><span class="co">##  [5] rlang_1.0.6      foreach_1.5.2    fastmap_1.1.0    highr_0.9       </span></span>
+<span><span class="co">##  [9] stringr_1.5.0    tools_4.2.2      xfun_0.35        cli_3.4.1       </span></span>
+<span><span class="co">## [13] jquerylib_0.1.4  iterators_1.0.14 htmltools_0.5.3  yaml_2.3.6      </span></span>
+<span><span class="co">## [17] digest_0.6.30    rprojroot_2.0.3  lifecycle_1.0.3  crayon_1.5.2    </span></span>
+<span><span class="co">## [21] pkgdown_2.0.6    purrr_0.3.5      codetools_0.2-18 sass_0.4.4      </span></span>
+<span><span class="co">## [25] vctrs_0.5.1      fs_1.5.2         memoise_2.0.1    glue_1.6.2      </span></span>
+<span><span class="co">## [29] cachem_1.0.6     evaluate_0.18    rmarkdown_2.18   stringi_1.7.8   </span></span>
+<span><span class="co">## [33] compiler_4.2.2   bslib_0.4.1      desc_1.4.2       jsonlite_1.8.3</span></span></code></pre></div>
 </div>
   </div>
 
