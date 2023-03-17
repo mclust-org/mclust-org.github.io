@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://mclust-org.github.io/msir/404.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/msir/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/msir/articles/msir.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/msir/authors.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/msir/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/msir/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/msir/reference/index.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/msir/reference/loess.sd.html</loc>
@@ -13,10 +31,10 @@
     <loc>https://mclust-org.github.io/msir/reference/msir-package.html</loc>
   </url>
   <url>
-    <loc>https://mclust-org.github.io/msir/reference/msir.html</loc>
+    <loc>https://mclust-org.github.io/msir/reference/msir.bic.html</loc>
   </url>
   <url>
-    <loc>https://mclust-org.github.io/msir/reference/msir.bic.html</loc>
+    <loc>https://mclust-org.github.io/msir/reference/msir.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/msir/reference/msir.nslices.html</loc>
@@ -41,8 +59,5 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/msir/reference/summary.msir.html</loc>
-  </url>
-  <url>
-    <loc>https://mclust-org.github.io/msir/articles/msir.html</loc>
   </url>
 </urlset>
