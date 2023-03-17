@@ -6,7 +6,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-secondary"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">mclustAddons</a>
 
@@ -170,11 +170,11 @@ In this case the cluster must be explicitely stopped with <code><a href="https:/
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model E (univariate, equal variance) model with 1 component</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> on the transformation scale:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  log-likelihood   n df      BIC      ICL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       -428.0735 200  3 -872.042 -872.042</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  log-likelihood   n df       BIC       ICL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       -384.5051 200  3 -784.9051 -784.9051</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                     x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: 0.3370485</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: 0.1566665</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">dens</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Density estimation for bounded data via GMMs</span> ─────────── </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            </span>
@@ -185,23 +185,23 @@ In this case the cluster must be explicitely stopped with <code><a href="https:/
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model E (univariate, equal variance) model with 1 component</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> on the transformation scale:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  log-likelihood   n df      BIC      ICL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       -428.0735 200  3 -872.042 -872.042</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  log-likelihood   n df       BIC       ICL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       -384.5051 200  3 -784.9051 -784.9051</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                     x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: 0.3370485</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: 0.1566665</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Mixing probabilities:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Means:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1.074402 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0.7969059 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Variances:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1.559993 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0.8442655 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="densityMclustBounded-1.png" alt="" width="672" height="576"></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></span>
@@ -226,10 +226,10 @@ In this case the cluster must be explicitely stopped with <code><a href="https:/
 <span class="r-out co"><span class="r-pr">#&gt;</span> on the transformation scale:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  log-likelihood   n df      BIC      ICL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        120.3895 200  3 224.8841 224.8841</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        103.0321 200  3 190.1693 190.1693</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                      x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: -0.1422277</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: -0.1540769</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="densityMclustBounded-4.png" alt="" width="672" height="576"></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></span>
@@ -251,33 +251,29 @@ In this case the cluster must be explicitely stopped with <code><a href="https:/
 <span class="r-out co"><span class="r-pr">#&gt;</span>       lower   0   0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       upper Inf Inf</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model EVE (ellipsoidal, equal volume and orientation) model with 2 components</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model EEE (ellipsoidal, equal volume, shape and orientation) model with 1 component</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> on the transformation scale:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  log-likelihood   n df       BIC       ICL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       -899.9882 200 11 -1858.258 -1938.084</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       -881.1475 200  7 -1799.383 -1799.383</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                    x1        x2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: 0.3078951 0.2866066</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Range-power transformation: 0.1699909 0.2623781</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Mixing probabilities:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         1         2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0.3669925 0.6330075 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Means:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]     [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.3165365 1.567329</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 2.3499173 2.091169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.982085</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 2.154064</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Variances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [,,1]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.7173097 0.1148067</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.1148067 0.6890927</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [,,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 1.1023596 0.7319628</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.7319628 0.9224593</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.7881980 0.2005082</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.2005082 0.6456486</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="densityMclustBounded-8.png" alt="" width="672" height="576"></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></span>
