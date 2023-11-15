@@ -62,7 +62,10 @@
 <span>   modelName <span class="op">=</span> <span class="st">"VVV"</span>,  </span>
 <span>   use <span class="op">=</span> <span class="st">"VARS"</span>,</span>
 <span>   partition <span class="op">=</span> <span class="fu"><a href="dupPartition.html">dupPartition</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, </span>
-<span>   minclus <span class="op">=</span> <span class="fl">1</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span>   minclus <span class="op">=</span> <span class="fl">1</span>, <span class="va">...</span><span class="op">)</span></span>
+<span>   </span>
+<span><span class="co"># S3 method for hc</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/as.hclust.html" class="external-link">as.hclust</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -143,6 +146,9 @@
 <dd><p>Arguments for the method-specific <code>hc</code> functions. See for example
     <code><a href="hcE.html">hcE</a></code>.</p></dd>
 
+  <dt>x</dt>
+<dd><p>An object of class <code>'hc'</code> resulting from a call to <code>hc()</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -155,9 +161,8 @@
   as attributes.</p>
   
 
-<p>The plotting method <code><a href="plot.hc.html">plot.hc()</a></code> draws a dendrogram, which can be based
-  on either the classification loglikelihood or the merge level (number of
-  clusters). For details, see the associated help file.</p>
+<p>The method <code>as.hclust.hc()</code> can be used to convert the input 
+  object from class <code>'hc'</code> to class <code>'hclust'</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
