@@ -9,7 +9,7 @@
 <title>A quick tour of ppgmmga • ppgmmga</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/JetBrains_Mono-0.4.5/font.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/JetBrains_Mono-0.4.6/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="A quick tour of ppgmmga">
@@ -74,7 +74,7 @@
                         <h4 data-toc-skip class="author">Alessio
 Serafini, Luca Scrucca</h4>
             
-            <h4 data-toc-skip class="date">17 Mar 2023</h4>
+            <h4 data-toc-skip class="date">17 Nov 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/luca-scr/ppgmmga/blob/HEAD/vignettes/ppgmmga.Rmd" class="external-link"><code>vignettes/ppgmmga.Rmd</code></a></small>
       <div class="d-none name"><code>ppgmmga.Rmd</code></div>
@@ -110,7 +110,6 @@ reference to reveal clustering structures.</p>
 <span><span class="co">## Class</span></span>
 <span><span class="co">## counterfeit     genuine </span></span>
 <span><span class="co">##         100         100</span></span>
-<span><span class="va">Class_color</span> <span class="op">&lt;-</span> <span class="fu">ggthemes</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggthemes/man/tableau_color_pal.html" class="external-link">tableau_color_pal</a></span><span class="op">(</span><span class="st">"Classic 10"</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://mclust-org.github.io/mclust/reference/clPairs.html" class="external-link">clPairs</a></span><span class="op">(</span><span class="va">X</span>, classification <span class="op">=</span> <span class="va">Class</span>, </span>
 <span>        symbols <span class="op">=</span> <span class="fu"><a href="../reference/ppgmmga.options.html">ppgmmga.options</a></span><span class="op">(</span><span class="st">"classPlotSymbols"</span><span class="op">)</span>,</span>
 <span>        colors <span class="op">=</span> <span class="fu"><a href="../reference/ppgmmga.options.html">ppgmmga.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -236,26 +235,26 @@ reference to reveal clustering structures.</p>
 <span><span class="co">## Negentropy approximation      = UT </span></span>
 <span><span class="co">## GA optimal negentropy         = 1.16915 </span></span>
 <span><span class="co">## GA encoded basis solution: </span></span>
-<span><span class="co">##            x1       x2       x3      x4       x5       x6       x7       x8</span></span>
-<span><span class="co">## [1,] 4.306147 2.435962 1.072888 1.02168 1.039589 4.934657 2.005115 2.047029</span></span>
+<span><span class="co">##            x1      x2       x3       x4       x5       x6       x7       x8</span></span>
+<span><span class="co">## [1,] 4.274545 2.47064 1.055677 1.022896 0.851247 4.924235 1.982288 2.039161</span></span>
 <span><span class="co">##            x9      x10  ...       x14      x15</span></span>
-<span><span class="co">## [1,] 1.950543 2.200697       1.534584 2.504773</span></span>
+<span><span class="co">## [1,] 1.939208 2.210582       1.548995 2.489197</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Estimated projection basis: </span></span>
 <span><span class="co">##                 PP1        PP2        PP3</span></span>
-<span><span class="co">## Length   -0.3849309  0.5240368 -0.5116536</span></span>
-<span><span class="co">## Left     -0.1655861 -0.1697583 -0.3109141</span></span>
-<span><span class="co">## Right     0.2462001  0.5001222 -0.4154481</span></span>
-<span><span class="co">## Bottom    0.2973840  0.3653894  0.3867856</span></span>
-<span><span class="co">## Top       0.3097231  0.4873071  0.3130374</span></span>
-<span><span class="co">## Diagonal -0.7612025  0.2747140  0.4704789</span></span>
+<span><span class="co">## Length   -0.3145939  0.5612330 -0.5201907</span></span>
+<span><span class="co">## Left     -0.1472768 -0.1498109 -0.3297848</span></span>
+<span><span class="co">## Right     0.3043823  0.5008715 -0.3739875</span></span>
+<span><span class="co">## Bottom    0.2818318  0.3353769  0.4238383</span></span>
+<span><span class="co">## Top       0.3062895  0.4589957  0.3562206</span></span>
+<span><span class="co">## Diagonal -0.7832300  0.2975690  0.4174266</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Monte Carlo Negentropy approximation check: </span></span>
-<span><span class="co">##                            UT</span></span>
-<span><span class="co">## Approx Negentropy 1.169149621</span></span>
-<span><span class="co">## MC Negentropy     1.173876686</span></span>
-<span><span class="co">## MC se             0.004294694</span></span>
-<span><span class="co">## Relative accuracy 0.995973116</span></span></code></pre></div>
+<span><span class="co">##                           UT</span></span>
+<span><span class="co">## Approx Negentropy 1.16914962</span></span>
+<span><span class="co">## MC Negentropy     1.17493505</span></span>
+<span><span class="co">## MC se             0.00430878</span></span>
+<span><span class="co">## Relative accuracy 0.99507596</span></span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">PP3D</span><span class="op">$</span><span class="va">GA</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ppgmmga_files/figure-html/unnamed-chunk-11-1.png" width="80%" style="display: block; margin: auto;"></p>
@@ -276,7 +275,7 @@ reference to reveal clustering structures.</p>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://mclust-org.github.io/msir/" class="external-link">"msir"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"msir"</span><span class="op">)</span></span>
 <span><span class="fu">msir</span><span class="fu">::</span><span class="fu"><a href="https://mclust-org.github.io/msir/reference/splinplot.html" class="external-link">spinplot</a></span><span class="op">(</span><span class="va">PP3D</span><span class="op">$</span><span class="va">Z</span>, markby <span class="op">=</span> <span class="va">Class</span>, </span>
 <span>               pch.points <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">17</span><span class="op">)</span>,</span>
-<span>               col.points <span class="op">=</span> <span class="va">Class_color</span><span class="op">)</span></span></code></pre></div>
+<span>               col.points <span class="op">=</span> <span class="fu"><a href="../reference/ppgmmga.options.html">ppgmmga.options</a></span><span class="op">(</span><span class="st">"classPlotColors"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -288,38 +287,41 @@ Graphical Statistics</em>, 28(4), 847–860. <a href="https://doi.org/10.1080/10
 <hr>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">## R version 4.2.2 (2022-10-31)</span></span>
-<span><span class="co">## Platform: x86_64-apple-darwin17.0 (64-bit)</span></span>
-<span><span class="co">## Running under: macOS Big Sur ... 10.16</span></span>
+<span><span class="co">## R version 4.3.0 (2023-04-21)</span></span>
+<span><span class="co">## Platform: x86_64-apple-darwin20 (64-bit)</span></span>
+<span><span class="co">## Running under: macOS Ventura 13.6</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Matrix products: default</span></span>
-<span><span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib</span></span>
-<span><span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib</span></span>
+<span><span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib </span></span>
+<span><span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## locale:</span></span>
 <span><span class="co">## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## time zone: Europe/Rome</span></span>
+<span><span class="co">## tzcode source: internal</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## attached base packages:</span></span>
 <span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## other attached packages:</span></span>
-<span><span class="co">## [1] mclust_6.0.0 ppgmmga_1.3  knitr_1.42  </span></span>
+<span><span class="co">## [1] mclust_6.0.1 ppgmmga_1.3  knitr_1.44  </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span><span class="co">##  [1] Rcpp_1.0.10      GA_3.2.3         highr_0.10       pillar_1.8.1    </span></span>
-<span><span class="co">##  [5] bslib_0.4.2      compiler_4.2.2   jquerylib_0.1.4  iterators_1.0.14</span></span>
-<span><span class="co">##  [9] tools_4.2.2      digest_0.6.31    tibble_3.1.8     jsonlite_1.8.4  </span></span>
-<span><span class="co">## [13] evaluate_0.20    memoise_2.0.1    lifecycle_1.0.3  gtable_0.3.1    </span></span>
-<span><span class="co">## [17] pkgconfig_2.0.3  rlang_1.0.6      foreach_1.5.2    cli_3.6.0       </span></span>
-<span><span class="co">## [21] rstudioapi_0.14  yaml_2.3.7       pkgdown_2.0.7    xfun_0.37       </span></span>
-<span><span class="co">## [25] fastmap_1.1.0    withr_2.5.0      dplyr_1.1.0      stringr_1.5.0   </span></span>
-<span><span class="co">## [29] generics_0.1.3   desc_1.4.2       fs_1.6.1         vctrs_0.5.2     </span></span>
-<span><span class="co">## [33] sass_0.4.5       tidyselect_1.2.0 rprojroot_2.0.3  grid_4.2.2      </span></span>
-<span><span class="co">## [37] glue_1.6.2       R6_2.5.1         fansi_1.0.4      rmarkdown_2.20  </span></span>
-<span><span class="co">## [41] farver_2.1.1     purrr_1.0.1      ggplot2_3.4.1    magrittr_2.0.3  </span></span>
-<span><span class="co">## [45] ggthemes_4.2.4   scales_1.2.1     codetools_0.2-18 htmltools_0.5.4 </span></span>
-<span><span class="co">## [49] colorspace_2.1-0 labeling_0.4.2   utf8_1.2.3       stringi_1.7.12  </span></span>
-<span><span class="co">## [53] munsell_0.5.0    cachem_1.0.6     crayon_1.5.2</span></span></code></pre></div>
+<span><span class="co">##  [1] sass_0.4.6        utf8_1.2.4        generics_0.1.3    GA_3.2.3         </span></span>
+<span><span class="co">##  [5] stringi_1.7.12    digest_0.6.33     magrittr_2.0.3    evaluate_0.22    </span></span>
+<span><span class="co">##  [9] grid_4.3.0        iterators_1.0.14  fastmap_1.1.1     foreach_1.5.2    </span></span>
+<span><span class="co">## [13] rprojroot_2.0.3   jsonlite_1.8.7    purrr_1.0.1       fansi_1.0.5      </span></span>
+<span><span class="co">## [17] scales_1.2.1      codetools_0.2-19  jquerylib_0.1.4   cli_3.6.1        </span></span>
+<span><span class="co">## [21] rlang_1.1.1       crayon_1.5.2      munsell_0.5.0     withr_2.5.1      </span></span>
+<span><span class="co">## [25] cachem_1.0.8      yaml_2.3.7        tools_4.3.0       memoise_2.0.1    </span></span>
+<span><span class="co">## [29] dplyr_1.1.2       colorspace_2.1-0  ggplot2_3.4.3     vctrs_0.6.4      </span></span>
+<span><span class="co">## [33] R6_2.5.1          lifecycle_1.0.3   stringr_1.5.0     fs_1.6.3         </span></span>
+<span><span class="co">## [37] pkgconfig_2.0.3   desc_1.4.2        pkgdown_2.0.7     bslib_0.4.2      </span></span>
+<span><span class="co">## [41] pillar_1.9.0      gtable_0.3.4      glue_1.6.2        Rcpp_1.0.11      </span></span>
+<span><span class="co">## [45] xfun_0.40         tibble_3.2.1      tidyselect_1.2.0  rstudioapi_0.15.0</span></span>
+<span><span class="co">## [49] farver_2.1.1      htmltools_0.5.6   rmarkdown_2.22    labeling_0.4.3   </span></span>
+<span><span class="co">## [53] compiler_4.3.0</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
