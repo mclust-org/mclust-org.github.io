@@ -199,6 +199,9 @@
     <loc>https://mclust-org.github.io/mclust/reference/logLik.MclustDA.html</loc>
   </url>
   <url>
+    <loc>https://mclust-org.github.io/mclust/reference/logsumexp.html</loc>
+  </url>
+  <url>
     <loc>https://mclust-org.github.io/mclust/reference/majorityVote.html</loc>
   </url>
   <url>
@@ -344,6 +347,9 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/simE.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclust/reference/softmax.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclust/reference/summary.Mclust.html</loc>
