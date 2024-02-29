@@ -1,9 +1,9 @@
-pandoc: '3.1'
+pandoc: 3.1.11.1
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   mclustAddons: mclustAddons.html
-last_built: 2023-03-17T16:38Z
+last_built: 2024-02-29T11:50Z
 urls:
   reference: https://mclust-org.github.io/mclustAddons/reference
   article: https://mclust-org.github.io/mclustAddons/articles

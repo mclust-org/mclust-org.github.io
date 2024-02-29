@@ -8,8 +8,8 @@
 <meta name="description" content="mclustAddons">
 <title>A quick tour of mclustAddons • mclustAddons</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/JetBrains_Mono-0.4.5/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/JetBrains_Mono-0.4.8/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="A quick tour of mclustAddons">
@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">mclustAddons</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,7 @@
                         <h4 data-toc-skip class="author">Luca
 Scrucca</h4>
             
-            <h4 data-toc-skip class="date">17 Mar 2023</h4>
+            <h4 data-toc-skip class="date">29 Feb 2024</h4>
       
       
       <div class="d-none name"><code>mclustAddons.Rmd</code></div>
@@ -87,7 +87,7 @@ Scrucca</h4>
 </h2>
 <p><strong>mclustAddons</strong> is a contributed R package that extends
 the functionality available in the <strong>mclust</strong> package
-(Scrucca et al. 2016).<br>
+(Scrucca et al. 2016, Scrucca et al. 2023).<br>
 In particular, the following methods are included:</p>
 <ul>
 <li><p>density estimation for data with bounded support (Scrucca,
@@ -98,16 +98,16 @@ In particular, the following methods are included:</p>
 Scrucca, 2023).</p></li>
 </ul>
 <p>This document gives a quick tour of <strong>mclustAddons</strong>
-(version 0.7.2). It was written in <a href="https://rmarkdown.rstudio.com" class="external-link">R Markdown</a>, using the <a href="https://cran.r-project.org/package=knitr" class="external-link">knitr</a> package for
+(version 0.8). It was written in <a href="https://rmarkdown.rstudio.com" class="external-link">R Markdown</a>, using the <a href="https://cran.r-project.org/package=knitr" class="external-link">knitr</a> package for
 production.</p>
 <p>References on the methodologies implemented are provided at the end
 of this document.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mclust-org.github.io/mclustAddons/">mclustAddons</a></span><span class="op">)</span></span>
 <span><span class="co">## Loading required package: mclust</span></span>
-<span><span class="co">## Package 'mclust' version 6.0.0</span></span>
+<span><span class="co">## Package 'mclust' version 6.1</span></span>
 <span><span class="co">## Type 'citation("mclust")' for citing this R package in publications.</span></span>
-<span><span class="co">## Loaded package 'mclustAddons' version 0.7.2</span></span></code></pre></div>
+<span><span class="co">## Loaded package 'mclustAddons' version 0.8</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="density-estimation-for-data-with-bounded-support">Density estimation for data with bounded support<a class="anchor" aria-label="anchor" href="#density-estimation-for-data-with-bounded-support"></a>
@@ -173,10 +173,10 @@ of this document.</p>
 <span><span class="co">## on the transformation scale:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##  log-likelihood   n df      BIC      ICL</span></span>
-<span><span class="co">##        104.4678 200  3 193.0407 193.0407</span></span>
+<span><span class="co">##        113.3782 200  3 210.8615 210.8615</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##                                      x</span></span>
-<span><span class="co">## Range-power transformation: -0.1600959</span></span>
+<span><span class="co">## Range-power transformation: -0.2033281</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Mixing probabilities:</span></span>
 <span><span class="co">## 1 </span></span>
@@ -184,11 +184,11 @@ of this document.</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## Means:</span></span>
 <span><span class="co">##        1 </span></span>
-<span><span class="co">## 1.164398 </span></span>
+<span><span class="co">## 1.143687 </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Variances:</span></span>
 <span><span class="co">##         1 </span></span>
-<span><span class="co">## 0.7221851</span></span>
+<span><span class="co">## 0.5855875</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-3-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -210,14 +210,14 @@ of this document.</p>
 <span><span class="co">##       lower   0   0</span></span>
 <span><span class="co">##       upper Inf Inf</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Model VEE (ellipsoidal, equal shape and orientation) model with 1 component</span></span>
+<span><span class="co">## Model EEE (ellipsoidal, equal volume, shape and orientation) model with 1 component</span></span>
 <span><span class="co">## on the transformation scale:</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">##  log-likelihood   n df       BIC       ICL</span></span>
-<span><span class="co">##       -882.0264 200  7 -1801.141 -1801.141</span></span>
+<span><span class="co">##  log-likelihood   n df      BIC      ICL</span></span>
+<span><span class="co">##       -828.0809 200  7 -1693.25 -1693.25</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##                                    x1        x2</span></span>
-<span><span class="co">## Range-power transformation: 0.2835466 0.3094675</span></span>
+<span><span class="co">## Range-power transformation: 0.3341748 0.3161391</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Mixing probabilities:</span></span>
 <span><span class="co">## 1 </span></span>
@@ -225,14 +225,14 @@ of this document.</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## Means:</span></span>
 <span><span class="co">##           [,1]</span></span>
-<span><span class="co">## [1,] 0.8882233</span></span>
-<span><span class="co">## [2,] 2.1712294</span></span>
+<span><span class="co">## [1,] 0.9293059</span></span>
+<span><span class="co">## [2,] 2.0913930</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Variances:</span></span>
 <span><span class="co">## [,,1]</span></span>
 <span><span class="co">##           [,1]      [,2]</span></span>
-<span><span class="co">## [1,] 1.1820458 0.4040468</span></span>
-<span><span class="co">## [2,] 0.4040468 0.9491492</span></span>
+<span><span class="co">## [1,] 1.2215718 0.4676762</span></span>
+<span><span class="co">## [2,] 0.4676762 0.7072992</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dens</span>, what <span class="op">=</span> <span class="st">"BIC"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-4-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -414,10 +414,10 @@ undergone by control patients in a suicide study (Silverman, 1986).</p>
 <span><span class="co">## [1] 1.418939</span></span>
 <span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>       <span class="co"># generate sample</span></span>
 <span><span class="fu"><a href="../reference/EntropyGMM.html">EntropyGauss</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">var</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>  <span class="co"># sample entropy assuming Gaussian distribution</span></span>
-<span><span class="co">## [1] 1.430299</span></span>
+<span><span class="co">## [1] 1.455687</span></span>
 <span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="https://mclust-org.github.io/mclust/reference/densityMclust.html" class="external-link">densityMclust</a></span><span class="op">(</span><span class="va">x</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/EntropyGMM.html">EntropyGMM</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>       <span class="co"># GMM-based entropy estimate</span></span>
-<span><span class="co">## [1] 1.429799</span></span>
+<span><span class="co">## [1] 1.455187</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"density"</span>, data <span class="op">=</span> <span class="va">x</span>, breaks <span class="op">=</span> <span class="fl">31</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/graphics/rug.html" class="external-link">rug</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-9-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p><br></p>
@@ -429,7 +429,7 @@ N(2,1)\)</span>, whose entropy is 2.051939 in the population.</p>
 <span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">cl</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="op">-</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>   <span class="co"># generate sample</span></span>
 <span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="https://mclust-org.github.io/mclust/reference/densityMclust.html" class="external-link">densityMclust</a></span><span class="op">(</span><span class="va">x</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/EntropyGMM.html">EntropyGMM</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>       <span class="co"># GMM-based entropy estimate</span></span>
-<span><span class="co">## [1] 2.042949</span></span>
+<span><span class="co">## [1] 2.04164</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"density"</span>, data <span class="op">=</span> <span class="va">x</span>, breaks <span class="op">=</span> <span class="fl">31</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/graphics/rug.html" class="external-link">rug</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mclustAddons_files/figure-html/unnamed-chunk-10-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p><br></p>
@@ -440,10 +440,10 @@ Consider a 10-dimensional independent <span class="math inline">\(\chi^2\)</span
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html" class="external-link">rchisq</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">*</span><span class="fl">10</span>, df <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">1000</span>, ncol <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">mod1</span> <span class="op">=</span> <span class="fu"><a href="https://mclust-org.github.io/mclust/reference/densityMclust.html" class="external-link">densityMclust</a></span><span class="op">(</span><span class="va">x</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/EntropyGMM.html">EntropyGMM</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span>      <span class="co"># GMM-based entropy estimate, not too bad but...</span></span>
-<span><span class="co">## [1] 24.85662</span></span>
+<span><span class="co">## [1] 24.96356</span></span>
 <span><span class="va">mod2</span> <span class="op">=</span> <span class="fu"><a href="../reference/densityMclustBounded.html">densityMclustBounded</a></span><span class="op">(</span><span class="va">x</span>, lbound <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/EntropyGMM.html">EntropyGMM</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span>      <span class="co"># much more accurate</span></span>
-<span><span class="co">## [1] 24.16911</span></span></code></pre></div>
+<span><span class="co">## [1] 24.25154</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="faithful-data">Faithful data<a class="anchor" aria-label="anchor" href="#faithful-data"></a>
@@ -471,6 +471,9 @@ Consider a 10-dimensional independent <span class="math inline">\(\chi^2\)</span
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
+<p>Scrucca L., Fraley C., Murphy T. B. and Raftery A. E. (2023)
+<em>Model-Based Clustering, Classification, and Density Estimation Using
+mclust in R</em>. Chapman &amp; Hall/CRC, ISBN: 978-1032234953, <a href="https://mclust-org.github.io/book/" class="external-link uri">https://mclust-org.github.io/book/</a></p>
 <p>Scrucca L., Fop M., Murphy T. B. and Raftery A. E. (2016) mclust 5:
 clustering, classification and density estimation using Gaussian finite
 mixture models. <em>The R Journal</em> 8/1, pp. 289-317. <a href="https://doi.org/10.32614/RJ-2016-021" class="external-link uri">https://doi.org/10.32614/RJ-2016-021</a></p>
@@ -485,33 +488,36 @@ Gaussian mixtures. <em>Statistical Analysis and Data Mining</em>, 14:4,
 <hr>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">## R version 4.2.2 (2022-10-31)</span></span>
-<span><span class="co">## Platform: x86_64-apple-darwin17.0 (64-bit)</span></span>
-<span><span class="co">## Running under: macOS Big Sur ... 10.16</span></span>
+<span><span class="co">## R version 4.3.2 (2023-10-31)</span></span>
+<span><span class="co">## Platform: x86_64-apple-darwin20 (64-bit)</span></span>
+<span><span class="co">## Running under: macOS Ventura 13.6</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Matrix products: default</span></span>
-<span><span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib</span></span>
-<span><span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib</span></span>
+<span><span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib </span></span>
+<span><span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## locale:</span></span>
 <span><span class="co">## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## time zone: Europe/Rome</span></span>
+<span><span class="co">## tzcode source: internal</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## attached base packages:</span></span>
 <span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## other attached packages:</span></span>
-<span><span class="co">## [1] mclustAddons_0.7.2 mclust_6.0.0       knitr_1.42        </span></span>
+<span><span class="co">## [1] mclustAddons_0.8 mclust_6.1       knitr_1.45      </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span><span class="co">##  [1] Rcpp_1.0.10      rstudioapi_0.14  magrittr_2.0.3   R6_2.5.1        </span></span>
-<span><span class="co">##  [5] rlang_1.0.6      foreach_1.5.2    fastmap_1.1.0    highr_0.10      </span></span>
-<span><span class="co">##  [9] stringr_1.5.0    tools_4.2.2      xfun_0.37        cli_3.6.0       </span></span>
-<span><span class="co">## [13] jquerylib_0.1.4  iterators_1.0.14 htmltools_0.5.4  yaml_2.3.7      </span></span>
-<span><span class="co">## [17] digest_0.6.31    rprojroot_2.0.3  lifecycle_1.0.3  crayon_1.5.2    </span></span>
-<span><span class="co">## [21] pkgdown_2.0.7    purrr_1.0.1      codetools_0.2-18 sass_0.4.5      </span></span>
-<span><span class="co">## [25] vctrs_0.5.2      fs_1.6.1         memoise_2.0.1    glue_1.6.2      </span></span>
-<span><span class="co">## [29] cachem_1.0.6     evaluate_0.20    rmarkdown_2.20   stringi_1.7.12  </span></span>
-<span><span class="co">## [33] compiler_4.2.2   bslib_0.4.2      desc_1.4.2       jsonlite_1.8.4</span></span></code></pre></div>
+<span><span class="co">##  [1] crayon_1.5.2     vctrs_0.6.5      cli_3.6.2        rlang_1.1.3     </span></span>
+<span><span class="co">##  [5] xfun_0.42        highr_0.10       stringi_1.8.3    purrr_1.0.2     </span></span>
+<span><span class="co">##  [9] jsonlite_1.8.8   glue_1.7.0       htmltools_0.5.7  sass_0.4.8      </span></span>
+<span><span class="co">## [13] rmarkdown_2.25   evaluate_0.23    jquerylib_0.1.4  fastmap_1.1.1   </span></span>
+<span><span class="co">## [17] foreach_1.5.2    yaml_2.3.8       lifecycle_1.0.4  memoise_2.0.1   </span></span>
+<span><span class="co">## [21] stringr_1.5.1    compiler_4.3.2   codetools_0.2-19 fs_1.6.3        </span></span>
+<span><span class="co">## [25] Rcpp_1.0.12      digest_0.6.34    R6_2.5.1         magrittr_2.0.3  </span></span>
+<span><span class="co">## [29] bslib_0.6.1      tools_4.3.2      iterators_1.0.14 pkgdown_2.0.7   </span></span>
+<span><span class="co">## [33] cachem_1.0.8     desc_1.4.3</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

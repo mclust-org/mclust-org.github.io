@@ -40,9 +40,6 @@
     <loc>https://mclust-org.github.io/mclustAddons/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://mclust-org.github.io/mclustAddons/reference/logsumexp.html</loc>
-  </url>
-  <url>
     <loc>https://mclust-org.github.io/mclustAddons/reference/mclustAddons-package.html</loc>
   </url>
   <url>
@@ -56,6 +53,9 @@
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclustAddons/reference/racial.html</loc>
+  </url>
+  <url>
+    <loc>https://mclust-org.github.io/mclustAddons/reference/rangepowerTransform.html</loc>
   </url>
   <url>
     <loc>https://mclust-org.github.io/mclustAddons/reference/suicide.html</loc>
