@@ -2,15 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.11.9">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>2&nbsp; Finite Mixture Models – Model-Based Clustering, Classification, and Density Estimation 
 Using mclust in R</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -22,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -50,15 +55,17 @@ div.csl-indent {
 <link href="../chapters/03_cluster.html" rel="next">
 <link href="../chapters/01_intro.html" rel="prev">
 <link href="../images/cover.jpg" rel="icon" type="image/jpeg">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a0addcd269d742dbfb5bcd2be139ffc6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-922b6d0d1392aab53fd0243aa076ed53.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -84,7 +91,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -95,7 +102,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -111,15 +118,15 @@ window.Quarto = {
 };
 </script>
 </head>
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" aria-label="Toolbar"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_mixture.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Mixture Models</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_mixture.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Mixture Models</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -127,7 +134,7 @@ window.Quarto = {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Model-Based Clustering, Classification, and Density Estimation Using mclust in R</a> 
         <div class="sidebar-tools-main">
@@ -211,7 +218,7 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
 <li>
@@ -241,7 +248,7 @@ window.Quarto = {
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content" tabindex="-1"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title"><span id="sec-mixture" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Mixture Models</span></span></h1>
 </div>
 
@@ -294,7 +301,7 @@ window.Quarto = {
 <p>This chapter gives a general introduction to finite mixture models and the special case of Gaussian mixture models (GMMs) which is emphasized in this book. It describes common methods for parameter estimation and model selection. In particular, the maximum likelihood approach is presented and the EM algorithm for maximum likelihood estimation is detailed. The Gaussian case is discussed at length. We introduce a parsimonious covariance decomposition that allows one to regularize the estimation procedure. The maximum a posteriori procedure is described as a way to obtain probabilistic clustering. Methods for model selection based on information criteria and likelihood ratio testing are presented. Finally, inference on parameters is discussed by adopting a resampling-based approach.</p>
 <section id="finite-mixture-models" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="finite-mixture-models">
 <span class="header-section-number">2.1</span> Finite Mixture Models</h2>
-<p>Mixture models encompass a powerful set of statistical tools for cluster analysis, classification, and density estimation. They provide a widely-used family of models that have proved to be an effective and computationally convenient way to model data arising in many fields, from agriculture to astronomy, economics to medicine, marketing to bioinformatics, among others. Details of finite mixture models and their applications can be found in <span class="citation" data-cites="Titterington:etal:1985">Titterington, Smith, and Makov (<a href="99_references.html#ref-Titterington:etal:1985" role="doc-biblioref">1985</a>)</span>, <span class="citation" data-cites="McLachlan:Basford:1988">Geoffrey J. McLachlan and Basford (<a href="99_references.html#ref-McLachlan:Basford:1988" role="doc-biblioref">1988</a>)</span>, <span class="citation" data-cites="McLachlan:Peel:2000">G. J. McLachlan and Peel (<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">2000</a>)</span>, <span class="citation" data-cites="Bishop:2006">Bishop (<a href="99_references.html#ref-Bishop:2006" role="doc-biblioref">2006, chap. 9</a>)</span>, <span class="citation" data-cites="FruhwirthSchnatter:2006">Frühwirth-Schnatter (<a href="99_references.html#ref-FruhwirthSchnatter:2006" role="doc-biblioref">2006</a>)</span>, <span class="citation" data-cites="McNicholas:2016">McNicholas (<a href="99_references.html#ref-McNicholas:2016" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="Bouveyron:Celeux:Murphy:Raftery:2019">Bouveyron et al. (<a href="99_references.html#ref-Bouveyron:Celeux:Murphy:Raftery:2019" role="doc-biblioref">2019</a>)</span>. In this book our interest in mixture models will be mostly in their use for statistical learning problems, mostly unsupervised, but also supervised.</p>
+<p>Mixture models encompass a powerful set of statistical tools for cluster analysis, classification, and density estimation. They provide a widely-used family of models that have proved to be an effective and computationally convenient way to model data arising in many fields, from agriculture to astronomy, economics to medicine, marketing to bioinformatics, among others. Details of finite mixture models and their applications can be found in <span class="citation" data-cites="Titterington:etal:1985">Titterington et al. (<a href="99_references.html#ref-Titterington:etal:1985" role="doc-biblioref">1985</a>)</span>, <span class="citation" data-cites="McLachlan:Basford:1988">McLachlan and Basford (<a href="99_references.html#ref-McLachlan:Basford:1988" role="doc-biblioref">1988</a>)</span>, <span class="citation" data-cites="McLachlan:Peel:2000">McLachlan and Peel (<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">2000</a>)</span>, <span class="citation" data-cites="Bishop:2006">Bishop (<a href="99_references.html#ref-Bishop:2006" role="doc-biblioref">2006, chap. 9</a>)</span>, <span class="citation" data-cites="FruhwirthSchnatter:2006">Frühwirth-Schnatter (<a href="99_references.html#ref-FruhwirthSchnatter:2006" role="doc-biblioref">2006</a>)</span>, <span class="citation" data-cites="McNicholas:2016">McNicholas (<a href="99_references.html#ref-McNicholas:2016" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="Bouveyron:Celeux:Murphy:Raftery:2019">Bouveyron et al. (<a href="99_references.html#ref-Bouveyron:Celeux:Murphy:Raftery:2019" role="doc-biblioref">2019</a>)</span>. In this book our interest in mixture models will be mostly in their use for statistical learning problems, mostly unsupervised, but also supervised.</p>
 <p>A mixture distribution is a probability distribution obtained as a convex linear combination<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of probability density functions<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p>The individual distributions that are combined to form the mixture distribution are called <em>mixture components</em>, and the weights associated with each component are called <em>mixture weights</em> or <em>mixture proportions</em>. The number of mixture components is often restricted to being finite, although in some cases it may be countably infinite.</p>
 <p>The general form of the density of a <em>finite mixture distribution</em> <!-- \index{finite mixture!distribution}  --> for a <span class="math inline">\(d\)</span>-dimensional random vector <span class="math inline">\(\boldsymbol{x}\)</span> can be written in the form <span id="eq-mixture"><span class="math display">\[
@@ -327,8 +334,8 @@ L(\boldsymbol{\Psi}) = \prod_{i=1}^n
 \right\},
 \]</span> where <span class="math inline">\(\boldsymbol{\Psi}= (\pi_1, \dots, \pi_{G-1}, \boldsymbol{\theta}_1, \dots, \boldsymbol{\theta}_G)\)</span> are the parameters to be estimated. The corresponding log-likelihood is <span id="eq-mixloglik"><span class="math display">\[
 \ell(\boldsymbol{\Psi}) = \sum_{i=1}^n \log\left\{ \sum_{k=1}^G \pi_k f_k(\boldsymbol{x}_i ; \boldsymbol{\theta}_k) \right\}.
-\tag{2.2}\]</span></span> The maximum likelihood estimate (MLE) <!-- \index{maximum likelihood estimate} --> of <span class="math inline">\(\boldsymbol{\Psi}\)</span> is defined as a stationary point of the likelihood in the interior of the parameter space, and is thus a root of the likelihood equation <span class="math inline">\(\partial \ell(\boldsymbol{\Psi}) / \partial \boldsymbol{\Psi}= \boldsymbol{0}\)</span> corresponding to a finite local maximum. However, the log-likelihood in <a href="#eq-mixloglik" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> is hard to maximize directly, even numerically <span class="citation" data-cites="McLachlan:Peel:2000">(see <a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">G. J. McLachlan and Peel 2000, sec. 2.8.1</a>)</span>. As a consequence, mixture models are usually fitted by reformulating the mixture problem as an incomplete-data problem within the EM framework.</p>
-<p>The <em>Expectation-Maximization</em> (EM) algorithm <!-- \index{EM algorithm} --> <span class="citation" data-cites="Dempster:Laird:Rubin:1977">(<a href="99_references.html#ref-Dempster:Laird:Rubin:1977" role="doc-biblioref">Dempster, Laird, and Rubin 1977</a>)</span> is a general approach to maximum likelihood estimation when the data can be seen as the realization of multivariate observations <span class="math inline">\((\boldsymbol{x}_i, \boldsymbol{z}_i)\)</span> for <span class="math inline">\(i=1, \dots, n\)</span>, where the <span class="math inline">\(\boldsymbol{x}_i\)</span> are observed and the <span class="math inline">\(\boldsymbol{z}_i\)</span> are latent, unobserved variables. In the case of finite mixture models, <span class="math inline">\(\boldsymbol{z}_i = (z_{i1}, \dots, z_{iG}){}^{\!\top}\)</span>, where <span class="math display">\[
+\tag{2.2}\]</span></span> The maximum likelihood estimate (MLE) <!-- \index{maximum likelihood estimate} --> of <span class="math inline">\(\boldsymbol{\Psi}\)</span> is defined as a stationary point of the likelihood in the interior of the parameter space, and is thus a root of the likelihood equation <span class="math inline">\(\partial \ell(\boldsymbol{\Psi}) / \partial \boldsymbol{\Psi}= \boldsymbol{0}\)</span> corresponding to a finite local maximum. However, the log-likelihood in <a href="#eq-mixloglik" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> is hard to maximize directly, even numerically <span class="citation" data-cites="McLachlan:Peel:2000">(see <a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">McLachlan and Peel 2000, sec. 2.8.1</a>)</span>. As a consequence, mixture models are usually fitted by reformulating the mixture problem as an incomplete-data problem within the EM framework.</p>
+<p>The <em>Expectation-Maximization</em> (EM) algorithm <!-- \index{EM algorithm} --> <span class="citation" data-cites="Dempster:Laird:Rubin:1977">(<a href="99_references.html#ref-Dempster:Laird:Rubin:1977" role="doc-biblioref">Dempster et al. 1977</a>)</span> is a general approach to maximum likelihood estimation when the data can be seen as the realization of multivariate observations <span class="math inline">\((\boldsymbol{x}_i, \boldsymbol{z}_i)\)</span> for <span class="math inline">\(i=1, \dots, n\)</span>, where the <span class="math inline">\(\boldsymbol{x}_i\)</span> are observed and the <span class="math inline">\(\boldsymbol{z}_i\)</span> are latent, unobserved variables. In the case of finite mixture models, <span class="math inline">\(\boldsymbol{z}_i = (z_{i1}, \dots, z_{iG}){}^{\!\top}\)</span>, where <span class="math display">\[
 z_{ik} =
 \begin{cases}
 1 &amp; \text{if $\boldsymbol{x}_i$ belongs to the $k$th component of the mixture,} \\
@@ -369,7 +376,7 @@ Q(\boldsymbol{\Psi}; \boldsymbol{\Psi}^{(t)}) =
 <li><p>If convergence criteria are not satisfied, set <span class="math inline">\(t = t+1\)</span> and perform another E-step followed by an M-step.</p></li>
 </ul>
 <p>As an alternative to specifying initial values for the parameters, the EM algorithm for finite mixture models can be invoked with an initial assignment of observations to mixture components. The latter is equivalent to starting EM from the M-step with <span class="math inline">\(\widehat{z}_{ik}^{(0)}\)</span> set to <span class="math inline">\(1\)</span> if the <span class="math inline">\(i\)</span>th observation is assigned to component <span class="math inline">\(k\)</span>, and <span class="math inline">\(0\)</span> otherwise. More details on initialization are given in <a href="#sec-init" class="quarto-xref"><span>Section 2.2.3</span></a>.</p>
-<p>Properties of the EM algorithm have been extensively studied in the literature; for a review see <span class="citation" data-cites="McLachlan:Krishnan:2008">G. J. McLachlan and Krishnan (<a href="99_references.html#ref-McLachlan:Krishnan:2008" role="doc-biblioref">2008</a>)</span>. Some of the main advantages are the following:</p>
+<p>Properties of the EM algorithm have been extensively studied in the literature; for a review see <span class="citation" data-cites="McLachlan:Krishnan:2008">McLachlan and Krishnan (<a href="99_references.html#ref-McLachlan:Krishnan:2008" role="doc-biblioref">2008</a>)</span>. Some of the main advantages are the following:</p>
 <ul>
 <li><p>Unless a stationary point of the log-likelihood has been reached, each EM iteration increases the log-likelihood. Although the likelihood surface for a GMM is unbounded wherever a covariance is singular, EM tends to converge to finite local maxima.</p></li>
 <li><p>In many cases of practical interest, the E-steps and M-steps are more tractable in terms of implementation than direct maximization of the log-likelihood, and the cost per iteration is often relatively low.</p></li>
@@ -383,12 +390,12 @@ Q(\boldsymbol{\Psi}; \boldsymbol{\Psi}^{(t)}) =
 <li><p>An estimate of the covariance matrix of the parameter estimates (needed to assess uncertainty) is not available as a byproduct of the EM computations. Methods have been developed to overcome this, such as the resampling approach described in <a href="#sec-resamp_inference" class="quarto-xref"><span>Section 2.4</span></a>.</p></li>
 </ul></section><section id="sec-mixissues" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="sec-mixissues">
 <span class="header-section-number">2.1.2</span> Issues in Maximum Likelihood Estimation</h3>
-<p>When computing the MLE of a finite mixture model, some potential problems may arise. The first issue is that the mixture likelihood may be unbounded <span class="citation" data-cites="McLachlan:Peel:2000">(see <a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">G. J. McLachlan and Peel 2000, sec. 2.2</a> and 2.5)</span>. For example, a global maximum does not exist for Gaussian mixture models (GMMs) with unequal covariance matrices <span class="citation" data-cites="McLachlan:Peel:2000">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">G. J. McLachlan and Peel 2000, sec. 3.8.1</a>)</span>. Optimization methods may diverge and fail to converge to a finite local optimum. Imposing cross-cluster constraints, as discussed for GMMs in <a href="#sec-eigendecomp" class="quarto-xref"><span>Section 2.2.1</span></a>, reduces the chances of encountering unboundedness during optimization. Another approach, which can be combined with constraints, is to add a prior distribution for regularization (see <a href="07_miscellanea.html#sec-prior" class="quarto-xref"><span>Section 7.2</span></a>). Further alternatives are discussed by <span class="citation" data-cites="Hathaway:1985">Hathaway (<a href="99_references.html#ref-Hathaway:1985" role="doc-biblioref">1985</a>)</span>, <span class="citation" data-cites="Ingrassia:Rocci:2007">Ingrassia and Rocci (<a href="99_references.html#ref-Ingrassia:Rocci:2007" role="doc-biblioref">2007</a>)</span>, <span class="citation" data-cites="Garcia:etal:2015">Garcı́a-Escudero et al. (<a href="99_references.html#ref-Garcia:etal:2015" role="doc-biblioref">2015</a>)</span>.</p>
+<p>When computing the MLE of a finite mixture model, some potential problems may arise. The first issue is that the mixture likelihood may be unbounded <span class="citation" data-cites="McLachlan:Peel:2000">(see <a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">McLachlan and Peel 2000, sec. 2.2</a> and 2.5)</span>. For example, a global maximum does not exist for Gaussian mixture models (GMMs) with unequal covariance matrices <span class="citation" data-cites="McLachlan:Peel:2000">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">McLachlan and Peel 2000, sec. 3.8.1</a>)</span>. Optimization methods may diverge and fail to converge to a finite local optimum. Imposing cross-cluster constraints, as discussed for GMMs in <a href="#sec-eigendecomp" class="quarto-xref"><span>Section 2.2.1</span></a>, reduces the chances of encountering unboundedness during optimization. Another approach, which can be combined with constraints, is to add a prior distribution for regularization (see <a href="07_miscellanea.html#sec-prior" class="quarto-xref"><span>Section 7.2</span></a>). Further alternatives are discussed by <span class="citation" data-cites="Hathaway:1985">Hathaway (<a href="99_references.html#ref-Hathaway:1985" role="doc-biblioref">1985</a>)</span>, <span class="citation" data-cites="Ingrassia:Rocci:2007">Ingrassia and Rocci (<a href="99_references.html#ref-Ingrassia:Rocci:2007" role="doc-biblioref">2007</a>)</span>, <span class="citation" data-cites="Garcia:etal:2015">Garcı́a-Escudero et al. (<a href="99_references.html#ref-Garcia:etal:2015" role="doc-biblioref">2015</a>)</span>.</p>
 <p>Another issue is that the likelihood surface often has many local maxima. If an iterative optimization method does converge to a local maximum, the corresponding parameter values will depend on how that method was initialized. Initialization strategies for the EM algorithm for GMMs are discussed in <a href="#sec-init" class="quarto-xref"><span>Section 2.2.3</span></a>. Moreover, as mentioned above, not only can the asymptotic rate of convergence be slow, but progress can also be slow away from the optimum. As result, convergence criteria, which are typically confined to absolute or relative changes in the log-likelihood and/or parameters, may be satisfied at a non-stationary point.</p>
 <p>Identifiability of the mixture components poses another potential problem. The log-likelihood in <a href="#eq-mixloglik" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> is maximized for any permutation of the order of the components (the <em>label switching problem</em>). This is not usually a problem with the EM algorithm for finite mixture models, but it can be a serious problem for Bayesian approaches that rely on sampling from the posterior distribution. For further details and remedies, see <span class="citation" data-cites="FruhwirthSchnatter:2006">Frühwirth-Schnatter (<a href="99_references.html#ref-FruhwirthSchnatter:2006" role="doc-biblioref">2006</a>)</span>.</p>
 </section></section><section id="sec-GMM" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="sec-GMM">
 <span class="header-section-number">2.2</span> Gaussian Mixture Models</h2>
-<p>Mixtures of Gaussian distributions <!-- \index{Gaussian mixtures} --> are the most popular model for continuous data, that is, numerical data that can theoretically be measured in infinitely small units. Gaussian mixture models (GMMs) are widely used in statistical learning, pattern recognition, and data mining <span class="citation" data-cites="Celeux:Govaert:1995 Fraley:Raftery:2002 Stahl:Sallis:2012">(<a href="99_references.html#ref-Celeux:Govaert:1995" role="doc-biblioref">Celeux and Govaert 1995</a>; <a href="99_references.html#ref-Fraley:Raftery:2002" role="doc-biblioref">C. Fraley and Raftery 2002</a>; <a href="99_references.html#ref-Stahl:Sallis:2012" role="doc-biblioref">Stahl and Sallis 2012</a>)</span>.</p>
+<p>Mixtures of Gaussian distributions <!-- \index{Gaussian mixtures} --> are the most popular model for continuous data, that is, numerical data that can theoretically be measured in infinitely small units. Gaussian mixture models (GMMs) are widely used in statistical learning, pattern recognition, and data mining <span class="citation" data-cites="Celeux:Govaert:1995 Fraley:Raftery:2002 Stahl:Sallis:2012">(<a href="99_references.html#ref-Celeux:Govaert:1995" role="doc-biblioref">Celeux and Govaert 1995</a>; <a href="99_references.html#ref-Fraley:Raftery:2002" role="doc-biblioref">Fraley and Raftery 2002</a>; <a href="99_references.html#ref-Stahl:Sallis:2012" role="doc-biblioref">Stahl and Sallis 2012</a>)</span>.</p>
 <p>The probability density function of a GMM can be written as <span id="eq-gaussmixture"><span class="math display">\[
 f(\boldsymbol{x}; \boldsymbol{\Psi}) = \sum_{k=1}^G \pi_k \phi(\boldsymbol{x}; \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k),
 \tag{2.3}\]</span></span> where <span class="math inline">\(\phi(\cdot)\)</span> is the multivariate Gaussian density function with mean <span class="math inline">\(\boldsymbol{\mu}_k\)</span> and covariance matrix <span class="math inline">\(\boldsymbol{\Sigma}_k\)</span>: <span class="math display">\[
@@ -731,9 +738,9 @@ Figure&nbsp;2.4: Illustration of some steps of the EM algorithm for fitting a tw
 <p>The EM algorithm is an iterative, strictly hill-climbing procedure whose performance can depend strongly on the starting point because the finite mixture likelihood surface tends to have multiple modes. Thus, initialization of the EM algorithm is often crucial, although no method suggested in the literature uniformly outperforms the others. Nevertheless, the EM algorithm is usually able to produce sensible results when started from reasonable starting values .</p>
 <p>In the case of Gaussian mixtures, several approaches, both stochastic and deterministic, are available for selecting an initial partition of the observations or an initial estimate of the parameters. Broadly speaking, there are two general approaches for starting the EM algorithm.</p>
 <p>In the first approach, the EM algorithm is initialized using a set of randomly selected parameters. <!-- \index{EM initialization!random} --> For instance, a simple strategy is based on generating several candidates by drawing parameter values uniformly at random over the feasible parameter region. Alternatively, membership probabilities can be drawn at random over the unit simplex of dimension equal to the number of mixture components. Since the random-starts strategy has a fair chance of failing to provide good initial starting values, a common suggestion is to run the EM algorithm with several random starts and choose the one resulting in the highest log-likelihood.</p>
-<p>Another stochastic initialization scheme is the <em>emEM</em> <!-- \index{EM initialization!emEM}  --> strategy proposed by <span class="citation" data-cites="Biernacki:etal:2003">Christophe Biernacki, Celeux, and Govaert (<a href="99_references.html#ref-Biernacki:etal:2003" role="doc-biblioref">2003</a>)</span>. This uses several short runs of the EM algorithm initialized with valid random starts as parameter estimates until an overall number of total iterations is exhausted. Then, the one with the highest log-likelihood is chosen to be the initializer for a long-running EM, which runs until the usual strict convergence criteria are met. The R package <strong>Rmixmod</strong> <span class="citation" data-cites="Rpkg:Rmixmod">(<a href="99_references.html#ref-Rpkg:Rmixmod" role="doc-biblioref">Langrognet et al. 2022</a>)</span> uses this by default. However, emEM is computationally intensive and suffers from the same issues mentioned above for random starts, although to a lesser extent.</p>
+<p>Another stochastic initialization scheme is the <em>emEM</em> <!-- \index{EM initialization!emEM}  --> strategy proposed by <span class="citation" data-cites="Biernacki:etal:2003">Biernacki et al. (<a href="99_references.html#ref-Biernacki:etal:2003" role="doc-biblioref">2003</a>)</span>. This uses several short runs of the EM algorithm initialized with valid random starts as parameter estimates until an overall number of total iterations is exhausted. Then, the one with the highest log-likelihood is chosen to be the initializer for a long-running EM, which runs until the usual strict convergence criteria are met. The R package <strong>Rmixmod</strong> <span class="citation" data-cites="Rpkg:Rmixmod">(<a href="99_references.html#ref-Rpkg:Rmixmod" role="doc-biblioref">Langrognet et al. 2022</a>)</span> uses this by default. However, emEM is computationally intensive and suffers from the same issues mentioned above for random starts, although to a lesser extent.</p>
 <p>Another approach to initializing the EM algorithm is based on the partition obtained from some other clustering algorithm, such as <span class="math inline">\(k\)</span>-means or hierarchical clustering. <!-- \index{EM initialization!group partition} --> In this case, the final classification is used to start the EM algorithm from the M-step. However, there are drawbacks associated with the use of these partitioning algorithms for initializing EM. For example, some have their own initialization issues, and some have a tendency to artificially impose specific shapes or patterns on clusters.</p>
-<p>In the <strong>mclust</strong> R package, the EM algorithm is initialized using the partitions obtained from model-based agglomerative hierarchical clustering (MBAHC). <!-- \index{EM initialization!in mclust} --> In this approach, <span class="math inline">\(k\)</span> clusters are obtained from a large number of smaller clusters by recursively merging the two clusters that yield the maximum likelihood of a probability model over all possible merges. <span class="citation" data-cites="Banfield:Raftery:1993">Banfield and Raftery (<a href="99_references.html#ref-Banfield:Raftery:1993" role="doc-biblioref">1993</a>)</span> proposed using the Gaussian classification likelihood as the underlying criterion. For the simplest model with equal, spherical covariance matrices, this is the same criterion that underlies the classical sum-of-squares method. <span class="citation" data-cites="Fraley:1998">Chris Fraley (<a href="99_references.html#ref-Fraley:1998" role="doc-biblioref">1998</a>)</span> showed how the structure of some Gaussian models can be exploited to yield efficient regularized algorithms for agglomerative hierarchical clustering. Further details are given in <a href="03_cluster.html#sec-mbahc" class="quarto-xref"><span>Section 3.6</span></a> and <a href="03_cluster.html#sec-mclust_init" class="quarto-xref"><span>Section 3.7</span></a>.</p>
+<p>In the <strong>mclust</strong> R package, the EM algorithm is initialized using the partitions obtained from model-based agglomerative hierarchical clustering (MBAHC). <!-- \index{EM initialization!in mclust} --> In this approach, <span class="math inline">\(k\)</span> clusters are obtained from a large number of smaller clusters by recursively merging the two clusters that yield the maximum likelihood of a probability model over all possible merges. <span class="citation" data-cites="Banfield:Raftery:1993">Banfield and Raftery (<a href="99_references.html#ref-Banfield:Raftery:1993" role="doc-biblioref">1993</a>)</span> proposed using the Gaussian classification likelihood as the underlying criterion. For the simplest model with equal, spherical covariance matrices, this is the same criterion that underlies the classical sum-of-squares method. <span class="citation" data-cites="Fraley:1998">Fraley (<a href="99_references.html#ref-Fraley:1998" role="doc-biblioref">1998</a>)</span> showed how the structure of some Gaussian models can be exploited to yield efficient regularized algorithms for agglomerative hierarchical clustering. Further details are given in <a href="03_cluster.html#sec-mbahc" class="quarto-xref"><span>Section 3.6</span></a> and <a href="03_cluster.html#sec-mclust_init" class="quarto-xref"><span>Section 3.7</span></a>.</p>
 </section><section id="sec-map" class="level3" data-number="2.2.4"><h3 data-number="2.2.4" class="anchored" data-anchor-id="sec-map">
 <span class="header-section-number">2.2.4</span> Maximum A Posteriori (MAP) Classification</h3>
 <p>Given a dataset <span class="math inline">\(\mathcal{X}= \{ \boldsymbol{x}_1, \boldsymbol{x}_2, \dots, \boldsymbol{x}_n \}\)</span>, a hard partition of the observed data points into <span class="math inline">\(G\)</span> clusters, denoted as <span class="math inline">\(\mathcal{C}= \{ C_1, C_2, \dots, C_G \}\)</span> such that <span class="math inline">\(C_k \,\cap\, C_g = \emptyset\)</span> (for <span class="math inline">\(k \ne g\)</span>) and <span class="math inline">\(\bigcup_{k=1}^{G} C_k = \mathcal{X}\)</span>, is straightforward to obtain in finite mixture modeling.</p>
@@ -752,7 +759,7 @@ u_i = 1 - \max_k \widehat{z}_{ik},
 <section id="sec-infocrit" class="level3" data-number="2.3.1"><h3 data-number="2.3.1" class="anchored" data-anchor-id="sec-infocrit">
 <span class="header-section-number">2.3.1</span> Information Criteria</h3>
 <p>Information criteria are usually based on penalized forms of the likelihood. In general, as the log-likelihood increases with the addition of more parameters in a statistical model, a penalty term for the number of estimated parameters is included to account for the model complexity <span class="citation" data-cites="Claeskens:Hjort:2008 Konishi:Kitagawa:2008">(<a href="99_references.html#ref-Claeskens:Hjort:2008" role="doc-biblioref">Claeskens and Hjort 2008</a>; <a href="99_references.html#ref-Konishi:Kitagawa:2008" role="doc-biblioref">Konishi and Kitagawa 2008</a>)</span>.</p>
-<p>Let <span class="math inline">\(\boldsymbol{x}_1,\dots,\boldsymbol{x}_n\)</span> be a random sample of <span class="math inline">\(n\)</span> independent observations. Consider a parametric family of density functions <span class="math inline">\(\{f(\boldsymbol{x}; \boldsymbol{\theta}); \boldsymbol{\theta}\in \boldsymbol{\Theta}\}\)</span>, for which the log-likelihood can be computed as <span class="math inline">\(\ell(\boldsymbol{\theta}; \boldsymbol{x})  = \log L(\boldsymbol{\theta}; \boldsymbol{x}) = \sum_{i=1}^n \log f(\boldsymbol{x}_i ; \boldsymbol{\theta})\)</span>, where <span class="math inline">\(\widehat{\boldsymbol{\theta}}\)</span> is the MLE (the value that maximizes the log-likelihood). The <em>Bayesian information criterion</em> (BIC), <!-- \index{Bayesian information criterion (BIC)} --> originally introduced by <span class="citation" data-cites="Schwartz:1978">Schwartz (<a href="99_references.html#ref-Schwartz:1978" role="doc-biblioref">1978</a>)</span>, is a popular criterion for model selection that penalizes the log-likelihood by introducing a penalty term: <span class="math display">\[
+<p>Let <span class="math inline">\(\boldsymbol{x}_1,\dots,\boldsymbol{x}_n\)</span> be a random sample of <span class="math inline">\(n\)</span> independent observations. Consider a parametric family of density functions <span class="math inline">\(\{f(\boldsymbol{x}; \boldsymbol{\theta}); \boldsymbol{\theta}\in \boldsymbol{\Theta}\}\)</span>, for which the log-likelihood can be computed as <span class="math inline">\(\ell(\boldsymbol{\theta}; \boldsymbol{x})  = \log L(\boldsymbol{\theta}; \boldsymbol{x}) = \sum_{i=1}^n \log f(\boldsymbol{x}_i ; \boldsymbol{\theta})\)</span>, where <span class="math inline">\(\widehat{\boldsymbol{\theta}}\)</span> is the MLE (the value that maximizes the log-likelihood). The <em>Bayesian information criterion</em> (BIC), <!-- \index{Bayesian information criterion (BIC)} --> originally introduced by <span class="citation" data-cites="Schwarz:1978">Schwarz (<a href="99_references.html#ref-Schwarz:1978" role="doc-biblioref">1978</a>)</span>, is a popular criterion for model selection that penalizes the log-likelihood by introducing a penalty term: <span class="math display">\[
 \BIC = 2\ell(\widehat{\boldsymbol{\theta}} ; \boldsymbol{x}) - \nu_{\boldsymbol{\theta}}\log(n),
 \]</span> where <span class="math inline">\(\ell(\widehat{\boldsymbol{\theta}} ; \boldsymbol{x})\)</span> is the maximized log-likelihood, <span class="math inline">\(n\)</span> is the sample size, and <span class="math inline">\(\nu_{\boldsymbol{\theta}}\)</span> is the number of parameters to be estimated.</p>
 <p><span class="citation" data-cites="Kass:Raftery:1995">Kass and Raftery (<a href="99_references.html#ref-Kass:Raftery:1995" role="doc-biblioref">1995</a>)</span> showed that, assuming prior unit information, BIC provides an approximation to the Bayes factor for comparing two competing models, say <span class="math inline">\(\Model_1\)</span> and <span class="math inline">\(\Model_2\)</span>: <span class="math display">\[
@@ -784,19 +791,19 @@ u_i = 1 - \max_k \widehat{z}_{ik},
 </tbody>
 </table>
 <p>For a review of BIC, its derivation, its properties and applications see <span class="citation" data-cites="Neath:Cavanaugh:2012">Neath and Cavanaugh (<a href="99_references.html#ref-Neath:Cavanaugh:2012" role="doc-biblioref">2012</a>)</span>.</p>
-<p>The BIC is a widely adopted criterion for model selection in finite mixture models, both for density estimation <span class="citation" data-cites="Roeder:Wasserman:1997">(<a href="99_references.html#ref-Roeder:Wasserman:1997" role="doc-biblioref">Roeder and Wasserman 1997</a>)</span> and for clustering <span class="citation" data-cites="Fraley:Raftery:1998">(<a href="99_references.html#ref-Fraley:Raftery:1998" role="doc-biblioref">C. Fraley and Raftery 1998</a>)</span>. For mixture models, it takes the following form: <span class="math display">\[
+<p>The BIC is a widely adopted criterion for model selection in finite mixture models, both for density estimation <span class="citation" data-cites="Roeder:Wasserman:1997">(<a href="99_references.html#ref-Roeder:Wasserman:1997" role="doc-biblioref">Roeder and Wasserman 1997</a>)</span> and for clustering <span class="citation" data-cites="Fraley:Raftery:1998">(<a href="99_references.html#ref-Fraley:Raftery:1998" role="doc-biblioref">Fraley and Raftery 1998</a>)</span>. For mixture models, it takes the following form: <span class="math display">\[
 \BIC_{\Model, G} = 2\ell_{\Model, G}(\widehat{\boldsymbol{\Psi}} ; \boldsymbol{x}) - \nu_{\Model, G}\log(n),
 \]</span> where <span class="math inline">\(\ell_{\Model, G}(\widehat{\boldsymbol{\Psi}} ; \boldsymbol{x})\)</span> is the log-likelihood at the MLE <span class="math inline">\(\widehat{\boldsymbol{\Psi}}\)</span> for model <span class="math inline">\(\Model\)</span> with <span class="math inline">\(G\)</span> components, <span class="math inline">\(n\)</span> is the sample size, and <span class="math inline">\(\nu_{\Model, G}\)</span> is the number of parameters to be estimated. The model <span class="math inline">\(\Model\)</span> and number of components <span class="math inline">\(G\)</span> are chosen so as to maximize <span class="math inline">\(\BIC_{\Model, G}\)</span>. <span class="citation" data-cites="Keribin:2000">Keribin (<a href="99_references.html#ref-Keribin:2000" role="doc-biblioref">2000</a>)</span> showed that BIC is consistent for choosing the number of components in a mixture model, under the assumption that the likelihood is bounded. Although GMM likelihoods have an infinite spike wherever one or more covariances is singular, BIC is nevertheless often used for model selection among GMMs.</p>
-<p>The BIC tends to select the number of mixture components needed to approximate the density, rather than the number of clusters as such. For this reason, other criteria have been proposed for model selection in clustering, like the <em>integrated complete-data likelihood</em> (ICL) criterion <!-- \index{integrated complete-data likelihood (ICL)} --> <span class="citation" data-cites="Biernacki:Celeux:Govaert:2000">(<a href="99_references.html#ref-Biernacki:Celeux:Govaert:2000" role="doc-biblioref">C. Biernacki, Celeux, and Govaert 2000</a>)</span>: <span class="math display">\[
+<p>The BIC tends to select the number of mixture components needed to approximate the density, rather than the number of clusters as such. For this reason, other criteria have been proposed for model selection in clustering, like the <em>integrated complete-data likelihood</em> (ICL) criterion <!-- \index{integrated complete-data likelihood (ICL)} --> <span class="citation" data-cites="Biernacki:Celeux:Govaert:2000">(<a href="99_references.html#ref-Biernacki:Celeux:Govaert:2000" role="doc-biblioref">Biernacki et al. 2000</a>)</span>: <span class="math display">\[
 \ICL_{\Model, G} = \BIC_{\Model, G} + 2 \sum_{i=1}^n\sum_{k=1}^G c_{ik} \log(\widehat{z}_{ik}),
 \]</span> where <span class="math inline">\(\widehat{z}_{ik}\)</span> is the conditional probability that <span class="math inline">\(\boldsymbol{x}_i\)</span> arises from the <span class="math inline">\(k\)</span>th mixture component from equation <a href="#eq-postcondprob" class="quarto-xref">Equation&nbsp;<span>2.5</span></a>, and <span class="math inline">\(c_{ik} = 1\)</span> if the <span class="math inline">\(i\)</span>th observation is assigned to cluster <span class="math inline">\(k\)</span>, i.e.&nbsp;<span class="math inline">\(\boldsymbol{x}_i \in C_k\)</span>, and 0 otherwise. ICL penalizes the BIC through an <em>entropy</em> term which measures the overlap between clusters. Provided that the clusters do not overlap too much, ICL has shown good performance in selecting the number of clusters, with a preference for solutions with well-separated groups.</p>
 </section><section id="sec-bootstrapLRT" class="level3" data-number="2.3.2"><h3 data-number="2.3.2" class="anchored" data-anchor-id="sec-bootstrapLRT">
 <span class="header-section-number">2.3.2</span> Likelihood Ratio Testing</h3>
-<p>In addition to the information criteria just mentioned, the choice of the number of components in a mixture model for a specific component-covariance parameterization can be carried out by likelihood ratio testing (LRT); <!-- \index{likelihood ratio testing (LRT)} --> see <span class="citation" data-cites="McLachlan:Rathnayake:2014">Geoffrey J. McLachlan and Rathnayake (<a href="99_references.html#ref-McLachlan:Rathnayake:2014" role="doc-biblioref">2014</a>)</span> for a review.</p>
+<p>In addition to the information criteria just mentioned, the choice of the number of components in a mixture model for a specific component-covariance parameterization can be carried out by likelihood ratio testing (LRT); <!-- \index{likelihood ratio testing (LRT)} --> see <span class="citation" data-cites="McLachlan:Rathnayake:2014">McLachlan and Rathnayake (<a href="99_references.html#ref-McLachlan:Rathnayake:2014" role="doc-biblioref">2014</a>)</span> for a review.</p>
 <p>Suppose we want to test the null hypothesis <span class="math inline">\(G = G_0\)</span> against the alternative <span class="math inline">\(G = G_1\)</span> for some <span class="math inline">\(G_1 &gt; G_0\)</span>, so that Usually, <span class="math inline">\(G_1 = G_0 + 1\)</span>, so a common procedure is to keep adding components sequentially. Let <span class="math inline">\(\widehat{\boldsymbol{\Psi}}_{G_j}\)</span> be the MLE of <span class="math inline">\(\boldsymbol{\Psi}\)</span> calculated under <span class="math inline">\(H_j: G = G_j\)</span> (for <span class="math inline">\(j = 0,1\)</span>). The likelihood ratio test statistic (LRTS) can be written as <span class="math display">\[
 \LRTS = -2\log\{L(\widehat{\boldsymbol{\Psi}}_{G_0})/L(\widehat{\boldsymbol{\Psi}}_{G_1})\}
       = 2\{ \ell(\widehat{\boldsymbol{\Psi}}_{G_1}) - \ell(\widehat{\boldsymbol{\Psi}}_{G_0}) \},
-\]</span> where large values of LRTS provide evidence against the null hypothesis. For mixture models, however, standard regularity conditions do not hold for the null distribution of the LRTS to have its usual chi-squared distribution . As a result, the significance of the LRT is often assessed using a resampling approach in order to obtain a <span class="math inline">\(p\)</span>-value. <span class="citation" data-cites="McLachlan:1987">Geoffrey J. McLachlan (<a href="99_references.html#ref-McLachlan:1987" role="doc-biblioref">1987</a>)</span> proposed using the bootstrap to obtain the null distribution of the LRTS. The bootstrap procedure is the following:</p>
+\]</span> where large values of LRTS provide evidence against the null hypothesis. For mixture models, however, standard regularity conditions do not hold for the null distribution of the LRTS to have its usual chi-squared distribution . As a result, the significance of the LRT is often assessed using a resampling approach in order to obtain a <span class="math inline">\(p\)</span>-value. <span class="citation" data-cites="McLachlan:1987">McLachlan (<a href="99_references.html#ref-McLachlan:1987" role="doc-biblioref">1987</a>)</span> proposed using the bootstrap to obtain the null distribution of the LRTS. The bootstrap procedure is the following:</p>
 <ol type="1">
 <li><p>a bootstrap sample <span class="math inline">\(\boldsymbol{x}_b^*\)</span> is generated by simulating from the fitted model under the null hypothesis with <span class="math inline">\(G_0\)</span> components, namely, from the GMM distribution with the vector of unknown parameters replaced by MLEs obtained from the original data under <span class="math inline">\(H_0\)</span>;</p></li>
 <li><p>the test statistic <span class="math inline">\(\LRTS^*_b\)</span> is computed for the bootstrap sample <span class="math inline">\(\boldsymbol{x}_b^*\)</span> after fitting GMMs with <span class="math inline">\(G_0\)</span> and <span class="math inline">\(G_1\)</span> number of components;</p></li>
@@ -807,10 +814,10 @@ p\text{-value} \approx \frac{1 + \displaystyle\sum_{b=1}^B \mathnormal{I}(\LRTS^
 \]</span> where <span class="math inline">\(\LRTS_\text{obs}\)</span> is the test statistic computed on the observed sample, and <span class="math inline">\(\mathnormal{I}(\cdot)\)</span> denotes the indicator function, which is equal to 1 if its argument is true and 0 otherwise.</p>
 </section></section><section id="sec-resamp_inference" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="sec-resamp_inference">
 <span class="header-section-number">2.4</span> Resampling-Based Inference</h2>
-<p>The EM algorithm for Gaussian mixtures provides an efficient way to obtain parameter estimates (see <a href="#sec-EM_GMM" class="quarto-xref"><span>Section 2.2.2</span></a>). However, as already mentioned in <a href="#sec-EM" class="quarto-xref"><span>Section 2.1.1</span></a>, the EM algorithm does not provide estimates of the uncertainty associated with the parameter estimates. Likelihood-based inference in mixture models is usually addressed through either information-based methods or resampling <span class="citation" data-cites="McLachlan:Peel:2000 McLachlan:Krishnan:2008">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">G. J. McLachlan and Peel 2000</a>; <a href="99_references.html#ref-McLachlan:Krishnan:2008" role="doc-biblioref">G. J. McLachlan and Krishnan 2008</a>)</span>.</p>
+<p>The EM algorithm for Gaussian mixtures provides an efficient way to obtain parameter estimates (see <a href="#sec-EM_GMM" class="quarto-xref"><span>Section 2.2.2</span></a>). However, as already mentioned in <a href="#sec-EM" class="quarto-xref"><span>Section 2.1.1</span></a>, the EM algorithm does not provide estimates of the uncertainty associated with the parameter estimates. Likelihood-based inference in mixture models is usually addressed through either information-based methods or resampling <span class="citation" data-cites="McLachlan:Peel:2000 McLachlan:Krishnan:2008">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">McLachlan and Peel 2000</a>; <a href="99_references.html#ref-McLachlan:Krishnan:2008" role="doc-biblioref">McLachlan and Krishnan 2008</a>)</span>.</p>
 <p>In information-based methods <span class="citation" data-cites="Meng:Rubin:1991">(<a href="99_references.html#ref-Meng:Rubin:1991" role="doc-biblioref">Meng and Rubin 1991</a>)</span>, the covariance matrix of the MLE <span class="math inline">\(\widehat{\boldsymbol{\Psi}}\)</span> is approximated by the inverse of the observed information matrix <span class="math inline">\(I^{-1}(\widehat{\boldsymbol{\Psi}})\)</span>: <span class="math display">\[
 \Cov (\widehat{\boldsymbol{\Psi}}) \approx I^{-1}(\widehat{\boldsymbol{\Psi}}).
-\]</span> Although valid asymptotically <span class="citation" data-cites="Boldea:Magnus:2009">(<a href="99_references.html#ref-Boldea:Magnus:2009" role="doc-biblioref">Boldea and Magnus 2009</a>)</span>, “the sample size <span class="math inline">\(n\)</span> has to be very large before the asymptotic theory applies to mixture models” <span class="citation" data-cites="McLachlan:Peel:2000">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">G. J. McLachlan and Peel 2000, ~42</a>)</span>. Indeed, <span class="citation" data-cites="Basford:Greenway:McLachlan:Peel:1997">Basford et al. (<a href="99_references.html#ref-Basford:Greenway:McLachlan:Peel:1997" role="doc-biblioref">1997</a>)</span> found that standard errors obtained using the expected or the observed information matrix are unstable unless the sample size is very large. For these reasons, they advocate the use of a resampling approach based on the bootstrap.</p>
+\]</span> Although valid asymptotically <span class="citation" data-cites="Boldea:Magnus:2009">(<a href="99_references.html#ref-Boldea:Magnus:2009" role="doc-biblioref">Boldea and Magnus 2009</a>)</span>, “the sample size <span class="math inline">\(n\)</span> has to be very large before the asymptotic theory applies to mixture models” <span class="citation" data-cites="McLachlan:Peel:2000">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">McLachlan and Peel 2000, ~42</a>)</span>. Indeed, <span class="citation" data-cites="Basford:Greenway:McLachlan:Peel:1997">Basford et al. (<a href="99_references.html#ref-Basford:Greenway:McLachlan:Peel:1997" role="doc-biblioref">1997</a>)</span> found that standard errors obtained using the expected or the observed information matrix are unstable unless the sample size is very large. For these reasons, they advocate the use of a resampling approach based on the bootstrap.</p>
 <p>The <em>bootstrap</em> <!-- \index{nonparametric bootstrap}  --> <span class="citation" data-cites="Efron:1979">(<a href="99_references.html#ref-Efron:1979" role="doc-biblioref">Efron 1979</a>)</span> is a general, widely applicable, powerful technique for obtaining an approximation to the sampling distribution of a statistic of interest. The bootstrap distribution is approximated by drawing a large number of samples (<em>bootstrap samples</em>) from the empirical distribution, by resampling with replacement from the observed data (<em>nonparametric bootstrap</em>), or from a parametric distribution with unknown parameters substituted by the corresponding estimates (<em>parametric bootstrap</em>).</p>
 <p>Let <span class="math inline">\(\widehat{\boldsymbol{\Psi}}\)</span> be the estimate of a set of GMM parameters <span class="math inline">\(\boldsymbol{\Psi}\)</span> for a given model <span class="math inline">\(\Model\)</span> and number of mixture components <span class="math inline">\(G\)</span>. A bootstrap estimate of the corresponding standard errors can be obtained as follows:</p>
 <ul>
@@ -833,11 +840,11 @@ p\text{-value} \approx \frac{1 + \displaystyle\sum_{b=1}^B \mathnormal{I}(\LRTS^
 \]</span></p></li>
 </ul>
 <p>The bootstrap procedure outlined above can also be used for estimating confidence intervals. For instance, bootstrap percentile confidence intervals for any GMM parameter <span class="math inline">\(\psi\)</span> of <span class="math inline">\(\boldsymbol{\Psi}\)</span> are computed as <span class="math inline">\([\psi^*_{\alpha/2}, \psi^*_{1-\alpha/2}]\)</span>, where <span class="math inline">\(\psi^*_q\)</span> is the <span class="math inline">\(q\)</span>th quantile (or the 100<span class="math inline">\(q\)</span>th percentile) of the bootstrap distribution <span class="math inline">\((\widehat{\psi}^*_1, \dots, \widehat{\psi}^*_B)\)</span>.</p>
-<p>Different resampling methods have been considered for Gaussian mixtures, such as the parametric bootstrap <span class="citation" data-cites="Basford:Greenway:McLachlan:Peel:1997">(<a href="99_references.html#ref-Basford:Greenway:McLachlan:Peel:1997" role="doc-biblioref">Basford et al. 1997</a>)</span>, the nonparametric bootstrap <span class="citation" data-cites="McLachlan:Peel:2000">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">G. J. McLachlan and Peel 2000</a>)</span>, and the jackknife <span class="citation" data-cites="Efron:1979">(<a href="99_references.html#ref-Efron:1979" role="doc-biblioref">Efron 1979, Efron:1982</a>)</span>. A generalization of the nonparametric bootstrap is the <em>weighted likelihood bootstrap</em> <!-- \index{weighted likelihood bootstrap} --> <span class="citation" data-cites="Newton:Raftery:1994">(<a href="99_references.html#ref-Newton:Raftery:1994" role="doc-biblioref">Newton and Raftery 1994</a>)</span>, which assigns random (positive) weights to sample observations. The weights are obtained from a uniform Dirichlet distribution, by sampling from <span class="math inline">\(n\)</span> independent standard exponential distributions and then rescaling by their average. The weighted likelihood bootstrap can also be viewed as a generalized Bayesian bootstrap. The weighted likelihood bootstrap may yield benefits when one or more components have small mixture proportions. In that case, a nonparametric bootstrap sample may have no representatives of them, whereas the weighted likelihood bootstrap always has representatives of all groups.</p>
+<p>Different resampling methods have been considered for Gaussian mixtures, such as the parametric bootstrap <span class="citation" data-cites="Basford:Greenway:McLachlan:Peel:1997">(<a href="99_references.html#ref-Basford:Greenway:McLachlan:Peel:1997" role="doc-biblioref">Basford et al. 1997</a>)</span>, the nonparametric bootstrap <span class="citation" data-cites="McLachlan:Peel:2000">(<a href="99_references.html#ref-McLachlan:Peel:2000" role="doc-biblioref">McLachlan and Peel 2000</a>)</span>, and the jackknife <span class="citation" data-cites="Efron:1979">(<a href="99_references.html#ref-Efron:1979" role="doc-biblioref">Efron 1979, Efron:1982</a>)</span>. A generalization of the nonparametric bootstrap is the <em>weighted likelihood bootstrap</em> <!-- \index{weighted likelihood bootstrap} --> <span class="citation" data-cites="Newton:Raftery:1994">(<a href="99_references.html#ref-Newton:Raftery:1994" role="doc-biblioref">Newton and Raftery 1994</a>)</span>, which assigns random (positive) weights to sample observations. The weights are obtained from a uniform Dirichlet distribution, by sampling from <span class="math inline">\(n\)</span> independent standard exponential distributions and then rescaling by their average. The weighted likelihood bootstrap can also be viewed as a generalized Bayesian bootstrap. The weighted likelihood bootstrap may yield benefits when one or more components have small mixture proportions. In that case, a nonparametric bootstrap sample may have no representatives of them, whereas the weighted likelihood bootstrap always has representatives of all groups.</p>
 <p>For a recent review and comparison of these resampling approaches to inference in finite mixture models see <span class="citation" data-cites="OHagan:Murphy:Scrucca:Gormley:2019">O’Hagan et al. (<a href="99_references.html#ref-OHagan:Murphy:Scrucca:Gormley:2019" role="doc-biblioref">2019</a>)</span>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-Azzalini:Bowman:1990" class="csl-entry" role="listitem">
 Azzalini, A, and A W Bowman. 1990. <span>“A Look at Some Data on the Old Faithful Geyser.”</span> <em>Applied Statistics</em> 39 (3): 357–65.
 </div>
@@ -854,13 +861,13 @@ Biernacki, C., G. Celeux, and G. Govaert. 2000. <span>“Assessing a Mixture Mod
 Biernacki, Christophe, Gilles Celeux, and Gérard Govaert. 2003. <span>“Choosing Starting Values for the <span>EM</span> Algorithm for Getting the Highest Likelihood in Multivariate <span>G</span>aussian Mixture Models.”</span> <em>Computational Statistics &amp; Data Analysis</em> 41 (3): 561–75.
 </div>
 <div id="ref-Bishop:2006" class="csl-entry" role="listitem">
-Bishop, Christopher. 2006. <em>Pattern Recognition and Machine Learning</em>. New York: Springer-Verlag Inc.
+Bishop, Christopher. 2006. <em>Pattern Recognition and Machine Learning</em>. Springer-Verlag Inc.
 </div>
 <div id="ref-Boldea:Magnus:2009" class="csl-entry" role="listitem">
 Boldea, Otilia, and Jan R Magnus. 2009. <span>“Maximum Likelihood Estimation of the Multivariate Normal Mixture Model.”</span> <em>Journal of the American Statistical Association</em> 104 (488): 1539–49.
 </div>
 <div id="ref-Bouveyron:Celeux:Murphy:Raftery:2019" class="csl-entry" role="listitem">
-Bouveyron, Charles, Gilles Celeux, T. Brendan Murphy, and Adrian E. Raftery. 2019. <em>Model-Based Clustering and Classification for Data Science: With Applications in r</em>. Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge: Cambridge University Press.
+Bouveyron, Charles, Gilles Celeux, T. Brendan Murphy, and Adrian E. Raftery. 2019. <em>Model-Based Clustering and Classification for Data Science: With Applications in r</em>. Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge University Press.
 </div>
 <div id="ref-Browne:McNicholas:2014" class="csl-entry" role="listitem">
 Browne, Ryan P, and Paul D McNicholas. 2014. <span>“Estimating Common Principal Components in High Dimensions.”</span> <em>Advances in Data Analysis and Classification</em> 8 (2): 217–26.
@@ -872,7 +879,7 @@ Cassie, Richard Morrison. 1954. <span>“Some Uses of Probability Paper in the A
 Celeux, G., and G. Govaert. 1995. <span>“<span>G</span>aussian Parsimonious Clustering Models.”</span> <em>Pattern Recognition</em> 28: 781–93.
 </div>
 <div id="ref-Claeskens:Hjort:2008" class="csl-entry" role="listitem">
-Claeskens, Gerda, and Nils Lid Hjort. 2008. <em>Model Selection and Model Averaging</em>. Cambridge: Cambridge University Press.
+Claeskens, Gerda, and Nils Lid Hjort. 2008. <em>Model Selection and Model Averaging</em>. Cambridge University Press.
 </div>
 <div id="ref-Dempster:Laird:Rubin:1977" class="csl-entry" role="listitem">
 Dempster, A. P., N. M. Laird, and D. B. Rubin. 1977. <span>“Maximum Likelihood from Incomplete Data via the <span>EM</span> Algorithm (with Discussion).”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 39: 1–38.
@@ -890,7 +897,7 @@ Fraley, Chris. 1998. <span>“Algorithms for Model-Based <span>G</span>aussian H
 Fraley, C., and A. E. Raftery. 1998. <span>“How Many Clusters? <span>W</span>hich Clustering Method? <span>A</span>nswers via Model-Based Cluster Analysis.”</span> <em>The Computer Journal</em> 41: 578–88.
 </div>
 <div id="ref-Fraley:Raftery:2002" class="csl-entry" role="listitem">
-———. 2002. <span>“Model-Based Clustering, Discriminant Analysis, and Density Estimation.”</span> <em>Journal of the American Statistical Association</em> 97 (458): 611–31.
+Fraley, C., and A. E. Raftery. 2002. <span>“Model-Based Clustering, Discriminant Analysis, and Density Estimation.”</span> <em>Journal of the American Statistical Association</em> 97 (458): 611–31.
 </div>
 <div id="ref-FruhwirthSchnatter:2006" class="csl-entry" role="listitem">
 Frühwirth-Schnatter, Sylvia. 2006. <em>Finite Mixture and Markov Switching Models</em>. Springer.
@@ -917,16 +924,16 @@ Konishi, Sadanori, and Genshiro Kitagawa. 2008. <em>Information Criteria and Sta
 Langrognet, Florent, Remi Lebret, Christian Poli, Serge Iovleff, Benjamin Auder, and Serge Iovleff. 2022. <em><span>Rmixmod</span>: Classification with Mixture Modelling</em>. <a href="https://CRAN.R-project.org/package=Rmixmod">https://CRAN.R-project.org/package=Rmixmod</a>.
 </div>
 <div id="ref-McLachlan:Krishnan:2008" class="csl-entry" role="listitem">
-McLachlan, G. J., and T. Krishnan. 2008. <em>The <span>EM</span> Algorithm and Extensions</em>. 2nd ed. Hoboken, New Jersey: Wiley-Interscience.
+McLachlan, G. J., and T. Krishnan. 2008. <em>The <span>EM</span> Algorithm and Extensions</em>. 2nd ed. Wiley-Interscience.
 </div>
 <div id="ref-McLachlan:Peel:2000" class="csl-entry" role="listitem">
-McLachlan, G. J., and D. Peel. 2000. <em>Finite Mixture Models</em>. New York: Wiley.
+McLachlan, G. J., and D. Peel. 2000. <em>Finite Mixture Models</em>. Wiley.
 </div>
 <div id="ref-McLachlan:1987" class="csl-entry" role="listitem">
 McLachlan, Geoffrey J. 1987. <span>“On Bootstrapping the Likelihood Ratio Test Statistic for the Number of Components in a Normal Mixture.”</span> <em>Applied Statistics</em> 36: 318–24.
 </div>
 <div id="ref-McLachlan:Basford:1988" class="csl-entry" role="listitem">
-McLachlan, Geoffrey J, and Kaye E Basford. 1988. <em>Mixture Models: Inference and Applications to Clustering</em>. New York: Marcel Dekker Inc.
+McLachlan, Geoffrey J, and Kaye E Basford. 1988. <em>Mixture Models: Inference and Applications to Clustering</em>. Marcel Dekker Inc.
 </div>
 <div id="ref-McLachlan:Rathnayake:2014" class="csl-entry" role="listitem">
 McLachlan, Geoffrey J, and Suren Rathnayake. 2014. <span>“On the Number of Components in a <span>G</span>aussian Mixture Model.”</span> <em>Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery</em> 4 (5): 341–55.
@@ -947,7 +954,7 @@ Neath, Andrew A., and Joseph E. Cavanaugh. 2012. <span>“The <span>B</span>ayes
 Newton, Michael A, and Adrian E Raftery. 1994. <span>“Approximate <span>Bayesian</span> Inference with the Weighted Likelihood Bootstrap (with Discussion).”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 56: 3–48.
 </div>
 <div id="ref-OHagan:Murphy:Scrucca:Gormley:2019" class="csl-entry" role="listitem">
-O’Hagan, Adrian, Thomas Brendan Murphy, Luca Scrucca, and Isobel Claire Gormley. 2019. <span>“Investigation of Parameter Uncertainty in Clustering Using a <span>G</span>aussian Mixture Model via Jackknife, Bootstrap and Weighted Likelihood Bootst Rap.”</span> <em>Computational Statistics</em> 34 (4): 1779–1813. <a href="https://doi.org/10.1007/s00180-019-00897-9">https://doi.org/10.1007/s00180-019-00897-9</a>.
+O’Hagan, Adrian, Thomas Brendan Murphy, Luca Scrucca, and Isobel Claire Gormley. 2019. <span>“Investigation of Parameter Uncertainty in Clustering Using a <span>G</span>aussian Mixture Model via Jackknife, Bootstrap and Weighted Likelihood Bootst Rap.”</span> <em>Computational Statistics</em> 34 (4): 1779–813. <a href="https://doi.org/10.1007/s00180-019-00897-9">https://doi.org/10.1007/s00180-019-00897-9</a>.
 </div>
 <div id="ref-Rpkg:FSAdata" class="csl-entry" role="listitem">
 Ogle, Derek. 2022. <em><span>FSAdata</span>: Fisheries Stock Analysis, Datasets</em>.
@@ -955,14 +962,14 @@ Ogle, Derek. 2022. <em><span>FSAdata</span>: Fisheries Stock Analysis, Datasets<
 <div id="ref-Roeder:Wasserman:1997" class="csl-entry" role="listitem">
 Roeder, K., and L. Wasserman. 1997. <span>“Practical <span>B</span>ayesian Density Estimation Using Mixtures of Normals.”</span> <em>Journal of the American Statistical Association</em> 92 (439): 894–902.
 </div>
-<div id="ref-Schwartz:1978" class="csl-entry" role="listitem">
-Schwartz, G. 1978. <span>“Estimating the Dimension of a Model.”</span> <em>Annals of Statistics</em> 6: 31–38.
+<div id="ref-Schwarz:1978" class="csl-entry" role="listitem">
+Schwarz, G. 1978. <span>“Estimating the Dimension of a Model.”</span> <em>Annals of Statistics</em> 6: 31–38.
 </div>
 <div id="ref-Stahl:Sallis:2012" class="csl-entry" role="listitem">
 Stahl, D., and H. Sallis. 2012. <span>“Model-Based Cluster Analysis.”</span> <em>Wiley Interdisciplinary Reviews: Computational Statistics</em> 4 (4): 341–58. <a href="https://doi.org/10.1002/wics.1204">https://doi.org/10.1002/wics.1204</a>.
 </div>
 <div id="ref-Titterington:etal:1985" class="csl-entry" role="listitem">
-Titterington, D Michael, Adrian FM Smith, and Udi E Makov. 1985. <em>Statistical Analysis of Finite Mixture Distributions</em>. Chichester; New York: John Wiley &amp; Sons.
+Titterington, D Michael, Adrian FM Smith, and Udi E Makov. 1985. <em>Statistical Analysis of Finite Mixture Distributions</em>. John Wiley &amp; Sons.
 </div>
 </div>
 </section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
@@ -970,239 +977,306 @@ Titterington, D Michael, Adrian FM Smith, and Udi E Makov. 1985. <em>Statistical
 <li id="fn1"><p>Roughly speaking, a convex linear combination is a weighted sum of terms with non-negative weights that sum to one.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>A probability density function may be defined with respect to an appropriate measure on <span class="math inline">\(\Real^d\)</span>, which can be the Lebesgue measure, a counting measure, or a combination of the two, depending on the context.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1210,65 +1284,55 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
             }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
             const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
             const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
             let div = window.document.getElementById("code-annotation-line-highlight");
             if (div === null) {
               div = window.document.createElement("div");
@@ -1276,9 +1340,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               div.style.position = 'absolute';
               parent.appendChild(div);
             }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1288,107 +1350,107 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               const gutter = codeCell.querySelector('.code-annotation-gutter');
               gutter.appendChild(gutterDiv);
             }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
           }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
         };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
           }
-          popup.appendChild(citeDiv);
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
         });
-        return popup.innerHTML;
-      });
+      }
     }
-  }
-});
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  });
+  </script><script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script><nav class="page-navigation" aria-label="Page"><div class="nav-page nav-page-previous">
       <a href="../chapters/01_intro.html" class="pagination-link" aria-label="Introduction">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
