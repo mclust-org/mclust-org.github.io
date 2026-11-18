@@ -11,10 +11,7 @@
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="mixgmm_files/libs/quarto-html/popper.min.js"></script><script src="mixgmm_files/libs/quarto-html/tippy.umd.min.js"></script><link href="mixgmm_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="mixgmm_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link rel="stylesheet" href="vignette.css">
-<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="A quick tour of mixggm">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="A quick tour of mixggm">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -44,30 +41,39 @@
 
 
   </div>
-</nav><div class="container template-quarto">
+</nav><div class="container template-article">
+
+
+
+
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>A quick tour of mixggm</h1>
+                        <h4 data-toc-skip class="author">Luca Scrucca,
+Michael Fop, T. Brendan Murphy</h4>
+            
+            <h4 data-toc-skip class="date">18 Nov 2026</h4>
+      
 
-      <p class="author">Luca Scrucca, Michael Fop, T. Brendan Murphy</p>
-      <p class="date">18 Nov 2026</p>
-
-
-      <div class="d-none name"><code></code></div>
+      <div class="d-none name"><code>mixgmm.Rmd</code></div>
     </div>
 
-
-
-
-
-
-    <section class="section level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+    
+    
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>The <strong>mixggm</strong> package implements mixtures of Gaussian graphical models for model-based clustering with sparse covariance and concentration matrices. Estimation of a mixture of Gaussian covariance or concentration graph models using structural-EM algorithm. The mixture model selected is the optimal model according to BIC.</p>
-<p>This document gives a quick tour of <strong>mixggm</strong> (version 1.2) functionalities. It was written in <a href="https://quarto.org" class="external-link">Quarto</a>, using the <a href="https://cran.r-project.org/package=knitr" class="external-link">knitr</a> package to execute R code. See <code><a href="https://rdrr.io/pkg/mixggm/man" class="external-link">help(package="mixggm")</a></code> for further details and references provided by <code>citation("mixggm")</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
+<p>The <strong>mixggm</strong> package implements mixtures of Gaussian
+graphical models for model-based clustering with sparse covariance and
+concentration matrices. Estimation of a mixture of Gaussian covariance
+or concentration graph models using structural-EM algorithm. The mixture
+model selected is the optimal model according to BIC.</p>
+<p>This document gives a quick tour of <strong>mixgmm</strong> (version
+1.2) functionalities. It was written in R Markdown, using the <a href="https://cran.r-project.org/package=knitr" class="external-link">knitr</a> package for
+production. See <code><a href="https://rdrr.io/pkg/mixggm/man" class="external-link">help(package="mixggm")</a></code> for further details
+and references provided by <code>citation("mixggm")</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mixggm</span><span class="op">)</span></span>
 <span><span class="co">##            _                           </span></span>
 <span><span class="co">##  _ __ ___ (_)_  ____ _  __ _ _ __ ___  </span></span>
@@ -77,16 +83,17 @@
 <span><span class="co">##                  |___/ |___/              Version 1.2</span></span>
 <span><span class="co">## Type 'citation("mixggm")' for citing this R package in publications.</span></span></code></pre></div>
 </div>
-</section><section class="section level2"><h2 id="fit-a-mixture-of-concentration-graph-models">Fit a mixture of concentration graph models<a class="anchor" aria-label="anchor" href="#fit-a-mixture-of-concentration-graph-models"></a>
+<div class="section level2">
+<h2 id="fit-a-mixture-of-concentration-graph-models">Fit a mixture of concentration graph models<a class="anchor" aria-label="anchor" href="#fit-a-mixture-of-concentration-graph-models"></a>
 </h2>
-<section class="level2"><h3 id="iris-data">Iris data<a class="anchor" aria-label="anchor" href="#iris-data"></a>
+<div class="section level3">
+<h3 id="iris-data">Iris data<a class="anchor" aria-label="anchor" href="#iris-data"></a>
 </h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
 <span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="../reference/mixGGM.html">mixGGM</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, model <span class="op">=</span> <span class="st">"concentration"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span><span class="co">## ── Mixture of Gaussian graphical models ──────────────────── </span></span>
+<span><span class="co">## ── <span style="font-weight: bold;">Mixture of Gaussian graphical models</span> ──────────────────── </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Data dimensions = 150 x 4 </span></span>
 <span><span class="co">## Model           = concentration </span></span>
@@ -108,7 +115,7 @@
 <span><span class="co">## Petal.Length ◉ ◯ ◯ ◉</span></span>
 <span><span class="co">## Petal.Width  ◉ ◉ ◉ ◯</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span>, graphs <span class="op">=</span> <span class="cn">TRUE</span>, clusters <span class="op">=</span> <span class="cn">TRUE</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">## ── Mixture of Gaussian graphical models ──────────────────── </span></span>
+<span><span class="co">## ── <span style="font-weight: bold;">Mixture of Gaussian graphical models</span> ──────────────────── </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Data dimensions = 150 x 4 </span></span>
 <span><span class="co">## Model           = concentration </span></span>
@@ -157,51 +164,23 @@
 <span><span class="co">## Sepal.Width     -2.539852   15.048524     0.000000   -4.321578</span></span>
 <span><span class="co">## Petal.Length    -6.726653    0.000000    10.295677  -10.244138</span></span>
 <span><span class="co">## Petal.Width      4.132758   -4.321578   -10.244138   20.079760</span></span></code></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"graph"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/iris-graph-1.png" style="width:90.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"adjacency"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/iris-adjacency-1.png" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/iris-classification-1.png" style="width:90.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"common"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/iris-common-1.png" style="width:80.0%"></p>
-</figure>
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="90%" style="display: block; margin: auto;"></p>
 </div>
-</div>
-</div>
-</section><section class="level2"><h3 id="a-complex-simulated-data-example">A complex simulated data example<a class="anchor" aria-label="anchor" href="#a-complex-simulated-data-example"></a>
+<div class="section level3">
+<h3 id="a-complex-simulated-data-example">A complex simulated data example<a class="anchor" aria-label="anchor" href="#a-complex-simulated-data-example"></a>
 </h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">N</span> <span class="op">=</span> <span class="fl">500</span></span>
 <span><span class="va">V</span> <span class="op">=</span> <span class="fl">20</span></span>
 <span><span class="va">tau</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.7</span><span class="op">)</span></span>
@@ -217,16 +196,12 @@
 <span>  <span class="va">x2</span><span class="op">[</span>,<span class="va">j</span><span class="op">]</span> <span class="op">=</span> <span class="va">x2</span><span class="op">[</span>,<span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">Nk</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">mu2</span><span class="op">[</span><span class="va">j</span><span class="op">]</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="../reference/mixGGM.html">mixGGM</a></span><span class="op">(</span><span class="va">x</span>, K <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, model <span class="op">=</span> <span class="st">"concentration"</span>,</span>
-<span>              penalty <span class="op">=</span> <span class="st">"ebic"</span>, beta <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
+<span>             penalty <span class="op">=</span> <span class="st">"ebic"</span>, beta <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span><span class="co">## ── Mixture of Gaussian graphical models ──────────────────── </span></span>
+<span><span class="co">## ── <span style="font-weight: bold;">Mixture of Gaussian graphical models</span> ──────────────────── </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Data dimensions = 500 x 20 </span></span>
 <span><span class="co">## Model           = concentration </span></span>
@@ -279,60 +254,37 @@
 <span><span class="co">## x18 ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◉ ◯ ◉ ◯</span></span>
 <span><span class="co">## x19 ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◉ ◯ ◉</span></span>
 <span><span class="co">## x20 ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◉ ◯</span></span></code></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span>,<span class="fl">10</span>,<span class="fl">15</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/complex-classification-1.png" style="width:90.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" alt="" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"graph"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/complex-graph-1.png" style="width:90.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" alt="" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"adjacency"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/complex-adjacency-1.png" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">class</span>, <span class="va">mod</span><span class="op">$</span><span class="va">classification</span><span class="op">)</span></span>
 <span><span class="co">##      </span></span>
 <span><span class="co">## class   1   2</span></span>
 <span><span class="co">##     1 145   0</span></span>
 <span><span class="co">##     2   0 355</span></span></code></pre></div>
 </div>
-</section></section><section class="section level2"><h2 id="fit-a-mixture-of-covariance-graph-models">Fit a mixture of covariance graph models<a class="anchor" aria-label="anchor" href="#fit-a-mixture-of-covariance-graph-models"></a>
-</h2>
-<section class="level2"><h3 id="wine-data">Wine data<a class="anchor" aria-label="anchor" href="#wine-data"></a>
-</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">wine</span>, package <span class="op">=</span> <span class="st">"gclus"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="downlit sourceCode r">
+<div class="section level2">
+<h2 id="fit-a-mixture-of-covariance-graph-models">Fit a mixture of covariance graph models<a class="anchor" aria-label="anchor" href="#fit-a-mixture-of-covariance-graph-models"></a>
+</h2>
+<div class="section level3">
+<h3 id="wine-data">Wine data<a class="anchor" aria-label="anchor" href="#wine-data"></a>
+</h3>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">wine</span>, package <span class="op">=</span> <span class="st">"gclus"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="../reference/mixGGM.html">mixGGM</a></span><span class="op">(</span><span class="va">wine</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span>, K <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, model <span class="op">=</span> <span class="st">"covariance"</span>,</span>
 <span>             penalty <span class="op">=</span> <span class="st">"erdos"</span>, beta <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span>, graphs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">## ── Mixture of Gaussian graphical models ──────────────────── </span></span>
+<span><span class="co">## ── <span style="font-weight: bold;">Mixture of Gaussian graphical models</span> ──────────────────── </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Data dimensions = 178 x 13 </span></span>
 <span><span class="co">## Model           = covariance </span></span>
@@ -385,37 +337,16 @@
 <span><span class="co">## Hue             ◯ ◉ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯</span></span>
 <span><span class="co">## OD280           ◯ ◯ ◯ ◯ ◯ ◯ ◉ ◯ ◉ ◯ ◯ ◯ ◯</span></span>
 <span><span class="co">## Proline         ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯</span></span></code></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"graph"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/wine-graph-1.png" style="width:90.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-16-1.png" class="r-plt" alt="" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"adjacency"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/wine-adjacency-1.png" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-17-1.png" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"classification"</span>, dimens <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/wine-classification-1.png" style="width:90.0%"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-18-1.png" class="r-plt" alt="" width="90%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">wine</span><span class="op">$</span><span class="va">Class</span>, <span class="va">mod</span><span class="op">$</span><span class="va">classification</span><span class="op">)</span></span>
 <span><span class="co">##    </span></span>
 <span><span class="co">##      1  2  3</span></span>
@@ -425,10 +356,10 @@
 <span><span class="fu">mclust</span><span class="fu">::</span><span class="fu"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html" class="external-link">adjustedRandIndex</a></span><span class="op">(</span><span class="va">wine</span><span class="op">$</span><span class="va">Class</span>, <span class="va">mod</span><span class="op">$</span><span class="va">classification</span><span class="op">)</span></span>
 <span><span class="co">## [1] 0.8667189</span></span></code></pre></div>
 </div>
-</section><section class="level2"><h3 id="a-simple-simulated-data-example">A simple simulated data example<a class="anchor" aria-label="anchor" href="#a-simple-simulated-data-example"></a>
+<div class="section level3">
+<h3 id="a-simple-simulated-data-example">A simple simulated data example<a class="anchor" aria-label="anchor" href="#a-simple-simulated-data-example"></a>
 </h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">N</span> <span class="op">=</span> <span class="fl">200</span></span>
 <span><span class="va">tau</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.7</span><span class="op">)</span></span>
 <span><span class="va">Nk</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/stats/Multinom.html" class="external-link">rmultinom</a></span><span class="op">(</span><span class="va">N</span>, <span class="fl">1</span>, <span class="va">tau</span><span class="op">)</span> <span class="op">)</span></span>
@@ -442,7 +373,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">mod</span> <span class="op">=</span> <span class="fu"><a href="../reference/mixGGM.html">mixGGM</a></span><span class="op">(</span><span class="va">x</span>, model <span class="op">=</span> <span class="st">"covariance"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod</span>, graphs <span class="op">=</span> <span class="cn">TRUE</span>, parameters <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">## ── Mixture of Gaussian graphical models ──────────────────── </span></span>
+<span><span class="co">## ── <span style="font-weight: bold;">Mixture of Gaussian graphical models</span> ──────────────────── </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Data dimensions = 200 x 2 </span></span>
 <span><span class="co">## Model           = covariance </span></span>
@@ -477,47 +408,29 @@
 <span><span class="co">##          x1        x2</span></span>
 <span><span class="co">## x1 1.059034 0.9158390</span></span>
 <span><span class="co">## x2 0.915839 0.9822129</span></span></code></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"graph"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/simple-graph-1.png" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-20-1.png" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"adjacency"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/simple-adjacency-1.png" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="downlit sourceCode r">
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-21-1.png" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"classification"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="mixgmm_files/figure-html/simple-classification-1.png" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
+<p><img src="mixgmm_files/figure-html/unnamed-chunk-22-1.png" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
 <p><br></p>
-</section></section><section class="section level2"><h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</div>
+</div>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<p>Fop M, Scrucca L, Murphy TB (2019). “Model-based clustering with sparse covariance matrices.” <em>Statistics and Computing</em>, <strong>29</strong>(4), 791–819. ISSN 1573-1375. <a href="https://doi.org/10.1007/s11222-018-9838-y" class="external-link">doi:10.1007/s11222-018-9838-y</a>.</p>
+<p>Fop M, Murphy TB, Scrucca L (2019). “Model-based clustering with
+sparse covariance matrices.” <em>Statistics and Computing</em>,
+<strong>29</strong>(4), 791–819. ISSN 1573-1375. <a href="https://doi.org/10.1007/s11222-018-9838-y" class="external-link">doi:10.1007/s11222-018-9838-y</a>.</p>
 <hr>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://sessioninfo.r-lib.org/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">## ─ Session info ───────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">##  setting  value</span></span>
+<span><span class="co">## <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">##  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
 <span><span class="co">##  version  R version 4.6.2 (2026-10-29)</span></span>
 <span><span class="co">##  os       macOS Golden Gate 27.2.1</span></span>
 <span><span class="co">##  system   aarch64, darwin23</span></span>
@@ -530,207 +443,69 @@
 <span><span class="co">##  pandoc   3.14 @ /opt/homebrew/bin/ (via rmarkdown)</span></span>
 <span><span class="co">##  quarto   1.11.9 @ /usr/local/bin/quarto</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## ─ Packages ───────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">##  package        * version  date (UTC) lib source</span></span>
-<span><span class="co">##  cachem           1.1.0    2024-05-16 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  cli              3.6.6    2026-04-09 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  coda             0.19-4.1 2024-01-31 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  codetools        0.2-20   2024-03-31 [2] CRAN (R 4.6.2)</span></span>
-<span><span class="co">##  crayon           1.5.3    2024-06-20 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  devtools         2.5.2    2026-04-30 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  digest           0.6.39   2025-11-19 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  ellipsis         0.3.3    2026-04-04 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  evaluate         1.0.5    2025-08-27 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  fastmap          1.2.0    2024-05-15 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  foreach          1.5.2    2022-02-02 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  fs               2.1.0    2026-04-18 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  glue             1.8.1    2026-04-17 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  htmltools        0.5.9    2025-12-04 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  iterators        1.0.14   2022-02-05 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  jsonlite         2.0.0    2025-03-27 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  knitr            1.52     2026-09-06 [1] CRAN (R 4.6.1)</span></span>
-<span><span class="co">##  lattice          0.23-1   2026-08-12 [1] CRAN (R 4.6.1)</span></span>
-<span><span class="co">##  lifecycle        1.0.5    2026-01-08 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  magrittr         2.0.5    2026-04-04 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  MASS             7.3-66   2026-07-15 [2] CRAN (R 4.6.2)</span></span>
-<span><span class="co">##  mclust           6.1.4    2026-11-18 [1] CRAN (R 4.6.2)</span></span>
-<span><span class="co">##  memoise          2.0.1    2021-11-26 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  mixggm         * 1.2      2026-11-18 [1] CRAN (R 4.6.2)</span></span>
-<span><span class="co">##  network          1.20.0   2026-02-07 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  otel             0.2.0    2025-08-29 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  pillar           1.11.1   2025-09-17 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  pkgbuild         1.4.8    2025-05-26 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  pkgconfig        2.0.3    2019-09-22 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  pkgload          1.5.3    2026-06-15 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  purrr            1.2.2    2026-04-10 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  R6               2.6.1    2025-02-15 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  Rcpp             1.1.2    2026-07-05 [1] CRAN (R 4.6.1)</span></span>
-<span><span class="co">##  rlang            1.3.0    2026-07-05 [1] CRAN (R 4.6.1)</span></span>
-<span><span class="co">##  rmarkdown        2.32     2026-09-01 [1] CRAN (R 4.6.1)</span></span>
-<span><span class="co">##  rstudioapi       0.19.0   2026-06-11 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  sessioninfo      1.2.4    2026-06-04 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  statnet.common   4.13.0   2025-12-16 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  tibble           3.3.1    2026-01-11 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  usethis          3.2.2    2026-09-10 [1] CRAN (R 4.6.1)</span></span>
-<span><span class="co">##  vctrs            0.7.3    2026-04-11 [1] CRAN (R 4.6.0)</span></span>
-<span><span class="co">##  xfun             0.62     2026-10-16 [1] CRAN (R 4.6.1)</span></span>
-<span><span class="co">##  yaml             2.3.12   2025-12-10 [1] CRAN (R 4.6.0)</span></span>
+<span><span class="co">## <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">##  <span style="color: #555555; font-style: italic;">package       </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
+<span><span class="co">##  bslib            0.12.0   <span style="color: #555555;">2026-08-04</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  cachem           1.1.0    <span style="color: #555555;">2024-05-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  cli              3.6.6    <span style="color: #555555;">2026-04-09</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  coda             0.19-4.1 <span style="color: #555555;">2024-01-31</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  codetools        0.2-20   <span style="color: #555555;">2024-03-31</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.6.2)</span></span></span>
+<span><span class="co">##  crayon           1.5.3    <span style="color: #555555;">2024-06-20</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  desc             1.4.3    <span style="color: #555555;">2023-12-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  devtools         2.5.2    <span style="color: #555555;">2026-04-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  digest           0.6.39   <span style="color: #555555;">2025-11-19</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  ellipsis         0.3.3    <span style="color: #555555;">2026-04-04</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  evaluate         1.0.5    <span style="color: #555555;">2025-08-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  fastmap          1.2.0    <span style="color: #555555;">2024-05-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  foreach          1.5.2    <span style="color: #555555;">2022-02-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  fs               2.1.0    <span style="color: #555555;">2026-04-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  glue             1.8.1    <span style="color: #555555;">2026-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  htmltools        0.5.9    <span style="color: #555555;">2025-12-04</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  htmlwidgets      1.6.4    <span style="color: #555555;">2023-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  iterators        1.0.14   <span style="color: #555555;">2022-02-05</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  jquerylib        0.1.4    <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  jsonlite         2.0.0    <span style="color: #555555;">2025-03-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  knitr          * 1.52     <span style="color: #555555;">2026-09-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  lattice          0.23-1   <span style="color: #555555;">2026-08-12</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  lifecycle        1.0.5    <span style="color: #555555;">2026-01-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  magrittr         2.0.5    <span style="color: #555555;">2026-04-04</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  MASS             7.3-66   <span style="color: #555555;">2026-07-15</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.6.2)</span></span></span>
+<span><span class="co">##  mclust           6.1.4    <span style="color: #555555;">2026-11-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.2)</span></span></span>
+<span><span class="co">##  memoise          2.0.1    <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  mixggm         * 1.2      <span style="color: #555555;">2026-11-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.6.2)</span></span></span>
+<span><span class="co">##  network          1.20.0   <span style="color: #555555;">2026-02-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  otel             0.2.0    <span style="color: #555555;">2025-08-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  pillar           1.11.1   <span style="color: #555555;">2025-09-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  pkgbuild         1.4.8    <span style="color: #555555;">2025-05-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  pkgconfig        2.0.3    <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  pkgdown          2.2.1    <span style="color: #555555;">2026-07-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  pkgload          1.5.3    <span style="color: #555555;">2026-06-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  purrr            1.2.2    <span style="color: #555555;">2026-04-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  R6               2.6.1    <span style="color: #555555;">2025-02-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  Rcpp             1.1.2    <span style="color: #555555;">2026-07-05</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  rlang            1.3.0    <span style="color: #555555;">2026-07-05</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  rmarkdown        2.32     <span style="color: #555555;">2026-09-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  rstudioapi       0.19.0   <span style="color: #555555;">2026-06-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  sass             0.4.10   <span style="color: #555555;">2025-04-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  sessioninfo      1.2.4    <span style="color: #555555;">2026-06-04</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  statnet.common   4.13.0   <span style="color: #555555;">2025-12-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  tibble           3.3.1    <span style="color: #555555;">2026-01-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  usethis          3.2.2    <span style="color: #555555;">2026-09-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  vctrs            0.7.3    <span style="color: #555555;">2026-04-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
+<span><span class="co">##  xfun             0.62     <span style="color: #555555;">2026-10-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.1)</span></span></span>
+<span><span class="co">##  yaml             2.3.12   <span style="color: #555555;">2025-12-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.6.0)</span></span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">##  [1] /Library/Frameworks/R.framework/Rlib</span></span>
-<span><span class="co">##  [2] /Library/Frameworks/R.framework/Versions/4.6/Resources/library</span></span>
-<span><span class="co">##  * ── Packages attached to the search path.</span></span>
+<span><span class="co">## <span style="color: #555555;"> [1] /private/var/folders/fw/kxwccvv11xdc27jbny1b8rth0000gn/T/RtmpKTSRQb/temp_libpath515277a1e7e5</span></span></span>
+<span><span class="co">## <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Rlib</span></span></span>
+<span><span class="co">## <span style="color: #555555;"> [3] /Library/Frameworks/R.framework/Versions/4.6/Resources/library</span></span></span>
+<span><span class="co">##  <span style="color: #BBBBBB; background-color: #BB0000;">*</span> ── Packages attached to the search path.</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## ──────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<span><span class="co">## <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>
 </div>
-</section><script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-      window.quartoDecorateExternalLinks = function (root) {
-     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-          if (!link.classList.contains('no-external-icon')) {
-          }
-        }
-      }
-      };
-      window.quartoDecorateExternalLinks(window.document);
-    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
-    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
-    const hideOnEscAndFocusOut = {
-      name: 'hideOnEscAndFocusOut',
-      defaultValue: true,
-      fn(instance) {
-        const dismiss = () => {
-          // A show scheduled by the trigger delay would otherwise reopen it
-          instance.clearDelayTimeouts();
-          instance.hide();
-        };
-        const onKeyDown = (event) => {
-          if (event.key !== 'Escape') {
-            return;
-          }
-          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
-          // except an open reveal.js slide menu, which Esc should close too.
-          // The menu handles keys only when its keyboard option is on.
-          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
-            window.Reveal.getConfig().menu?.keyboard !== false;
-          if (!menuHandlesEsc) {
-            event.stopPropagation();
-          }
-          if (instance.popper.contains(window.document.activeElement)) {
-            // Disabled while refocusing so the focus trigger does not reopen it
-            instance.disable();
-            instance.reference.focus();
-            instance.enable();
-          }
-          dismiss();
-        };
-        const onFocusOut = (event) => {
-          const target = event.relatedTarget;
-          if (target && !instance.reference.contains(target) &&
-              !instance.popper.contains(target)) {
-            dismiss();
-          }
-        };
-        // On the trigger too: a click trigger (code-annotations: select) has no
-        // blur handling. Attached for the instance's lifetime so leaving the
-        // trigger also cancels a show still pending on the trigger delay.
-        instance.reference.addEventListener('focusout', onFocusOut);
-        return {
-          onShow() {
-            window.document.addEventListener('keydown', onKeyDown, true);
-            instance.popper.addEventListener('focusout', onFocusOut);
-          },
-          onHide() {
-            window.document.removeEventListener('keydown', onKeyDown, true);
-            instance.popper.removeEventListener('focusout', onFocusOut);
-          },
-          onDestroy() {
-            instance.reference.removeEventListener('focusout', onFocusOut);
-          },
-        };
-      },
-    };
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'light-border',
-        placement: 'bottom-start',
-        plugins: [hideOnEscAndFocusOut],
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config);
-    }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script></main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
+
 
 
     <footer><div class="pkgdown-footer-left">

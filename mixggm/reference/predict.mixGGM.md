@@ -1,8 +1,7 @@
 # Cluster prediction by Mixture of Gaussian Graphical Models
 
 Cluster prediction for multivariate observations based on Mixture of
-Gaussian Graphical Models estimated by
-[`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+Gaussian Graphical Models estimated by [`mixGGM`](mixGGM.md).
 
 ## Usage
 
@@ -16,14 +15,12 @@ predict(object, newdata, ...)
 - object:
 
   An object of class `'mixGGM'` resulting from a call to
-  [`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+  [`mixGGM`](mixGGM.md).
 
 - newdata:
 
   A data frame or matrix giving the data. If missing the clustering data
-  obtained from the call to
-  [`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md)
-  are classified.
+  obtained from the call to [`mixGGM`](mixGGM.md) are classified.
 
 - ...:
 
@@ -44,4 +41,4 @@ Returns a list of with the following components:
 
 ## See also
 
-[`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+[`mixGGM`](mixGGM.md).

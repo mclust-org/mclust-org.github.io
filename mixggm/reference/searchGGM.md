@@ -55,12 +55,12 @@ searchGGM(data = NULL,
 
   The penalty function used to define a criterion for scoring the
   candidate graph configurations. Default is `"bic"`. See "Details" and
-  [`penalty`](https://mclust-org.github.io/mixggm/reference/penalty.md).
+  [`penalty`](penalty.md).
 
 - beta:
 
   The hyperparameter of the penalty function. See "Details" and
-  [`penalty`](https://mclust-org.github.io/mixggm/reference/penalty.md).
+  [`penalty`](penalty.md).
 
 - start:
 
@@ -77,23 +77,23 @@ searchGGM(data = NULL,
 
   A list of hyper parameters for Bayesian regularization. Only used when
   `regularization = TRUE`; see also
-  [`controlREG`](https://mclust-org.github.io/mixggm/reference/control-parameters.md).
+  [`controlREG`](control-parameters.md).
 
 - ctrlSTEP:
 
   A list of control parameters used in the stepwise search; see also
-  [`controlSTEP`](https://mclust-org.github.io/mixggm/reference/control-parameters.md).
+  [`controlSTEP`](control-parameters.md).
 
 - ctrlGA:
 
   A list of control parameters for the genetic algorithm; see also
-  [`controlGA`](https://mclust-org.github.io/mixggm/reference/control-parameters.md).
+  [`controlGA`](control-parameters.md).
 
 - ctrlICF:
 
   A list of control parameters employed in the algorithm for estimation
   of graphical model parameters; see also
-  [`controlICF`](https://mclust-org.github.io/mixggm/reference/control-parameters.md).
+  [`controlICF`](control-parameters.md).
 
 - parallel:
 
@@ -183,7 +183,7 @@ graph model postulates that some variables are marginally independent
 according to the inferred graph structure. On the other hand, in a
 Gaussian concentration graph model, variables are conditionally
 independent given their neighbors in the inferred graph. See also
-[`fitGGM`](https://mclust-org.github.io/mixggm/reference/fitGGM.md).
+[`fitGGM`](fitGGM.md).
 
 Search for the optimal graph structure and parameter estimation is
 carried out by maximization of a Gaussian penalized likelihood, given as
@@ -197,16 +197,14 @@ adjacency matrix \\(A\\).
 
 The penalty function \\(P(A, \beta)\\) depends on the structure of graph
 \\(G\\) through the adjacency matrix \\(A\\) and a parameter
-\\(\beta\\); see
-[`penalty`](https://mclust-org.github.io/mixggm/reference/penalty.md) on
-how to specify the penalization term and for further information.
+\\(\beta\\); see [`penalty`](penalty.md) on how to specify the
+penalization term and for further information.
 
 For this type of penalized log-likelihood, graph structure search and
 parameter estimation is a maximization combinatorial problem. For a
 given candidate structure (i.e. adjacency matrix), association
 parameters in the covariance or concentration matrix are estimated using
-the estimation algorithms implemented in
-[`fitGGM`](https://mclust-org.github.io/mixggm/reference/fitGGM.md).
+the estimation algorithms implemented in [`fitGGM`](fitGGM.md).
 Regarding structure search, this can be carried out either using a
 greedy forward-stepwise or a greedy backward-stepwise algorithm, by
 setting `search = "step-forw"` or `search = "step-back"` respectively.

@@ -53,12 +53,12 @@ mixGGM(data, K = 1:3,
 
   The penalty function used to define a criterion for scoring the
   candidate graph configurations. Default is `"bic"`. See "Details" and
-  [`penalty`](https://mclust-org.github.io/mixgmm/reference/penalty.md).
+  [`penalty`](penalty.md).
 
 - beta:
 
   The hyperparameter of the penalty function. See "Details" and
-  [`penalty`](https://mclust-org.github.io/mixgmm/reference/penalty.md).
+  [`penalty`](penalty.md).
 
 - regularize:
 
@@ -69,29 +69,28 @@ mixGGM(data, K = 1:3,
 
   A list of hyper parameters for Bayesian regularization. Only used when
   `regularization = TRUE`; see also
-  [`controlREG`](https://mclust-org.github.io/mixgmm/reference/control-parameters.md).
+  [`controlREG`](control-parameters.md).
 
 - ctrlEM:
 
   A list of control parameters used in the structural-EM algorithm; see
-  also
-  [`controlEM`](https://mclust-org.github.io/mixgmm/reference/control-parameters.md).
+  also [`controlEM`](control-parameters.md).
 
 - ctrlSTEP:
 
   A list of control parameters used in the stepwise search; see also
-  [`controlSTEP`](https://mclust-org.github.io/mixgmm/reference/control-parameters.md).
+  [`controlSTEP`](control-parameters.md).
 
 - ctrlGA:
 
   A list of control parameters for the genetic algorithm; see also
-  [`controlGA`](https://mclust-org.github.io/mixgmm/reference/control-parameters.md).
+  [`controlGA`](control-parameters.md).
 
 - ctrlICF:
 
   A list of control parameters employed in the algorithm for estimation
   of graphical model parameters; see also
-  [`controlICF`](https://mclust-org.github.io/mixgmm/reference/control-parameters.md).
+  [`controlICF`](control-parameters.md).
 
 - keepAll:
 
@@ -258,10 +257,8 @@ Arguments `penalty` and `search` are used to define the type of penalty
 on the graph configuration and the structure search method in the
 structural-EM algorithm. The penalization term depends on the
 hyperparameter `beta` according to the type of penalty function. See
-[`searchGGM`](https://mclust-org.github.io/mixgmm/reference/searchGGM.md)
-and
-[`penalty`](https://mclust-org.github.io/mixgmm/reference/penalty.md)
-for more details.
+[`searchGGM`](searchGGM.md) and [`penalty`](penalty.md) for more
+details.
 
 ## References
 

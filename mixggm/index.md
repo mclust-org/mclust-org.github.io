@@ -15,8 +15,7 @@ You can install the released version of **mixggm** from CRAN:
 
 ## Usage
 
-See
-[`help(mixGGM)`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+See [`help("mixggm-package")`](reference/mixggm-package.md).
 
 ## References
 

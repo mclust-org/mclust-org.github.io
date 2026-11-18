@@ -55,7 +55,7 @@ fitGGM(data = NULL,
 
   A list of control parameters for the numerical algorithm for
   estimation of graphical model parameters; see also
-  [`controlICF`](https://mclust-org.github.io/mixggm/reference/control-parameters.md).
+  [`controlICF`](control-parameters.md).
 
 - regularize:
 
@@ -66,7 +66,7 @@ fitGGM(data = NULL,
 
   A list of hyper parameters for Bayesian regularization. Only used when
   `regularization = TRUE`; see also
-  [`controlREG`](https://mclust-org.github.io/mixggm/reference/control-parameters.md).
+  [`controlREG`](control-parameters.md).
 
 - verbose:
 
@@ -192,7 +192,7 @@ Statistics*. Wiley.
 
 ## See also
 
-[`plot.fitGGM`](https://mclust-org.github.io/mixggm/reference/plot.md)
+[`plot.fitGGM`](plot.md)
 
 ## Examples
 

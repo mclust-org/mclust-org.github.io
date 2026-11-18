@@ -6,15 +6,11 @@ and penalized maximum likelihood estimation for graph structure search.
 ## Details
 
 The choice of the penalty function is via argument `penalty` in the
-functions
-[`searchGGM`](https://mclust-org.github.io/mixggm/reference/searchGGM.md)
-and [`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+functions [`searchGGM`](searchGGM.md) and [`mixGGM`](mixGGM.md).
 Possible options are `"bic"` (default), `"ebic"`, `"erdos"`, and
 `"power"`. Functions `"ebic"`, `"erdos"`, and `"power"` depend also on a
 hyperparameter `beta` which can be set using the corresponding argument
-in
-[`searchGGM`](https://mclust-org.github.io/mixggm/reference/searchGGM.md)
-and [`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+in [`searchGGM`](searchGGM.md) and [`mixGGM`](mixGGM.md).
 
 Let denote with `E` the number of non-zero entries in the adjacency
 matrix corresponding to the graph structure of a
@@ -49,17 +45,13 @@ The above options correspond to the following penalty functions:
   denser graphs will tend to be less penalized.
 
 An user-defined penalty function can be also provided in input of
-argument `penalty` in the functions
-[`searchGGM`](https://mclust-org.github.io/mixggm/reference/searchGGM.md)
-and [`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
-In this case, the penalty must be an object of class `"function"` and
-have as argument `graph`, like for example
+argument `penalty` in the functions [`searchGGM`](searchGGM.md) and
+[`mixGGM`](mixGGM.md). In this case, the penalty must be an object of
+class `"function"` and have as argument `graph`, like for example
 `"f <- function(graph, beta)"`; see "Examples".
 
-See also
-[`searchGGM`](https://mclust-org.github.io/mixggm/reference/searchGGM.md)
-and [`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md)
-for some examples.
+See also [`searchGGM`](searchGGM.md) and [`mixGGM`](mixGGM.md) for some
+examples.
 
 ## References
 

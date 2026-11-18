@@ -10,19 +10,17 @@ model-based clustering with sparse covariance and concentration
 matrices. Model fitting is carried out by means of a structural-EM
 algorithm for parameter estimation and graph structure search.
 
-The main functions are
-[`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md),
-[`searchGGM`](https://mclust-org.github.io/mixggm/reference/searchGGM.md)
-and [`fitGGM`](https://mclust-org.github.io/mixggm/reference/fitGGM.md).
+The main functions are [`mixGGM`](mixGGM.md),
+[`searchGGM`](searchGGM.md) and [`fitGGM`](fitGGM.md).
 
 ## Author
 
 Michael Fop, Luca Scrucca and Thomas Brendan Murphy.
 
-Maintainer: Michael Fop <michael.fop@ucd.ie>
+Maintainer: Luca Scrucca <luca.scrucca@unibo.it>
 
 ## References
 
-Fop, M., Murphy, T.B., and Scrucca, L. (2019) Model-based clustering
-with sparse covariance matrices. \*\*Statistics and Computing\*\*, 29:4,
-791–819.
+Fop, M., Murphy, T.B., and Scrucca, L. (2019) "Model-based clustering
+with sparse covariance matrices." Statistics and Computing, 29(4),
+791–819. \<https://doi.org/10.1007/s11222-018-9838-y\>.

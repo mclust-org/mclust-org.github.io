@@ -16,7 +16,7 @@ print(x, digits = getOption("digits"), ...)
 - object:
 
   An object of class `'mixGGM'` resulting of a call to
-  [`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+  [`mixGGM`](mixGGM.md).
 
 - x:
 
@@ -47,4 +47,4 @@ print(x, digits = getOption("digits"), ...)
 
 ## See also
 
-[`mixGGM`](https://mclust-org.github.io/mixggm/reference/mixGGM.md).
+[`mixGGM`](mixGGM.md).

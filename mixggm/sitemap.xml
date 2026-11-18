@@ -1,20 +1,20 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://mclust-org.github.io/mixggm/404.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/articles/index.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/articles/mixgmm.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/authors.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/index.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/news/index.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/control-parameters.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/fitGGM.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/index.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/internal-functions.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/mixGGM.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/mixggm-package.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/penalty.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/plot.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/predict.mixGGM.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/searchGGM.html</loc></url>
-<url><loc>https://mclust-org.github.io/mixggm/reference/summary.mixGGM.html</loc></url>
+<url><loc>/404.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/mixgmm.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/control-parameters.html</loc></url>
+<url><loc>/reference/fitGGM.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/internal-functions.html</loc></url>
+<url><loc>/reference/mixGGM.html</loc></url>
+<url><loc>/reference/mixggm-package.html</loc></url>
+<url><loc>/reference/penalty.html</loc></url>
+<url><loc>/reference/plot.html</loc></url>
+<url><loc>/reference/predict.mixGGM.html</loc></url>
+<url><loc>/reference/searchGGM.html</loc></url>
+<url><loc>/reference/summary.mixGGM.html</loc></url>
 </urlset>
 
