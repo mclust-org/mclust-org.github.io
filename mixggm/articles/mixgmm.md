@@ -408,7 +408,7 @@ ISSN 1573-1375.
 `##  collate  en_US.UTF-8`\
 `##  ctype    en_US.UTF-8`\
 `##  tz       Europe/Rome`\
-`##  date     2026-11-18`\
+`##  date     2026-11-19`\
 `##  pandoc   3.14 @ /opt/homebrew/bin/ (via rmarkdown)`\
 `##  quarto   1.11.9 @ /usr/local/bin/quarto`\
 `## `\
@@ -441,7 +441,7 @@ ISSN 1573-1375.
 `##  MASS             7.3-66   ``2026-07-15`` ``[3]`` ``CRAN (R 4.6.2)`\
 `##  mclust           6.1.4    ``2026-11-18`` ``[2]`` ``CRAN (R 4.6.2)`\
 `##  memoise          2.0.1    ``2021-11-26`` ``[2]`` ``CRAN (R 4.6.0)`\
-`##  mixggm         * 1.2      ``2026-11-18`` ``[1]`` ``CRAN (R 4.6.2)`\
+`##  mixggm         * 1.2      ``2026-11-19`` ``[1]`` ``CRAN (R 4.6.2)`\
 `##  network          1.20.0   ``2026-02-07`` ``[2]`` ``CRAN (R 4.6.0)`\
 `##  otel             0.2.0    ``2025-08-29`` ``[2]`` ``CRAN (R 4.6.0)`\
 `##  pillar           1.11.1   ``2025-09-17`` ``[2]`` ``CRAN (R 4.6.0)`\
@@ -464,7 +464,7 @@ ISSN 1573-1375.
 `##  xfun             0.62     ``2026-10-16`` ``[2]`` ``CRAN (R 4.6.1)`\
 `##  yaml             2.3.12   ``2025-12-10`` ``[2]`` ``CRAN (R 4.6.0)`\
 `## `\
-`## `` [1] /private/var/folders/fw/kxwccvv11xdc27jbny1b8rth0000gn/T/RtmpKTSRQb/temp_libpath515277a1e7e5`\
+`## `` [1] /private/var/folders/fw/kxwccvv11xdc27jbny1b8rth0000gn/T/RtmpKTSRQb/temp_libpath51521f970031`\
 `## `` [2] /Library/Frameworks/R.framework/Rlib`\
 `## `` [3] /Library/Frameworks/R.framework/Versions/4.6/Resources/library`\
 `##  ``*`` ── Packages attached to the search path.`\
